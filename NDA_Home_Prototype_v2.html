@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nacional de Alarmas — Tu seguridad, sin ataduras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-yellow-500: #e0d400;
+      --nda-yellow-600: #c4ba00;
+      --nda-yellow-700: #9e9600;
+
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --nda-blue-500: #045694;
+      --nda-blue-600: #034475;
+      --nda-blue-700: #023256;
+
+      --neutral-0: #ffffff;
+      --neutral-50: #f8fafc;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1e293b;
+
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-blur: 12px;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --radius-full: 9999px;
+
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--doc-font);
+      background: var(--nda-dark-900);
+      color: var(--neutral-300);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--nda-yellow-400);
+      margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--neutral-0);
+      letter-spacing: -0.5px;
+      margin-bottom: var(--space-4);
+      line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--neutral-400);
+      max-width: 600px;
+      margin-bottom: var(--space-12);
+      line-height: 1.7;
+    }
+    .highlight { color: var(--nda-yellow-400); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-primary {
+      background: var(--nda-yellow-400);
+      color: var(--nda-dark-900);
+    }
+    .btn-primary:hover {
+      background: var(--nda-yellow-300);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248, 235, 1, 0.25);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--glass-border);
+      color: var(--neutral-0);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--neutral-300);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== 01. NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: var(--space-4) 0;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(7, 26, 46, 0.85);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border-bottom: 1px solid var(--glass-border);
+      padding: var(--space-3) 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--neutral-0);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .nav-logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--nda-yellow-400);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--nda-dark-900);
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--neutral-400);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--neutral-0); }
+    .nav-cta {
+      padding: 10px 24px !important;
+      font-size: 14px !important;
+    }
+    .nav-mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .nav-mobile-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--neutral-0);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== 02. HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero-glow-blue {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow-yellow {
+      position: absolute;
+      bottom: 20%;
+      left: 15%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-4);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--nda-yellow-400);
+      margin-bottom: var(--space-6);
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--nda-yellow-400);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--neutral-0);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: var(--space-6);
+    }
+    .hero-text {
+      font-size: 18px;
+      color: var(--neutral-400);
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+      max-width: 480px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+    }
+    .hero-trust {
+      display: flex;
+      gap: var(--space-6);
+      font-size: 13px;
+      color: var(--neutral-500);
+    }
+    .hero-trust span {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .hero-trust .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--nda-yellow-400);
+      border-radius: 50%;
+    }
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-placeholder {
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+      border-radius: var(--radius-2xl);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(5, 105, 179, 0.2) 0%, transparent 60%);
+    }
+    .hero-placeholder .shield-icon {
+      font-size: 80px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-placeholder .house-label {
+      font-size: 14px;
+      color: var(--neutral-500);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 03. TRUST BAR ===== */
+    .trust-bar {
+      background: var(--nda-dark-700);
+      padding: var(--space-12) 0;
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .trust-bar p {
+      text-align: center;
+      font-size: 13px;
+      color: var(--neutral-500);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: var(--space-8);
+    }
+    .trust-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-16);
+      flex-wrap: wrap;
+    }
+    .trust-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--neutral-500);
+      opacity: 0.6;
+      transition: opacity 0.3s;
+      letter-spacing: 1px;
+    }
+    .trust-logo:hover { opacity: 1; }
+
+    /* ===== 04. STATS ===== */
+    .stats {
+      padding: var(--space-20) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(248, 235, 1, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-6) var(--space-8);
+      border-right: 1px solid var(--glass-border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--neutral-0);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--neutral-400);
+      font-weight: 500;
+    }
+
+    /* ===== 05. PILARES (propuesta de valor) ===== */
+    .pilares {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+    }
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .pilar-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    .pilar-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .pilar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+    .pilar-card:nth-child(1)::before { background: var(--nda-blue-400); }
+    .pilar-card:nth-child(2)::before { background: var(--nda-yellow-400); }
+    .pilar-card:nth-child(3)::before { background: var(--success); }
+    .pilar-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--nda-dark-600);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: var(--space-6);
+    }
+    .pilar-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-3);
+    }
+    .pilar-card p {
+      font-size: 15px;
+      color: var(--neutral-400);
+      line-height: 1.7;
+    }
+
+    /* ===== 06. SERVICIOS ===== */
+    .servicios {
+      padding: var(--space-24) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .servicios-glow {
+      position: absolute;
+      top: 30%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+      position: relative;
+      z-index: 1;
+    }
+    .service-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .service-card.featured {
+      border-color: var(--nda-yellow-400);
+      box-shadow: 0 0 40px rgba(248, 235, 1, 0.08);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--nda-dark-600);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: var(--space-5);
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-3);
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--neutral-400);
+      line-height: 1.6;
+      margin-bottom: var(--space-5);
+    }
+    .service-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--nda-yellow-400);
+      transition: gap 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .service-link:hover { gap: var(--space-2); }
+
+    /* ===== 07. SOLUCIONES POR MERCADO ===== */
+    .soluciones {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+    }
+    .soluciones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+    .solucion-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .solucion-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--nda-blue-400);
+      box-shadow: 0 20px 60px rgba(5,105,179,0.15);
+    }
+    .solucion-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-5);
+      background: var(--nda-dark-600);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+    .solucion-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-3);
+    }
+    .solucion-card p {
+      font-size: 14px;
+      color: var(--neutral-400);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+    .solucion-card .btn {
+      padding: 10px 20px;
+      font-size: 13px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ===== 08. COMO FUNCIONA ===== */
+    .como-funciona {
+      padding: var(--space-24) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .como-glow {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(5, 105, 179, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-8);
+      position: relative;
+      z-index: 1;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      border-top: 2px dashed var(--nda-dark-400);
+    }
+    .step-item {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-5);
+      background: var(--nda-yellow-400);
+      color: var(--nda-dark-900);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 30px rgba(248, 235, 1, 0.2);
+    }
+    .step-icon {
+      font-size: 28px;
+      margin-bottom: var(--space-3);
+    }
+    .step-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-2);
+    }
+    .step-item p {
+      font-size: 13px;
+      color: var(--neutral-400);
+      line-height: 1.6;
+    }
+
+    /* ===== 09. PRODUCTOS POR USO ===== */
+    .productos {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+    }
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .producto-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .producto-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .producto-card .gif-placeholder {
+      width: 100%;
+      height: 140px;
+      background: linear-gradient(135deg, var(--nda-dark-600), var(--nda-dark-500));
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+    .producto-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: rgba(248, 235, 1, 0.1);
+      color: var(--nda-yellow-400);
+    }
+    .producto-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-2);
+    }
+    .producto-card p {
+      font-size: 13px;
+      color: var(--neutral-400);
+      line-height: 1.6;
+    }
+
+    /* ===== 10. PAQUETES ===== */
+    .paquetes {
+      padding: var(--space-24) 0;
+    }
+    .paquetes .section-title,
+    .paquetes .section-desc {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .paquetes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      align-items: start;
+    }
+    .paquete-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .paquete-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .paquete-card.featured {
+      border-color: var(--nda-yellow-400);
+      box-shadow: 0 0 60px rgba(248, 235, 1, 0.08);
+      transform: scale(1.03);
+    }
+    .paquete-card.featured:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+    .paquete-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--nda-yellow-400);
+      color: var(--nda-dark-900);
+      padding: var(--space-1) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .paquete-header {
+      text-align: center;
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: var(--space-6);
+    }
+    .paquete-header h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-2);
+    }
+    .paquete-header p {
+      font-size: 14px;
+      color: var(--neutral-400);
+    }
+    .paquete-list {
+      margin-bottom: var(--space-8);
+    }
+    .paquete-list li {
+      padding: var(--space-3) 0;
+      font-size: 14px;
+      color: var(--neutral-300);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .paquete-list li:last-child { border-bottom: none; }
+    .paquete-list .check {
+      color: var(--nda-yellow-400);
+      font-weight: 700;
+    }
+    .paquete-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .paquete-note {
+      text-align: center;
+      margin-top: var(--space-8);
+      font-size: 14px;
+      color: var(--neutral-500);
+    }
+
+    /* ===== 11. COMPARADOR ===== */
+    .comparador {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+    }
+    .comparador .section-title,
+    .comparador .section-desc {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .comp-table {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+    .comp-table th,
+    .comp-table td {
+      padding: var(--space-4) var(--space-6);
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .comp-table th {
+      background: var(--nda-dark-600);
+      color: var(--neutral-0);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .comp-table td {
+      color: var(--neutral-300);
+      background: var(--glass-bg);
+    }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table .nda-col {
+      background: rgba(5, 105, 179, 0.08);
+    }
+    .comp-table .comp-check {
+      color: var(--success);
+      font-weight: 700;
+      margin-right: var(--space-2);
+    }
+    .comp-table .comp-cross {
+      color: var(--error);
+      font-weight: 700;
+      margin-right: var(--space-2);
+    }
+
+    /* ===== 12. DIFERENCIADORES ===== */
+    .diferenciadores {
+      padding: var(--space-24) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .dif-glow {
+      position: absolute;
+      left: -10%;
+      top: 30%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .dif-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .dif-image {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dif-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(248, 235, 1, 0.08) 0%, transparent 60%);
+    }
+    .dif-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+    .dif-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      transition: background 0.3s;
+    }
+    .dif-item:hover { background: var(--glass-bg); }
+    .dif-check {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      background: rgba(248, 235, 1, 0.1);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--nda-yellow-400);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .dif-item h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: 2px;
+    }
+    .dif-item p {
+      font-size: 13px;
+      color: var(--neutral-400);
+    }
+
+    /* ===== 13. TESTIMONIOS ===== */
+    .testimonios {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+    }
+    .testimonios .section-title,
+    .testimonios .section-desc {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonial-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-card {
+      min-width: 100%;
+      padding: 0 var(--space-6);
+    }
+    .testimonial-inner {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .testimonial-quote {
+      position: absolute;
+      top: -10px;
+      left: 30px;
+      font-size: 80px;
+      color: var(--nda-yellow-400);
+      opacity: 0.15;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .testimonial-stars {
+      color: var(--nda-yellow-400);
+      font-size: 18px;
+      margin-bottom: var(--space-5);
+      letter-spacing: 2px;
+    }
+    .testimonial-text {
+      font-size: 18px;
+      color: var(--neutral-200);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+      font-style: italic;
+    }
+    .testimonial-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--neutral-0);
+    }
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--neutral-500);
+    }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-top: var(--space-8);
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--nda-dark-400);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--nda-yellow-400);
+      width: 28px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ===== 14. BANNER CTA ===== */
+    .banner-cta {
+      padding: var(--space-20) 0;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+    }
+    .banner-glow-blue {
+      position: absolute;
+      left: -10%;
+      top: -50%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-glow-yellow {
+      position: absolute;
+      right: -5%;
+      bottom: -30%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-cta .container {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .banner-cta h2 {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.5px;
+    }
+    .banner-cta > .container > p {
+      font-size: 18px;
+      color: var(--neutral-400);
+      margin-bottom: var(--space-10);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .banner-ctas {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== 15. FAQ ===== */
+    .faq {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+    }
+    .faq .section-title,
+    .faq .section-desc {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-6) 0;
+      cursor: pointer;
+      text-align: left;
+    }
+    .faq-question h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      padding-right: var(--space-4);
+    }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      border: 1.5px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--neutral-400);
+      transition: all 0.3s;
+    }
+    .faq-item.open .faq-icon {
+      background: var(--nda-yellow-400);
+      border-color: var(--nda-yellow-400);
+      color: var(--nda-dark-900);
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--neutral-400);
+      line-height: 1.7;
+      padding-bottom: var(--space-6);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    /* ===== 16. FORMULARIO CONTACTO ===== */
+    .contacto {
+      padding: var(--space-24) 0;
+    }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+    .form-group {
+      margin-bottom: var(--space-5);
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--neutral-300);
+      margin-bottom: var(--space-2);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px var(--space-4);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--neutral-0);
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--nda-blue-400);
+    }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-group select option {
+      background: var(--nda-dark-800);
+      color: var(--neutral-0);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .contacto-info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    .contacto-info h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-4);
+    }
+    .contacto-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .contacto-info-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: 2px;
+    }
+    .contacto-info-item p {
+      font-size: 14px;
+      color: var(--neutral-400);
+    }
+
+    /* ===== 17. FOOTER ===== */
+    .footer {
+      background: var(--nda-dark-800);
+      border-top: 1px solid var(--glass-border);
+      padding: var(--space-16) 0 var(--space-8);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12);
+      padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .footer-brand .nav-logo {
+      margin-bottom: var(--space-4);
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--neutral-500);
+      margin-bottom: var(--space-6);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .footer-social {
+      display: flex;
+      gap: var(--space-3);
+    }
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--neutral-400);
+      transition: all 0.3s;
+    }
+    .social-icon:hover {
+      background: var(--nda-yellow-400);
+      color: var(--nda-dark-900);
+      border-color: var(--nda-yellow-400);
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--neutral-0);
+      margin-bottom: var(--space-5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--neutral-500);
+      padding: var(--space-1) 0;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-8);
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: var(--neutral-600);
+    }
+    .footer-bottom a {
+      color: var(--nda-yellow-400);
+      font-weight: 500;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      z-index: 999;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s;
+      animation: wa-pulse 2s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+      animation: none;
+    }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid,
+      .soluciones-grid,
+      .steps-grid,
+      .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps-grid::before { display: none; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .comp-table { font-size: 13px; }
+      .comp-table th, .comp-table td { padding: var(--space-3) var(--space-4); }
+    }
+
+    @media (max-width: 768px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero h1 { font-size: 38px; }
+      .hero-text { max-width: 100%; }
+      .hero-ctas { justify-content: center; }
+      .hero-trust { justify-content: center; flex-wrap: wrap; }
+      .hero-visual { display: none; }
+      .hero-badge { margin-left: auto; margin-right: auto; }
+
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        padding: var(--space-5) var(--space-4);
+      }
+      .stat-item:last-child { border-bottom: none; }
+      .stats-grid { flex-direction: column; }
+      .stat-number { font-size: 32px; }
+
+      .services-grid,
+      .soluciones-grid,
+      .paquetes-grid,
+      .productos-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+      }
+
+      .paquete-card.featured { transform: none; }
+      .paquete-card.featured:hover { transform: translateY(-4px); }
+
+      .dif-grid,
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+      .dif-image { display: none; }
+
+      .section-title { font-size: 28px; }
+      .banner-cta h2 { font-size: 28px; }
+
+      .comp-table th:first-child,
+      .comp-table td:first-child { display: none; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 01. NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">N</span>
+        Nacional de Alarmas
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#hero">Inicio</a>
+        <a href="#soluciones">Residencial</a>
+        <a href="#soluciones">Comercial</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#diferenciadores">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#contacto" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== 02. HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-glow-blue"></div>
+    <div class="hero-glow-yellow"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">30+ años protegiendo Monterrey</div>
+        <h1>Tu seguridad,<br><span class="highlight">sin ataduras</span></h1>
+        <p class="hero-text">Protección profesional 24/7 con tecnología de clase mundial. Sin contratos forzosos, sin costos ocultos.</p>
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn btn-primary">Cotiza en 60 segundos &#8594;</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener">&#128172; Habla con un asesor</a>
+        </div>
+        <div class="hero-trust">
+          <span><span class="dot"></span> +30 años de experiencia</span>
+          <span><span class="dot"></span> 5/5 estrellas en reseñas</span>
+          <span><span class="dot"></span> Control desde tu celular</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-placeholder">
+          <div class="shield-icon">&#128737;</div>
+          <span class="house-label">Tu hogar, protegido 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03. TRUST BAR ===== -->
+  <section class="trust-bar reveal">
+    <div class="container">
+      <p>Tecnología de clase mundial</p>
+      <div class="trust-logos">
+        <span class="trust-logo">AJAX SYSTEMS</span>
+        <span class="trust-logo">HONEYWELL</span>
+        <span class="trust-logo">TRIKDIS</span>
+        <span class="trust-logo">FIRST ALERT</span>
+        <span class="trust-logo">SECO ALARM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04. STATS ===== -->
+  <section class="stats reveal" id="stats">
+    <div class="stats-glow"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">+3,000</div>
+          <div class="stat-label">Familias confían en nosotros</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Años protegiendo Monterrey</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5.0</div>
+          <div class="stat-label">Estrellas en reseñas de clientes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24h</div>
+          <div class="stat-label">Máximo para soporte técnico</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05. 3 PILARES (Propuesta de valor) ===== -->
+  <section class="pilares reveal" id="pilares">
+    <div class="container">
+      <div class="section-label">¿Por qué NDA?</div>
+      <h2 class="section-title">Tres razones para <span class="highlight">elegirnos</span></h2>
+      <p class="section-desc">Lo que nos distingue de cualquier otra empresa de seguridad.</p>
+      <div class="pilares-grid">
+        <div class="pilar-card">
+          <div class="pilar-icon">&#128065;</div>
+          <h3>Ojos que nunca duermen</h3>
+          <p>Nuestra central propia en Monterrey vigila tu propiedad las 24 horas. No tercerizamos, no delegamos. Tu seguridad es nuestra responsabilidad directa.</p>
+        </div>
+        <div class="pilar-card">
+          <div class="pilar-icon">&#128275;</div>
+          <h3>Libertad total</h3>
+          <p>Sin permanencia mínima, sin letra pequeña, sin sorpresas. Te quedas con nosotros porque quieres, no porque tienes que hacerlo.</p>
+        </div>
+        <div class="pilar-card">
+          <div class="pilar-icon">&#9889;</div>
+          <h3>Acción inmediata</h3>
+          <p>Nuestros técnicos están en tu zona. Soporte el mismo día, máximo 48 horas. No somos un call center en otra ciudad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06. SERVICIOS ===== -->
+  <section class="servicios reveal" id="servicios">
+    <div class="servicios-glow"></div>
+    <div class="container">
+      <div class="section-label">Servicios</div>
+      <h2 class="section-title">Todo lo que necesitas para <span class="highlight">tu seguridad</span></h2>
+      <p class="section-desc">Soluciones integrales con tecnología de punta y servicio personalizado.</p>
+      <div class="services-grid">
+        <div class="service-card featured">
+          <div class="service-icon">&#128225;</div>
+          <h3>Monitoreo 24/7</h3>
+          <p>Central de monitoreo propia con operadores capacitados que vigilan tu propiedad las 24 horas, los 365 días.</p>
+          <a href="#" class="service-link">Saber más &#8594;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#128295;</div>
+          <h3>Servicio Técnico</h3>
+          <p>Técnicos certificados con servicio el mismo día. Mantenimiento preventivo y correctivo para tu sistema.</p>
+          <a href="#" class="service-link">Saber más &#8594;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#128241;</div>
+          <h3>App Móvil</h3>
+          <p>Controla tu sistema desde tu celular. Arma, desarma y recibe notificaciones en tiempo real.</p>
+          <a href="#" class="service-link">Saber más &#8594;</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#128736;</div>
+          <h3>Instalación</h3>
+          <p>Instalación profesional incluida. Nuestros técnicos configuran todo para que funcione desde el día uno.</p>
+          <a href="#" class="service-link">Saber más &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07. SOLUCIONES POR MERCADO ===== -->
+  <section class="soluciones reveal" id="soluciones">
+    <div class="container">
+      <div class="section-label">Soluciones</div>
+      <h2 class="section-title">Seguridad para cada <span class="highlight-blue">necesidad</span></h2>
+      <p class="section-desc">Diseñamos soluciones a la medida para cada tipo de propiedad.</p>
+      <div class="soluciones-grid">
+        <div class="solucion-card">
+          <div class="solucion-icon">&#127968;</div>
+          <h3>Residencial</h3>
+          <p>Protege lo que más quieres. Sistemas inteligentes para casas y departamentos, desde un paquete básico hasta protección integral.</p>
+          <a href="#paquetes" class="btn btn-outline">Ver productos</a>
+        </div>
+        <div class="solucion-card">
+          <div class="solucion-icon">&#127978;</div>
+          <h3>Comercial</h3>
+          <p>Tu negocio, siempre seguro. Oficinas, locales, colegios con soluciones adaptadas a cada tipo de comercio.</p>
+          <a href="#paquetes" class="btn btn-outline">Ver productos</a>
+        </div>
+        <div class="solucion-card">
+          <div class="solucion-icon">&#127981;</div>
+          <h3>Industrial</h3>
+          <p>Seguridad a gran escala. Bodegas, naves y almacenes con sensores especializados y cobertura perimetral.</p>
+          <a href="#paquetes" class="btn btn-outline">Ver productos</a>
+        </div>
+        <div class="solucion-card">
+          <div class="solucion-icon">&#128249;</div>
+          <h3>CCTV</h3>
+          <p>Vigila desde cualquier lugar. Cámaras WiFi e IP con grabación en la nube y visión nocturna.</p>
+          <a href="#paquetes" class="btn btn-outline">Ver productos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 08. COMO FUNCIONA ===== -->
+  <section class="como-funciona reveal" id="como-funciona">
+    <div class="como-glow"></div>
+    <div class="container">
+      <div class="section-label">Proceso</div>
+      <h2 class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Así de fácil <span class="highlight">funciona</span></h2>
+      <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">En 4 simples pasos estarás protegido con tecnología de clase mundial.</p>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-icon">&#128172;</div>
+          <h3>Cuéntanos qué necesitas</h3>
+          <p>Llena nuestro cotizador o escríbenos por WhatsApp. Es rápido y sin compromiso.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-icon">&#128203;</div>
+          <h3>Diseñamos tu solución</h3>
+          <p>Un asesor especializado evalúa tu propiedad y diseña el sistema ideal para ti.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-icon">&#128736;</div>
+          <h3>Instalación profesional</h3>
+          <p>Técnicos certificados instalan todo. Tú solo elige el día.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-icon">&#128154;</div>
+          <h3>Protección activa 24/7</h3>
+          <p>Desde el primer día, tu propiedad está monitoreada por nuestra central en Monterrey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 09. PRODUCTOS POR USO ===== -->
+  <section class="productos reveal" id="productos">
+    <div class="container">
+      <div class="section-label">Productos</div>
+      <h2 class="section-title">Conoce lo que te <span class="highlight">protege</span></h2>
+      <p class="section-desc">Cada dispositivo cumple una función específica. Así es como trabajan para ti.</p>
+      <div class="productos-grid">
+        <div class="producto-card">
+          <div class="gif-placeholder">&#128065;</div>
+          <span class="producto-tag">Sensor de movimiento</span>
+          <h3>Detecta intrusos, ignora mascotas</h3>
+          <p>Protección inteligente para cada rincón. Diferencia entre personas y animales para evitar falsas alarmas.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder">&#128682;</div>
+          <span class="producto-tag">Contacto magnético</span>
+          <h3>Cada puerta y ventana vigilada</h3>
+          <p>Sabrás al instante si alguien entra. Se activa cuando la puerta o ventana se abre sin autorización.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder">&#128293;</div>
+          <span class="producto-tag">Detector de humo</span>
+          <h3>Detecta humo antes de que sea tarde</h3>
+          <p>Protección contra incendios las 24 horas. Alerta inmediata a tu celular y a nuestra central.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder">&#127909;</div>
+          <span class="producto-tag">Cámara de seguridad</span>
+          <h3>Ve tu propiedad en tiempo real</h3>
+          <p>Desde tu celular, estés donde estés. Grabación en la nube y visión nocturna.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder">&#128680;</div>
+          <span class="producto-tag">Botón de pánico</span>
+          <h3>Un toque y nuestra central actúa</h3>
+          <p>Para emergencias que no pueden esperar. Activa el protocolo de respuesta al instante.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder">&#128737;</div>
+          <span class="producto-tag">Sensor perimetral</span>
+          <h3>Protección desde el perímetro</h3>
+          <p>Detecta antes de que lleguen a tu puerta. Cobertura exterior inteligente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. PAQUETES ===== -->
+  <section class="paquetes reveal" id="paquetes">
+    <div class="container">
+      <div class="section-label">Paquetes</div>
+      <h2 class="section-title">Paquetes para cada <span class="highlight">necesidad</span></h2>
+      <p class="section-desc">Estos son ejemplos de configuración. Cada sistema se diseña a la medida de tu propiedad.</p>
+      <div class="paquetes-grid">
+        <!-- Esencial -->
+        <div class="paquete-card">
+          <div class="paquete-header">
+            <h3>Esencial</h3>
+            <p>Ideal para departamentos y casas pequeñas</p>
+          </div>
+          <ul class="paquete-list">
+            <li><span class="check">&#10003;</span> Panel de alarma inteligente</li>
+            <li><span class="check">&#10003;</span> 2 sensores de movimiento</li>
+            <li><span class="check">&#10003;</span> 1 contacto magnético</li>
+            <li><span class="check">&#10003;</span> 1 control remoto</li>
+            <li><span class="check">&#10003;</span> Sirena interior</li>
+            <li><span class="check">&#10003;</span> Monitoreo 24/7</li>
+            <li><span class="check">&#10003;</span> App móvil</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline">Cotiza este paquete</a>
+        </div>
+        <!-- Avanzado -->
+        <div class="paquete-card featured">
+          <div class="paquete-badge">Más popular</div>
+          <div class="paquete-header">
+            <h3>Avanzado</h3>
+            <p>Para casas medianas y negocios pequeños</p>
+          </div>
+          <ul class="paquete-list">
+            <li><span class="check">&#10003;</span> Panel de alarma inteligente</li>
+            <li><span class="check">&#10003;</span> 4 sensores de movimiento</li>
+            <li><span class="check">&#10003;</span> 2 contactos magnéticos</li>
+            <li><span class="check">&#10003;</span> 2 controles remotos</li>
+            <li><span class="check">&#10003;</span> Sirena interior + exterior</li>
+            <li><span class="check">&#10003;</span> Detector de humo</li>
+            <li><span class="check">&#10003;</span> Monitoreo 24/7</li>
+            <li><span class="check">&#10003;</span> App móvil incluida</li>
+            <li><span class="check">&#10003;</span> Botón de pánico</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary">Cotiza este paquete</a>
+        </div>
+        <!-- Integral -->
+        <div class="paquete-card">
+          <div class="paquete-header">
+            <h3>Integral</h3>
+            <p>Para casas grandes y negocios con CCTV</p>
+          </div>
+          <ul class="paquete-list">
+            <li><span class="check">&#10003;</span> Todo lo del Avanzado</li>
+            <li><span class="check">&#10003;</span> 6 sensores de movimiento</li>
+            <li><span class="check">&#10003;</span> 4 contactos magnéticos</li>
+            <li><span class="check">&#10003;</span> 3 controles remotos</li>
+            <li><span class="check">&#10003;</span> Sensor perimetral exterior</li>
+            <li><span class="check">&#10003;</span> 2 cámaras HD</li>
+            <li><span class="check">&#10003;</span> DVR 4 canales</li>
+            <li><span class="check">&#10003;</span> Sirena exterior adicional</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline">Cotiza este paquete</a>
+        </div>
+      </div>
+      <p class="paquete-note">Nuestros asesores te ayudan a elegir exactamente lo que necesitas. Cada paquete se puede personalizar según tu propiedad.</p>
+    </div>
+  </section>
+
+  <!-- ===== 11. COMPARADOR ===== -->
+  <section class="comparador reveal" id="comparador">
+    <div class="container">
+      <div class="section-label">Comparador</div>
+      <h2 class="section-title">Lo que nos hace diferentes no es lo que decimos, <span class="highlight">es lo que hacemos</span></h2>
+      <p class="section-desc">Compara y decide con información transparente.</p>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th class="nda-col">Nacional de Alarmas</th>
+            <th>Otras empresas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Contrato</td>
+            <td class="nda-col"><span class="comp-check">&#10003;</span> Sin permanencia</td>
+            <td><span class="comp-cross">&#10007;</span> 12-36 meses obligatorios</td>
+          </tr>
+          <tr>
+            <td>Central de monitoreo</td>
+            <td class="nda-col"><span class="comp-check">&#10003;</span> Propia en Monterrey</td>
+            <td><span class="comp-cross">&#10007;</span> Tercerizada en otra ciudad</td>
+          </tr>
+          <tr>
+            <td>Técnicos de servicio</td>
+            <td class="nda-col"><span class="comp-check">&#10003;</span> Locales, mismo día</td>
+            <td><span class="comp-cross">&#10007;</span> Foráneos, días o semanas</td>
+          </tr>
+          <tr>
+            <td>Costos ocultos</td>
+            <td class="nda-col"><span class="comp-check">&#10003;</span> Cero, transparencia total</td>
+            <td><span class="comp-cross">&#10007;</span> Cargos por cancelación</td>
+          </tr>
+          <tr>
+            <td>Marcas de equipo</td>
+            <td class="nda-col"><span class="comp-check">&#10003;</span> Múltiples (la mejor para ti)</td>
+            <td><span class="comp-cross">&#10007;</span> Solo su propia marca</td>
+          </tr>
+          <tr>
+            <td>Experiencia local</td>
+            <td class="nda-col"><span class="comp-check">&#10003;</span> +30 años en Monterrey</td>
+            <td><span class="comp-cross">&#10007;</span> Multinacional sin raíces</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 12. DIFERENCIADORES ===== -->
+  <section class="diferenciadores reveal" id="diferenciadores">
+    <div class="dif-glow"></div>
+    <div class="container">
+      <div class="section-label">Nosotros</div>
+      <h2 class="section-title">¿Por qué elegir <span class="highlight">Nacional de Alarmas</span>?</h2>
+      <p class="section-desc">Más de tres décadas nos respaldan. Conoce lo que nos hace diferentes.</p>
+      <div class="dif-grid">
+        <div class="dif-image">
+          <span style="position:relative;z-index:1;">&#128737;</span>
+        </div>
+        <div class="dif-list">
+          <div class="dif-item">
+            <div class="dif-check">&#10003;</div>
+            <div>
+              <h4>Sin contrato forzoso</h4>
+              <p>Te quedas porque quieres, no porque te obligan. Sin letras chiquitas.</p>
+            </div>
+          </div>
+          <div class="dif-item">
+            <div class="dif-check">&#10003;</div>
+            <div>
+              <h4>Central de monitoreo propia</h4>
+              <p>No tercerizamos tu seguridad. Nuestra central opera 24/7 desde Monterrey.</p>
+            </div>
+          </div>
+          <div class="dif-item">
+            <div class="dif-check">&#10003;</div>
+            <div>
+              <h4>Servicio técnico el mismo día</h4>
+              <p>Reporta una falla y un técnico va a tu propiedad el mismo día.</p>
+            </div>
+          </div>
+          <div class="dif-item">
+            <div class="dif-check">&#10003;</div>
+            <div>
+              <h4>30+ años de experiencia</h4>
+              <p>Desde 1993 protegiendo hogares y negocios en el área metropolitana.</p>
+            </div>
+          </div>
+          <div class="dif-item">
+            <div class="dif-check">&#10003;</div>
+            <div>
+              <h4>100% empresa local</h4>
+              <p>Somos de Monterrey. Conocemos las necesidades de seguridad de la región.</p>
+            </div>
+          </div>
+          <div class="dif-item">
+            <div class="dif-check">&#10003;</div>
+            <div>
+              <h4>Tecnología de clase mundial</h4>
+              <p>Trabajamos con Ajax, Honeywell, Trikdis y las mejores marcas globales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 13. TESTIMONIOS ===== -->
+  <section class="testimonios reveal" id="testimonios">
+    <div class="container">
+      <div class="section-label">Testimonios</div>
+      <h2 class="section-title">Miles de familias ya <span class="highlight">confían</span> en nosotros</h2>
+      <p class="section-desc">Calificación perfecta 5/5 basada en reseñas verificadas de Google.</p>
+      <div class="testimonial-carousel" id="carousel">
+        <div class="testimonial-track" id="carouselTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">Excelente servicio, instalaron el mismo día que llamé. El monitoreo funciona perfecto y la app es muy fácil de usar. Llevo 3 años con ellos y cero problemas.</p>
+              <p class="testimonial-name">Roberto García</p>
+              <p class="testimonial-role">Cliente residencial &middot; San Pedro</p>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">Tenemos 3 sucursales monitoreadas con Nacional de Alarmas. La respuesta ante cualquier incidencia es inmediata. Son muy profesionales y el precio es justo.</p>
+              <p class="testimonial-name">María Fernanda López</p>
+              <p class="testimonial-role">Dueña de negocio &middot; Monterrey Centro</p>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-text">Lo que más me gusta es que no hay contrato forzoso. Me quedo porque el servicio es excelente, no porque me obligan. El técnico vino el mismo día que reporté una falla.</p>
+              <p class="testimonial-name">Carlos Treviño</p>
+              <p class="testimonial-role">Cliente residencial &middot; Cumbres</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-index="0"></button>
+          <button class="carousel-dot" data-index="1"></button>
+          <button class="carousel-dot" data-index="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14. BANNER CTA ===== -->
+  <section class="banner-cta reveal">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container">
+      <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
+      <p>En menos de 60 segundos puedes empezar. Sin compromiso, sin costos ocultos.</p>
+      <div class="banner-ctas">
+        <a href="#contacto" class="btn btn-primary">Cotiza gratis ahora &#8594;</a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener">&#128172; WhatsApp</a>
+        <a href="tel:+528188480085" class="btn btn-outline">&#128222; Llamar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15. FAQ ===== -->
+  <section class="faq reveal" id="faq">
+    <div class="container">
+      <div class="section-label">Preguntas frecuentes</div>
+      <h2 class="section-title">Resolvemos tus <span class="highlight">dudas</span></h2>
+      <p class="section-desc">Las preguntas más comunes sobre nuestros servicios de seguridad.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Tengo que firmar un contrato a largo plazo?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No. En Nacional de Alarmas no manejamos contratos forzosos. Te quedas con nosotros porque nuestro servicio te convence, no porque te obligamos. Puedes cancelar en cualquier momento sin penalizaciones.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Cuánto cuesta un sistema de alarma?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Depende de tu propiedad y necesidades. Por eso ofrecemos una cotización personalizada gratuita. Contáctanos y en minutos te damos una propuesta a tu medida.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Cuánto tiempo tarda la instalación?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>La instalación típica toma entre 2 y 4 horas dependiendo del sistema. En la mayoría de los casos, instalamos el mismo día que nos contactas o al día siguiente.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Qué pasa cuando se activa una alarma?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Nuestra central de monitoreo en Monterrey recibe la señal al instante. Verificamos la emergencia, te contactamos para confirmar y, si es necesario, activamos el protocolo de respuesta con las autoridades. También recibes notificación en tu app.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Puedo controlar mi alarma desde el celular?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí. Con la app puedes armar y desarmar tu sistema, ver el estado de los sensores, ver cámaras, recibir notificaciones en tiempo real y revisar el historial de eventos desde cualquier lugar.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Qué marcas de equipo manejan?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Trabajamos con las mejores marcas del mundo: Ajax Systems, Honeywell, Trikdis y First Alert, entre otras. Nuestros asesores te recomiendan la mejor opción para tu caso.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿En qué zonas dan servicio?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Cubrimos Monterrey y toda su área metropolitana: San Pedro, San Nicolás, Guadalupe, Apodaca, Escobedo, Santa Catarina, García y más. Consulta por disponibilidad en tu zona.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 16. FORMULARIO DE CONTACTO ===== -->
+  <section class="contacto reveal" id="contacto">
+    <div class="container">
+      <div class="section-label">Contacto</div>
+      <h2 class="section-title">Solicita tu <span class="highlight">cotización</span></h2>
+      <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo en menos de 2 horas.</p>
+      <div class="contacto-grid">
+        <form onsubmit="event.preventDefault(); alert('Formulario enviado (prototipo)');">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="81 1234 5678">
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="tipo">Tipo de propiedad</label>
+            <select id="tipo">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Casa</option>
+              <option>Departamento</option>
+              <option>Negocio / Comercio</option>
+              <option>Nave industrial / Bodega</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Enviar y recibir cotización &#8594;</button>
+        </form>
+        <div class="contacto-info">
+          <div>
+            <h3>Información de contacto</h3>
+            <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon">&#128222;</div>
+            <div>
+              <h4>Teléfono</h4>
+              <p>81 8348 8085</p>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon">&#128172;</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>81 2719 3393</p>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon">&#128205;</div>
+            <div>
+              <h4>Dirección</h4>
+              <p>Gonzalitos 502-B, Vista Hermosa<br>Monterrey, Nuevo León</p>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon">&#128338;</div>
+            <div>
+              <h4>Horario de atención</h4>
+              <p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 17. FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="logo-icon">N</span>
+            Nacional de Alarmas
+          </a>
+          <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook">f</a>
+            <a href="#" class="social-icon" title="Instagram">ig</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="#">Residencial</a>
+          <a href="#">Comercial</a>
+          <a href="#">Industrial / Bodegas</a>
+          <a href="#">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#">Nosotros</a>
+          <a href="#">Servicios</a>
+          <a href="#">Blog</a>
+          <a href="#">Clientes</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528188480085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393" target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="#">Gonzalitos 502-B, Vista Hermosa</a>
+          <a href="#">Monterrey, N.L.</a>
+          <a href="#">L-V 9am - 6pm</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+        <p>Diseño por <a href="#">Mercanaut</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener">&#128172;</a>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* --- 1. Navbar scroll glass effect --- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* --- 2. Mobile menu toggle --- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'rgba(7, 26, 46, 0.95)';
+        navLinks.style.backdropFilter = 'blur(12px)';
+        navLinks.style.padding = '24px';
+        navLinks.style.gap = '16px';
+        navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.12)';
+      } else {
+        navLinks.removeAttribute('style');
+      }
+    });
+
+    /* --- 3. FAQ accordion --- */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* --- 4. Testimonial carousel --- */
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    const totalSlides = dots.length;
+
+    function goToSlide(index) {
+      currentSlide = index;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+    });
+
+    setInterval(() => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 5000);
+
+    /* --- 5. Scroll reveal (IntersectionObserver) --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

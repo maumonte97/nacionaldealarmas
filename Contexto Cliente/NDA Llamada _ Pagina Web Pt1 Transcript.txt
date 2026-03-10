@@ -1,0 +1,470 @@
+NDA Llamada | Pagina Web Pt1
+Wed, Feb 18, 2026
+
+0:08 - Conference Room (Catalina Lavariega) - Speaker 2
+Sí, pero habría que mandarle la liga y que se meta y no, porque está disponible. Como quiera la voy a revisar. A ver Mau, ya empezamos, ¿verdad?
+
+0:24 - Unidentified Speaker
+Sí.
+
+0:25 - Conference Room (Catalina Lavariega) - Speaker 2
+El archivo que me mandaste, estuvimos revisando y es información que tú sugieres eres? Ajá, exactamente. Ok, esta información tú la tomaste de la página, la fuiste tomando y fuiste como, como que es una manera, o es la información que necesitas, la principal para empezar a al diseño.
+
+0:48 - Unidentified Speaker
+Sí, exacto.
+
+0:49 - Mauricio Montemayor
+Aquí, o sea, lo que sí les dejé abierto fue lo de los productos. O sea, lo demás es entre de lo que se está de ustedes, lo que nosotros un poco conocemos de ustedes, y yo les dejé totalmente abierto el tema de los productos. Quiero saber toda su oferta para ver todo lo que se va a incluir dentro de la página. Por eso eso se los dejé un poco abierto y no le escribí nada ahí.
+
+1:22 - Conference Room (Catalina Lavariega) - Speaker 2
+Ok, pero al segundo punto te refieres de cuál es el giro de la empresa en donde dice servicios y productos, escribiste algunos.
+
+1:32 - Conference Room (Catalina Lavariega) - Speaker 1
+Yo los modifiqué, lo modifiqué, esta es la que yo hice. Es que de aquí, lo que decía Laura, se va al punto este, al punto que hablaba de ello.
+
+1:48 - Conference Room (Catalina Lavariega) - Speaker 2
+La idea es que te bases en el diseño que tiene Ajax. Sí. Porque vienen los productos y después de los productos habría que poner fotos y a lo mejor en donde está la foto en la parte de abajo o en otra pestañita, no sé, como profundizando más o profundizando más se podría poner la funcional, el funcional, lo que para qué es un Sí.
+
+2:20 - Conference Room (Catalina Lavariega) - Speaker 2
+El para qué funciona acá.
+
+2:22 - Conference Room (Catalina Lavariega) - Speaker 3
+Algún videíto, como cuando viene caminando el perro y lo detecta o si es una persona o que sí. El cliente, por ejemplo, tiene una ventana en el exterior y la quiere cubrir así, pues no la va a cubrir para el frente porque va a detectar los carros, pero sí la puede detectar como cortina. Y que ponga, nos pusieron unos videos como para Mi propuesta era que fuera una página amigable y sencilla, ¿verdad? O sea, que el cliente entre y dice, a ver, yo quiero cotizar para una casa, pues que se vaya a lo residencial. ¿Para qué se va a poner a ver todos los equipos de comercial, industrial, bodegas y demás? Entonces, que vaya siendo como un árbol que tiene ramas, ¿verdad? Y va cada quien escogiendo la rama, por ejemplo, de casas y OK, ¿qué haces? Bueno, ¿qué tipo de sirena quiero? ¿Una exterior o una interior? Y ahí, según se vaya metiendo, va a ir escogiendo las diferentes marcas o las diferentes opciones de sirenas o de sensores. El cliente no sabe para qué, por ejemplo, es un sensor. Entonces, a lo mejor hay que poner una breve descripción del sensor de movimiento. ¿Qué sirve para esto? Y luego las fotos o videos de cómo funcionan los diferentes sensores, los contactos, etcétera. Y luego poner, bueno, esto es lo básico, pero complementar, o sea, como para reforzar seguridad, pues están las celdas y los, no sé, otros tipos de sensores más avanzados como los de cortina o así, ¿no? La cuestión es esta, porque si lo hacemos muy... Yo como cliente sería lo que buscaría, no sé los demás, ¿verdad?
+
+4:23 - Conference Room (Catalina Lavariega) - Speaker 1
+Yo pienso que hay muchas opiniones y como dice Laura, yo sí también preferiría una página muy práctica para usar, ¿sí? Y yo soy muy visible, entonces a lo mejor a mí el enfoque de tanta descripción, no sé, como que si no es algo técnico no te pones a leer. Por ejemplo, los GIF que tenía Ajax, por ejemplo, cuando te metes a ver si decía hay un sensor de movimiento, poder nada más tener la visual o el GIF que tenían, no enfocando como Ajax, porque tenemos diferentes sensores de movimiento, pero sí el concepto, ¿no?, de que cómo funciona un sensor de movimiento. Lo digo porque tenemos varios productos, tenemos productos cableados de otras marcas y tenemos por el área de Ajax, Ajax y sus productos que son similares, un sensor de movimiento cableado y un sensor de movimiento inalámbrico. En Honeywell también tenemos un sensor de movimiento inalámbrico, entonces el GIF que te muestre que vas a un sensor de movimiento ya no casado como Mark. Sería más bien como visual de que cómo funciona un sensor de movimiento. Esa es mi opinión, ¿verdad? Sí, sí.
+
+5:42 - Mauricio Montemayor
+O sea, al final, lo que más podemos usar visual, pues bueno, es todo el material de IAX, pero al final, pues ya lo que quieren es que terminen llegando con ustedes y que ahí ustedes les asesoren lo mejor para esa persona.
+
+5:57 - Conference Room (Catalina Lavariega) - Speaker 1
+Sí, de antemano estaba yo, Kathy me permitió leer el día de ayer y más bien, este es tu formulario para el proyecto y para mí el primer punto, bueno, el cliente general, cuál es el giro de la empresa, entonces ahí sí me permití, yo le dije a la Katy, permíteme hacer algunos cambios para que los vayan visualizando, pero desde inicio para mí, ahora sí puse monitoreo, o sea, no puse producto como lo traías tú. Yo empecé con lo que hace la empresa y ya de ahí se liga si es residencial, comercial o bodegas hacia otro punto que tienes aquí que se llama ya descripción de productos más detallada, ¿verdad? Desde un punto pasamos a otro. Yo aquí, mi punto más importante son los servicios que dan y algunos productos aquí es productos, asesoría personalizada en los sistemas de alarma y circuito cerrado. Ya vamos a tomar cámaras, ya estamos generando un departamento de cámaras que también ese ya va a entrar en esta página. Pero para mí lo principal como servicio es el monitoreo, el soporte y servicio técnico, soporte del uso de la app, la asesoría profesional y seguridad de sistemas de alarma, presenciales y comerciales, y un departamento de administrativo para su apoyo. O sea, ese es nuestro servicio.
+
+7:32 - Conference Room (Catalina Lavariega) - Speaker 2
+Pero eso tú se lo vas a mandar o se lo vamos a mandar por correo.
+
+7:38 - Conference Room (Catalina Lavariega) - Speaker 1
+Por correo. Bueno, esta es una sugerencia que yo analicé. Está bien, no me parece mal. Y ya luego hacia los productos, ahí listo. Yo puse paquetes básicos de sistemas de alarma con las diferentes marcas reconocidas, ya no enfocando ahí a mi Honeywell, mi Trivis. Diseño asesorado de acuerdo a la necesidad del domicilio tipo en venta, instalación profesional por técnicos y ahora sí viene residencial, comercial y bodegas y ya de ahí te empujaría a la liga de los productos ya en forma directa según sea la necesidad del edificio y del cliente.
+
+8:15 - Conference Room (Catalina Lavariega) - Speaker 2
+No sé si esto que te estamos diciendo es lo que te esperabas después de haber mandado el documento, Mauricio.
+
+8:24 - Mauricio Montemayor
+Realmente yo esperaba como darle muchísimo más enfoque a AJAX e inclusive poner hasta páginas de productos de AJAX. Yo más o menos eso es lo que tenía en mente.
+
+8:41 - Conference Room (Catalina Lavariega) - Speaker 2
+Fíjate, ayer estuvimos platicando y lo que yo veo en las páginas es que si tú tienes, por ejemplo, presidencial, y dentro del... ¿se cortó?
+
+8:54 - Mauricio Montemayor
+No, aquí estoy, creo que te dio una notificación o algo.
+
+9:01 - Conference Room (Catalina Lavariega) - Speaker 1
+Sí. Ya, ok.
+
+9:03 - Conference Room (Catalina Lavariega) - Speaker 2
+Lo que yo he visto en las páginas es que la información se liga, ¿verdad? Si ponemos en algún espacio la marca, todos los productos que maneja la marca Conigo y luego los que maneja la marca Ayax y los que maneja Prick Dis y los que maneja otras. Así, ¿verdad? Y si tú dices, en otro espacio de la página dices, residencial, comercial, industrial, y tú dentro de residencial pones los dispositivos que se usan en cada casa. Tengo el temido que de ahí mismo viene ligado, no sé, los sensores. Puedes utilizar sensores Ayers, o sensores Honeywell, o sensores cableados, o inalámbricos, como que se ligan, ¿verdad? Si tú entras por residencial y tienes la relación de productos y marcas, te lleva a esos productos. ¿Sí, verdad?
+
+10:09 - Mauricio Montemayor
+Esa era mi idea. Esa era mi idea.
+
+10:14 - Conference Room (Catalina Lavariega) - Speaker 2
+Esa es, sí. Bueno, estamos en el mismo canal entonces.
+
+10:18 - Mauricio Montemayor
+OK. Entonces, ¿difiere un poco de lo que dice Karina o realmente no, Karina?
+
+10:25 - Conference Room (Catalina Lavariega) - Speaker 1
+Es que yo lo voy a observar de otra forma. Esta es mi opinión. Cuando es una empresa que vende, distribuye lo que es un producto, por ejemplo, TBC, TBC te muestra las marcas. Y te muestra la X cantidad del catálogo de esa marca, ¿sí? Pero nosotros estamos enfocados al usuario final. Sí. Entonces, por eso ahorita que dices, quiero presentar AJAX, pues, tengo el producto. Y es con lo que nos enfocamos. Pero si hablamos de nuestro producto real, es un paquete que tiene un servicio de monitoreo. Y yo ya lo enfoco, si es un residencial, es un comercial o es una bodega. Y ya de ahí al enfoque del producto. Porque si yo le muestro la cantidad de productos, tú te metes ahorita, por ejemplo, a TDC. Es comercializadora.
+
+11:27 - Conference Room (Catalina Lavariega) - Speaker 2
+Es comercializadora.
+
+11:27 - Conference Room (Catalina Lavariega) - Speaker 1
+Y me lleva el producto y me muestra los 30, 40 productos que tiene en ese momento.
+
+11:34 - Mauricio Montemayor
+Sí, sí, sí, ya te entiendo. Sabes más platicarlo. Uso, por uso en particular. Oye, para tu uso necesitas de este tipo, este tipo, este tipo, y luego ya de ahí pues mencionar algo las marcas, pero al final ustedes son los que le van a asesorar cuál marca le conviene mejor.
+
+11:58 - Conference Room (Catalina Lavariega) - Speaker 1
+Sí, es que mi producto real es un paquete básico. Sí. Bueno, en servicio, en servicio sangre de la casa es el monitoreo. Y ya de ahí se desliga, o sea, un servicio del soporte técnico, que es otra de las cosas. Es que estas son, cómo se dice, se me fue la palabra, lo que sí la empresa da de valor agregado al cliente. Ahorita hay muchas empresas, hay mucha gente así, pero no tiene un organigráfico de servicios como tal. Entonces, para mí, oye, pues tengo un monitoreo 24-7 y la central está en Monterrey, no la central está en México, en ADT, que ese es otro tema, y este, y el soporte, a la gente le está gustando el soporte y el servicio porque nosotros lo damos el mismo día, 48 horas es lo máximo, ya lo más pesado 72 horas, Y hay otras empresas que ni siquiera van. Eso es lo que yo veo en mi mercado afuera, cuando visitamos clientes que se quieren cambiar con nosotros. Soporte de uso de app. Tenemos un personal que se dedica completamente a la app. Y hay gente que ya ella anda como... Hubo un cliente que quería que le diéramos la app de las cámaras. Así literal. Sí, pero si perdiste toda la información iniciar como reiniciamos todo. Todo eso es el valor agregado que le damos al cliente, usuario final. Y ya luego mi producto pues es mi paquete básico. Y ya si tú tienes una bodega pues te vas a bodega.
+
+13:48 - Conference Room (Catalina Lavariega) - Speaker 2
+Entonces a lo mejor Mauricio ahí lo que conviene es como producto, poner los diferentes paquetes que manejamos y ahí se ponen las diferentes marcas. Pero para mí no saldría sobrando poner la funcionalidad con un video, si quiere la descripción, con un video. Mira, según yo, Honeywell también tiene tiene en su página videos de los dispositivos y también están padres. En algún momento los usamos, según yo, nada más que son pesaditos. Y los de AJAX, las fotos o los videos que tienen de AJAX también dicen muchísimo. A mí me gustan mucho los GIF.
+
+14:43 - Conference Room (Catalina Lavariega) - Speaker 1
+No sé si puedas modificarlos. ¿Qué es lo que te digo? Movimientos tiene cierto general, ¿no? Vamos a olvidarnos si es cableado o es inalámbrico. Este sensor de movimiento hace esto. O sea, te protege un área. Ahí dices, ¿qué pasa el perrito? ¿Qué pasa un señor? Muchos, muchos fabricantes es el mismo GIF que presenta. Ya no me voy a casar si el sensor es marca de ACC o marca riesgo, porque si te hablo del mercado es demasiado el producto y por ejemplo en cambiados hemos usado diferentes marcas, más bien como dice Katy el enfoque de qué hace el producto, un overhead, los contactos, todo eso, todo eso que se nos hemos enfocado en lo que hace el producto es lo que a lo mejor si yo me meto a una bodega y tengo dos cortinas, ve cómo funciona un overhead. Cuando abres la cortina y se despega el dispositivo.
+
+15:59 - Mauricio Montemayor
+¿Ese dispositivo de qué marca es?
+
+16:03 - Conference Room (Catalina Lavariega) - Speaker 1
+Es lo que te digo. Tengo Secoalab, tengo SF Fire, o sea, hay varias marcas. Puedes poner todas las marcas y te lleva el producto pero si yo pongo una marca me estoy cazando ante mi cliente usuario final entonces yo quiero que se pase primero con mi paquete y ya la asesoría y diseño ya se va directo al producto como forma general y que tener información es que conversamos al cliente, para mí es que vean la página lo que nuestros dispositivos pueden hacer.
+
+16:49 - Conference Room (Catalina Lavariega) - Speaker 2
+No sé si se le puede quitar la marca, no lo sé, no creo que se le pueda quitar la marca. Pero algo, o a lo mejor no creo que nosotros tampoco lo hagamos, es ponerle un funcionamiento general o reducir los videos si hay muy largos, pero de qué otra manera le vendo yo al cliente esa necesidad que hay de protegerse de diferentes maneras?
+
+17:23 - Conference Room (Catalina Lavariega) - Speaker 3
+Yo opino también antes, en la página que teníamos antes, venía como un manual de uso, ¿verdad?
+
+17:33 - Unidentified Speaker
+¿Se acuerdan?
+
+17:34 - Conference Room (Catalina Lavariega) - Speaker 3
+Sí, pero eso ya se quitó. Entonces, ahorita hay gente que no sabe ni cómo usar la alarma.
+
+17:43 - Conference Room (Catalina Lavariega) - Speaker 1
+Pero ese es otro de los puntos del menú. ¿Sí? O sea, tú como página tienes que hacer un menú. El de la misión y visión, el producto tal vez. Y al final ya pones, por ejemplo, no sé si sea un blog, o sea, donde ya puedan bajar más información.
+
+18:04 - Mauricio Montemayor
+Ahora, hablando de esos paquetes que me mencionan, entiendo que tienen como paquetes básicos, pero eso nada más se aplica en temas residenciales o también en… No, partimos para todo. O sea, sí entiendo el paquete, pero al final se terminan agregando cosas al paquete dependiendo del cliente. Ahí ya es adicional.
+
+18:39 - Conference Room (Catalina Lavariega) - Speaker 1
+Es un diseño asesorado de acuerdo a la necesidad del domicilio. Ese es el equipo en venta.
+
+18:45 - Mauricio Montemayor
+O sea, pero tal cual en la página quieren demostrar de que, oye, el paquete uno que incluye tú y yo.
+
+18:55 - Conference Room (Catalina Lavariega) - Speaker 1
+Tenemos cargados, tenemos inalámbricos y tenemos, si pudiera ser, paquetes. Ahí es donde viene el desde, tanto a tanto.
+
+19:12 - Conference Room (Catalina Lavariega) - Speaker 3
+Sin precios ni marcas, nada más.
+
+19:17 - Conference Room (Catalina Lavariega) - Speaker 1
+Tenemos paquetes cargados, tenemos Claro que aquí el enfoque.
+
+19:23 - Conference Room (Catalina Lavariega) - Speaker 2
+Oye Mau, pero es que si se pueden mostrar marcas, porque yo veo otras páginas donde si ponen específicamente las marcas que manejan. Ah no, si las vamos a usar.
+
+19:34 - Mauricio Montemayor
+Ahora para lo que estoy entendiendo es, si vamos a poner las marcas, sin embargo, en cuanto a por ejemplo residencial, que se vean los usos, todos los usos que pueden tener los productos de las diferentes marcas, pero no es decir, oye, ah, no, pues nada más vendemos AYAX, oye, estos productos de AYAX o tal. Entonces, va a ser general de, oye, estos son todos los usos de todos nuestros productos. Así es como lo estoy entendiendo y creo que por ahí puede ser. Ya al final, el tema de los paquetes, pues eso está interesante, pueden ver así como, como, sí.
+
+20:17 - Conference Room (Catalina Lavariega) - Speaker 1
+En cuanto a los paquetes, eso ya está interesante.
+
+20:20 - Mauricio Montemayor
+Yo lo que aquí no quiero es que el cliente diga, ah bueno, nada más tiene esos paquetes, ah no, pues yo necesito más cosas. Eso es lo único que no quiero, que el cliente lo vea como que muy muy estandarizado, oye, paquete 1, 2 y 3, ah bueno, pues no me sirve a mí. Entonces, eso yo tendría mucho cuidado. Yo lo que haría es, de repente, tener diferentes banners en la página que muestren promociones de ciertos paquetes. Puede ser, pero son, pues de repente que sí estén, de repente que no estén, o que vayan cambiando ciertas secciones de promociones, pero en sí como que no cerrarlos a paquete uno, dos o tres.
+
+21:12 - Conference Room (Catalina Lavariega) - Speaker 2
+Yo creo que sí los podemos poner, pero también ponerle ahí, esto es un ejemplo de los paquetes que podemos manejar, pero no podemos adaptar a tus necesidades. Abierto, protegiéndote por completo, o te podemos proteger una parte al inicio y tú lo vas complementando. Eso también podríamos decírselo ahí de alguna manera.
+
+21:39 - Mauricio Montemayor
+OK. Muy bien. Bueno. Pues realmente, ahorita vemos lo que sigue, pero creo que el tema de los productos. Realmente nosotros lo que necesitamos es, pues cuál es toda su oferta de productos que manejan. Digo, a lo mejor no tienen que decir de que, oye, de Ajax este en específico. A lo mejor es sí, porque ahí podemos sacar contenido y nos sirve para la página. Pero que nos digan, oye, industrial, presidencial y comercial, para cada uno aplican todos estos productos. Y ya aplicar esos usos a partir de los productos dentro de las páginas de cada mercado. Entonces, eso es lo que sí o sí necesitamos para crear estas páginas que estamos comentando.
+
+22:35 - Conference Room (Catalina Lavariega) - Speaker 2
+OK. Sí, eso te lo manda tu perrito. Igual y los paquetes, también te digo, igual podemos armar ahí, ya los tenemos de hecho, algunos tipo flyers para mostrarlos ahí y que no se vean como escritos, sino más bien virtual, ¿verdad?
+
+22:56 - Mauricio Montemayor
+¿Y cuántos paquetes tienen como por mercado?
+
+22:59 - Conference Room (Catalina Lavariega) - Speaker 1
+Ahorita tenemos tres paquetes.
+
+23:03 - Mauricio Montemayor
+¿O para cada mercado?
+
+23:05 - Conference Room (Catalina Lavariega) - Speaker 1
+No, es que de ahí partimos. O sea, yo tengo que venderte un paquete.
+
+23:11 - Conference Room (Catalina Lavariega) - Speaker 1
+Ya, ya.
+
+23:12 - Conference Room (Catalina Lavariega) - Speaker 1
+¿Por qué? Porque yo te presto un equipo. Y ahí yo ya tengo mi primer servicio importante que es el monitoreo.
+
+23:21 - Unidentified Speaker
+Sí.
+
+23:21 - Conference Room (Catalina Lavariega) - Speaker 1
+Y ahora sí, si yo voy a tu, bueno, en general se les dice edificios, pero si voy a una casa no va a ser lo mismo que una bodega, literal, entonces a ese paquete se le va agregando. No es lo mismo una casa chica que una mansión.
+
+23:43 - Conference Room (Catalina Lavariega) - Speaker 1
+Ok, ya, ya, ya.
+
+23:44 - Conference Room (Catalina Lavariega) - Speaker 1
+Entonces, o sea, yo tengo que salir de ese paquete y agregarle a tus necesidades.
+
+23:51 - Conference Room (Catalina Lavariega) - Speaker 1
+Todos los paquetes son para todos.
+
+23:53 - Mauricio Montemayor
+O sea, los paquetes son para todos. Porque yo, a simple vista, o más bien así inicialmente, pues decía, bueno, pues tienen paquetes por mercado. Entonces, el paquete normal de una industrial tiene para la cortina. Pero entonces, no, realmente ese es un producto que se contrató separado.
+
+24:17 - Conference Room (Catalina Lavariega) - Speaker 1
+No, vea, puedes meterte en una página y esa va a ser nuestra competencia más fuerte. Very sure. Así, Bery Sur, de Sur, es una empresa en Noruega que compró ADT.
+
+24:36 - Conference Room (Catalina Lavariega) - Speaker 3
+Bery Sur.
+
+24:37 - Conference Room (Catalina Lavariega) - Speaker 1
+B, de vaca, E, R, I, S, U, R, E. B, de vaca, E, R, I, normal, S, U, R, E.
+
+24:55 - Conference Room (Catalina Lavariega) - Speaker 3
+En latín.
+
+24:55 - Conference Room (Catalina Lavariega) - Speaker 1
+En latín. Está en rojo.
+
+24:58 - Unidentified Speaker
+Es noruega.
+
+24:59 - Conference Room (Catalina Lavariega) - Speaker 1
+Ya, aquí lo estoy viendo.
+
+25:01 - Unidentified Speaker
+Ok.
+
+25:01 - Mauricio Montemayor
+Si tú ves su página, te platica así.
+
+25:05 - Conference Room (Catalina Lavariega) - Speaker 1
+Esa es una página que ya te va llevando. Él te presenta un producto, porque ellos son fábrica también. O sea, ese producto vas a verlo más adelante. Es parecido a AYA, que es un producto europeo. Sí.
+
+25:22 - Unidentified Speaker
+Les gusta esta página.
+
+25:24 - Conference Room (Catalina Lavariega) - Speaker 1
+Esa, si tú la vas a mezclar con ART de México, esa va a ser la solución de ellos. Y ellos no hablan de paquetes, ellos no hay un número como tal escrito. Ahora sí, ART maneja, ahora sí, como dicen, según el sapo, la pedrada. Porque cuando es un negocio, un costo para negocios. Cuando es una casa tienen costo para una casa. Yo aquí, podemos mantener costos, si te acuerdas la vez pasada te dije no pongas precio, pero podemos hablar un poquito del paquete para que se den la idea. Por ejemplo, Ajax, este, para mí es el enlace por medio de internet y por medio de datos. O sea, un sistema respaldado. Con la pena, Honeywell o es internet o es datos. Y por último, uno que es otro comunicador sencillo, es un comunicador que también maneja internet y datos.
+
+26:39 - Conference Room (Catalina Lavariega) - Speaker 2
+Entonces, aquí empezamos.
+
+26:41 - Conference Room (Catalina Lavariega) - Speaker 1
+De ahí que el cliente tome La decisión es de pagar $7,000 o $8,000 pesos. Sí, está muy buena esa página.
+
+26:50 - Conference Room (Catalina Lavariega) - Speaker 3
+O sea, como que está entretenida, no te duerme. Exacto. Es que si empezamos nada más con puro texto así largo, la gente le va a aflojar. La gente le va a aflojar.
+
+27:01 - Conference Room (Catalina Lavariega) - Speaker 1
+Para mí, como te dije, para mí yo soy muy visual. Yo me meto y le digo como a ver qué hay, cómo se mueven, etcétera, etcétera. Ahí te muestran muchos productos porque tienen un mercado muy Y tienen muchos videos, miren.
+
+27:15 - Conference Room (Catalina Lavariega) - Speaker 3
+O sea, entran y siguen luego con video.
+
+27:19 - Conference Room (Catalina Lavariega) - Speaker 1
+O el uso de la aplicación o no sé. Vela, si tú ves la versatilidad en lo que tú estás viendo en la computadora, lo que está viendo Laura aquí en su teléfono, porque recuerda que no es lo mismo la página Web en una PC que lo que te presenta directamente un celular. Sí. Entonces todo esto, por ejemplo, ahorita Laura está haciendo puros videos de todo lo que es de la gama de productos que ellos pueden instalar.
+
+27:51 - Conference Room (Catalina Lavariega) - Speaker 2
+Obviamente tú vas a trabajar ahí también para verlo en celular, ¿verdad?
+
+27:55 - Mauricio Montemayor
+Sí, sí, 100%. De ahí es donde va a llegar más gente.
+
+28:00 - Unidentified Speaker
+Ajá.
+
+28:00 - Unidentified Speaker
+OK.
+
+28:01 - Conference Room (Catalina Lavariega) - Speaker 2
+Pues no sé si está, ¿falta algo más, Maos?
+
+28:04 - Mauricio Montemayor
+Eh, nada más les voy a pedir todos esos productos que tienen por mercado. Este, el tema, bueno, ya sé ahí se puede describir como algún tipo de uso por producto, algunos creo que son muy obvios, otros a lo mejor no los conocemos, tal vez más industriales o lo que sea, de humo y demás, y también por ejemplo, Karina si se te ocurre por ejemplo, tienes por mercado, tenemos comercio industrial, tenemos residencial, pero por ejemplo también si tú nos puedes dar un detalle más específico por ejemplo de comercial, ah bueno también puede haber colegios que les ofrecemos lo de humo, alarmas de humo, lo que sea. Entonces todo eso nos va a ayudar para hacerlo de la PACU. Entonces eso es lo que necesitamos necesitamos, Karina, ya en temas de videos y demás, vamos a acabar de IEX, también vamos a hacer algunos con inteligencia artificial, pero sí, sí, ya con esto es suficiente, nada más que me mandes eso, Karina, y con eso nos basamos para darle.
+
+29:28 - Conference Room (Catalina Lavariega) - Speaker 2
+Ok, ok, yo creo que los colores que vas a utilizar todo es modificable, ¿verdad? Obviamente. Sí. Sí. O sea, es que, digo, nuestros colores, pues, ya sabes cuáles son, entonces, es como irlo modificando.
+
+29:46 - Mauricio Montemayor
+Sí, nada más, digo, y a lo mejor, este, ver cómo se puede, digo, mantener los colores totalmente, pero la página tratar de hacerlo más minimalista. Como que también colores, no sé, estoy pensando para ver cómo hacerlo tal vez cambiar un poquito, bueno no sé, ya les diré, digo al final no cambiar la identidad de marca, nada, pero quiero usar colores así modernos o a lo mejor algunos fondos oscuros Ok.
+
+30:27 - Conference Room (Catalina Lavariega) - Speaker 1
+Bueno, por ejemplo, vaya que está casado con el negro. Sí.
+
+30:32 - Conference Room (Catalina Lavariega) - Speaker 2
+Esto es de Berichul, es rojo, rojo.
+
+30:35 - Conference Room (Catalina Lavariega) - Speaker 2
+Rojo con negro.
+
+30:36 - Conference Room (Catalina Lavariega) - Speaker 2
+Y el amarillo.
+
+30:38 - Conference Room (Catalina Lavariega) - Speaker 1
+Y a veces azul. Sí, nos distingue el amarillo. Nosotros somos azul y amarillo. Y negro.
+
+30:45 - Mauricio Montemayor
+Sí, pues, igual y darle un poquito más de claridad a amarillo y negro, tal vez.
+
+30:53 - Conference Room (Catalina Lavariega) - Speaker 1
+pero un diferente amarillo porque sentinela tiene un amarillo diferente al nuestro el amarillo de sentinela es mostaza no me preocupa el amarillo con el de sentinela cuando crees que nos puedas mandar esto cariño tengo que armarlo y mañana traigo una Llamada con la persona tarde, mañana. No, porque para que regresemos a reservarnos y que nos falte. Porque lo primero que voy a hacer es un Excel, ¿sí? Te puedo poner los diferentes paquetes de alguna forma general y ya luego, o sea, brincarnos ahora sí el residencial comercial y sus productos, ¿no?
+
+31:45 - Unidentified Speaker
+Sí, por supuesto.
+
+31:47 - Conference Room (Catalina Lavariega) - Speaker 1
+Tengo que acomodártelo para que se algo descriptivo para ti y trabajemos en ello.
+
+31:52 - Mauricio Montemayor
+Andale, perfecto, eso nos va a ser de mucha ayuda para la página.
+
+31:56 - Unidentified Speaker
+¿Y las fotos?
+
+31:57 - Mauricio Montemayor
+Y también las marcas, que me digas por ahí todas las marcas.
+
+32:01 - Conference Room (Catalina Lavariega) - Speaker 1
+Sí, es que yo creo que ya de ahí empezamos a hacer los diagramas, ¿no? Y ya con el alarma tenemos esto, ta, ta, y se puede hacer esto de ta, ta, ta.
+
+32:13 - Mauricio Montemayor
+Sí, andale, y con una columna de productos y la otra columna que vaya ahí de mercado y de marca.
+
+32:22 - Unidentified Speaker
+Ok.
+
+32:22 - Conference Room (Catalina Lavariega) - Speaker 1
+¿Algo más, Nau? No, nada más de mi parte. Bueno, el enfoque de este sería de otra forma, de los servicios. De los servicios, es que te digo, para a mí, por ejemplo, el giro de la empresa que dice producto o servicio, el servicio es algo fundamental porque la verdad, hay empresas que no están dando un servicio correcto. Es como que eso a mí me gustaría que estuviera el enfoque basado a una empresa estable.
+
+33:11 - Conference Room (Catalina Lavariega) - Speaker 2
+Vamos a buscar, mira, vamos a buscar material para darle, pues, prioridad o no sé en qué porcentaje al monitoreo. ¿Sí? Y obviamente, a lo que se refiere Karina es que también tenemos el servicio, hasta ahorita hemos manejado mucho el servicio correctivo, pero queremos manejar ya el servicio preventivo.
+
+33:43 - Mauricio Montemayor
+¿Y de qué trata eso?
+
+33:45 - Conference Room (Catalina Lavariega) - Speaker 2
+Pues hacer, tener un programa de tener registrados los dispositivos cuando se instalaron, no sé si se instalaron ahorita, en dos años, tener ya previsto el número de servicios que se van a hacer en tal mes, ¿sí? De cambio de baterías, cambio de algún algún dispositivo este pero más que nada esos servicios preventivos está más basado al cambio de baterías porque como ya la mayoría de lo que estamos vendiendo ya son dispositivos inalámbricos entonces ya llevan mucha batería de litio y eso no lo hemos considerado lo estamos implementando ahorita pero estaría bien manejarlo ahí en la página.
+
+34:38 - Unidentified Speaker
+¿Es algo que incluye?
+
+34:39 - Mauricio Montemayor
+No, es esa parte.
+
+34:41 - Conference Room (Catalina Lavariega) - Speaker 2
+Ese es un servicio aparte.
+
+34:43 - Conference Room (Catalina Lavariega) - Speaker 1
+Yo lo puse como forma general, soporte y servicio técnico con personal certificado.
+
+34:49 - Conference Room (Catalina Lavariega) - Speaker 2
+Karina lo que hizo es, hizo unas modificaciones al formato que tú mandaste, entonces por ahí te lo vamos a revisar y te lo vamos a hacer y Ándale por favor.
+
+35:05 - Mauricio Montemayor
+Igualín, mándamelo todo junto con lo del Excel, Karina.
+
+35:09 - Conference Room (Catalina Lavariega) - Speaker 1
+Bueno, entonces te lo vamos armando.
+
+35:12 - Mauricio Montemayor
+Sí, si puedes. Digo, estaría genial si pudieras ponerlo esta semana, y si no, a principios de la siguiente.
+
+35:21 - Conference Room (Catalina Lavariega) - Speaker 1
+Ok. Más o menos ya traigo la idea de cómo armarlo, entonces no creo que sea complicado. La cuestión es que, en cuestión del producto, sí me tendría que echar un clavadito. Porque, por ejemplo, al agarrarte un gif, o al agarrarte una liga, o una especificación particular, pues sí te lleva a más tarea. Yo pensaría mejor presentarte el cuerpo de esto, y ir un vas a tener que empezar a trabajar en ello, irte mandando las ligas de acuerdo a cada producto. No sé si está mejor. No, o sea, la liga no me preocupa.
+
+36:06 - Mauricio Montemayor
+O sea, con que nos pongas el nombre del producto y la marca, ya nosotros damos con la liga.
+
+36:13 - Unidentified Speaker
+Ok, con eso.
+
+36:14 - Mauricio Montemayor
+Sí, no, no te compliques tú, no te apures.
+
+36:18 - Conference Room (Catalina Lavariega) - Speaker 1
+Es que ese fue el tema de las marcas de cambiados, no me puedo casar con una marca, porque manejamos diferentes productos.
+
+36:27 - Mauricio Montemayor
+No nos vamos a casar, nada más es medio para mencionarlas en la página.
+
+36:34 - Conference Room (Catalina Lavariega) - Speaker 1
+A ver, yo lo que te puedo hacer, por ejemplo, si tú ahorita en tu Google métete a un overhead, así con overhead, te va a mandar a cuertas, pero con overhead.
+
+36:50 - Mauricio Montemayor
+Head de cabeza? Sí.
+
+36:52 - Unidentified Speaker
+Overhead.
+
+36:53 - Mauricio Montemayor
+No, pues nada más me dice, no, creo que hay que especificar más, ¿no? Claro. Overhead con otras cosas.
+
+37:04 - Unidentified Speaker
+Positivo.
+
+37:04 - Mauricio Montemayor
+Sistema de alarma overhead.
+
+37:07 - Unidentified Speaker
+A ver, pon así.
+
+37:09 - Conference Room (Catalina Lavariega) - Speaker 1
+Aquí está, ok. Ya, ya aquí me aparece.
+
+37:14 - Unidentified Speaker
+¿Cuántas imágenes te manda? TBC.
+
+37:17 - Conference Room (Catalina Lavariega) - Speaker 1
+No, pero Imágenes. O sea, tú vas a necesitar una imagen. Si tú ves las imágenes de los overheads, hay diferentes y hay diferentes marcas.
+
+37:32 - Mauricio Montemayor
+¿Y alguna marca de ustedes que usen?
+
+37:37 - Conference Room (Catalina Lavariega) - Speaker 1
+Seco Alarm.
+
+37:38 - Unidentified Speaker
+¿Cómo?
+
+37:39 - Unidentified Speaker
+Seco Alarm.
+
+37:40 - Conference Room (Catalina Lavariega) - Speaker 1
+¿Seco con S? S-E-C-O Alarm. O Enforcer.
+
+37:46 - Mauricio Montemayor
+Ok, aquí está. Déjame que enseño cosas que me parecen. A ver si es ese o es otro.
+
+37:56 - Conference Room (Catalina Lavariega) - Speaker 1
+Ese, ¿qué ves? Ese es el overhead. Pero si ves otro, hay una gran diversidad de modelos.
+
+38:05 - Unidentified Speaker
+Sí.
+
+38:06 - Conference Room (Catalina Lavariega) - Speaker 1
+A ver, déjame ver porque aquí me tapo. ¿Lo quito ahí? Sí, quítalo. Personas, una notificación.
+
+38:15 - Mauricio Montemayor
+Pero tú no tienes el número de serie, más bien el modelo.
+
+38:23 - Conference Room (Catalina Lavariega) - Speaker 2
+Es lo que te digo, yo no quisiera que tú fueras una marca, porque de Sequalarm y Enforcer, aunque son similares, podemos comprar un porque entonces mira van a ver a lo mejor Karina te va a ir diciendo y cuando te mande ligas es poner exactamente esas ligas el producto que va en esa liga porque si hay algunos específicos como bien dice Karina hay diferentes marcas por ejemplo hay una marca que nosotros usamos mucho la marca es Optex ¿Sí?
+
+39:10 - Conference Room (Catalina Lavariega) - Speaker 1
+De algunos sensores exteriores, pero Ajax ya sacó sus exteriores. Entonces, es un tema complejo por marcas.
+
+39:18 - Mauricio Montemayor
+No, lo ponemos general, o sea, tal vez, o sea, si se ve un producto, o sea, cuando pongamos la imagen de un producto, ahí a lo mejor no poner la marca, o lo quito la marca, o así. Sí, digo, a lo mejor un poquito más específico, pero ya, o sea, donde se mencionen las marcas, tal vez en la página de home, de que ya manejamos todas estas marcas, pero ya en sí que no se vea el logo del producto, pues que se usa para que no se casemos, no nos casemos con alguien.
+
+40:06 - Conference Room (Catalina Lavariega) - Speaker 1
+Por eso ahora mi tema particular en cuestión de los productos. Pero si tú me dices cuál es tu producto principal, pues es el paquete básico.
+
+40:21 - Unidentified Speaker
+Los paquetes.
+
+40:22 - Conference Room (Catalina Lavariega) - Speaker 1
+Los paquetes básicos, es todo eso.
+
+40:26 - Conference Room (Catalina Lavariega) - Speaker 1
+Muy bien.
+
+40:27 - Conference Room (Catalina Lavariega) - Speaker 2
+Nos dio seda a la vez.
+
+40:33 - Mauricio Montemayor
+Muy bien, perfecto. Pues espero eso, Karina, y te lo encargo mucho para el viernes o por ahí de lunes, martes, más tardar, y avanzar con todo esto a la página. OK.
+
+40:49 - Unidentified Speaker
+Bueno.
+
+40:50 - Conference Room (Catalina Lavariega) - Speaker 2
+Muy bien.
+
+40:51 - Unidentified Speaker
+Ya estamos.
+
+40:52 - Conference Room (Catalina Lavariega) - Speaker 3
+Muchas gracias. Gusto saludarlos. Bye. Igualmente, platicamos. Claro, gracias. Bye.
+
+40:57 - Conference Room (Catalina Lavariega) - Speaker 2
+Estaba viendo de un hecho de manejar el ¡Gracias!

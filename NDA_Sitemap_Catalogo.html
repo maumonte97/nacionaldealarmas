@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap &amp; Catálogo — Nacional de Alarmas | Mercanaut</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #0a1628;
+      --primary-light: #132038;
+      --accent: #f5c518;
+      --accent-light: #ffd84d;
+      --accent-bg: rgba(245, 197, 24, 0.08);
+      --accent-bg-strong: rgba(245, 197, 24, 0.15);
+      --accent-border: rgba(245, 197, 24, 0.25);
+
+      --nda-blue: #1e40af;
+      --nda-blue-light: #3b82f6;
+
+      --mkt-residential: #3b82f6;
+      --mkt-commercial: #f59e0b;
+      --mkt-industrial: #6366f1;
+      --mkt-cctv: #10b981;
+      --svc-color: #06b6d4;
+
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    ::selection {
+      background: rgba(245, 197, 24, 0.2);
+      color: var(--primary);
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .icon-inline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-inline svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 50%, #0d1a30 100%);
+      color: white;
+      padding: 60px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,197,24,0.1) 0%, transparent 70%);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,64,175,0.08) 0%, transparent 70%);
+    }
+    .cover-logo {
+      margin-bottom: 48px;
+    }
+    .cover-logo img {
+      height: 48px;
+      width: auto;
+      opacity: 0.7;
+    }
+    .cover h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 750px;
+      margin-bottom: 20px;
+    }
+    .cover h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cover-sub {
+      font-size: 17px;
+      font-weight: 300;
+      opacity: 0.5;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.35;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 80px 0; }
+    .section + .section { border-top: 1px solid var(--gray-200); }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--nda-blue);
+      margin-bottom: 12px;
+    }
+    .section-label.yellow { color: var(--accent); }
+    .section-label.green { color: #10b981; }
+    .section-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .section-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gray-500);
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    /* ===== INFO BOX ===== */
+    .info-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: rgba(30,64,175,0.04);
+      border: 1px solid rgba(30,64,175,0.1);
+      margin-bottom: 32px;
+    }
+    .info-box .icon-inline { width: 20px; height: 20px; color: var(--nda-blue); flex-shrink: 0; margin-top: 1px; }
+    .info-box p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+    .info-box strong { color: var(--primary); }
+
+    /* ===== SITEMAP ===== */
+    .sitemap-root {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 32px;
+    }
+    .sitemap-root.nda { border-color: rgba(30,64,175,0.2); }
+
+    .sitemap-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .sitemap-header .icon-inline { width: 20px; height: 20px; }
+    .sitemap-header.nda { background: var(--nda-blue); }
+    .sitemap-header .tech {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.5;
+      background: rgba(255,255,255,0.12);
+      padding: 4px 12px;
+      border-radius: 9999px;
+    }
+
+    .sitemap-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .node {
+      padding: 24px;
+      border-right: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+      transition: background 0.2s;
+    }
+    .node:hover { background: var(--gray-50); }
+
+    .node-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .node-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .node-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary);
+    }
+    .node-path {
+      margin-left: auto;
+      font-size: 10px;
+      color: var(--gray-400);
+      font-weight: 400;
+      background: var(--gray-100);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .node-list {
+      list-style: none;
+      margin-left: 20px;
+      border-left: 2px solid var(--gray-200);
+      padding-left: 14px;
+    }
+    .node-list li {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 400;
+      padding: 3px 0;
+      position: relative;
+    }
+    .node-list li::before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      width: 8px;
+      height: 2px;
+      background: var(--gray-300);
+    }
+    .node-list li strong {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .nested {
+      list-style: none;
+      margin-left: 12px;
+      border-left: 2px solid var(--gray-200);
+      padding-left: 12px;
+      margin-top: 3px;
+    }
+    .nested li {
+      font-size: 12px;
+      color: var(--gray-500);
+      font-weight: 400;
+      padding: 2px 0;
+      position: relative;
+    }
+    .nested li::before {
+      content: '';
+      position: absolute;
+      left: -13px;
+      top: 50%;
+      width: 6px;
+      height: 2px;
+      background: var(--gray-200);
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .tag-wa {
+      background: rgba(16,185,129,0.1);
+      color: #059669;
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+    .tag-form {
+      background: rgba(99,102,241,0.1);
+      color: #4F46E5;
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    .tag-seo {
+      background: rgba(30,64,175,0.08);
+      color: var(--nda-blue);
+      border: 1px solid rgba(30,64,175,0.15);
+    }
+    .tag-priority {
+      background: var(--accent-bg);
+      color: #b8860b;
+      border: 1px solid var(--accent-border);
+    }
+    .tag-anim {
+      background: rgba(236,72,153,0.08);
+      color: #db2777;
+      border: 1px solid rgba(236,72,153,0.15);
+    }
+    .tag-new {
+      background: rgba(16,185,129,0.08);
+      color: #059669;
+      border: 1px solid rgba(16,185,129,0.15);
+    }
+
+    /* ===== PRODUCT TREES ===== */
+    .product-tree {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+    .product-tree-header {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      color: white;
+    }
+    .product-tree-header .icon-inline { width: 18px; height: 18px; }
+    .product-tree-header.residential { background: var(--mkt-residential); }
+    .product-tree-header.commercial { background: var(--mkt-commercial); color: var(--primary); }
+    .product-tree-header.industrial { background: var(--mkt-industrial); }
+    .product-tree-header.cctv { background: var(--mkt-cctv); }
+    .product-tree-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 24px;
+      padding: 20px 24px;
+    }
+    .product-cat { margin-bottom: 12px; }
+    .product-cat-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .product-cat ul { list-style: none; }
+    .product-cat li {
+      font-size: 13px;
+      color: var(--gray-500);
+      padding: 3px 0;
+      padding-left: 14px;
+      position: relative;
+    }
+    .product-cat li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gray-300);
+    }
+
+    /* ===== PAGE STRUCTURES ===== */
+    .page-structure {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 24px;
+    }
+    .page-structure-header {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      color: white;
+    }
+    .page-structure-header .icon-inline { width: 18px; height: 18px; }
+    .page-structure-header .route {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.6;
+      background: rgba(255,255,255,0.15);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .ps-body { padding: 4px 24px 20px; }
+    .ps-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .ps-row:last-child { border-bottom: none; }
+    .ps-num {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: var(--gray-100);
+      color: var(--gray-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ps-text h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .ps-text p {
+      font-size: 12px;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+    .ps-text .ps-copy {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-style: italic;
+      margin-top: 4px;
+      padding-left: 12px;
+      border-left: 2px solid var(--gray-200);
+    }
+    .ps-tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
+
+    /* ===== FLOW DIAGRAM ===== */
+    .flow-section { text-align: center; padding: 48px 0; }
+    .flow-diagram {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .flow-box {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .flow-box .icon-inline { width: 18px; height: 18px; }
+    .flow-box.user {
+      background: var(--gray-100);
+      color: var(--gray-600);
+      border: 1px solid var(--gray-300);
+    }
+    .flow-box.nda {
+      background: rgba(30,64,175,0.06);
+      color: var(--nda-blue);
+      border: 1px solid rgba(30,64,175,0.2);
+    }
+    .flow-arrow {
+      width: 2px; height: 28px;
+      background: var(--gray-300);
+      position: relative;
+    }
+    .flow-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: -3px;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--gray-300);
+    }
+    .flow-split {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+      position: relative;
+    }
+    .flow-split::before {
+      content: '';
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      height: 2px;
+      background: var(--gray-300);
+    }
+    .flow-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .flow-label {
+      font-size: 11px;
+      color: var(--gray-400);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .flow-result {
+      padding: 12px 20px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      color: var(--gray-500);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* ===== KEYWORDS ===== */
+    .keywords-wrap {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .keywords-header {
+      padding: 18px 24px;
+      font-weight: 600;
+      font-size: 14px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .keywords-header .icon-inline { width: 18px; height: 18px; color: var(--gray-500); }
+    .keywords-body { padding: 24px; }
+    .keyword-group { margin-bottom: 24px; }
+    .keyword-group:last-child { margin-bottom: 0; }
+    .keyword-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .keyword-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .keyword-tag {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--gray-100);
+      color: var(--gray-600);
+    }
+    .keyword-tag.primary {
+      background: rgba(30,64,175,0.08);
+      color: var(--nda-blue);
+      border: 1px solid rgba(30,64,175,0.15);
+    }
+
+    /* ===== SEO TABLE ===== */
+    .seo-table-wrap {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-top: 32px;
+    }
+    .seo-table-header {
+      padding: 18px 24px;
+      font-weight: 600;
+      font-size: 14px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .seo-table-header .icon-inline { width: 18px; height: 18px; color: var(--gray-500); }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      background: white;
+      padding: 12px 20px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray-400);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    td {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-700);
+    }
+    tr:hover td { background: var(--gray-50); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--primary);
+      color: white;
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .footer-logo { margin-bottom: 16px; }
+    .footer-logo img { height: 32px; width: auto; opacity: 0.4; }
+    .footer p {
+      font-size: 13px;
+      font-weight: 300;
+      opacity: 0.3;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .cover h1 { font-size: 28px; }
+      .cover-sub { font-size: 15px; }
+      .sitemap-body { grid-template-columns: 1fr; }
+      .product-tree-body { grid-template-columns: 1fr; }
+      .flow-split { flex-direction: column; gap: 24px; }
+      .flow-split::before { display: none; }
+      .section { padding: 48px 0; }
+      .section-title { font-size: 24px; }
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== COVER ========== -->
+  <div class="cover">
+    <div class="cover-logo">
+      <img src="logo-mercanaut.png" alt="Mercanaut">
+    </div>
+    <h1>Sitemap &amp; Cat&aacute;logo para <span>Nacional de Alarmas</span></h1>
+    <p class="cover-sub">Estructura del sitio, cat&aacute;logo de productos por mercado, flujo de usuario y estrategia SEO para el redise&ntilde;o completo.</p>
+    <div class="cover-meta">
+      <div>Marzo 2026</div>
+      <div>&bull;</div>
+      <div>Preparado para Nacional de Alarmas S.A. de C.V.</div>
+    </div>
+  </div>
+
+  <!-- ========== FLUJO DE USUARIO ========== -->
+  <div class="section">
+    <div class="container">
+      <div class="section-label">Experiencia de usuario</div>
+      <div class="section-title">&iquest;C&oacute;mo navega cada visitante?</div>
+      <p class="section-desc">Navegaci&oacute;n tipo &aacute;rbol: el usuario elige su mercado y va profundizando. Sin ruido, sin exceso de texto.</p>
+
+      <div class="flow-section">
+        <div class="flow-diagram">
+          <div class="flow-box user">
+            <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg></span>
+            Busca &ldquo;alarmas Monterrey&rdquo; en Google
+          </div>
+          <div class="flow-arrow"></div>
+          <div class="flow-box nda">
+            <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></span>
+            Llega a Nacional de Alarmas
+          </div>
+          <div class="flow-arrow"></div>
+          <div style="height: 12px;"></div>
+          <div class="flow-split">
+            <div class="flow-branch">
+              <div class="flow-label">Quiero proteger mi casa</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-box nda">Residencial</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-result">
+                Ve productos por uso &rarr; GIFs<br>de sensores &rarr; Cotiza por<br>WhatsApp o formulario
+              </div>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-label">Quiero proteger mi negocio</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-box nda">Comercial</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-result">
+                Ve soluciones comerciales &rarr;<br>Paquetes adaptables &rarr;<br>Cotiza con asesor
+              </div>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-label">Tengo una bodega o nave</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-box nda">Industrial</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-result">
+                Ve soluciones especializadas &rarr;<br>Photobeam, overhead &rarr;<br>Solicita visita t&eacute;cnica
+              </div>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-label">Necesito c&aacute;maras</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-box nda">CCTV</div>
+              <div class="flow-arrow"></div>
+              <div class="flow-result">
+                Ve tipos de c&aacute;maras &rarr;<br>WiFi vs IP &rarr;<br>Cotiza por WhatsApp
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SITEMAP ========== -->
+  <div class="section">
+    <div class="container">
+      <div class="section-label">Sitemap</div>
+      <div class="section-title">Estructura del sitio</div>
+      <p class="section-desc">Arquitectura completa del nuevo sitio. Cada p&aacute;gina dise&ntilde;ada con un objetivo claro de conversi&oacute;n y SEO.</p>
+
+      <div class="sitemap-root nda">
+        <div class="sitemap-header nda">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></span>
+          nacionaldealarmas.com
+          <span class="tech">Next.js + Sanity CMS</span>
+        </div>
+        <div class="sitemap-body">
+
+          <!-- Inicio -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--nda-blue)"></div>
+              <span class="node-title">Inicio</span>
+              <span class="node-path">/</span>
+            </div>
+            <ul class="node-list">
+              <li>Hero con video/animaci&oacute;n de fondo <span class="tag tag-anim">Parallax</span></li>
+              <li>Propuesta de valor: Central propia, +30 a&ntilde;os, 24/7</li>
+              <li>Trust bar de marcas (Ajax, Honeywell, Trikdis)</li>
+              <li>Stats animados (+10,000 &middot; 30+ &middot; 5/5 &middot; 24h)</li>
+              <li>3 pilares: Por qu&eacute; NDA</li>
+              <li>4 servicios: Monitoreo, T&eacute;cnico, App, Instalaci&oacute;n</li>
+              <li>Soluciones por mercado (4 cards visuales)</li>
+              <li>Proceso: 4 pasos</li>
+              <li>Productos por uso con GIFs (6 productos)</li>
+              <li>Paquetes: Esencial, Avanzado, Integral</li>
+              <li>Comparador NDA vs competencia</li>
+              <li>Logos de clientes (34+ logos)</li>
+              <li>Testimonios (5/5 estrellas)</li>
+              <li>FAQ (7 preguntas)</li>
+              <li>CTA + Formulario de contacto</li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">alarmas monterrey</span>
+              <span class="tag tag-priority">Alta prioridad</span>
+              <span class="tag tag-wa">WhatsApp</span>
+              <span class="tag tag-form">Formulario</span>
+            </div>
+          </div>
+
+          <!-- Nosotros -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--nda-blue)"></div>
+              <span class="node-title">Nosotros</span>
+              <span class="node-path">/nosotros</span>
+            </div>
+            <ul class="node-list">
+              <li>Historia desde 1995 (timeline visual)</li>
+              <li>Misi&oacute;n y valores</li>
+              <li>Equipo y certificaciones</li>
+              <li>Franquicia First Alert</li>
+              <li>Central de monitoreo propia</li>
+              <li>Ubicaci&oacute;n: Gonzalitos 502-B, Vista Hermosa</li>
+            </ul>
+          </div>
+
+          <!-- Residencial -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--mkt-residential)"></div>
+              <span class="node-title">Residencial</span>
+              <span class="node-path">/residencial</span>
+            </div>
+            <ul class="node-list">
+              <li>Hero: &ldquo;Protege lo que m&aacute;s quieres&rdquo;</li>
+              <li><strong>Productos por uso</strong> (con GIFs/videos):
+                <ul class="nested">
+                  <li>Sensores de movimiento (interior)</li>
+                  <li>Contactos para puertas/ventanas</li>
+                  <li>Detectores de humo y gas</li>
+                  <li>Sensores de exterior</li>
+                  <li>Bot&oacute;n de p&aacute;nico</li>
+                </ul>
+              </li>
+              <li><strong>Paquetes b&aacute;sicos</strong> (flexibles, sin precios)</li>
+              <li>C&oacute;mo funciona el monitoreo</li>
+              <li>Cotizar <span class="tag tag-wa">WhatsApp</span> <span class="tag tag-form">Formulario</span></li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">alarmas para casa monterrey</span>
+              <span class="tag tag-priority">Alta prioridad</span>
+            </div>
+          </div>
+
+          <!-- Comercial -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--mkt-commercial)"></div>
+              <span class="node-title">Comercial</span>
+              <span class="node-path">/comercial</span>
+            </div>
+            <ul class="node-list">
+              <li>Hero: &ldquo;Nuestro negocio es proteger el tuyo&rdquo;</li>
+              <li><strong>Productos por uso</strong> (con GIFs/videos):
+                <ul class="nested">
+                  <li>Sensores de movimiento</li>
+                  <li>Contactos y overhead</li>
+                  <li>Sensores de impacto</li>
+                  <li>Detectores de incendio</li>
+                  <li>Sensores de exterior</li>
+                </ul>
+              </li>
+              <li>Soluciones por tipo: oficinas, locales, colegios</li>
+              <li>Cotizar <span class="tag tag-wa">WhatsApp</span></li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">alarmas para negocio</span>
+            </div>
+          </div>
+
+          <!-- Industrial -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--mkt-industrial)"></div>
+              <span class="node-title">Industrial / Bodegas</span>
+              <span class="node-path">/industrial</span>
+            </div>
+            <ul class="node-list">
+              <li>Hero: &ldquo;Seguridad para naves industriales&rdquo;</li>
+              <li><strong>Productos por uso</strong> (con GIFs/videos):
+                <ul class="nested">
+                  <li>Sensores de movimiento industrial</li>
+                  <li>Overhead y contactos uso rudo</li>
+                  <li>Sensores de impacto</li>
+                  <li>Photobeam</li>
+                  <li>Detectores de incendio</li>
+                  <li>Fotoceldas</li>
+                </ul>
+              </li>
+              <li>Casos de uso: bodegas, naves, almacenes</li>
+              <li>Solicitar visita t&eacute;cnica <span class="tag tag-form">Formulario</span></li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">seguridad industrial monterrey</span>
+            </div>
+          </div>
+
+          <!-- CCTV -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--mkt-cctv)"></div>
+              <span class="node-title">C&aacute;maras / CCTV</span>
+              <span class="node-path">/camaras</span>
+            </div>
+            <ul class="node-list">
+              <li>Hero: &ldquo;Vigila tu propiedad desde cualquier lugar&rdquo;</li>
+              <li><strong>Tipos de c&aacute;maras:</strong>
+                <ul class="nested">
+                  <li>C&aacute;maras WiFi</li>
+                  <li>C&aacute;maras IP</li>
+                  <li>NVR (grabadores)</li>
+                </ul>
+              </li>
+              <li>App m&oacute;vil para visualizaci&oacute;n remota</li>
+              <li>Complemento perfecto con alarmas</li>
+              <li>Cotizar <span class="tag tag-wa">WhatsApp</span></li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">c&aacute;maras seguridad monterrey</span>
+              <span class="tag tag-new">Nuevo depto</span>
+            </div>
+          </div>
+
+          <!-- Servicios -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--svc-color)"></div>
+              <span class="node-title">Servicios</span>
+              <span class="node-path">/servicios</span>
+            </div>
+            <ul class="node-list">
+              <li><strong>Monitoreo 24/7</strong> &mdash; Central propia en Monterrey</li>
+              <li><strong>Soporte t&eacute;cnico</strong> &mdash; Mismo d&iacute;a / 48hrs m&aacute;x
+                <ul class="nested">
+                  <li>Correctivo (actual)</li>
+                  <li>Preventivo (en implementaci&oacute;n)</li>
+                </ul>
+              </li>
+              <li><strong>Soporte de app</strong> &mdash; Personal dedicado</li>
+              <li><strong>Instalaci&oacute;n profesional</strong> &mdash; T&eacute;cnicos certificados</li>
+              <li><strong>Asesor&iacute;a personalizada</strong> &mdash; Dise&ntilde;o de sistema a medida</li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">monitoreo de alarmas</span>
+            </div>
+          </div>
+
+          <!-- Cotización -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--accent)"></div>
+              <span class="node-title">Cotizaci&oacute;n</span>
+              <span class="node-path">/cotiza</span>
+            </div>
+            <ul class="node-list">
+              <li><strong>Formulario wizard</strong> (paso a paso):
+                <ul class="nested">
+                  <li>1. &iquest;Qu&eacute; quieres proteger? (casa, oficina, bodega)</li>
+                  <li>2. Detalles del inmueble (puertas, ventanas, &aacute;reas)</li>
+                  <li>3. Tipo de servicio (con/sin monitoreo, app)</li>
+                  <li>4. Datos de contacto</li>
+                </ul>
+              </li>
+              <li>Env&iacute;o a WhatsApp del vendedor + email</li>
+              <li>Integraci&oacute;n con CRM</li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-priority">Alta prioridad &mdash; conversi&oacute;n</span>
+            </div>
+          </div>
+
+          <!-- Clientes -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--nda-blue)"></div>
+              <span class="node-title">Clientes</span>
+              <span class="node-path">/clientes</span>
+            </div>
+            <ul class="node-list">
+              <li>Rese&ntilde;as verificadas (Google Reviews widget)</li>
+              <li>Casos de &eacute;xito / testimonios</li>
+              <li>Calificaci&oacute;n 5/5 estrellas</li>
+              <li>Logos de empresas (+34 clientes)</li>
+            </ul>
+          </div>
+
+          <!-- Blog -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--nda-blue)"></div>
+              <span class="node-title">Blog / Tips</span>
+              <span class="node-path">/blog</span>
+            </div>
+            <ul class="node-list">
+              <li>Tips de seguridad para el hogar</li>
+              <li>Gu&iacute;as: c&oacute;mo elegir un sistema de alarma</li>
+              <li>Novedades tecnol&oacute;gicas (Ajax, Honeywell)</li>
+              <li>Noticias de seguridad en Monterrey</li>
+            </ul>
+            <div style="margin-top:10px">
+              <span class="tag tag-seo">contenido long-tail</span>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--nda-blue)"></div>
+              <span class="node-title">Contacto</span>
+              <span class="node-path">/contacto</span>
+            </div>
+            <ul class="node-list">
+              <li>Formulario de contacto general</li>
+              <li>WhatsApp directo <span class="tag tag-wa">WhatsApp</span></li>
+              <li>Tel&eacute;fonos: 81 8348 8085, 81 2719 3393</li>
+              <li>Mapa con ubicaci&oacute;n (Gonzalitos 502-B)</li>
+              <li>Horarios: L-V 9am-6pm, S&aacute;b 9am-2pm</li>
+              <li>Redes sociales</li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-dot" style="background: var(--gray-400)"></div>
+              <span class="node-title">Legal</span>
+              <span class="node-path">/legal</span>
+            </div>
+            <ul class="node-list">
+              <li>Aviso de privacidad</li>
+              <li>T&eacute;rminos y condiciones</li>
+              <li>Pol&iacute;tica de cookies</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ESTRUCTURA POR PÁGINA ========== -->
+  <div class="section">
+    <div class="container">
+      <div class="section-label green">Estructura de p&aacute;ginas</div>
+      <div class="section-title">Secciones por p&aacute;gina interna</div>
+      <p class="section-desc">Cada p&aacute;gina interna sigue una estructura consistente. Aqu&iacute; se define el orden de secciones y copy sugerido para cada una.</p>
+
+      <div class="info-box">
+        <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/></svg></span>
+        <p><strong>Componentes compartidos:</strong> Navbar, Footer, WhatsApp float y Scroll-to-top se repiten en todas las p&aacute;ginas. El Banner CTA final tambi&eacute;n aparece en cada p&aacute;gina interna.</p>
+      </div>
+
+      <!-- Residencial -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: var(--mkt-residential);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></span>
+          Residencial
+          <span class="route">/residencial</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Hero</h4><p>Imagen/video de hogar protegido. Badge: &ldquo;Alarmas residenciales&rdquo;.</p><div class="ps-copy">&ldquo;Protege lo que m&aacute;s quieres&rdquo;</div><div class="ps-tags"><span class="tag tag-wa">WhatsApp</span><span class="tag tag-form">Cotiza gratis</span></div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Productos por uso</h4><p>Grid de productos con GIFs/im&aacute;genes. Sensores, contactos, detectores, perimetrales, p&aacute;nico.</p><div class="ps-copy">&ldquo;Conoce lo que protege tu hogar&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><h4>Paquetes residenciales</h4><p>Esencial y Avanzado como opciones. Sin precios, CTA a cotizar.</p></div></div>
+          <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><h4>C&oacute;mo funciona el monitoreo</h4><p>4 pasos: Cu&eacute;ntanos &rarr; Dise&ntilde;amos &rarr; Instalamos &rarr; Protecci&oacute;n 24/7.</p></div></div>
+          <div class="ps-row"><div class="ps-num">5</div><div class="ps-text"><h4>Testimonios + FAQ + Banner CTA</h4><p>Testimonios filtrados a residencial. FAQ espec&iacute;ficas. CTA final.</p></div></div>
+        </div>
+      </div>
+
+      <!-- Comercial -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: var(--mkt-commercial); color: var(--primary);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"/></svg></span>
+          Comercial
+          <span class="route" style="color: var(--primary);">/comercial</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Hero</h4><div class="ps-copy">&ldquo;Nuestro negocio es proteger el tuyo&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Soluciones por tipo de negocio</h4><p>Cards: oficinas, locales comerciales, colegios, restaurantes.</p></div></div>
+          <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><h4>Productos por uso</h4><p>Grid con productos comerciales. Incluye overhead y sensores de impacto.</p><div class="ps-copy">&ldquo;Tecnolog&iacute;a que protege tu inversi&oacute;n&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><h4>Logos de clientes comerciales</h4><p>Marquee con logos relevantes de negocios protegidos.</p></div></div>
+          <div class="ps-row"><div class="ps-num">5</div><div class="ps-text"><h4>Proceso + Testimonios + FAQ + CTA</h4><p>Misma estructura que Residencial, adaptado a contexto comercial.</p></div></div>
+        </div>
+      </div>
+
+      <!-- Industrial -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: var(--mkt-industrial);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg></span>
+          Industrial / Bodegas
+          <span class="route">/industrial</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Hero</h4><div class="ps-copy">&ldquo;Seguridad para naves industriales&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Casos de uso</h4><p>Cards: bodegas, naves industriales, almacenes, centros de distribuci&oacute;n.</p></div></div>
+          <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><h4>Productos especializados</h4><p>Photobeam, Fotoceldas, sensores de impacto, overhead uso rudo.</p><div class="ps-copy">&ldquo;Protecci&oacute;n perimetral a gran escala&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><h4>Proceso + CTA</h4><p>CTA principal: &ldquo;Solicita visita t&eacute;cnica&rdquo;.</p><div class="ps-tags"><span class="tag tag-form">Formulario visita t&eacute;cnica</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- CCTV -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: var(--mkt-cctv);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg></span>
+          C&aacute;maras / CCTV
+          <span class="route">/camaras</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Hero</h4><div class="ps-copy">&ldquo;Vigila tu propiedad desde cualquier lugar&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Tipos de c&aacute;maras</h4><p>Cards comparativas: WiFi vs IP. Caracter&iacute;sticas y uso ideal.</p></div></div>
+          <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><h4>Grabaci&oacute;n (NVR)</h4><p>Grabadores en red. Almacenamiento local vs nube.</p></div></div>
+          <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><h4>App m&oacute;vil / visualizaci&oacute;n remota</h4><p>Mockup de app con vista de c&aacute;maras.</p><div class="ps-copy">&ldquo;Tu propiedad en tu bolsillo&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">5</div><div class="ps-text"><h4>Complemento con alarmas + CTA</h4><p>Cross-sell: CCTV + alarmas = protecci&oacute;n completa.</p><div class="ps-tags"><span class="tag tag-wa">WhatsApp</span><span class="tag tag-form">Cotizar</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- Servicios -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: var(--svc-color);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"/></svg></span>
+          Servicios
+          <span class="route">/servicios</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Hero</h4><div class="ps-copy">&ldquo;Todo lo que necesitas para tu seguridad&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Servicios detallados</h4><p>Secciones expandidas: Monitoreo 24/7, Soporte t&eacute;cnico, App m&oacute;vil, Instalaci&oacute;n, Asesor&iacute;a.</p></div></div>
+          <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><h4>Comparador NDA vs otros</h4><p>Toggle interactivo con ventajas vs competencia.</p></div></div>
+          <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><h4>CTA + Formulario</h4></div></div>
+        </div>
+      </div>
+
+      <!-- Nosotros -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: var(--nda-blue);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg></span>
+          Nosotros
+          <span class="route">/nosotros</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Hero</h4><div class="ps-copy">&ldquo;M&aacute;s de 30 a&ntilde;os protegiendo Monterrey&rdquo;</div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Historia / Timeline</h4><p>Timeline visual desde 1995 hasta hoy. Hitos principales.</p></div></div>
+          <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><h4>Misi&oacute;n, valores y certificaciones</h4><p>Franquicia First Alert, certificaciones t&eacute;cnicas.</p></div></div>
+          <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><h4>Central de monitoreo</h4><p>Secci&oacute;n destacada: Central propia en Monterrey. Fotos/video de la central.</p></div></div>
+          <div class="ps-row"><div class="ps-num">5</div><div class="ps-text"><h4>Stats + Clientes + CTA</h4><p>M&eacute;tricas, logos de clientes y banner CTA final.</p></div></div>
+        </div>
+      </div>
+
+      <!-- Cotización -->
+      <div class="page-structure">
+        <div class="page-structure-header" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--primary);">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg></span>
+          Cotizaci&oacute;n
+          <span class="route" style="color: var(--primary);">/cotiza</span>
+        </div>
+        <div class="ps-body">
+          <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><h4>Formulario wizard (paso a paso)</h4><p>Pantalla completa. 4 pasos progresivos con barra de progreso visual.</p><div class="ps-tags"><span class="tag tag-form">1. &iquest;Qu&eacute; proteges?</span><span class="tag tag-form">2. Detalles inmueble</span><span class="tag tag-form">3. Tipo servicio</span><span class="tag tag-form">4. Datos contacto</span></div></div></div>
+          <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><h4>Confirmaci&oacute;n</h4><p>Pantalla de &eacute;xito. Env&iacute;o simult&aacute;neo a WhatsApp vendedor + email interno. Integraci&oacute;n CRM.</p></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== CATÁLOGO POR MERCADO ========== -->
+  <div class="section">
+    <div class="container">
+      <div class="section-label yellow">Cat&aacute;logo</div>
+      <div class="section-title">Productos por mercado</div>
+      <p class="section-desc">Estructura de productos organizada por uso y categor&iacute;a. Se muestran de forma gen&eacute;rica (sin casarse con una marca). Las marcas se mencionan en la p&aacute;gina principal.</p>
+
+      <div class="info-box">
+        <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/></svg></span>
+        <p><strong>Paquetes base:</strong> 4 opciones de comunicaci&oacute;n &mdash; Honeywell IP, Honeywell GSM, Trikdis IP/GSM, Ajax IP/GSM. Se presentan como opciones flexibles y adaptables, no como paquetes r&iacute;gidos. Sin precios en la p&aacute;gina.</p>
+      </div>
+
+      <!-- Residencial -->
+      <div class="product-tree">
+        <div class="product-tree-header residential">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></span>
+          Residencial
+        </div>
+        <div class="product-tree-body">
+          <div class="product-cat">
+            <div class="product-cat-title">Apertura</div>
+            <ul>
+              <li>Contactos magn&eacute;ticos</li>
+              <li>Contactos especiales (overhead)</li>
+              <li>Contactos uso rudo</li>
+              <li>Transmisores inal&aacute;mbricos</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">&Aacute;rea general</div>
+            <ul>
+              <li>Sensores de movimiento</li>
+              <li>Sensores de movimiento inal&aacute;mbrico</li>
+              <li>Sensores especiales</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Exterior</div>
+            <ul>
+              <li>Sensores movimiento exterior</li>
+              <li>Fotoceldas</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Incendio</div>
+            <ul>
+              <li>Detector de humo</li>
+              <li>Detector de gas</li>
+              <li>Detector t&eacute;rmico</li>
+              <li>Detectores inal&aacute;mbricos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comercial -->
+      <div class="product-tree">
+        <div class="product-tree-header commercial">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"/></svg></span>
+          Comercial
+        </div>
+        <div class="product-tree-body">
+          <div class="product-cat">
+            <div class="product-cat-title">Apertura</div>
+            <ul>
+              <li>Contactos magn&eacute;ticos</li>
+              <li>Overhead</li>
+              <li>Uso rudo</li>
+              <li>Transmisores inal&aacute;mbricos</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">&Aacute;rea general</div>
+            <ul>
+              <li>Sensores de movimiento</li>
+              <li>Sensores inal&aacute;mbricos</li>
+              <li>Sensores especiales</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Protecci&oacute;n</div>
+            <ul>
+              <li>Sensores de impacto</li>
+              <li>Sensores movimiento exterior</li>
+              <li>Fotoceldas</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Incendio</div>
+            <ul>
+              <li>Detector de humo</li>
+              <li>Detector de gas</li>
+              <li>Detector t&eacute;rmico</li>
+              <li>Detectores inal&aacute;mbricos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industrial -->
+      <div class="product-tree">
+        <div class="product-tree-header industrial">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg></span>
+          Industrial / Bodegas
+        </div>
+        <div class="product-tree-body">
+          <div class="product-cat">
+            <div class="product-cat-title">Apertura</div>
+            <ul>
+              <li>Contactos magn&eacute;ticos</li>
+              <li>Overhead</li>
+              <li>Uso rudo</li>
+              <li>Transmisores inal&aacute;mbricos</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">&Aacute;rea general</div>
+            <ul>
+              <li>Sensores de movimiento</li>
+              <li>Sensores inal&aacute;mbricos</li>
+              <li>Sensores especiales</li>
+              <li>Sensores de impacto</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Exterior</div>
+            <ul>
+              <li>Sensores movimiento exterior</li>
+              <li>Fotoceldas</li>
+              <li>Photobeam</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Incendio</div>
+            <ul>
+              <li>Detector de humo</li>
+              <li>Detector de gas</li>
+              <li>Detector t&eacute;rmico</li>
+              <li>Detectores inal&aacute;mbricos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CCTV -->
+      <div class="product-tree">
+        <div class="product-tree-header cctv">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg></span>
+          CCTV &mdash; Circuito Cerrado
+          <span style="margin-left:auto;font-size:11px;opacity:0.7;background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:999px;">Nuevo departamento</span>
+        </div>
+        <div class="product-tree-body">
+          <div class="product-cat">
+            <div class="product-cat-title">C&aacute;maras</div>
+            <ul>
+              <li>C&aacute;maras WiFi</li>
+              <li>C&aacute;maras IP</li>
+            </ul>
+          </div>
+          <div class="product-cat">
+            <div class="product-cat-title">Grabaci&oacute;n</div>
+            <ul>
+              <li>NVR (grabadores en red)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ESTRATEGIA SEO ========== -->
+  <div class="section">
+    <div class="container">
+      <div class="section-label">Estrategia SEO</div>
+      <div class="section-title">Keywords a posicionar</div>
+      <p class="section-desc">Keywords organizadas por prioridad. Cada p&aacute;gina del sitemap ataca un grupo espec&iacute;fico.</p>
+
+      <div class="keywords-wrap">
+        <div class="keywords-header">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg></span>
+          Keywords por prioridad
+        </div>
+        <div class="keywords-body">
+          <div class="keyword-group">
+            <div class="keyword-group-title">Principales</div>
+            <div class="keyword-tags">
+              <span class="keyword-tag primary">alarmas monterrey</span>
+              <span class="keyword-tag primary">alarmas para casa monterrey</span>
+              <span class="keyword-tag primary">sistemas de seguridad monterrey</span>
+              <span class="keyword-tag primary">monitoreo de alarmas</span>
+              <span class="keyword-tag primary">c&aacute;maras de seguridad monterrey</span>
+            </div>
+          </div>
+          <div class="keyword-group">
+            <div class="keyword-group-title">Secundarias</div>
+            <div class="keyword-tags">
+              <span class="keyword-tag">alarmas residenciales monterrey</span>
+              <span class="keyword-tag">alarmas para negocio</span>
+              <span class="keyword-tag">alarmas sin contrato</span>
+              <span class="keyword-tag">seguridad electr&oacute;nica nuevo le&oacute;n</span>
+              <span class="keyword-tag">empresas de alarmas en monterrey</span>
+              <span class="keyword-tag">safe pack alarmas</span>
+              <span class="keyword-tag">first alert monterrey</span>
+              <span class="keyword-tag">ajax systems monterrey</span>
+            </div>
+          </div>
+          <div class="keyword-group">
+            <div class="keyword-group-title">Long-tail (Blog)</div>
+            <div class="keyword-tags">
+              <span class="keyword-tag">cu&aacute;nto cuesta una alarma para casa en monterrey</span>
+              <span class="keyword-tag">mejor empresa de alarmas en monterrey</span>
+              <span class="keyword-tag">alarmas sin costo de instalaci&oacute;n</span>
+              <span class="keyword-tag">monitoreo 24 horas alarmas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapeo keyword → página -->
+      <div class="seo-table-wrap">
+        <div class="seo-table-header">
+          <span class="icon-inline"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg></span>
+          Mapeo keyword &rarr; p&aacute;gina
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>P&aacute;gina</th>
+              <th>Ruta</th>
+              <th>Keywords objetivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inicio</strong></td>
+              <td>/</td>
+              <td>alarmas monterrey, central de monitoreo propia, sistemas de seguridad monterrey</td>
+            </tr>
+            <tr>
+              <td><strong>Residencial</strong></td>
+              <td>/residencial</td>
+              <td>alarmas para casa monterrey, alarmas residenciales, seguridad para hogar</td>
+            </tr>
+            <tr>
+              <td><strong>Comercial</strong></td>
+              <td>/comercial</td>
+              <td>alarmas para negocio, seguridad comercial monterrey</td>
+            </tr>
+            <tr>
+              <td><strong>Industrial</strong></td>
+              <td>/industrial</td>
+              <td>seguridad industrial monterrey, alarmas para bodegas</td>
+            </tr>
+            <tr>
+              <td><strong>CCTV</strong></td>
+              <td>/camaras</td>
+              <td>c&aacute;maras de seguridad monterrey, videovigilancia</td>
+            </tr>
+            <tr>
+              <td><strong>Servicios</strong></td>
+              <td>/servicios</td>
+              <td>monitoreo de alarmas, monitoreo 24 horas</td>
+            </tr>
+            <tr>
+              <td><strong>Blog</strong></td>
+              <td>/blog</td>
+              <td>cu&aacute;nto cuesta una alarma, mejor empresa de alarmas (long-tail)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <div class="footer">
+    <div class="footer-logo">
+      <img src="logo-mercanaut.png" alt="Mercanaut">
+    </div>
+    <p>hola@mercanaut.mx &middot; 81 1536 1052 &middot; mercanaut.mx</p>
+  </div>
+
+</body>
+</html>
