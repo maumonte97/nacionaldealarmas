@@ -137,6 +137,10 @@
     .stagger.visible > *:nth-child(6) { transition-delay: 0.5s; }
     .stagger.visible > * { opacity: 1; transform: translateY(0); }
 
+    /* Carousel — hidden on desktop, activated via JS on mobile */
+    .carousel-arrows { display: none; }
+    .carousel-wrap { position: relative; }
+
     /* ===== 01. NAVBAR ===== */
     /* Navbar — pill glass (Design System spec) */
     .navbar {
@@ -1576,14 +1580,74 @@
       .stat-item:last-child { border-bottom: none; }
       .stats-grid { flex-direction: column; }
       .stat-number { font-size: 32px; }
+      /* --- Mobile Carousel System --- */
+      .carousel-wrap { position: relative; }
+      .carousel-track {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 16px;
+        padding-bottom: 12px;
+      }
+      .carousel-track::-webkit-scrollbar { display: none; }
+      .carousel-track > * {
+        flex: 0 0 85%;
+        min-width: 0;
+        scroll-snap-align: center;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .carousel-track .sol2-card { grid-column: auto !important; min-height: 260px; }
+      .carousel-track .sol2-card--main { min-height: 300px; }
+      .carousel-track .paquete-card.featured { transform: none; }
+      .carousel-track .pv2-item { min-width: 0; }
+      .carousel-track.pilares-v2-list { flex-direction: row !important; }
+      .carousel-track.proc-timeline {
+        padding-left: 0; max-width: 100%;
+      }
+      .carousel-track.proc-timeline::before,
+      .carousel-track.proc-timeline .proc-timeline-progress { display: none; }
+      .carousel-track.proc-timeline .proc-card {
+        margin-bottom: 0; opacity: 1; transform: none;
+      }
+      .carousel-track.proc-timeline .proc-dot { display: none; }
+      .carousel-track.proc-timeline .proc-step-num {
+        position: static; transform: none;
+        font-size: 11px; font-weight: 700;
+        color: var(--nda-yellow-400); margin-bottom: 4px; display: block;
+      }
+      .carousel-arrow {
+        width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+        color: #fff; display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: all 0.25s ease; font-size: 18px;
+      }
+      .carousel-arrow:hover { background: rgba(255,255,255,0.12); }
+      .carousel-arrow:active { transform: scale(0.92); }
+      .carousel-arrow.disabled { opacity: 0.25; pointer-events: none; }
+      .carousel-dots { display: flex; gap: 6px; align-items: center; }
+      .carousel-dot {
+        width: 7px; height: 7px; border-radius: 50%;
+        background: rgba(255,255,255,0.2); transition: all 0.3s ease;
+      }
+      .carousel-dot.active { background: var(--nda-yellow-400); width: 20px; border-radius: 4px; }
+      /* Show carousel arrows on mobile */
+      .carousel-arrows {
+        display: flex !important; justify-content: center; align-items: center;
+        gap: 12px; margin-top: 16px;
+      }
+
+      .pilares-v2-split { grid-template-columns: 1fr; }
+      .pilares-v2-visual { display: none; }
+      .pv2-lines-svg { display: none; }
       .services-grid, .soluciones-grid, .paquetes-grid, .productos-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; gap: var(--space-10); }
       .paquete-card.featured { transform: none; }
       .paquete-card.featured:hover { transform: translateY(-4px); }
       .dif-grid, .contacto-grid { grid-template-columns: 1fr; }
       .dif-image { display: none; }
-      .pilares-v2-split { grid-template-columns: 1fr; }
-      .pilares-v2-visual { display: none; }
       .section-title { font-size: 28px; }
       .banner-cta h2 { font-size: 28px; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -2963,7 +3027,115 @@
     initCircuits('circuitsCanvas');
     initCircuits('circuitsCanvasPaq', '.paquetes-grid');
 
-    /* --- 12. Contact form success state --- */
+    /* --- 12. Mobile Carousel System --- */
+    (function() {
+      const MOBILE_BP = 768;
+      const carouselConfigs = [
+        { track: '.services-grid', section: '#servicios .container' },
+        { track: '.sol2-grid', section: '#soluciones-v2 .container' },
+        { track: '.productos-grid', section: '#productos .container' },
+        { track: '.paquetes-grid', section: '#paquetes .container' },
+        { track: '.proc-timeline', section: '#proceso-v2 .container' },
+        { track: '.pilares-v2-list', section: '#pilares-v2 .container' },
+      ];
+
+      let activeCarousels = [];
+
+      function initCarousels() {
+        const isMobile = window.innerWidth <= MOBILE_BP;
+        if (isMobile && activeCarousels.length === 0) {
+          carouselConfigs.forEach(cfg => {
+            const track = document.querySelector(cfg.track);
+            const section = document.querySelector(cfg.section);
+            if (!track || !section) return;
+
+            // Add carousel-track class
+            track.classList.add('carousel-track');
+
+            // Count items
+            const items = Array.from(track.children).filter(el =>
+              !el.classList.contains('proc-timeline-progress') &&
+              !el.classList.contains('carousel-arrows')
+            );
+            const count = items.length;
+            if (count <= 1) return;
+
+            // Create arrows + dots
+            const arrows = document.createElement('div');
+            arrows.className = 'carousel-arrows';
+            arrows.innerHTML =
+              '<button class="carousel-arrow carousel-prev" aria-label="Anterior"><i class="ph-bold ph-caret-left"></i></button>' +
+              '<div class="carousel-dots">' +
+              items.map((_, i) => '<span class="carousel-dot' + (i === 0 ? ' active' : '') + '"></span>').join('') +
+              '</div>' +
+              '<button class="carousel-arrow carousel-next" aria-label="Siguiente"><i class="ph-bold ph-caret-right"></i></button>';
+
+            // Insert after track
+            track.parentNode.insertBefore(arrows, track.nextSibling);
+
+            const dots = arrows.querySelectorAll('.carousel-dot');
+            const prevBtn = arrows.querySelector('.carousel-prev');
+            const nextBtn = arrows.querySelector('.carousel-next');
+            let current = 0;
+
+            function updateDots() {
+              dots.forEach((d, i) => d.classList.toggle('active', i === current));
+              prevBtn.classList.toggle('disabled', current === 0);
+              nextBtn.classList.toggle('disabled', current === count - 1);
+            }
+
+            function scrollTo(idx) {
+              if (idx < 0 || idx >= count) return;
+              current = idx;
+              items[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              updateDots();
+            }
+
+            prevBtn.addEventListener('click', () => scrollTo(current - 1));
+            nextBtn.addEventListener('click', () => scrollTo(current + 1));
+
+            // Detect scroll position for dot sync
+            let scrollTimer;
+            track.addEventListener('scroll', () => {
+              clearTimeout(scrollTimer);
+              scrollTimer = setTimeout(() => {
+                const trackRect = track.getBoundingClientRect();
+                const center = trackRect.left + trackRect.width / 2;
+                let closest = 0;
+                let minDist = Infinity;
+                items.forEach((item, i) => {
+                  const rect = item.getBoundingClientRect();
+                  const itemCenter = rect.left + rect.width / 2;
+                  const dist = Math.abs(itemCenter - center);
+                  if (dist < minDist) { minDist = dist; closest = i; }
+                });
+                current = closest;
+                updateDots();
+              }, 80);
+            });
+
+            updateDots();
+            activeCarousels.push({ track, arrows, items });
+          });
+        } else if (!isMobile && activeCarousels.length > 0) {
+          // Destroy carousels on resize to desktop
+          activeCarousels.forEach(c => {
+            c.track.classList.remove('carousel-track');
+            if (c.arrows.parentNode) c.arrows.parentNode.removeChild(c.arrows);
+          });
+          activeCarousels = [];
+        }
+      }
+
+      initCarousels();
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initCarousels, 200);
+      });
+    })();
+
+    /* --- 13. Contact form success state --- */
     (function() {
       const form = document.getElementById('contactoForm');
       const success = document.getElementById('formSuccess');

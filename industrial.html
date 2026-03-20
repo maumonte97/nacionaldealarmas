@@ -683,17 +683,13 @@
     .cv-hero-img i { font-size: 56px; color: rgba(255,255,255,0.1); position: relative; z-index: 1; }
     .cv-hero-img img {
       width: 100%; height: 100%;
-      object-fit: contain;
-      mix-blend-mode: multiply;
-      filter: contrast(1.05);
-      transform: scale(1.65) translateY(0px);
+      object-fit: cover;
       transition: transform 0.4s ease;
     }
     .cv-thumb-img img {
       width: 100%; height: 100%;
-      object-fit: contain;
-      padding: 5px;
-      mix-blend-mode: multiply;
+      object-fit: cover;
+      object-position: center center;
     }
 
     .cv-hero-info { padding: 20px 24px; }
@@ -733,7 +729,8 @@
       width: 56px; height: 56px; flex-shrink: 0;
       border-radius: 8px;
       background: rgba(255,255,255,0.04);
-      border: 1px dashed rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
     .cv-thumb-img i { font-size: 20px; color: rgba(255,255,255,0.18); }
@@ -1208,7 +1205,7 @@
 
         <!-- Card principal: Bodegas (ocupa 2 rows) -->
         <div class="sol2-card sol2-card--main">
-          <img src="assets/sol-industrial.png" alt="Seguridad para bodegas y almacenes">
+          <img src="assets/bodegas.jpg" alt="Seguridad para bodegas y almacenes">
           <span class="sol2-badge-static"><i class="ph-fill ph-warehouse"></i> Bodegas</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-warehouse"></i> Bodegas y almacenes</div>
@@ -1220,7 +1217,7 @@
 
         <!-- Card: Naves industriales -->
         <div class="sol2-card">
-          <img src="assets/sol-comercial.png" alt="Naves industriales">
+          <img src="assets/naves.jpg" alt="Naves industriales">
           <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Naves industriales</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Naves industriales</div>
@@ -1232,7 +1229,7 @@
 
         <!-- Card: Centros de distribución -->
         <div class="sol2-card">
-          <img src="assets/sol-residencial.png" alt="Centros de distribución">
+          <img src="assets/centros.jpg" alt="Centros de distribución">
           <span class="sol2-badge-static"><i class="ph-fill ph-truck"></i> Centros de distribución</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-truck"></i> Centros de distribución</div>
@@ -1244,7 +1241,7 @@
 
         <!-- Card: Parques industriales (span 2 cols) -->
         <div class="sol2-card" style="grid-column: 2 / 4;">
-          <img src="assets/sol-comercial.png" alt="Parques industriales">
+          <img src="assets/parques.jpg" alt="Parques industriales">
           <span class="sol2-badge-static"><i class="ph-fill ph-buildings"></i> Parques industriales</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-buildings"></i> Parques industriales</div>
@@ -1278,7 +1275,9 @@
       <div class="cv-panel active" data-cat="perimetral">
         <div class="cv-hero">
           <div class="cv-hero-img">
-            <i class="ph ph-arrows-out-line-horizontal"></i>
+            <div class="cv-hero-wrap">
+              <img src="assets/photobeam-industrial.png" alt="Photobeam (barrera infrarroja)" style="object-position: center bottom;">
+            </div>
           </div>
           <div class="cv-hero-info">
             <div class="cv-hero-cat">Perimetral</div>
@@ -1286,21 +1285,21 @@
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="Photobeam (barrera infrarroja)">
-            <div class="cv-thumb-img"><i class="ph ph-arrows-out-line-horizontal"></i></div>
+          <div class="cv-thumb active" data-name="Photobeam (barrera infrarroja)" data-img="assets/photobeam-industrial.png" data-position="center bottom">
+            <div class="cv-thumb-img"><img src="assets/photobeam-industrial.png" alt="Photobeam" style="object-position: center bottom;"></div>
             <span class="cv-thumb-name">Photobeam (barrera infrarroja)</span>
           </div>
-          <div class="cv-thumb" data-name="Fotoceldas de barrera">
-            <div class="cv-thumb-img"><i class="ph ph-sun"></i></div>
+          <div class="cv-thumb" data-name="Fotoceldas de barrera" data-img="assets/fotocelda-industrial.png">
+            <div class="cv-thumb-img"><img src="assets/fotocelda-industrial.png" alt="Fotoceldas de barrera"></div>
             <span class="cv-thumb-name">Fotoceldas de barrera</span>
           </div>
-          <div class="cv-thumb" data-name="Sensor de impacto">
-            <div class="cv-thumb-img"><i class="ph ph-hand-fist"></i></div>
-            <span class="cv-thumb-name">Sensor de impacto</span>
-          </div>
-          <div class="cv-thumb" data-name="Sensor de vibración">
-            <div class="cv-thumb-img"><i class="ph ph-vibrate"></i></div>
+          <div class="cv-thumb" data-name="Sensor de vibración" data-img="assets/sensor-vibracion-industrial.png">
+            <div class="cv-thumb-img"><img src="assets/sensor-vibracion-industrial.png" alt="Sensor de vibración"></div>
             <span class="cv-thumb-name">Sensor de vibración</span>
+          </div>
+          <div class="cv-thumb" data-name="Sensor de movimiento exterior" data-img="assets/sensor-exterior-industrial.png">
+            <div class="cv-thumb-img"><img src="assets/sensor-exterior-industrial.png" alt="Sensor de movimiento exterior"></div>
+            <span class="cv-thumb-name">Sensor de movimiento exterior</span>
           </div>
         </div>
       </div>
@@ -1309,7 +1308,9 @@
       <div class="cv-panel" data-cat="accesos">
         <div class="cv-hero">
           <div class="cv-hero-img">
-            <i class="ph ph-garage"></i>
+            <div class="cv-hero-wrap">
+              <img src="assets/overhead-industrial.png" alt="Overhead uso rudo">
+            </div>
           </div>
           <div class="cv-hero-info">
             <div class="cv-hero-cat">Accesos</div>
@@ -1317,16 +1318,16 @@
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="Overhead uso rudo">
-            <div class="cv-thumb-img"><i class="ph ph-garage"></i></div>
+          <div class="cv-thumb active" data-name="Overhead uso rudo" data-img="assets/overhead-industrial.png">
+            <div class="cv-thumb-img"><img src="assets/overhead-industrial.png" alt="Overhead uso rudo"></div>
             <span class="cv-thumb-name">Overhead uso rudo</span>
           </div>
-          <div class="cv-thumb" data-name="Contacto uso rudo">
-            <div class="cv-thumb-img"><i class="ph ph-shield-warning"></i></div>
+          <div class="cv-thumb" data-name="Contacto uso rudo" data-img="assets/contacto-rudo-industrial.jpeg">
+            <div class="cv-thumb-img"><img src="assets/contacto-rudo-industrial.jpeg" alt="Contacto uso rudo"></div>
             <span class="cv-thumb-name">Contacto uso rudo</span>
           </div>
-          <div class="cv-thumb" data-name="Transmisor inalámbrico">
-            <div class="cv-thumb-img"><i class="ph ph-broadcast"></i></div>
+          <div class="cv-thumb" data-name="Transmisor inalámbrico" data-img="assets/trasmisor-industrial.png">
+            <div class="cv-thumb-img"><img src="assets/trasmisor-industrial.png" alt="Transmisor inalámbrico"></div>
             <span class="cv-thumb-name">Transmisor inalámbrico</span>
           </div>
         </div>
@@ -1336,7 +1337,9 @@
       <div class="cv-panel" data-cat="interior">
         <div class="cv-hero">
           <div class="cv-hero-img">
-            <i class="ph ph-scan"></i>
+            <div class="cv-hero-wrap">
+              <img src="assets/sensor-pir-comercial.png" alt="PIR industrial largo alcance">
+            </div>
           </div>
           <div class="cv-hero-info">
             <div class="cv-hero-cat">Interior</div>
@@ -1344,16 +1347,16 @@
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="PIR industrial largo alcance">
-            <div class="cv-thumb-img"><i class="ph ph-person-simple-run"></i></div>
+          <div class="cv-thumb active" data-name="PIR industrial largo alcance" data-img="assets/sensor-pir-comercial.png">
+            <div class="cv-thumb-img"><img src="assets/sensor-pir-comercial.png" alt="PIR industrial largo alcance"></div>
             <span class="cv-thumb-name">PIR industrial largo alcance</span>
           </div>
-          <div class="cv-thumb" data-name="Sensor de doble tecnología">
-            <div class="cv-thumb-img"><i class="ph ph-intersect-three"></i></div>
+          <div class="cv-thumb" data-name="Sensor de doble tecnología" data-img="assets/sensor-doble-tec-comercial.png">
+            <div class="cv-thumb-img"><img src="assets/sensor-doble-tec-comercial.png" alt="Sensor de doble tecnología"></div>
             <span class="cv-thumb-name">Sensor de doble tecnología</span>
           </div>
-          <div class="cv-thumb" data-name="Sensor inalámbrico industrial">
-            <div class="cv-thumb-img"><i class="ph ph-broadcast"></i></div>
+          <div class="cv-thumb" data-name="Sensor inalámbrico industrial" data-img="assets/sensor-inalambrico-comercial.png">
+            <div class="cv-thumb-img"><img src="assets/sensor-inalambrico-comercial.png" alt="Sensor inalámbrico industrial"></div>
             <span class="cv-thumb-name">Sensor inalámbrico industrial</span>
           </div>
         </div>
@@ -1363,7 +1366,9 @@
       <div class="cv-panel" data-cat="incendio">
         <div class="cv-hero">
           <div class="cv-hero-img">
-            <i class="ph ph-fire"></i>
+            <div class="cv-hero-wrap">
+              <img src="assets/detector-humo-comercial2.png" alt="Detector de humo" style="object-position: center top;">
+            </div>
           </div>
           <div class="cv-hero-info">
             <div class="cv-hero-cat">Incendio</div>
@@ -1371,20 +1376,20 @@
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="Detector de humo">
-            <div class="cv-thumb-img"><i class="ph ph-cloud-fog"></i></div>
+          <div class="cv-thumb active" data-name="Detector de humo" data-img="assets/detector-humo-comercial2.png" data-position="center top">
+            <div class="cv-thumb-img"><img src="assets/detector-humo-comercial2.png" alt="Detector de humo" style="object-position: center top;"></div>
             <span class="cv-thumb-name">Detector de humo</span>
           </div>
-          <div class="cv-thumb" data-name="Detector de gas LP">
-            <div class="cv-thumb-img"><i class="ph ph-warning-circle"></i></div>
+          <div class="cv-thumb" data-name="Detector de gas LP" data-img="assets/detector-gas.png" data-position="center top">
+            <div class="cv-thumb-img"><img src="assets/detector-gas.png" alt="Detector de gas LP" style="object-position: center top;"></div>
             <span class="cv-thumb-name">Detector de gas LP</span>
           </div>
-          <div class="cv-thumb" data-name="Detector térmico industrial">
-            <div class="cv-thumb-img"><i class="ph ph-thermometer-hot"></i></div>
+          <div class="cv-thumb" data-name="Detector térmico industrial" data-img="assets/detector-calor.png" data-position="center top">
+            <div class="cv-thumb-img"><img src="assets/detector-calor.png" alt="Detector térmico industrial" style="object-position: center top;"></div>
             <span class="cv-thumb-name">Detector térmico industrial</span>
           </div>
-          <div class="cv-thumb" data-name="Detector inalámbrico">
-            <div class="cv-thumb-img"><i class="ph ph-broadcast"></i></div>
+          <div class="cv-thumb" data-name="Detector inalámbrico" data-img="assets/detector-inalambrico-comercial.png">
+            <div class="cv-thumb-img"><img src="assets/detector-inalambrico-comercial.png" alt="Detector inalámbrico"></div>
             <span class="cv-thumb-name">Detector inalámbrico</span>
           </div>
         </div>
@@ -2099,14 +2104,13 @@
               }
               existing.src = thumbImgEl.src;
               existing.alt = thumb.dataset.name;
-              const fit        = thumb.dataset.fit      || 'contain';
-              const blend      = thumb.dataset.blend    || 'multiply';
-              const scale      = thumb.dataset.scale    || (fit === 'cover' ? '1' : '1.65');
+              const fit        = thumb.dataset.fit      || 'cover';
+              const scale      = thumb.dataset.scale    || '1';
               const translateY = thumb.dataset.translatey || '0px';
               const position   = thumb.dataset.position  || 'center center';
               existing.style.objectFit      = fit;
-              existing.style.objectPosition = fit === 'cover' ? position : '';
-              existing.style.mixBlendMode   = blend;
+              existing.style.objectPosition = position;
+              existing.style.mixBlendMode   = 'normal';
               existing.style.transform      = `scale(${scale}) translateY(${translateY})`;
             } else {
               const thumbIcon = thumb.querySelector('i');
