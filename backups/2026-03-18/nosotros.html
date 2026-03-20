@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — Nacional de Alarmas | +30 Años Protegiendo Monterrey</title>
+  <meta name="description" content="Conoce Nacional de Alarmas: más de 30 años de experiencia en seguridad electrónica en Monterrey. Central de monitoreo propia, franquicia First Alert y técnicos certificados.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-yellow-500: #e0d400;
+      --nda-yellow-600: #c4ba00;
+      --nda-yellow-700: #9e9600;
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --nda-blue-500: #045694;
+      --nda-blue-600: #034475;
+      --nda-blue-700: #023256;
+      --neutral-0: #ffffff;
+      --neutral-50: #f8fafc;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1e293b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-blur: 12px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+      --radius-2xl: 32px; --radius-full: 9999px;
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--doc-font);
+      background: var(--nda-dark-900);
+      color: var(--neutral-300);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea {
+      font-family: inherit; font-size: inherit;
+      border: none; outline: none; background: none; color: inherit;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--nda-yellow-400); margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700; color: var(--neutral-0);
+      letter-spacing: -0.5px; margin-bottom: var(--space-4); line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--neutral-400); max-width: 600px;
+      margin-bottom: var(--space-12); line-height: 1.7;
+    }
+    .highlight { color: var(--nda-yellow-400); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    .icon-box {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .icon-box i { line-height: 1; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 14px 28px; border-radius: var(--radius-full);
+      font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn i { font-size: 18px; }
+    .btn-primary { background: var(--nda-yellow-400); color: var(--nda-dark-900); }
+    .btn-primary:hover {
+      background: var(--nda-yellow-300); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248, 235, 1, 0.25);
+    }
+    .btn-outline { border: 1.5px solid var(--glass-border); color: var(--neutral-0); }
+    .btn-outline:hover {
+      border-color: var(--neutral-300); background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover {
+      background: #20bd5a; transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.3s; }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 99px; padding: 12px 28px;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(2, 14, 28, 0.92);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      top: 12px;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: none; padding: 0;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #F8EB01; }
+    .nav-cta {
+      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
+      color: #000 !important; background: #F8EB01 !important;
+    }
+    .nav-cta:hover { color: #000 !important; }
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      text-decoration: none; transition: all 0.25s ease;
+      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-contact-btn.phone {
+      background: rgba(5, 105, 179, 0.15); color: #0569B3;
+    }
+    .nav-contact-btn.phone:hover {
+      background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25);
+    }
+    .nav-contact-btn.whatsapp {
+      background: rgba(37, 211, 102, 0.12); color: #25d366;
+    }
+    .nav-contact-btn.whatsapp:hover {
+      background: rgba(37, 211, 102, 0.3); box-shadow: 0 0 14px rgba(37,211,102,0.25);
+    }
+    .nav-mobile-toggle {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    }
+    .nav-mobile-toggle span {
+      width: 24px; height: 2px; background: var(--neutral-0);
+      border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== HERO NOSOTROS ===== */
+    .hero-nosotros {
+      min-height: 85vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding-top: 120px; padding-bottom: 80px;
+      background: #0e2a4a;
+    }
+    .hero-nosotros-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('assets/ChatGPT Image 17 mar 2026, 10_35_13 a.m..png');
+      background-size: cover; background-position: center right;
+    }
+    /* Degradado izquierdo sobre la imagen */
+    .hero-nosotros-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(
+        90deg,
+        #0e2a4a 0%,
+        rgba(14, 42, 74, 0.95) 30%,
+        rgba(14, 42, 74, 0.7) 55%,
+        rgba(14, 42, 74, 0.3) 75%,
+        transparent 100%
+      );
+    }
+    /* Degradado inferior para fundir con la siguiente sección */
+    .hero-nosotros-bg::before {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px; z-index: 1;
+      background: linear-gradient(to top, var(--nda-dark-900), transparent);
+    }
+    .hero-nosotros .container {
+      position: relative; z-index: 2; max-width: none; margin: 0;
+      padding-left: max(var(--space-6), calc((100vw - 1080px) / 2 + 28px));
+      padding-right: var(--space-6);
+    }
+    .hero-nosotros-content {
+      max-width: 540px;
+    }
+    .hero-nosotros-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(248,235,1,0.1); border: 1px solid rgba(248,235,1,0.2);
+      border-radius: 99px; padding: 5px 14px;
+      font-size: 12px; font-weight: 500; color: #F8EB01;
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-nosotros-badge i { font-size: 14px; }
+    .hero-nosotros h1 {
+      font-size: 48px; font-weight: 800; color: #fff;
+      line-height: 1.08; letter-spacing: -1.5px; margin-bottom: 18px;
+    }
+    .hero-nosotros-text {
+      font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7;
+      margin-bottom: 32px; max-width: 460px;
+    }
+    .hero-nosotros-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-nosotros-ctas .btn {
+      border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700;
+    }
+    .hero-nosotros-ctas .btn-primary {
+      box-shadow: 0 0 30px rgba(248,235,1,0.15);
+    }
+    /* Stats dentro del hero */
+    .hero-nos-stats {
+      display: flex; gap: var(--space-8); margin-top: var(--space-12);
+      padding-top: var(--space-8); border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-nos-stat-number {
+      font-size: 28px; font-weight: 800; color: var(--nda-yellow-400);
+      letter-spacing: -0.5px; line-height: 1;
+    }
+    .hero-nos-stat-label {
+      font-size: 13px; color: var(--neutral-400); margin-top: 4px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline-section {
+      padding: var(--space-24) 0; background: var(--nda-dark-800);
+      position: relative; overflow: hidden;
+    }
+    .timeline-section .section-title,
+    .timeline-section .section-desc {
+      text-align: center; margin-left: auto; margin-right: auto;
+    }
+    .timeline {
+      position: relative; max-width: 800px; margin: 0 auto;
+      padding: var(--space-8) 0;
+    }
+    /* Línea central */
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px; background: rgba(255,255,255,0.08);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative; display: flex; align-items: flex-start;
+      margin-bottom: var(--space-10); width: 100%;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    /* Alternar izquierda/derecha */
+    .timeline-item:nth-child(odd) {
+      justify-content: flex-start; padding-right: calc(50% + 40px);
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      justify-content: flex-end; padding-left: calc(50% + 40px);
+      text-align: left;
+    }
+    /* Dot en el centro */
+    .timeline-dot {
+      position: absolute; left: 50%; top: 8px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--nda-dark-900); border: 2px solid var(--nda-yellow-400);
+      transform: translateX(-50%); z-index: 2;
+      box-shadow: 0 0 12px rgba(248, 235, 1, 0.3);
+    }
+    .timeline-item.milestone .timeline-dot {
+      background: var(--nda-yellow-400);
+      width: 20px; height: 20px;
+      box-shadow: 0 0 20px rgba(248, 235, 1, 0.5);
+    }
+    .timeline-content {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg); padding: var(--space-6);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+    .timeline-content:hover {
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .timeline-year {
+      font-size: 13px; font-weight: 700; color: var(--nda-yellow-400);
+      margin-bottom: var(--space-1);
+    }
+    .timeline-content h3 {
+      font-size: 16px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: var(--space-1);
+    }
+    .timeline-content p {
+      font-size: 14px; color: var(--neutral-400); line-height: 1.6;
+    }
+
+    /* ===== TIMELINE V2 — ALTERNATING ===== */
+    .tlv2 {
+      position: relative; background: var(--nda-dark-900); overflow: hidden;
+      padding: var(--space-16) 0 var(--space-20);
+    }
+    .tlv2-circuits {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .tlv2-header {
+      text-align: center; padding: 0 0 var(--space-4);
+      position: relative; z-index: 2;
+    }
+    .tlv2-header .section-desc {
+      margin-left: auto; margin-right: auto;
+    }
+    .tlv2-timeline {
+      position: relative; max-width: 820px; margin: var(--space-8) auto 0;
+      z-index: 2;
+    }
+    /* Línea central */
+    .tlv2-timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+      background: rgba(255,255,255,0.06); transform: translateX(-50%);
+    }
+    .tlv2-timeline-progress {
+      position: absolute; left: 50%; top: 0; width: 2px; height: 0;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, var(--nda-yellow-400), var(--nda-blue-300));
+      z-index: 1; transition: height 0.5s ease;
+      box-shadow: 0 0 10px rgba(248, 235, 1, 0.3);
+    }
+    /* Card row */
+    .tlv2-card {
+      position: relative; display: flex; align-items: center;
+      margin-bottom: var(--space-6); cursor: pointer;
+      /* hidden by default, float in on reveal */
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .tlv2-card:last-child { margin-bottom: 0; }
+    .tlv2-card.visible { opacity: 1; transform: translateY(0); }
+    .tlv2-card.visible:not(.active) { opacity: 0.35; }
+    .tlv2-card.visible.passed { opacity: 0.5; }
+    .tlv2-card.active { opacity: 1; }
+    /* Alternar lados */
+    .tlv2-card:nth-child(odd) {
+      flex-direction: row; padding-right: calc(50% + 32px);
+    }
+    .tlv2-card:nth-child(even) {
+      flex-direction: row-reverse; padding-left: calc(50% + 32px);
+    }
+    /* Float desde el lado correcto */
+    .tlv2-card:nth-child(odd) { transform: translateX(-20px); }
+    .tlv2-card:nth-child(even) { transform: translateX(20px); }
+    .tlv2-card.visible { transform: translateX(0); }
+    /* Dot central */
+    .tlv2-dot {
+      position: absolute; left: 50%; top: 50%; width: 14px; height: 14px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%; border: 2px solid rgba(255,255,255,0.15);
+      background: var(--nda-dark-900); z-index: 3;
+      transition: all 0.4s ease;
+    }
+    .tlv2-card.active .tlv2-dot {
+      border-color: var(--nda-yellow-400); background: var(--nda-yellow-400);
+      box-shadow: 0 0 12px rgba(248, 235, 1, 0.4);
+    }
+    .tlv2-card.passed .tlv2-dot {
+      border-color: var(--nda-yellow-400); background: var(--nda-yellow-400); opacity: 0.5;
+    }
+    /* Año en el lado opuesto */
+    .tlv2-year {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: 18px; font-weight: 800; color: rgba(255,255,255,0.12);
+      transition: color 0.4s ease; white-space: nowrap;
+    }
+    .tlv2-card:nth-child(odd) .tlv2-year { left: calc(50% + 28px); }
+    .tlv2-card:nth-child(even) .tlv2-year { right: calc(50% + 28px); text-align: right; }
+    .tlv2-card.active .tlv2-year { color: var(--nda-yellow-400); }
+    /* Card content box */
+    .tlv2-card-box {
+      background: rgba(255,255,255,0.04); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
+      padding: 20px 24px; display: flex; align-items: center; gap: 16px;
+      transition: all 0.4s ease; width: 100%;
+    }
+    .tlv2-card.active .tlv2-card-box {
+      border-color: rgba(248, 235, 1, 0.2); background: rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .tlv2-card-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: rgba(248, 235, 1, 0.06); border: 1px solid rgba(248, 235, 1, 0.12);
+      transition: all 0.4s ease;
+    }
+    .tlv2-card.active .tlv2-card-icon {
+      background: rgba(248, 235, 1, 0.12); border-color: rgba(248, 235, 1, 0.25);
+    }
+    .tlv2-card-icon i { font-size: 20px; color: var(--nda-yellow-400); }
+    .tlv2-card-body { flex: 1; }
+    .tlv2-card-body h3 {
+      font-size: 15px; font-weight: 700; color: var(--neutral-100);
+      margin-bottom: 2px; transition: color 0.4s ease;
+    }
+    .tlv2-card.active .tlv2-card-body h3 { color: var(--neutral-0); }
+    .tlv2-card-body span {
+      display: block; font-size: 13px; color: var(--neutral-400); line-height: 1.5;
+    }
+    /* Mobile: todo a la izquierda */
+    @media (max-width: 768px) {
+      .tlv2-timeline::before, .tlv2-timeline-progress { left: 16px; transform: none; }
+      .tlv2-card:nth-child(odd),
+      .tlv2-card:nth-child(even) {
+        flex-direction: row; padding-left: 44px; padding-right: 0;
+      }
+      .tlv2-card:nth-child(odd),
+      .tlv2-card:nth-child(even) { transform: translateX(0) translateY(20px); }
+      .tlv2-card.visible { transform: translateX(0) translateY(0); }
+      .tlv2-dot { left: 16px; transform: translate(-50%, -50%); }
+      .tlv2-year { position: static; transform: none; margin-bottom: 4px; font-size: 11px; }
+      .tlv2-card:nth-child(odd) .tlv2-year,
+      .tlv2-card:nth-child(even) .tlv2-year { left: auto; right: auto; text-align: left; }
+      .tlv2-card-box { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+
+    /* ===== MISIÓN, VALORES, CERTIFICACIONES ===== */
+    .mision-section {
+      padding: var(--space-24) 0; position: relative; overflow: hidden;
+    }
+    .mision-glow {
+      position: absolute; top: 30%; right: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .mision-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);
+      position: relative; z-index: 1;
+    }
+    .mision-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl); padding: var(--space-10);
+      transition: all 0.3s ease; backdrop-filter: blur(8px);
+      position: relative; overflow: hidden;
+    }
+    .mision-card:hover {
+      transform: translateY(-6px); border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .mision-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .mision-card:nth-child(1)::before { background: var(--nda-blue-400); }
+    .mision-card:nth-child(2)::before { background: var(--nda-yellow-400); }
+    .mision-card:nth-child(3)::before { background: var(--success); }
+    .mision-icon {
+      width: 56px; height: 56px; background: var(--nda-dark-600);
+      border-radius: var(--radius-lg); display: flex; align-items: center;
+      justify-content: center; margin-bottom: var(--space-6);
+    }
+    .mision-icon i { font-size: 26px; }
+    .mision-card:nth-child(1) .mision-icon i { color: var(--nda-blue-300); }
+    .mision-card:nth-child(2) .mision-icon i { color: var(--nda-yellow-400); }
+    .mision-card:nth-child(3) .mision-icon i { color: var(--success); }
+    .mision-card h3 {
+      font-size: 20px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-3);
+    }
+    .mision-card p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; }
+    .mision-card ul { margin-top: var(--space-4); }
+    .mision-card li {
+      font-size: 14px; color: var(--neutral-300); padding: var(--space-2) 0;
+      display: flex; align-items: center; gap: var(--space-2);
+    }
+    .mision-card li i { font-size: 16px; color: var(--nda-yellow-400); min-width: 16px; }
+
+    /* ===== CENTRAL DE MONITOREO (pilares style) ===== */
+    .central-section {
+      padding: var(--space-24) 0; background: var(--nda-dark-800);
+      position: relative; overflow: hidden;
+    }
+    .central-glow {
+      position: absolute; top: 20%; left: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .central-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+      align-items: center; position: relative; z-index: 1;
+    }
+    /* Visual con video/imagen + floats */
+    .central-visual {
+      position: relative; max-width: 600px; margin: 0 auto;
+    }
+    .central-visual video, .central-visual img {
+      width: 100%; height: auto; display: block;
+      border-radius: var(--radius-xl);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+    }
+    .central-visual::before {
+      content: ''; position: absolute; top: -6px; left: -6px; right: -6px; bottom: 30%; z-index: -1;
+      border-radius: calc(var(--radius-xl) + 6px);
+      background: linear-gradient(135deg, rgba(5,105,179,0.25), rgba(248,235,1,0.15), rgba(5,105,179,0.2));
+      filter: blur(12px); opacity: 0.7;
+    }
+    .central-visual::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.1); border-bottom-color: transparent;
+      box-shadow: 0 0 40px rgba(5,105,179,0.15);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+    }
+    /* Floating cards */
+    .central-float {
+      position: absolute; z-index: 5;
+      background: rgba(7, 26, 46, 0.82);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      padding: 12px 18px; display: flex; align-items: center; gap: 10px;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .central-float i { font-size: 22px; }
+    .central-float-label { font-size: 13px; font-weight: 600; color: var(--neutral-200); }
+    .central-float-sub { font-size: 11px; color: var(--neutral-500); }
+    .central-float-1 { top: -5%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+    .central-float-1 i { color: var(--nda-blue-300); }
+    .central-float-2 { top: 75%; left: -30px; animation-delay: 0.8s; }
+    .central-float-2 i { color: var(--success); }
+    .central-float-3 { top: 35%; right: -30px; animation-delay: 1.6s; }
+    .central-float-3 i { color: var(--nda-yellow-400); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .central-float-1 { animation-name: float1; }
+    @keyframes float1 {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
+    }
+    /* Features list with rotation */
+    .central-features {
+      display: flex; flex-direction: column; gap: var(--space-5);
+      position: relative; min-height: 280px;
+    }
+    .central-feature {
+      display: flex; gap: var(--space-5); padding: var(--space-5) var(--space-6);
+      border-radius: var(--radius-lg); border: 1px solid transparent;
+      transition: all 0.5s ease;
+      opacity: 0; transform: translateY(15px); max-height: 0; overflow: hidden;
+      padding-top: 0; padding-bottom: 0; margin: 0;
+    }
+    .central-feature.show {
+      opacity: 1; transform: translateY(0); max-height: 120px;
+      padding: var(--space-5) var(--space-6);
+    }
+    .central-feature:hover {
+      background: var(--glass-bg); border-color: var(--glass-border);
+      transform: translateX(4px);
+    }
+    .central-feature-icon {
+      width: 48px; height: 48px; min-width: 48px;
+      border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;
+    }
+    .central-feature-icon i { font-size: 22px; }
+    .central-feature:nth-child(1) .central-feature-icon {
+      background: rgba(5, 105, 179, 0.12); border: 1px solid rgba(5, 105, 179, 0.2);
+    }
+    .central-feature:nth-child(1) .central-feature-icon i { color: var(--nda-blue-300); }
+    .central-feature:nth-child(2) .central-feature-icon {
+      background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.15);
+    }
+    .central-feature:nth-child(2) .central-feature-icon i { color: var(--success); }
+    .central-feature:nth-child(3) .central-feature-icon {
+      background: rgba(248, 235, 1, 0.08); border: 1px solid rgba(248, 235, 1, 0.15);
+    }
+    .central-feature:nth-child(3) .central-feature-icon i { color: var(--nda-yellow-400); }
+    .central-feature:nth-child(4) .central-feature-icon {
+      background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.18);
+    }
+    .central-feature:nth-child(4) .central-feature-icon i { color: #EF4444; }
+    .central-feature:nth-child(5) .central-feature-icon {
+      background: rgba(96, 165, 250, 0.1); border: 1px solid rgba(96, 165, 250, 0.18);
+    }
+    .central-feature:nth-child(5) .central-feature-icon i { color: #60A5FA; }
+    .central-feature h4 {
+      font-size: 16px; font-weight: 700; color: var(--neutral-0); margin-bottom: 2px;
+    }
+    .central-feature p { font-size: 14px; color: var(--neutral-400); line-height: 1.6; }
+    @media (max-width: 768px) {
+      .central-split { grid-template-columns: 1fr; }
+      .central-visual { display: none; }
+    }
+
+    /* ===== STATS ===== */
+    .stats { padding: 0 0 var(--space-10) 0; margin-top: -20px; position: relative; overflow: hidden; }
+    .stats-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse, rgba(248, 235, 1, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-grid { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+    .stat-item {
+      flex: 1; text-align: center; padding: var(--space-6) var(--space-8);
+      border-right: 1px solid var(--glass-border);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item.shuffle-out { opacity: 0; transform: translateY(-10px); }
+    .stat-item.shuffle-in { opacity: 0; transform: translateY(10px); }
+    .stat-number {
+      font-size: 42px; font-weight: 800; color: var(--neutral-0);
+      letter-spacing: -1px; line-height: 1; margin-bottom: var(--space-2);
+    }
+    .stat-label { font-size: 14px; color: var(--neutral-400); font-weight: 500; }
+
+    /* ===== CLIENTES LOGOS ===== */
+    .clientes-nosotros {
+      padding: var(--space-24) 0; background: var(--nda-dark-800);
+    }
+    .clientes-nosotros .section-title,
+    .clientes-nosotros .section-desc {
+      text-align: center; margin-left: auto; margin-right: auto;
+    }
+    .clientes-logos-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-4);
+      max-width: 900px; margin: 0 auto;
+    }
+    .cl-logo {
+      display: flex; align-items: center; justify-content: center;
+      height: 90px; border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 16px 20px;
+      transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+    }
+    .cl-logo:hover {
+      transform: scale(1.06);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(248, 235, 1, 0.25);
+    }
+    .cl-logo i {
+      font-size: 32px; color: var(--neutral-400); opacity: 0.5;
+    }
+    .cl-logo img {
+      max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+    .cl-logo:hover img { opacity: 1; }
+    .cl-logo.cl-dark img {
+      filter: brightness(0) invert(1);
+    }
+
+    /* ===== UBICACIÓN ===== */
+    .ubicacion-section {
+      padding: var(--space-24) 0; position: relative;
+    }
+    .ubicacion-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+      align-items: center;
+    }
+    .ubicacion-map {
+      border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--glass-border); aspect-ratio: 4/3;
+      background: var(--nda-dark-700);
+    }
+    .ubicacion-map iframe {
+      width: 100%; height: 100%; border: none;
+    }
+    .ubicacion-info { display: flex; flex-direction: column; gap: var(--space-6); }
+    .ubicacion-item {
+      display: flex; align-items: flex-start; gap: var(--space-4);
+    }
+    .ubicacion-icon {
+      width: 44px; height: 44px; min-width: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ubicacion-icon i { font-size: 20px; color: var(--nda-blue-300); }
+    .ubicacion-item h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: 2px; }
+    .ubicacion-item p { font-size: 14px; color: var(--neutral-400); }
+
+    /* ===== BANNER CTA ===== */
+    .banner-cta {
+      padding: var(--space-20) 0; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+    }
+    .banner-glow-blue {
+      position: absolute; left: -10%; top: -50%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-glow-yellow {
+      position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
+    .banner-cta > .container > p {
+      font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10);
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12); padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); }
+    .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-icon {
+      width: 36px; height: 36px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+    }
+    .social-icon i { font-size: 18px; color: var(--neutral-400); transition: color 0.3s; }
+    .social-icon:hover { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .social-icon:hover i { color: var(--nda-dark-900); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--neutral-500); padding: var(--space-1) 0; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: var(--space-8); flex-wrap: wrap; gap: var(--space-4);
+    }
+    .footer-bottom p { font-size: 13px; color: var(--neutral-600); }
+    .footer-bottom a { color: var(--nda-yellow-400); font-weight: 500; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed; bottom: var(--space-6); right: var(--space-6);
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); transition: all 0.3s;
+      animation: wa-pulse 2s infinite;
+    }
+    .whatsapp-float i { font-size: 28px; color: #fff; }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); animation: none; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      width: 44px; height: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; backdrop-filter: blur(12px);
+      opacity: 0; pointer-events: none; transition: all 0.3s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: var(--nda-dark-600); border-color: var(--neutral-500); }
+    .scroll-top i { font-size: 20px; color: var(--neutral-300); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .mision-grid { grid-template-columns: 1fr; }
+      .central-split { grid-template-columns: 1fr; }
+      .clientes-logos-grid { grid-template-columns: repeat(4, 1fr); }
+      .ubicacion-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-nosotros { min-height: 70vh; }
+      .hero-nosotros h1 { font-size: 32px; }
+      .hero-nosotros-text { max-width: 100%; }
+      .hero-nosotros-content { max-width: 100%; }
+      .hero-nosotros-bg::after {
+        background: linear-gradient(
+          180deg,
+          rgba(2,14,28,0.85) 0%,
+          rgba(2,14,28,0.7) 50%,
+          rgba(2,14,28,0.4) 100%
+        );
+      }
+      .hero-nos-stats { flex-wrap: wrap; gap: var(--space-6); }
+      .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
+      .nav-links { display: none; }
+      .nav-contact-btns { margin-left: auto; margin-right: 12px; }
+      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-mobile-toggle { display: flex; }
+      .section-title { font-size: 28px; }
+      .banner-cta h2 { font-size: 28px; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--glass-border); padding: var(--space-5) var(--space-4); }
+      .stat-item:last-child { border-bottom: none; }
+      .stats-grid { flex-direction: column; }
+      .stat-number { font-size: 32px; }
+      .clientes-logos-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      /* Timeline: todo a la izquierda en mobile */
+      .timeline::before { left: 20px; }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-right: 0; padding-left: 56px;
+        text-align: left;
+      }
+      .timeline-dot { left: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <a href="residencial.html">Residencial</a>
+        <a href="comercial.html">Comercial</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="nosotros.html" class="active">Nosotros</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a href="prueba-comerc.html" style="color:#F8EB01;font-size:11px;opacity:0.7;">● Prueba</a>
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== 01. HERO ===== -->
+  <section class="hero-nosotros" id="hero">
+    <div class="hero-nosotros-bg"></div>
+    <div class="container">
+      <div class="hero-nosotros-content">
+        <div class="hero-nosotros-badge"><i class="ph-fill ph-buildings"></i> Desde 1995 en Monterrey</div>
+        <h1>Más de 30 años <span class="highlight">protegiendo Monterrey</span></h1>
+        <p class="hero-nosotros-text">Somos una empresa regiomontana con central de monitoreo propia, técnicos certificados y el respaldo de las mejores marcas del mundo en seguridad electrónica.</p>
+        <div class="hero-nosotros-ctas">
+          <a href="index.html#contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20conocer%20más%20sobre%20Nacional%20de%20Alarmas." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con nosotros</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02. STATS ===== -->
+  <section class="stats reveal" id="stats">
+    <div class="stats-glow"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-target="10000" data-prefix="+">+10,000</div>
+          <div class="stat-label">Familias y empresas protegidas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5.0</div>
+          <div class="stat-label">Estrellas en reseñas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Monitoreo sin interrupciones</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03. TIMELINE / HISTORIA ===== -->
+  <section class="timeline-section reveal" id="historia">
+    <div class="container">
+      <div class="section-label">Nuestra historia</div>
+      <h2 class="section-title">Una trayectoria de <span class="highlight">confianza</span></h2>
+      <p class="section-desc">Desde 1995, Nacional de Alarmas ha crecido junto con Monterrey, adaptándose a las necesidades de seguridad de cada época.</p>
+
+      <div class="timeline stagger">
+        <div class="timeline-item milestone">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1995</div>
+            <h3>Nace Nacional de Alarmas</h3>
+            <p>Fundada en Monterrey con la visión de ofrecer seguridad electrónica profesional y accesible para hogares y negocios de la región.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2000</div>
+            <h3>Primera central de monitoreo</h3>
+            <p>Inauguramos nuestra propia central de monitoreo en Monterrey, eliminando la dependencia de terceros.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2008</div>
+            <h3>Franquicia First Alert</h3>
+            <p>Nos convertimos en franquicia oficial de First Alert, fortaleciendo nuestra oferta con tecnología de clase mundial.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2015</div>
+            <h3>Alianza con Ajax Systems</h3>
+            <p>Incorporamos la tecnología inalámbrica de Ajax Systems, líder europeo en seguridad inteligente.</p>
+          </div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2020</div>
+            <h3>+10,000 clientes protegidos</h3>
+            <p>Alcanzamos la marca de más de 10,000 familias y empresas que confían en nuestros sistemas de seguridad.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2024</div>
+            <h3>Departamento CCTV y App móvil</h3>
+            <p>Lanzamos nuestro departamento de videovigilancia y la app móvil para control remoto de alarmas.</p>
+          </div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">Hoy</div>
+            <h3>La empresa de seguridad de Monterrey</h3>
+            <p>Seguimos creciendo con tecnología de punta, servicio personalizado y la confianza de miles de clientes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03-B. TIMELINE V2 — PROC STYLE ===== -->
+  <section class="tlv2" id="historia-v2">
+    <canvas class="tlv2-circuits" id="tlv2CircuitsCanvas"></canvas>
+    <div class="tlv2-header">
+      <div class="container">
+        <div class="section-label">Nuestra historia — V2</div>
+        <h2 class="section-title">Una trayectoria de <span class="highlight">confianza</span></h2>
+        <p class="section-desc">Desde 1995, Nacional de Alarmas ha crecido junto con Monterrey.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="tlv2-timeline" id="tlv2Timeline">
+        <div class="tlv2-timeline-progress" id="tlv2Prog"></div>
+        <div class="tlv2-card" data-i="0">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">1995</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-buildings"></i></div>
+            <div class="tlv2-card-body">
+              <h3>Nace Nacional de Alarmas</h3>
+              <span>Fundada en Monterrey con la visión de ofrecer seguridad electrónica profesional.</span>
+            </div>
+          </div>
+        </div>
+        <div class="tlv2-card" data-i="1">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">2000</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-monitor"></i></div>
+            <div class="tlv2-card-body">
+              <h3>Primera central de monitoreo</h3>
+              <span>Nuestra propia central en Monterrey, sin dependencia de terceros.</span>
+            </div>
+          </div>
+        </div>
+        <div class="tlv2-card" data-i="2">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">2008</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-shield-check"></i></div>
+            <div class="tlv2-card-body">
+              <h3>Franquicia First Alert</h3>
+              <span>Tecnología de clase mundial como franquicia oficial.</span>
+            </div>
+          </div>
+        </div>
+        <div class="tlv2-card" data-i="3">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">2015</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-wifi-high"></i></div>
+            <div class="tlv2-card-body">
+              <h3>Alianza con Ajax Systems</h3>
+              <span>Seguridad inalámbrica del líder europeo.</span>
+            </div>
+          </div>
+        </div>
+        <div class="tlv2-card" data-i="4">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">2020</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-users-three"></i></div>
+            <div class="tlv2-card-body">
+              <h3>+10,000 clientes protegidos</h3>
+              <span>Familias y empresas que confían en nosotros.</span>
+            </div>
+          </div>
+        </div>
+        <div class="tlv2-card" data-i="5">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">2024</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-video-camera"></i></div>
+            <div class="tlv2-card-body">
+              <h3>CCTV y App móvil</h3>
+              <span>Videovigilancia y control remoto desde tu celular.</span>
+            </div>
+          </div>
+        </div>
+        <div class="tlv2-card" data-i="6">
+          <div class="tlv2-dot"></div>
+          <div class="tlv2-year">Hoy</div>
+          <div class="tlv2-card-box">
+            <div class="tlv2-card-icon"><i class="ph-duotone ph-rocket-launch"></i></div>
+            <div class="tlv2-card-body">
+              <h3>La empresa de seguridad de Monterrey</h3>
+              <span>Tecnología de punta y la confianza de miles de clientes.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04. MISIÓN, VALORES Y CERTIFICACIONES ===== -->
+  <section class="mision-section reveal" id="mision">
+    <div class="mision-glow"></div>
+    <div class="container">
+      <div class="section-label">Quiénes somos</div>
+      <h2 class="section-title">Lo que nos <span class="highlight">define</span></h2>
+      <p class="section-desc">Nuestra misión, valores y las certificaciones que respaldan nuestro trabajo.</p>
+      <div class="mision-grid stagger">
+        <div class="mision-card">
+          <div class="mision-icon"><i class="ph-duotone ph-target"></i></div>
+          <h3>Nuestra misión</h3>
+          <p>Proteger a las familias y negocios de Monterrey con sistemas de seguridad de clase mundial, servicio técnico inmediato y monitoreo 24/7 desde nuestra propia central.</p>
+        </div>
+        <div class="mision-card">
+          <div class="mision-icon"><i class="ph-duotone ph-heart"></i></div>
+          <h3>Nuestros valores</h3>
+          <ul>
+            <li><i class="ph-fill ph-check-circle"></i> Confianza y transparencia</li>
+            <li><i class="ph-fill ph-check-circle"></i> Respuesta inmediata</li>
+            <li><i class="ph-fill ph-check-circle"></i> Innovación constante</li>
+            <li><i class="ph-fill ph-check-circle"></i> Compromiso local</li>
+            <li><i class="ph-fill ph-check-circle"></i> Servicio personalizado</li>
+          </ul>
+        </div>
+        <div class="mision-card">
+          <div class="mision-icon"><i class="ph-duotone ph-certificate"></i></div>
+          <h3>Certificaciones</h3>
+          <ul>
+            <li><i class="ph-fill ph-check-circle"></i> Franquicia First Alert</li>
+            <li><i class="ph-fill ph-check-circle"></i> Distribuidor Ajax Systems</li>
+            <li><i class="ph-fill ph-check-circle"></i> Partner Honeywell</li>
+            <li><i class="ph-fill ph-check-circle"></i> Distribuidor Trikdis</li>
+            <li><i class="ph-fill ph-check-circle"></i> Técnicos certificados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05. CENTRAL DE MONITOREO ===== -->
+  <section class="central-section reveal" id="central">
+    <div class="central-glow"></div>
+    <div class="container">
+      <div class="section-label">Nuestra central</div>
+      <h2 class="section-title">Central de monitoreo <span class="highlight">propia</span> en Monterrey</h2>
+      <p class="section-desc">Lo que nos diferencia de la competencia: operamos nuestra propia central de monitoreo, sin intermediarios.</p>
+      <div class="central-split">
+        <div class="central-visual">
+          <img src="assets/ChatGPT Image 17 mar 2026, 10_35_13 a.m..png" alt="Central de monitoreo Nacional de Alarmas">
+          <div class="central-float central-float-1">
+            <i class="ph-fill ph-eye"></i>
+            <div><div class="central-float-label">Monitoreo 24/7</div><div class="central-float-sub">Central propia</div></div>
+          </div>
+          <div class="central-float central-float-2">
+            <i class="ph-fill ph-lightning"></i>
+            <div><div class="central-float-label">Respuesta inmediata</div><div class="central-float-sub">Protocolos activos</div></div>
+          </div>
+          <div class="central-float central-float-3">
+            <i class="ph-fill ph-map-pin"></i>
+            <div><div class="central-float-label">100% Monterrey</div><div class="central-float-sub">Sin intermediarios</div></div>
+          </div>
+        </div>
+        <div class="central-features">
+          <div class="central-feature">
+            <div class="central-feature-icon"><i class="ph-duotone ph-eye"></i></div>
+            <div>
+              <h4>Vigilancia 24/7/365</h4>
+              <p>Operadores capacitados monitoreando tu propiedad las 24 horas, los 365 días del año.</p>
+            </div>
+          </div>
+          <div class="central-feature">
+            <div class="central-feature-icon"><i class="ph-duotone ph-map-pin"></i></div>
+            <div>
+              <h4>100% local</h4>
+              <p>Nuestra central está en Monterrey. No tercerizamos a otras ciudades ni países.</p>
+            </div>
+          </div>
+          <div class="central-feature">
+            <div class="central-feature-icon"><i class="ph-duotone ph-lightning"></i></div>
+            <div>
+              <h4>Respuesta inmediata</h4>
+              <p>Ante cualquier alerta, activamos protocolos de emergencia y contactamos a las autoridades.</p>
+            </div>
+          </div>
+          <div class="central-feature">
+            <div class="central-feature-icon"><i class="ph-duotone ph-device-mobile"></i></div>
+            <div>
+              <h4>App móvil integrada</h4>
+              <p>Arma, desarma y recibe notificaciones en tiempo real desde tu celular.</p>
+            </div>
+          </div>
+          <div class="central-feature">
+            <div class="central-feature-icon"><i class="ph-duotone ph-shield-check"></i></div>
+            <div>
+              <h4>Redundancia total</h4>
+              <p>Respaldos de energía y comunicación para que nunca pierdas la protección.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06. UBICACIÓN ===== -->
+  <section class="ubicacion-section reveal" id="ubicacion">
+    <div class="container">
+      <div class="section-label">Encuéntranos</div>
+      <h2 class="section-title">Nuestra <span class="highlight-blue">ubicación</span></h2>
+      <p class="section-desc">Estamos en el corazón de Monterrey, listos para atenderte.</p>
+      <div class="ubicacion-grid">
+        <div class="ubicacion-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.0!2d-100.345!3d25.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzEyLjAiTiAxMDDCsDIwJzQyLjAiVw!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="ubicacion-info">
+          <div class="ubicacion-item">
+            <div class="ubicacion-icon"><i class="ph-fill ph-map-pin"></i></div>
+            <div>
+              <h4>Dirección</h4>
+              <p>Gonzalitos 502-B, Col. Vista Hermosa<br>Monterrey, Nuevo León, México</p>
+            </div>
+          </div>
+          <div class="ubicacion-item">
+            <div class="ubicacion-icon"><i class="ph-fill ph-phone"></i></div>
+            <div>
+              <h4>Teléfonos</h4>
+              <p>81 8348 8085<br>81 2719 3393 (WhatsApp)</p>
+            </div>
+          </div>
+          <div class="ubicacion-item">
+            <div class="ubicacion-icon"><i class="ph-fill ph-clock"></i></div>
+            <div>
+              <h4>Horario</h4>
+              <p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábados: 9:00 am - 2:00 pm</p>
+            </div>
+          </div>
+          <div class="ubicacion-item">
+            <div class="ubicacion-icon"><i class="ph-fill ph-broadcast"></i></div>
+            <div>
+              <h4>Monitoreo</h4>
+              <p>Central activa 24/7, los 365 días del año</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07. BANNER CTA ===== -->
+  <section class="banner-cta reveal">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container">
+      <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
+      <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
+      <div class="banner-ctas">
+        <a href="index.html#contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <p>Seguridad electrónica profesional desde 1995. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="#">Industrial / Bodegas</a><a href="#">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nosotros</a><a href="index.html#servicios">Servicios</a><a href="#">Blog</a><a href="#">Clientes</a><a href="#">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* --- Navbar scroll --- */
+    const navbar = document.getElementById('navbar');
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTop.classList.toggle('visible', window.scrollY > 600);
+    });
+
+    /* --- Scroll to top --- */
+    scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* --- Mobile menu --- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'rgba(7, 26, 46, 0.95)';
+        navLinks.style.backdropFilter = 'blur(12px)';
+        navLinks.style.padding = '24px';
+        navLinks.style.gap = '16px';
+        navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.12)';
+      } else {
+        navLinks.removeAttribute('style');
+      }
+    });
+
+    /* --- Scroll reveal + stagger --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+    /* --- Counter animation on stats --- */
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          if (!target) return;
+          let current = 0;
+          const increment = Math.ceil(target / 60);
+          const prefix = el.dataset.prefix || '';
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) { current = target; clearInterval(timer); }
+            el.textContent = prefix + current.toLocaleString();
+          }, 25);
+          statObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
+
+    /* --- Stats shuffle rotation --- */
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+      setInterval(() => {
+        const items = Array.from(statsGrid.children);
+        // Fade out
+        items.forEach(item => item.classList.add('shuffle-out'));
+        setTimeout(() => {
+          // Move first item to the end
+          statsGrid.appendChild(items[0]);
+          const newItems = Array.from(statsGrid.children);
+          newItems.forEach(item => {
+            item.classList.remove('shuffle-out');
+            item.classList.add('shuffle-in');
+          });
+          // Force reflow then fade in
+          void statsGrid.offsetHeight;
+          newItems.forEach(item => item.classList.remove('shuffle-in'));
+        }, 400);
+      }, 4000);
+    }
+
+    /* --- Timeline V2 scroll-driven reveal --- */
+    (() => {
+      const timeline = document.getElementById('tlv2Timeline');
+      if (!timeline) return;
+      const cards = timeline.querySelectorAll('.tlv2-card');
+      const prog = document.getElementById('tlv2Prog');
+      const triggerOffset = 0.7; // reveal when card is 70% down viewport
+
+      function update() {
+        const viewH = window.innerHeight;
+        const triggerY = viewH * triggerOffset;
+        let lastActive = -1;
+
+        cards.forEach((card, i) => {
+          const rect = card.getBoundingClientRect();
+          const mid = rect.top + rect.height / 2;
+
+          // Reveal with float
+          if (rect.top < triggerY) {
+            card.classList.add('visible');
+          }
+          // Active = last visible card above trigger
+          if (mid < triggerY) {
+            lastActive = i;
+          }
+        });
+
+        // Set active/passed
+        cards.forEach((card, i) => {
+          card.classList.remove('active', 'passed');
+          if (i < lastActive && card.classList.contains('visible')) card.classList.add('passed');
+          if (i === lastActive) card.classList.add('active');
+        });
+
+        // Progress line
+        if (lastActive >= 0) {
+          const card = cards[lastActive];
+          const dotTop = card.offsetTop + card.offsetHeight / 2;
+          prog.style.height = dotTop + 'px';
+        }
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    /* --- Central features rotation (3 at a time) --- */
+    (() => {
+      const features = document.querySelectorAll('.central-feature');
+      if (!features.length) return;
+      const total = features.length;
+      const groupSize = 3;
+      let offset = 0;
+
+      function showGroup(start) {
+        features.forEach((f, i) => {
+          f.classList.remove('show');
+        });
+        for (let i = 0; i < groupSize; i++) {
+          const idx = (start + i) % total;
+          setTimeout(() => {
+            features[idx].classList.add('show');
+          }, i * 120);
+        }
+      }
+
+      // Start when visible
+      const section = document.querySelector('.central-section');
+      let timer = null;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            showGroup(0);
+            timer = setInterval(() => {
+              offset = (offset + groupSize) % total;
+              showGroup(offset);
+            }, 4000);
+          } else {
+            if (timer) { clearInterval(timer); timer = null; }
+          }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(section);
+    })();
+
+    /* --- Circuits background animation --- */
+    function initCircuits(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const section = canvas.parentElement;
+      let W, H, nodes = [], connections = [];
+
+      function resize() {
+        W = section.offsetWidth;
+        H = section.offsetHeight;
+        canvas.width = W;
+        canvas.height = H;
+        createNodes();
+      }
+
+      function createNodes() {
+        nodes = [];
+        const cols = Math.floor(W / 100);
+        const rows = Math.floor(H / 100);
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const x = (c + 0.5) * (W / cols) + (Math.random() - 0.5) * 40;
+            const y = (r + 0.5) * (H / rows) + (Math.random() - 0.5) * 40;
+            nodes.push({ x, y });
+          }
+        }
+      }
+
+      function spawnConnection() {
+        if (nodes.length < 2) return;
+        const a = nodes[Math.floor(Math.random() * nodes.length)];
+        let best = null, bestDist = 280;
+        for (const n of nodes) {
+          if (n === a) continue;
+          const d = Math.hypot(n.x - a.x, n.y - a.y);
+          if (d < bestDist && Math.random() > 0.4) { best = n; bestDist = d; }
+        }
+        if (!best) return;
+        const mid = Math.random() > 0.5 ? { x: best.x, y: a.y } : { x: a.x, y: best.y };
+        connections.push({
+          points: [a, mid, best],
+          progress: 0, fade: 1, phase: 'draw', holdTimer: 0,
+          speed: 0.008 + Math.random() * 0.008,
+          color: Math.random() > 0.6 ? 'rgba(5,105,179,' : 'rgba(248,235,1,'
+        });
+      }
+
+      function getPointAt(pts, progress) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+        const drawLen = totalLen * progress;
+        let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+          if (drawn + segLen >= drawLen) {
+            const t = (drawLen - drawn) / segLen;
+            return { x: pts[i-1].x + (pts[i].x - pts[i-1].x) * t, y: pts[i-1].y + (pts[i].y - pts[i-1].y) * t };
+          }
+          drawn += segLen;
+        }
+        return pts[pts.length - 1];
+      }
+
+      function update() {
+        for (let i = connections.length - 1; i >= 0; i--) {
+          const c = connections[i];
+          if (c.phase === 'draw') {
+            c.progress += c.speed;
+            if (c.progress >= 1) { c.progress = 1; c.phase = 'hold'; c.holdTimer = 60 + Math.random() * 80; }
+          } else if (c.phase === 'hold') {
+            c.holdTimer--;
+            if (c.holdTimer <= 0) c.phase = 'fade';
+          } else {
+            c.fade -= 0.012;
+            if (c.fade <= 0) connections.splice(i, 1);
+          }
+        }
+      }
+
+      function drawPath(pts, progress, alpha, colorBase) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+        const drawLen = totalLen * progress;
+        ctx.beginPath();
+        ctx.moveTo(pts[0].x, pts[0].y);
+        let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+          if (drawn + segLen <= drawLen) {
+            ctx.lineTo(pts[i].x, pts[i].y);
+            drawn += segLen;
+          } else {
+            const t = (drawLen - drawn) / segLen;
+            ctx.lineTo(pts[i-1].x + (pts[i].x - pts[i-1].x) * t, pts[i-1].y + (pts[i].y - pts[i-1].y) * t);
+            break;
+          }
+        }
+        const a = Math.max(0, alpha * 0.18);
+        ctx.strokeStyle = colorBase + a + ')';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        const endPt = getPointAt(pts, progress);
+        if (endPt && alpha > 0.3) {
+          ctx.beginPath();
+          ctx.arc(endPt.x, endPt.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = colorBase + (a * 1.5) + ')';
+          ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.arc(pts[0].x, pts[0].y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = colorBase + (a * 0.8) + ')';
+        ctx.fill();
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, W, H);
+        for (const c of connections) drawPath(c.points, c.progress, c.fade, c.color);
+      }
+
+      let spawnCounter = 0;
+      function loop() {
+        update(); render();
+        spawnCounter++;
+        if (spawnCounter > 80 + Math.random() * 70) {
+          if (connections.length < 5) spawnConnection();
+          spawnCounter = 0;
+        }
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      spawnConnection();
+      spawnConnection();
+      loop();
+    }
+    initCircuits('tlv2CircuitsCanvas');
+  </script>
+
+</body>
+</html>

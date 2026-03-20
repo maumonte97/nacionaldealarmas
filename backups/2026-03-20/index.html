@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nacional de Alarmas — Alarmas y Monitoreo 24/7 en Monterrey | Central de Monitoreo Propia</title>
+  <meta name="description" content="Nacional de Alarmas: sistemas de alarma y monitoreo 24/7 con Central de Monitoreo propia en Monterrey. +30 años de experiencia, alarmas para casa, negocio e industria. Cotiza gratis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-yellow-500: #e0d400;
+      --nda-yellow-600: #c4ba00;
+      --nda-yellow-700: #9e9600;
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --nda-blue-500: #045694;
+      --nda-blue-600: #034475;
+      --nda-blue-700: #023256;
+      --neutral-0: #ffffff;
+      --neutral-50: #f8fafc;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1e293b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-blur: 12px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+      --radius-2xl: 32px; --radius-full: 9999px;
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--doc-font);
+      background: var(--nda-dark-900);
+      color: var(--neutral-300);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea {
+      font-family: inherit; font-size: inherit;
+      border: none; outline: none; background: none; color: inherit;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--nda-yellow-400); margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700; color: var(--neutral-0);
+      letter-spacing: -0.5px; margin-bottom: var(--space-4); line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--neutral-400); max-width: 600px;
+      margin-bottom: var(--space-12); line-height: 1.7;
+    }
+    .highlight { color: var(--nda-yellow-400); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    /* Phosphor icon sizing helper */
+    .icon-box {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .icon-box i { line-height: 1; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 14px 28px; border-radius: var(--radius-full);
+      font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn i { font-size: 18px; }
+    .btn-primary { background: var(--nda-yellow-400); color: var(--nda-dark-900); }
+    .btn-primary:hover {
+      background: var(--nda-yellow-300); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248, 235, 1, 0.25);
+    }
+    .btn-outline { border: 1.5px solid var(--glass-border); color: var(--neutral-0); }
+    .btn-outline:hover {
+      border-color: var(--neutral-300); background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover {
+      background: #20bd5a; transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Scroll reveal + stagger */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.5s; }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ===== 01. NAVBAR ===== */
+    /* Navbar — pill glass (Design System spec) */
+    .navbar {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 99px; padding: 12px 28px;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(2, 14, 28, 0.92);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      top: 12px;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: none; padding: 0;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #F8EB01; }
+
+    /* Dropdown Soluciones */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color 0.3s; padding: 0;
+    }
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
+    .nav-dropdown-trigger.sol-active { color: #F8EB01; }
+    .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
+    .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; padding-top: 12px;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 8px;
+      display: flex; flex-direction: column; gap: 2px; min-width: 190px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); z-index: 999;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65) !important;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
+    .nav-dropdown-menu a.active { color: #F8EB01 !important; }
+    .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
+    .nav-cta {
+      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
+      color: #000 !important; background: #F8EB01 !important;
+    }
+    .nav-cta:hover { color: #000 !important; }
+
+    /* --- Nav Contact Buttons (persistent) --- */
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      text-decoration: none; transition: all 0.25s ease;
+      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-contact-btn.phone {
+      background: rgba(5, 105, 179, 0.15); color: #0569B3;
+    }
+    .nav-contact-btn.phone:hover {
+      background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25);
+    }
+    .nav-contact-btn.whatsapp {
+      background: rgba(255,255,255,0.08); color: #ffffff;
+    }
+    .nav-contact-btn.whatsapp:hover {
+      background: rgba(255,255,255,0.18); box-shadow: 0 0 14px rgba(255,255,255,0.15);
+    }
+
+    .nav-mobile-toggle {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    }
+    .nav-mobile-toggle span {
+      width: 24px; height: 2px; background: var(--neutral-0);
+      border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== 02. HERO (Design System: "Hero con glows ambientales") ===== */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding-top: 100px;
+      background: #020e1c;
+    }
+    .hero-bg-video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.2; pointer-events: none; z-index: 1;
+    }
+    /* Glow azul grande — atmósfera (top-right) */
+    .hero-glow-1 {
+      position: absolute; top: -20%; right: 5%; width: 500px; height: 500px;
+      background: #0569B3; border-radius: 50%; opacity: 0.12; filter: blur(100px);
+      pointer-events: none;
+    }
+    /* Glow azul secundario (bottom-left) */
+    .hero-glow-2 {
+      position: absolute; bottom: -10%; left: 10%; width: 350px; height: 350px;
+      background: #0569B3; border-radius: 50%; opacity: 0.08; filter: blur(80px);
+      pointer-events: none;
+    }
+    /* Glow amarillo — foco en CTA */
+    .hero-glow-3 {
+      position: absolute; top: 35%; left: 8%; width: 250px; height: 250px;
+      background: #F8EB01; border-radius: 50%; opacity: 0.07; filter: blur(70px);
+      pointer-events: none;
+    }
+    /* Glow amarillo — badge */
+    .hero-glow-4 {
+      position: absolute; top: 12%; left: 5%; width: 120px; height: 120px;
+      background: #F8EB01; border-radius: 50%; opacity: 0.12; filter: blur(40px);
+      pointer-events: none;
+    }
+    .hero .container {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+      align-items: center; position: relative; z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(248,235,1,0.08); border: 1px solid rgba(248,235,1,0.15);
+      border-radius: 99px; padding: 5px 14px;
+      font-size: 12px; font-weight: 500; color: #F8EB01;
+      margin-bottom: 20px;
+    }
+    .hero-badge i { font-size: 14px; }
+    .hero h1 {
+      font-size: 42px; font-weight: 700; color: #fff;
+      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 14px;
+      max-width: 550px;
+    }
+    .hero-text {
+      font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;
+      margin-bottom: 28px; max-width: 420px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: var(--space-8); }
+    .hero-ctas .btn {
+      border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700;
+    }
+    .hero-ctas .btn-primary {
+      box-shadow: 0 0 30px rgba(248,235,1,0.15);
+    }
+    .hero-ctas .btn-whatsapp, .hero-ctas .btn-outline {
+      background: transparent; border: 1px solid rgba(255,255,255,0.1);
+      color: #fff; font-weight: 600; box-shadow: none;
+    }
+    .hero-trust { display: flex; gap: var(--space-6); font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; }
+    .hero-trust span { display: flex; align-items: center; gap: var(--space-2); }
+    .hero-trust i { color: var(--nda-yellow-400); font-size: 14px; }
+
+    /* Hero visual — video */
+    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-comp {
+      position: relative; width: 100%; max-width: 520px;
+    }
+    .hero-main-card {
+      width: 100%; position: relative; overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .hero-main-card video {
+      width: 100%; height: auto; display: block;
+      border-radius: var(--radius-xl);
+    }
+    .hero-main-card::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(
+        180deg,
+        rgba(2, 14, 28, 0.15) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(2, 14, 28, 0.3) 100%
+      );
+    }
+    .hero-main-card img {
+      width: 100%; height: auto; display: block;
+    }
+    /* Floating glass mini-cards */
+    .hero-float {
+      position: absolute; background: rgba(7, 26, 46, 0.8);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      padding: var(--space-4) var(--space-5); display: flex; align-items: center;
+      gap: var(--space-3); z-index: 5; animation: float 3s ease-in-out infinite;
+    }
+    .hero-float i { font-size: 22px; }
+    .hero-float .hf-text { font-size: 13px; font-weight: 600; color: var(--neutral-200); }
+    .hero-float .hf-sub { font-size: 11px; color: var(--neutral-500); font-weight: 400; }
+    .hero-float-1 { top: 10%; right: -20px; }
+    .hero-float-1 i { color: #EF4444; }
+    .hero-float-2 { bottom: 25%; left: -30px; animation-delay: 1s; }
+    .hero-float-2 i { color: var(--nda-yellow-400); }
+    .hero-float-3 { bottom: 5%; right: 10%; animation-delay: 2s; }
+    .hero-float-3 i { color: var(--nda-blue-300); }
+
+    /* Hero armar/desarmar overlay */
+    .hero-shield-overlay {
+      position: absolute; inset: 0; z-index: 3; pointer-events: none;
+      border-radius: var(--radius-xl); overflow: hidden;
+      opacity: 0; transition: opacity 0.6s ease, background 0.6s ease;
+    }
+    .hero-shield-icon {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: 56px; opacity: 0; transition: opacity 0.4s ease, color 0.4s ease, transform 0.5s ease;
+    }
+    .hero-wave {
+      position: absolute; top: 50%; left: 50%;
+      width: 80px; height: 80px; border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0); opacity: 0;
+      transition: border-color 0.4s ease;
+    }
+
+    /* Estado ARMADO (rojo) */
+    .hero-main-card.armed .hero-shield-overlay {
+      opacity: 1; background: rgba(239, 68, 68, 0.12);
+    }
+    .hero-main-card.armed {
+      border-color: rgba(239, 68, 68, 0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(239, 68, 68, 0.15);
+    }
+    .hero-main-card.armed .hero-shield-icon {
+      opacity: 1; color: rgba(239, 68, 68, 0.8); transform: translate(-50%, -50%) scale(1);
+    }
+    .hero-main-card.armed .hero-wave {
+      border: 2px solid rgba(239, 68, 68, 0.5);
+      animation: heroWave 2s ease-out infinite;
+    }
+    .hero-main-card.armed .hero-wave-2 { animation-delay: 0.5s; }
+    .hero-main-card.armed .hero-wave-3 { animation-delay: 1s; }
+
+    /* Estado DESARMADO (verde) */
+    .hero-main-card.disarmed .hero-shield-overlay {
+      opacity: 1; background: rgba(34, 197, 94, 0.12);
+    }
+    .hero-main-card.disarmed {
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(34, 197, 94, 0.15);
+    }
+    .hero-main-card.disarmed .hero-shield-icon {
+      opacity: 1; color: rgba(34, 197, 94, 0.8); transform: translate(-50%, -50%) scale(1);
+    }
+    .hero-main-card.disarmed .hero-wave {
+      border: 2px solid rgba(34, 197, 94, 0.5);
+      animation: heroWave 2s ease-out infinite;
+    }
+    .hero-main-card.disarmed .hero-wave-2 { animation-delay: 0.5s; }
+    .hero-main-card.disarmed .hero-wave-3 { animation-delay: 1s; }
+
+    @keyframes heroWave {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0.7; }
+      100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
+    }
+
+    /* Botón Armar/Desarmar */
+    .hero-arm-btn {
+      cursor: pointer; user-select: none;
+      transition: all 0.4s ease !important;
+      animation: none !important;
+    }
+    .hero-arm-btn:hover { transform: scale(1.05); }
+    .hero-arm-toggle {
+      width: 36px; height: 20px; border-radius: 10px;
+      background: rgba(239, 68, 68, 0.3); border: 1px solid rgba(239, 68, 68, 0.4);
+      position: relative; margin-left: 8px; flex-shrink: 0;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    .hero-arm-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #EF4444; position: absolute; top: 2px; left: 2px;
+      transition: transform 0.4s ease, background 0.4s ease;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+    }
+    /* Toggle desarmado */
+    .hero-arm-btn.disarmed .hero-arm-toggle {
+      background: rgba(34, 197, 94, 0.3); border-color: rgba(34, 197, 94, 0.4);
+    }
+    .hero-arm-btn.disarmed .hero-arm-dot {
+      transform: translateX(16px); background: #22C55E;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+    }
+    .hero-arm-btn.disarmed .hero-arm-icon { color: #22C55E !important; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== 03. TRUST BAR ===== */
+    .trust-bar {
+      background: var(--nda-dark-700); padding: var(--space-12) 0;
+      border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+    }
+    .trust-bar p {
+      text-align: center; font-size: 13px; color: var(--neutral-500);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+      margin-bottom: var(--space-8);
+    }
+    .trust-logos { display: flex; align-items: center; justify-content: center; gap: var(--space-16); flex-wrap: wrap; }
+    .trust-logo {
+      opacity: 0.5; transition: opacity 0.3s; display: flex; align-items: center;
+    }
+    .trust-logo:hover { opacity: 0.9; }
+    .trust-logo img {
+      height: 28px; width: auto; filter: brightness(0) invert(1);
+    }
+    .trust-logo.logo-ajax img { height: 30px; }
+    .trust-logo.logo-trikdis img { height: 24px; filter: none; }
+    .trust-logo.logo-honeywell img { height: 32px; }
+    .trust-logo.logo-secolarm img { height: 22px; filter: none; }
+
+    /* ===== 04. STATS ===== */
+    .stats { padding: var(--space-20) 0; position: relative; overflow: hidden; }
+    .stats-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse, rgba(248, 235, 1, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-grid { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+    .stat-item { flex: 1; text-align: center; padding: var(--space-6) var(--space-8); border-right: 1px solid var(--glass-border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-size: 42px; font-weight: 800; color: var(--neutral-0);
+      letter-spacing: -1px; line-height: 1; margin-bottom: var(--space-2);
+    }
+    .stat-label { font-size: 14px; color: var(--neutral-400); font-weight: 500; }
+
+    /* ===== 05. PILARES (Original) ===== */
+    .pilares { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .pilares-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .pilar-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl); padding: var(--space-10);
+      transition: all 0.3s ease; backdrop-filter: blur(8px);
+      position: relative; overflow: hidden;
+    }
+    .pilar-card:hover {
+      transform: translateY(-6px); border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .pilar-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .pilar-card:nth-child(1)::before { background: var(--nda-blue-400); }
+    .pilar-card:nth-child(2)::before { background: var(--nda-yellow-400); }
+    .pilar-card:nth-child(3)::before { background: var(--success); }
+    .pilar-icon {
+      width: 56px; height: 56px; background: var(--nda-dark-600);
+      border-radius: var(--radius-lg); display: flex; align-items: center;
+      justify-content: center; margin-bottom: var(--space-6);
+    }
+    .pilar-icon i { font-size: 26px; }
+    .pilar-card:nth-child(1) .pilar-icon i { color: var(--nda-blue-300); }
+    .pilar-card:nth-child(2) .pilar-icon i { color: var(--nda-yellow-400); }
+    .pilar-card:nth-child(3) .pilar-icon i { color: var(--success); }
+    .pilar-card h3 { font-size: 20px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-3); }
+    .pilar-card p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; }
+
+    /* ===== 05-B. PILARES V2 (Split: GIF sin borde + floats + lista) ===== */
+    .pilares-v2 {
+      padding: var(--space-24) 0; background: var(--nda-dark-900);
+      position: relative; overflow: hidden;
+    }
+    .pilares-v2-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+      align-items: center; position: relative; z-index: 1;
+    }
+    /* Video grande para 6 floats */
+    .pilares-v2-visual {
+      position: relative; max-width: 600px; margin: 0 auto;
+    }
+    .pilares-v2-visual video {
+      width: 100%; height: auto; display: block;
+      border-radius: var(--radius-xl);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+    }
+    /* Contorno blur + borde glass (solo top y lados, no bottom) */
+    .pilares-v2-visual::before {
+      content: ''; position: absolute; top: -6px; left: -6px; right: -6px; bottom: 30%; z-index: -1;
+      border-radius: calc(var(--radius-xl) + 6px);
+      background: linear-gradient(135deg, rgba(5,105,179,0.25), rgba(248,235,1,0.15), rgba(5,105,179,0.2));
+      filter: blur(12px);
+      opacity: 0.7;
+    }
+    .pilares-v2-visual::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-bottom-color: transparent;
+      box-shadow: 0 0 40px rgba(5,105,179,0.15), 0 0 80px rgba(5,105,179,0.05);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+    }
+    /* Floating glass cards — más grandes y pegados al video */
+    .pv2-float {
+      position: absolute; z-index: 5;
+      background: rgba(7, 26, 46, 0.82);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      cursor: pointer; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pv2-float i { font-size: 26px; }
+    .pv2-float-label { font-size: 14px; font-weight: 600; color: var(--neutral-200); }
+    .pv2-float-sub { font-size: 11px; color: var(--neutral-500); font-weight: 400; }
+    .pv2-float-1 { top: -5%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+    .pv2-float-1 i { color: var(--nda-blue-300); }
+    .pv2-float-2 { top: 82%; left: -35px; animation-delay: 0.8s; }
+    .pv2-float-2 i { color: var(--success); }
+    .pv2-float-3 { top: 30%; right: -35px; animation-delay: 1.6s; }
+    .pv2-float-3 i { color: var(--nda-yellow-400); }
+    .pv2-float-4 { top: 50%; left: -25px; animation-delay: 0.4s; }
+    .pv2-float-4 i { color: #EF4444; }
+    .pv2-float-5 { top: 50%; right: -25px; animation-delay: 1.2s; }
+    .pv2-float-5 i { color: #60A5FA; }
+    .pv2-float-6 { top: 68%; left: -25px; animation-delay: 2s; }
+    .pv2-float-6 i { color: #C084FC; }
+
+    /* Lista de pilares derecha */
+    .pilares-v2-list { display: flex; flex-direction: column; gap: var(--space-5); }
+    .pv2-item {
+      display: flex; gap: var(--space-5); padding: var(--space-5) var(--space-6);
+      border-radius: var(--radius-lg); border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .pv2-item:hover {
+      background: var(--glass-bg); border-color: var(--glass-border);
+      transform: translateX(4px);
+    }
+    .pv2-item-icon {
+      width: 48px; height: 48px; min-width: 48px; border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pv2-item-icon i { font-size: 22px; }
+    .pv2-item:nth-child(1) .pv2-item-icon {
+      background: rgba(5, 105, 179, 0.12); border: 1px solid rgba(5, 105, 179, 0.2);
+    }
+    .pv2-item:nth-child(1) .pv2-item-icon i { color: var(--nda-blue-300); }
+    .pv2-item:nth-child(2) .pv2-item-icon {
+      background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.15);
+    }
+    .pv2-item:nth-child(2) .pv2-item-icon i { color: var(--success); }
+    .pv2-item:nth-child(3) .pv2-item-icon {
+      background: rgba(248, 235, 1, 0.08); border: 1px solid rgba(248, 235, 1, 0.15);
+    }
+    .pv2-item:nth-child(3) .pv2-item-icon i { color: var(--nda-yellow-400); }
+    .pv2-item:nth-child(4) .pv2-item-icon {
+      background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.18);
+    }
+    .pv2-item:nth-child(4) .pv2-item-icon i { color: #EF4444; }
+    .pv2-item:nth-child(5) .pv2-item-icon {
+      background: rgba(96, 165, 250, 0.1); border: 1px solid rgba(96, 165, 250, 0.18);
+    }
+    .pv2-item:nth-child(5) .pv2-item-icon i { color: #60A5FA; }
+    .pv2-item:nth-child(6) .pv2-item-icon {
+      background: rgba(192, 132, 252, 0.1); border: 1px solid rgba(192, 132, 252, 0.18);
+    }
+    .pv2-item:nth-child(6) .pv2-item-icon i { color: #C084FC; }
+    .pv2-item-text h3 {
+      font-size: 18px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: var(--space-1);
+    }
+    .pv2-item-text p {
+      font-size: 14px; color: var(--neutral-400); line-height: 1.7;
+    }
+    /* SVG líneas de conexión float → texto */
+    .pv2-lines-svg {
+      position: absolute; inset: 0; z-index: 4; pointer-events: none;
+      overflow: visible;
+    }
+    .pv2-conn-line {
+      fill: none; stroke-width: 1.5;
+      stroke-linecap: square; stroke-linejoin: miter;
+      transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pv2-conn-glow {
+      fill: none; stroke-width: 5;
+      stroke-linecap: square; stroke-linejoin: miter; opacity: 0.25;
+      transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pv2-conn-dot {
+      r: 4; opacity: 0; transition: opacity 0.3s ease 0.5s;
+    }
+    .pv2-conn-dot.visible { opacity: 1; }
+    /* Float hover */
+    .pv2-float.hovered { border-color: rgba(255,255,255,0.25); box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(5,105,179,0.15); }
+    /* Item completo se ilumina al conectar la línea */
+    .pv2-item {
+      transition: all 0.4s ease 0.6s;
+    }
+    .pv2-item.highlighted {
+      transform: translateX(4px);
+    }
+    .pv2-item.highlighted:nth-child(1) {
+      background: rgba(5, 105, 179, 0.08);
+      border-color: rgba(5, 105, 179, 0.25);
+      box-shadow: 0 0 20px rgba(5, 105, 179, 0.1), inset 0 0 20px rgba(5, 105, 179, 0.03);
+    }
+    .pv2-item.highlighted:nth-child(2) {
+      background: rgba(34, 197, 94, 0.06);
+      border-color: rgba(34, 197, 94, 0.2);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.08), inset 0 0 20px rgba(34, 197, 94, 0.02);
+    }
+    .pv2-item.highlighted:nth-child(3) {
+      background: rgba(248, 235, 1, 0.04);
+      border-color: rgba(248, 235, 1, 0.15);
+      box-shadow: 0 0 20px rgba(248, 235, 1, 0.06), inset 0 0 20px rgba(248, 235, 1, 0.02);
+    }
+    /* Icono brilla */
+    .pv2-item .pv2-item-icon { transition: box-shadow 0.4s ease 0.6s, border-color 0.4s ease 0.6s, background 0.4s ease 0.6s; }
+    .pv2-item.highlighted:nth-child(1) .pv2-item-icon {
+      background: rgba(5, 105, 179, 0.2);
+      border-color: rgba(5, 105, 179, 0.5);
+      box-shadow: 0 0 14px rgba(5, 105, 179, 0.35);
+    }
+    .pv2-item.highlighted:nth-child(2) .pv2-item-icon {
+      background: rgba(34, 197, 94, 0.15);
+      border-color: rgba(34, 197, 94, 0.45);
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.3);
+    }
+    .pv2-item.highlighted:nth-child(3) .pv2-item-icon {
+      background: rgba(248, 235, 1, 0.1);
+      border-color: rgba(248, 235, 1, 0.35);
+      box-shadow: 0 0 14px rgba(248, 235, 1, 0.15);
+    }
+    /* Título y texto cambian de color */
+    .pv2-item .pv2-item-text h3 { transition: color 0.4s ease 0.6s; }
+    .pv2-item .pv2-item-text p { transition: color 0.4s ease 0.6s; }
+    .pv2-item.highlighted:nth-child(1) .pv2-item-text h3 { color: var(--nda-blue-300); }
+    .pv2-item.highlighted:nth-child(1) .pv2-item-text p { color: var(--neutral-200); }
+    .pv2-item.highlighted:nth-child(2) .pv2-item-text h3 { color: var(--success); }
+    .pv2-item.highlighted:nth-child(2) .pv2-item-text p { color: var(--neutral-200); }
+    .pv2-item.highlighted:nth-child(3) .pv2-item-text h3 { color: var(--nda-yellow-400); }
+    .pv2-item.highlighted:nth-child(3) .pv2-item-text p { color: var(--neutral-200); }
+    /* Items 4-6 highlighted (extras con color neutro) */
+    .pv2-item.highlighted:nth-child(4) {
+      background: rgba(239, 68, 68, 0.06);
+      border-color: rgba(239, 68, 68, 0.2);
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.08), inset 0 0 20px rgba(239, 68, 68, 0.02);
+    }
+    .pv2-item.highlighted:nth-child(5) {
+      background: rgba(96, 165, 250, 0.06);
+      border-color: rgba(96, 165, 250, 0.2);
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.08), inset 0 0 20px rgba(96, 165, 250, 0.02);
+    }
+    .pv2-item.highlighted:nth-child(6) {
+      background: rgba(192, 132, 252, 0.06);
+      border-color: rgba(192, 132, 252, 0.2);
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.08), inset 0 0 20px rgba(192, 132, 252, 0.02);
+    }
+    .pv2-item.highlighted:nth-child(4) .pv2-item-icon {
+      background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+    }
+    .pv2-item.highlighted:nth-child(5) .pv2-item-icon {
+      background: rgba(96, 165, 250, 0.15); border-color: rgba(96, 165, 250, 0.4);
+      box-shadow: 0 0 14px rgba(96, 165, 250, 0.25);
+    }
+    .pv2-item.highlighted:nth-child(6) .pv2-item-icon {
+      background: rgba(192, 132, 252, 0.15); border-color: rgba(192, 132, 252, 0.4);
+      box-shadow: 0 0 14px rgba(192, 132, 252, 0.25);
+    }
+    .pv2-item.highlighted:nth-child(4) .pv2-item-text h3 { color: #EF4444; }
+    .pv2-item.highlighted:nth-child(5) .pv2-item-text h3 { color: #60A5FA; }
+    .pv2-item.highlighted:nth-child(6) .pv2-item-text h3 { color: #C084FC; }
+    .pv2-item.highlighted:nth-child(4) .pv2-item-text p,
+    .pv2-item.highlighted:nth-child(5) .pv2-item-text p,
+    .pv2-item.highlighted:nth-child(6) .pv2-item-text p { color: var(--neutral-200); }
+
+    /* ===== 06. SERVICIOS ===== */
+    .servicios { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .servicios-circuits {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .servicios-glow {
+      position: absolute; top: 30%; right: -15%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); position: relative; z-index: 1; }
+    .service-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg); padding: var(--space-8);
+      transition: all 0.3s ease; backdrop-filter: blur(8px);
+    }
+    .service-card:hover {
+      transform: translateY(-6px); border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .service-card.featured { }
+    .service-icon {
+      width: 48px; height: 48px; background: var(--nda-dark-600);
+      border-radius: var(--radius-md); display: flex; align-items: center;
+      justify-content: center; margin-bottom: var(--space-5);
+    }
+    .service-icon i { font-size: 22px; color: var(--nda-blue-300); }
+    .service-card.featured .service-icon i { color: var(--nda-yellow-400); }
+    .service-card h3 { font-size: 18px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-3); }
+    .service-card p { font-size: 14px; color: var(--neutral-400); line-height: 1.6; margin-bottom: var(--space-5); }
+    .service-link {
+      font-size: 14px; font-weight: 600; color: var(--nda-yellow-400);
+      transition: gap 0.3s; display: inline-flex; align-items: center; gap: var(--space-1);
+    }
+    .service-link:hover { gap: var(--space-2); }
+    .service-link i { font-size: 16px; }
+
+    /* ===== 07. SOLUCIONES ===== */
+    .soluciones { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .soluciones-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    .solucion-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg); padding: var(--space-8); text-align: center;
+      transition: all 0.3s ease;
+    }
+    .solucion-card:hover {
+      transform: translateY(-6px); border-color: var(--nda-blue-400);
+      box-shadow: 0 20px 60px rgba(5,105,179,0.15);
+    }
+    .solucion-icon {
+      width: 64px; height: 64px; margin: 0 auto var(--space-5);
+      background: var(--nda-dark-600); border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .solucion-icon i { font-size: 28px; color: var(--nda-blue-300); }
+    .solucion-card h3 { font-size: 18px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-3); }
+    .solucion-card p { font-size: 14px; color: var(--neutral-400); line-height: 1.6; margin-bottom: var(--space-6); }
+    .solucion-card .btn { padding: 10px 20px; font-size: 13px; width: 100%; justify-content: center; }
+
+    /* ===== 07-B. SOLUCIONES V2 — PROPUESTA ===== */
+    .soluciones-v2 { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .soluciones-v2-glow {
+      position: absolute; top: 20%; right: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sol2-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: auto auto;
+      gap: var(--space-5); position: relative; z-index: 1;
+    }
+    .sol2-card {
+      position: relative; border-radius: var(--radius-xl); overflow: hidden;
+      min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: var(--space-8); transition: all 0.4s ease; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sol2-card::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(2, 14, 28, 0.8) 0%, rgba(2, 14, 28, 0.4) 35%, rgba(2, 14, 28, 0.1) 70%, transparent 100%);
+      transition: all 0.4s ease;
+    }
+    .sol2-card:hover::before {
+      background: linear-gradient(to top, rgba(2, 14, 28, 0.97) 0%, rgba(2, 14, 28, 0.85) 50%, rgba(2, 14, 28, 0.4) 100%);
+    }
+    .sol2-card:hover { transform: translateY(-4px); border-color: var(--nda-blue-400); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .sol2-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0; transition: transform 0.6s ease;
+    }
+    .sol2-card:hover img, .sol2-card:hover video { transform: scale(1.05); }
+    .sol2-content {
+      position: relative; z-index: 2;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .sol2-card:hover .sol2-content { opacity: 1; transform: translateY(0); }
+    .sol2-badge-static {
+      position: absolute; bottom: var(--space-6); left: var(--space-8); z-index: 2;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--neutral-0);
+      transition: opacity 0.25s ease;
+    }
+    .sol2-card:hover .sol2-badge-static { opacity: 0; }
+    .sol2-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--nda-yellow-400); margin-bottom: var(--space-3);
+    }
+    .sol2-badge i { font-size: 14px; }
+    .sol2-card h3 { font-size: 22px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .sol2-card p { font-size: 14px; color: var(--neutral-300); line-height: 1.6; margin-bottom: var(--space-5); max-width: 320px; }
+    .sol2-features {
+      display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5);
+    }
+    .sol2-features span {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; font-weight: 500; color: var(--neutral-300);
+      background: rgba(255,255,255,0.08); padding: 4px 10px;
+      border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.06);
+    }
+    .sol2-features span i { font-size: 13px; color: var(--nda-yellow-400); }
+    .sol2-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600; color: var(--nda-yellow-400); transition: gap 0.3s;
+    }
+    .sol2-link:hover { gap: 10px; }
+    .sol2-link i { font-size: 16px; }
+    /* Bento layout: first card spans 2 rows */
+    .sol2-card--main { grid-row: 1 / 3; min-height: 580px; }
+    .sol2-card--main h3 { font-size: 26px; }
+
+    @media (max-width: 1024px) {
+      .sol2-grid { grid-template-columns: 1fr 1fr; }
+      .sol2-card--main { grid-row: auto; min-height: 320px; }
+    }
+    @media (max-width: 768px) {
+      .sol2-grid { grid-template-columns: 1fr; }
+      .sol2-card { min-height: 240px; }
+      .sol2-card--main { min-height: 300px; }
+    }
+
+    /* ===== 08. COMO FUNCIONA ===== */
+    .como-funciona { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .como-glow {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 300px;
+      background: radial-gradient(ellipse, rgba(5, 105, 179, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-8); position: relative; z-index: 1; }
+    .steps-grid::before {
+      content: ''; position: absolute; top: 32px;
+      left: calc(12.5% + 20px); right: calc(12.5% + 20px);
+      height: 2px; border-top: 2px dashed var(--nda-dark-400);
+    }
+    .step-item { text-align: center; position: relative; }
+    .step-number {
+      width: 64px; height: 64px; margin: 0 auto var(--space-5);
+      background: var(--nda-yellow-400); color: var(--nda-dark-900); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 800; position: relative; z-index: 2;
+      box-shadow: 0 0 30px rgba(248, 235, 1, 0.2);
+    }
+    .step-icon { margin-bottom: var(--space-3); }
+    .step-icon i { font-size: 28px; color: var(--neutral-400); }
+    .step-item h3 { font-size: 16px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .step-item p { font-size: 13px; color: var(--neutral-400); line-height: 1.6; }
+
+    /* ===== 08B. PROCESO V2 — Timeline vertical fluido ===== */
+    .proceso-v2 {
+      padding: var(--space-24) 0; position: relative; overflow: hidden;
+    }
+    .proc-timeline {
+      position: relative; max-width: 620px; margin: var(--space-12) auto 0;
+      padding-left: 48px;
+    }
+    /* Línea base */
+    .proc-timeline::before {
+      content: ''; position: absolute; left: 19px; top: 0; bottom: 0; width: 2px;
+      background: rgba(255,255,255,0.06); border-radius: 2px;
+    }
+    /* Línea de progreso animada */
+    .proc-timeline-progress {
+      position: absolute; left: 19px; top: 0; width: 2px; height: 0;
+      background: linear-gradient(180deg, var(--nda-yellow-400), var(--nda-blue-300));
+      border-radius: 2px; z-index: 1;
+      transition: height 0.15s linear;
+      box-shadow: 0 0 10px rgba(248, 235, 1, 0.3);
+    }
+    /* Card */
+    .proc-card {
+      position: relative; margin-bottom: var(--space-8);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 28px 32px;
+      display: flex; align-items: center; gap: 20px;
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .proc-card:last-child { margin-bottom: 0; }
+    .proc-card.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .proc-card.active {
+      border-color: rgba(248, 235, 1, 0.2);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    /* Dot en la línea */
+    .proc-dot {
+      position: absolute; left: -48px; top: 50%; width: 14px; height: 14px;
+      transform: translate(12px, -50%);
+      border-radius: 50%; border: 2px solid rgba(255,255,255,0.15);
+      background: var(--nda-dark-900); z-index: 2;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    }
+    .proc-card.active .proc-dot {
+      border-color: var(--nda-yellow-400);
+      background: var(--nda-yellow-400);
+      box-shadow: 0 0 12px rgba(248, 235, 1, 0.4);
+    }
+    /* Step number */
+    .proc-step-num {
+      position: absolute; left: -48px; top: 50%; transform: translate(-28px, -50%);
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.15);
+      transition: color 0.4s ease;
+    }
+    .proc-card.active .proc-step-num { color: var(--nda-yellow-400); }
+    /* Icono */
+    .proc-card-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: rgba(248, 235, 1, 0.06); border: 1px solid rgba(248, 235, 1, 0.12);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    .proc-card.active .proc-card-icon {
+      background: rgba(248, 235, 1, 0.12); border-color: rgba(248, 235, 1, 0.25);
+    }
+    .proc-card-icon i { font-size: 24px; color: var(--nda-yellow-400); }
+    .proc-card-body { flex: 1; }
+    .proc-card-body h3 {
+      font-size: 18px; font-weight: 700; color: var(--neutral-100);
+      margin-bottom: 4px; transition: color 0.4s ease;
+    }
+    .proc-card.active .proc-card-body h3 { color: var(--neutral-0); }
+    .proc-card-body span {
+      display: block; font-size: 14px; color: var(--neutral-400); line-height: 1.6;
+    }
+
+    /* ===== 09. PRODUCTOS ===== */
+    .productos { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .productos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .producto-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg); padding: var(--space-8);
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .producto-card:hover {
+      transform: translateY(-6px); border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .producto-card .gif-placeholder {
+      width: 100%; aspect-ratio: 1 / 1; height: auto;
+      background: linear-gradient(135deg, var(--nda-dark-600), var(--nda-dark-500));
+      border-radius: var(--radius-md); margin-bottom: var(--space-5);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .gif-placeholder i { font-size: 44px; color: var(--nda-blue-300); opacity: 0.4; }
+    .gif-placeholder img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    .producto-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px;
+      border-radius: var(--radius-sm); margin-bottom: var(--space-3);
+      background: rgba(248, 235, 1, 0.1); color: var(--nda-yellow-400);
+    }
+    .producto-card h3 { font-size: 16px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .producto-card p { font-size: 13px; color: var(--neutral-400); line-height: 1.6; }
+
+    /* ===== 10. PAQUETES ===== */
+    .paquetes { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .paquetes-circuits {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .paquetes .container { position: relative; z-index: 1; }
+    .paquetes .section-title, .paquetes .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .paquetes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); align-items: start; }
+    .paquete-card {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl); padding: var(--space-8);
+      transition: all 0.3s ease; position: relative;
+    }
+    .paquete-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .paquete-card.featured {
+      border-color: var(--nda-yellow-400); box-shadow: 0 0 60px rgba(248, 235, 1, 0.08);
+      transform: scale(1.03);
+    }
+    .paquete-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .paquete-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--nda-yellow-400); color: var(--nda-dark-900);
+      padding: var(--space-1) var(--space-4); border-radius: var(--radius-full);
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; white-space: nowrap;
+    }
+    .paquete-header {
+      text-align: center; padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--glass-border); margin-bottom: var(--space-6);
+    }
+    .paquete-header h3 { font-size: 22px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .paquete-header p { font-size: 14px; color: var(--neutral-400); }
+    .paquete-list { margin-bottom: var(--space-8); }
+    .paquete-list li {
+      padding: var(--space-3) 0; font-size: 14px; color: var(--neutral-300);
+      display: flex; align-items: center; gap: var(--space-3);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .paquete-list li:last-child { border-bottom: none; }
+    .paquete-list i { color: var(--nda-yellow-400); font-size: 16px; min-width: 16px; }
+    .paquete-card .btn { width: 100%; justify-content: center; }
+    .paquete-note { text-align: center; margin-top: var(--space-8); font-size: 14px; color: var(--neutral-500); }
+
+    /* ===== 11. COMPARADOR ===== */
+    .comparador { padding: var(--space-24) 0; background: var(--nda-dark-800); position: relative; overflow: hidden; }
+    .comparador .container { position: relative; z-index: 2; }
+    .comparador .section-title, .comparador .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .comp-bg-video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.06; pointer-events: none; z-index: 1;
+    }
+    /* Layout 2 columnas */
+    .comp-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+      align-items: center; margin-top: var(--space-12);
+    }
+    .comp-left { display: flex; flex-direction: column; }
+    .comp-right {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .comp-image-wrap {
+      width: 100%; aspect-ratio: 1/1; border-radius: var(--radius-xl);
+      overflow: hidden; position: relative;
+    }
+    .comp-image-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 100%;
+      height: 40%; z-index: 2; pointer-events: none;
+      background: linear-gradient(to bottom, transparent, var(--nda-dark-800));
+    }
+    .comp-image {
+      width: 100%; height: 100%;
+      background-image: url('assets/nda-sensor.jpeg');
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.5s ease;
+    }
+    .comp-image.otros {
+      background-image: url('assets/alarma-fallando.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    /* Toggle switch */
+    .comp-toggle-wrap {
+      display: flex; justify-content: flex-start; margin: 0 0 var(--space-8);
+    }
+    .comp-toggle {
+      display: flex; position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px; padding: 4px; gap: 0;
+    }
+    .comp-toggle-btn {
+      padding: 10px 28px; border-radius: 9999px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      position: relative; z-index: 1;
+      color: var(--neutral-400);
+      transition: color 0.4s ease;
+      user-select: none;
+    }
+    .comp-toggle-btn.active { color: var(--nda-dark-900); }
+    .comp-toggle.otros-active .comp-toggle-btn.active { color: var(--neutral-0); }
+    .comp-toggle-slider {
+      position: absolute; top: 4px; height: calc(100% - 8px);
+      border-radius: 9999px;
+      transition: left 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .comp-toggle-slider.nda {
+      background: linear-gradient(135deg, var(--nda-yellow-400), var(--nda-yellow-300));
+      box-shadow: 0 0 20px rgba(248, 235, 1, 0.25);
+    }
+    .comp-toggle-slider.otros {
+      background: rgba(239, 68, 68, 0.7);
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+    }
+    /* Lista de puntos */
+    .comp-list-wrap {
+      width: 100%; position: relative;
+      min-height: 380px;
+    }
+    .comp-list {
+      display: flex; flex-direction: column; gap: 0;
+      position: absolute; top: 0; left: 0; width: 100%;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .comp-list.visible {
+      opacity: 1; transform: translateY(0);
+      pointer-events: auto; position: relative;
+    }
+    .comp-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      opacity: 0; transform: translateX(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .comp-list.visible .comp-item {
+      opacity: 1; transform: translateX(0);
+    }
+    .comp-list.visible .comp-item:nth-child(1) { transition-delay: 0.05s; }
+    .comp-list.visible .comp-item:nth-child(2) { transition-delay: 0.1s; }
+    .comp-list.visible .comp-item:nth-child(3) { transition-delay: 0.15s; }
+    .comp-list.visible .comp-item:nth-child(4) { transition-delay: 0.2s; }
+    .comp-list.visible .comp-item:nth-child(5) { transition-delay: 0.25s; }
+    .comp-list.visible .comp-item:nth-child(6) { transition-delay: 0.3s; }
+    .comp-item:last-child { border-bottom: none; }
+    .comp-item-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .comp-item-icon.good {
+      background: rgba(34, 197, 94, 0.12); color: var(--success);
+    }
+    .comp-item-icon.bad {
+      background: rgba(239, 68, 68, 0.12); color: var(--error);
+    }
+    .comp-item-text h4 {
+      font-size: 16px; font-weight: 700; color: var(--neutral-0);
+      margin: 0 0 2px;
+    }
+    .comp-item-text p {
+      font-size: 13px; color: var(--neutral-400); margin: 0;
+    }
+    /* NDA list items → verde/positivo */
+    .comp-list.nda-list .comp-item-text h4 { color: var(--neutral-0); }
+    /* Otros list items → rojo/negativo */
+    .comp-list.otros-list .comp-item-text h4 { color: var(--neutral-300); }
+    .comp-list.otros-list .comp-item-text p { color: var(--neutral-500); }
+
+    /* ===== NOSOTROS SIMPLE ===== */
+    .nosotros-simple { padding: var(--space-24) 0; }
+    .nosotros-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: start;
+    }
+    .nosotros-video {
+      position: relative; border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--glass-border); aspect-ratio: 4/3;
+    }
+    .nosotros-video video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .nosotros-list { display: flex; flex-direction: column; gap: var(--space-6); }
+    .nosotros-item {
+      display: flex; align-items: flex-start; gap: var(--space-4);
+    }
+    .nosotros-check i {
+      font-size: 22px; color: var(--nda-yellow-400); margin-top: 2px; flex-shrink: 0;
+    }
+    .nosotros-item-text h3 {
+      font-size: 16px; font-weight: 700; color: var(--neutral-100); margin-bottom: 4px;
+    }
+    .nosotros-item-text p {
+      font-size: 14px; color: var(--neutral-400); line-height: 1.5;
+    }
+
+    /* ===== 12. DIFERENCIADORES ===== */
+    .diferenciadores { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .dif-glow {
+      position: absolute; left: -10%; top: 30%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .dif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; position: relative; z-index: 1; }
+    .dif-image {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+      border-radius: var(--radius-xl); border: 1px solid var(--glass-border);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .dif-image::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(248, 235, 1, 0.08) 0%, transparent 60%);
+    }
+    .dif-image i { font-size: 100px; color: var(--nda-blue-300); opacity: 0.15; position: relative; z-index: 1; }
+    .dif-list { display: flex; flex-direction: column; gap: var(--space-5); }
+    .dif-item {
+      display: flex; align-items: flex-start; gap: var(--space-4);
+      padding: var(--space-4); border-radius: var(--radius-md); transition: background 0.3s;
+    }
+    .dif-item:hover { background: var(--glass-bg); }
+    .dif-check {
+      width: 28px; height: 28px; min-width: 28px;
+      background: rgba(248, 235, 1, 0.1); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dif-check i { color: var(--nda-yellow-400); font-size: 16px; }
+    .dif-item h4 { font-size: 16px; font-weight: 600; color: var(--neutral-0); margin-bottom: 2px; }
+    .dif-item p { font-size: 13px; color: var(--neutral-400); }
+
+    /* ===== 12. CLIENTES — Marquee infinito ===== */
+    .clientes-section {
+      padding: var(--space-24) 0 var(--space-16); position: relative; overflow: hidden;
+    }
+    .clientes-section .section-title,
+    .clientes-section .section-desc {
+      text-align: center; margin-left: auto; margin-right: auto;
+    }
+    /* Glow ambiental */
+    .clientes-bg-glow {
+      position: absolute; top: 50%; left: 50%; width: 800px; height: 600px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(248,235,1,0.05) 0%, rgba(5,105,179,0.03) 40%, transparent 70%);
+      pointer-events: none; z-index: 0; filter: blur(80px);
+    }
+    /* Contador */
+    .clientes-counter { text-align: center; margin-bottom: var(--space-2); }
+    .clientes-counter span {
+      font-size: 80px; font-weight: 800; letter-spacing: -3px; line-height: 1;
+      background: linear-gradient(135deg, var(--nda-yellow-400) 0%, var(--nda-blue-300) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; position: relative; display: inline-block;
+    }
+    .clientes-counter span::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 12px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(248,235,1,0.3) 0%, transparent 70%);
+      filter: blur(6px);
+    }
+    /* Contenedor ventana — solo muestra 3 filas */
+    .clientes-viewport {
+      position: relative;
+      max-width: 1000px;
+      margin: var(--space-12) auto 0;
+      /* 3 filas visibles: (row height ~110px + gap 16) * 3 */
+      height: 378px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    /* Fade arriba y abajo */
+    .clientes-viewport::before,
+    .clientes-viewport::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 100px;
+      z-index: 3; pointer-events: none;
+    }
+    .clientes-viewport::before {
+      top: 0; background: linear-gradient(180deg, var(--nda-dark-900) 0%, transparent 100%);
+    }
+    .clientes-viewport::after {
+      bottom: 0; background: linear-gradient(0deg, var(--nda-dark-900) 0%, transparent 100%);
+    }
+    /* Track que se mueve hacia arriba */
+    .clientes-track {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      animation: clScrollUp 25s linear infinite;
+    }
+    .clientes-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes clScrollUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    /* Card de logo */
+    .cl-logo {
+      display: flex; align-items: center; justify-content: center;
+      height: 110px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 24px;
+      position: relative;
+      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .cl-logo img {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+      opacity: 0.75;
+      transition: opacity 0.4s ease;
+    }
+    /* Hover */
+    .cl-logo:hover {
+      transform: scale(1.08);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(248, 235, 1, 0.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(248, 235, 1, 0.1);
+    }
+    .cl-logo:hover img {
+      opacity: 1;
+    }
+    /* Logos oscuros/negros → invertir a blanco */
+    .cl-logo.cl-dark img {
+      filter: brightness(0) invert(1);
+    }
+    .cl-logo.cl-dark:hover img {
+      filter: brightness(0) invert(1);
+      opacity: 1;
+    }
+
+    /* ===== 13. TESTIMONIOS ===== */
+    .testimonios { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .testimonios .section-title, .testimonios .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .testimonial-carousel { position: relative; overflow: hidden; }
+    .testimonial-track { display: flex; transition: transform 0.5s ease; }
+    .testimonial-card { min-width: 100%; padding: 0 var(--space-6); }
+    .testimonial-inner {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl); padding: var(--space-10);
+      text-align: center; max-width: 700px; margin: 0 auto; position: relative;
+    }
+    .testimonial-quote {
+      position: absolute; top: var(--space-4); left: var(--space-8);
+      font-size: 80px; color: var(--nda-yellow-400); opacity: 0.1;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .testimonial-stars { margin-bottom: var(--space-5); display: flex; justify-content: center; gap: 2px; }
+    .testimonial-stars i { font-size: 18px; color: var(--nda-yellow-400); }
+    .testimonial-text {
+      font-size: 18px; color: var(--neutral-200); line-height: 1.7;
+      margin-bottom: var(--space-6); font-style: italic;
+    }
+    .testimonial-name { font-size: 15px; font-weight: 600; color: var(--neutral-0); }
+    .testimonial-role { font-size: 13px; color: var(--neutral-500); }
+    .carousel-dots { display: flex; justify-content: center; gap: var(--space-2); margin-top: var(--space-8); }
+    .carousel-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--nda-dark-400); border: none; cursor: pointer; transition: all 0.3s;
+    }
+    .carousel-dot.active { background: var(--nda-yellow-400); width: 28px; border-radius: var(--radius-full); }
+
+    /* ===== 14. BANNER CTA ===== */
+    .banner-cta {
+      padding: var(--space-20) 0; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+    }
+    .banner-glow-blue {
+      position: absolute; left: -10%; top: -50%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-glow-yellow {
+      position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
+    .banner-cta > .container > p {
+      font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10);
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+    /* ===== 15. FAQ ===== */
+    .faq { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .faq .section-title, .faq .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--glass-border); }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-6) 0; cursor: pointer; text-align: left;
+    }
+    .faq-question h4 { font-size: 16px; font-weight: 600; color: var(--neutral-0); padding-right: var(--space-4); }
+    .faq-icon {
+      width: 28px; height: 28px; min-width: 28px; border-radius: 50%;
+      border: 1.5px solid var(--glass-border); display: flex; align-items: center;
+      justify-content: center; transition: all 0.3s;
+    }
+    .faq-icon i { font-size: 16px; color: var(--neutral-400); transition: transform 0.3s; }
+    .faq-item.open .faq-icon {
+      background: var(--nda-yellow-400); border-color: var(--nda-yellow-400);
+    }
+    .faq-item.open .faq-icon i { color: var(--nda-dark-900); transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; padding-bottom: var(--space-6); }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ===== 16. CONTACTO ===== */
+    .contacto { padding: var(--space-24) 0; }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
+    .form-group { margin-bottom: var(--space-5); }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--neutral-300); margin-bottom: var(--space-2); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px var(--space-4); background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      color: var(--neutral-0); font-size: 15px; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--nda-blue-400); }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
+    }
+    .form-group select option { background: var(--nda-dark-800); color: var(--neutral-0); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    /* Form success state */
+    .form-success {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: var(--space-12) var(--space-8);
+      min-height: 400px;
+      animation: formFadeIn 0.5s ease;
+    }
+    .form-success.visible { display: flex; }
+    .form-success-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(34, 197, 94, 0.12); border: 2px solid rgba(34, 197, 94, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--space-6);
+      animation: formPulse 2s ease-in-out infinite;
+    }
+    .form-success-icon i { font-size: 36px; color: var(--success); }
+    .form-success h3 {
+      font-size: 24px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: var(--space-2);
+    }
+    .form-success p {
+      font-size: 15px; color: var(--neutral-400); line-height: 1.7;
+      max-width: 380px; margin-bottom: var(--space-8);
+    }
+    .form-success-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+    .form-success-actions .btn { font-size: 14px; padding: 12px 24px; }
+    @keyframes formFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes formPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.15); }
+      50% { box-shadow: 0 0 0 16px rgba(34, 197, 94, 0); }
+    }
+    .contacto-info { display: flex; flex-direction: column; gap: var(--space-8); }
+    .contacto-info h3 { font-size: 24px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-4); }
+    .contacto-info-item { display: flex; align-items: flex-start; gap: var(--space-4); }
+    .info-icon {
+      width: 44px; height: 44px; min-width: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .info-icon i { font-size: 20px; color: var(--nda-blue-300); }
+    .contacto-info-item h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: 2px; }
+    .contacto-info-item p { font-size: 14px; color: var(--neutral-400); }
+
+    /* ===== 17. FOOTER ===== */
+    .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12); padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); display: inline-flex; margin-left: -20px; }
+    .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-icon {
+      width: 36px; height: 36px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+    }
+    .social-icon i { font-size: 18px; color: var(--neutral-400); transition: color 0.3s; }
+    .social-icon:hover { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .social-icon:hover i { color: var(--nda-dark-900); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--neutral-500); padding: var(--space-1) 0; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: var(--space-8); flex-wrap: wrap; gap: var(--space-4);
+    }
+    .footer-bottom p { font-size: 13px; color: var(--neutral-600); }
+    .footer-bottom a { color: var(--nda-yellow-400); font-weight: 500; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed; bottom: var(--space-6); right: var(--space-6);
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); transition: all 0.3s;
+      animation: wa-pulse 2s infinite;
+    }
+    .whatsapp-float i { font-size: 28px; color: #fff; }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); animation: none; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      width: 44px; height: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; backdrop-filter: blur(12px);
+      opacity: 0; pointer-events: none; transition: all 0.3s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: var(--nda-dark-600); border-color: var(--neutral-500); }
+    .scroll-top i { font-size: 20px; color: var(--neutral-300); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid, .soluciones-grid, .steps-grid, .productos-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .comp-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 38px; }
+      .hero-text { max-width: 100%; }
+      .hero-ctas { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-visual { display: none; }
+      .hero-badge { margin-left: auto; margin-right: auto; }
+      .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
+      .nav-links { display: none; }
+      .nav-contact-btns { margin-left: auto; margin-right: 12px; }
+      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-mobile-toggle { display: flex; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--glass-border); padding: var(--space-5) var(--space-4); }
+      .stat-item:last-child { border-bottom: none; }
+      .stats-grid { flex-direction: column; }
+      .stat-number { font-size: 32px; }
+      .services-grid, .soluciones-grid, .paquetes-grid, .productos-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+      .paquete-card.featured { transform: none; }
+      .paquete-card.featured:hover { transform: translateY(-4px); }
+      .dif-grid, .contacto-grid { grid-template-columns: 1fr; }
+      .dif-image { display: none; }
+      .pilares-v2-split { grid-template-columns: 1fr; }
+      .pilares-v2-visual { display: none; }
+      .section-title { font-size: 28px; }
+      .banner-cta h2 { font-size: 28px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .trust-logos { gap: var(--space-8); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 01. NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Inicio</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">Soluciones <i class="ph-bold ph-caret-down"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="industrial.html"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="camaras.html"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+          </div>
+        </div>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== 02. HERO ===== -->
+  <section class="hero" id="hero">
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+      <source src="assets/hero-bg-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-glow-3"></div>
+    <div class="hero-glow-4"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="ph-fill ph-seal-check"></i> 30+ años protegiendo Monterrey</div>
+        <h1>Alarmas y monitoreo 24/7<br><span class="highlight">con Central de Monitoreo propia en Monterrey</span></h1>
+        <p class="hero-text">Sistemas de seguridad electrónica para casas, negocios e industrias. +30 años protegiendo lo que más importa.</p>
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
+        </div>
+        <div class="hero-trust">
+          <span><i class="ph-fill ph-star"></i> +30 años de experiencia</span>
+          <span><i class="ph-fill ph-star"></i> 5/5 estrellas en reseñas</span>
+          <span><i class="ph-fill ph-star"></i> Control desde tu celular</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-comp">
+          <div class="hero-main-card">
+            <video autoplay muted loop playsinline>
+              <source src="assets/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-shield-overlay">
+              <div class="hero-wave hero-wave-1"></div>
+              <div class="hero-wave hero-wave-2"></div>
+              <div class="hero-wave hero-wave-3"></div>
+              <i class="ph-fill ph-lock-key hero-shield-icon" id="heroShieldIcon"></i>
+            </div>
+          </div>
+          <div class="hero-float hero-float-1 hero-arm-btn" id="heroArmBtn">
+            <i class="ph-fill ph-lock-key hero-arm-icon" id="heroArmIcon"></i>
+            <div>
+              <div class="hf-text" id="heroArmText">Armado</div>
+              <div class="hf-sub" id="heroArmSub">Sistema protegido</div>
+            </div>
+            <div class="hero-arm-toggle">
+              <div class="hero-arm-dot"></div>
+            </div>
+          </div>
+          <div class="hero-float hero-float-2">
+            <i class="ph-fill ph-lock-key"></i>
+            <div><div class="hf-text">Central propia</div><div class="hf-sub">Monterrey 24/7</div></div>
+          </div>
+          <div class="hero-float hero-float-3">
+            <i class="ph-fill ph-device-mobile"></i>
+            <div><div class="hf-text">App móvil</div><div class="hf-sub">Control remoto</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03. TRUST BAR ===== -->
+  <section class="trust-bar reveal">
+    <div class="container">
+      <p>Tecnología de clase mundial</p>
+      <div class="trust-logos">
+        <span class="trust-logo logo-ajax"><img src="assets/logo-ajax.png" alt="Ajax Systems"></span>
+        <span class="trust-logo logo-honeywell"><img src="assets/logo-honeywell.png" alt="Honeywell"></span>
+        <span class="trust-logo logo-trikdis"><img src="assets/logo-trikdis.png" alt="Trikdis"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04. STATS ===== -->
+  <section class="stats reveal" id="stats">
+    <div class="stats-glow"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-target="10000" data-prefix="+">+10,000</div>
+          <div class="stat-label">Familias y empresas confían en nosotros</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Años protegiendo Monterrey</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5.0</div>
+          <div class="stat-label">Estrellas en reseñas de clientes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24h</div>
+          <div class="stat-label">Máximo para soporte técnico</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05. PILARES (Original) ===== -->
+  <!-- ===== 05. ¿POR QUÉ NDA? ===== -->
+  <section class="pilares-v2 reveal" id="pilares-v2">
+    <div class="container">
+      <div class="section-label">¿Por qué NDA?</div>
+      <h2 class="section-title">Tres razones para <span class="highlight">elegirnos</span></h2>
+      <p class="section-desc">Lo que nos distingue de cualquier otra empresa de seguridad.</p>
+      <div class="pilares-v2-split">
+        <div class="pilares-v2-visual">
+          <video autoplay muted loop playsinline>
+            <source src="assets/pilares-video.mp4" type="video/mp4">
+          </video>
+          <div class="pv2-float pv2-float-1">
+            <i class="ph-fill ph-eye"></i>
+            <div><div class="pv2-float-label">Monitoreo 24/7</div><div class="pv2-float-sub">Central propia</div></div>
+          </div>
+          <div class="pv2-float pv2-float-2">
+            <i class="ph-fill ph-lightning"></i>
+            <div><div class="pv2-float-label">Soporte hoy</div><div class="pv2-float-sub">Mismo día</div></div>
+          </div>
+          <div class="pv2-float pv2-float-3">
+            <i class="ph-fill ph-lock-key-open"></i>
+            <div><div class="pv2-float-label">30+ años</div><div class="pv2-float-sub">Experiencia local</div></div>
+          </div>
+        </div>
+        <!-- SVG líneas de conexión V2 (se dibujan con JS) -->
+        <svg class="pv2-lines-svg" id="pv2LinesSvg">
+          <defs>
+            <filter id="v2GlowBlue"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="v2GlowGreen"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="v2GlowYellow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Glows -->
+          <path class="pv2-conn-glow" id="pv2Glow0" stroke="var(--nda-blue-300)" filter="url(#v2GlowBlue)"/>
+          <path class="pv2-conn-glow" id="pv2Glow1" stroke="var(--success)" filter="url(#v2GlowGreen)"/>
+          <path class="pv2-conn-glow" id="pv2Glow2" stroke="var(--nda-yellow-400)" filter="url(#v2GlowYellow)" opacity="0.15"/>
+          <!-- Lines -->
+          <path class="pv2-conn-line" id="pv2Path0" stroke="var(--nda-blue-300)"/>
+          <path class="pv2-conn-line" id="pv2Path1" stroke="var(--success)"/>
+          <path class="pv2-conn-line" id="pv2Path2" stroke="var(--nda-yellow-400)" opacity="0.55"/>
+          <!-- Dots -->
+          <circle class="pv2-conn-dot" id="pv2Dot0" fill="var(--nda-blue-300)" filter="url(#v2GlowBlue)"/>
+          <circle class="pv2-conn-dot" id="pv2Dot1" fill="var(--success)" filter="url(#v2GlowGreen)"/>
+          <circle class="pv2-conn-dot" id="pv2Dot2" fill="var(--nda-yellow-400)" filter="url(#v2GlowYellow)" opacity="0"/>
+        </svg>
+        <div class="pilares-v2-list">
+          <div class="pv2-item">
+            <div class="pv2-item-icon"><i class="ph-duotone ph-eye"></i></div>
+            <div class="pv2-item-text">
+              <h3>Ojos que nunca duermen</h3>
+              <p>Nuestra central propia en Monterrey vigila tu propiedad las 24 horas. No tercerizamos, no delegamos.</p>
+            </div>
+          </div>
+          <div class="pv2-item">
+            <div class="pv2-item-icon"><i class="ph-duotone ph-lightning"></i></div>
+            <div class="pv2-item-text">
+              <h3>Acción inmediata</h3>
+              <p>Nuestros técnicos están en tu zona. Soporte el mismo día, máximo 48 horas.</p>
+            </div>
+          </div>
+          <div class="pv2-item">
+            <div class="pv2-item-icon"><i class="ph-duotone ph-cpu"></i></div>
+            <div class="pv2-item-text">
+              <h3>Tecnología de clase mundial</h3>
+              <p>Trabajamos con Ajax Systems, Honeywell y Trikdis para ofrecerte los sistemas de alarma más avanzados del mercado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06. SERVICIOS ===== -->
+  <section class="servicios reveal" id="servicios">
+    <canvas class="servicios-circuits" id="circuitsCanvas"></canvas>
+    <div class="servicios-glow"></div>
+    <div class="container">
+      <div class="section-label">Servicios</div>
+      <h2 class="section-title">Todo lo que necesitas para <span class="highlight">tu seguridad</span></h2>
+      <p class="section-desc">Soluciones integrales con tecnología de punta y servicio personalizado.</p>
+      <div class="services-grid stagger">
+        <div class="service-card featured">
+          <div class="service-icon"><i class="ph-duotone ph-headset"></i></div>
+          <h3>Monitoreo 24/7</h3>
+          <p>Central de monitoreo propia con operadores capacitados que vigilan tu propiedad las 24 horas, los 365 días.</p>
+          <a href="#" class="service-link">Saber más <i class="ph-bold ph-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="ph-duotone ph-wrench"></i></div>
+          <h3>Servicio Técnico</h3>
+          <p>Técnicos certificados con servicio el mismo día. Mantenimiento preventivo y correctivo para tu sistema.</p>
+          <a href="#" class="service-link">Saber más <i class="ph-bold ph-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="ph-duotone ph-device-mobile"></i></div>
+          <h3>App Móvil</h3>
+          <p>Controla tu sistema desde tu celular. Arma, desarma y recibe notificaciones en tiempo real.</p>
+          <a href="#" class="service-link">Saber más <i class="ph-bold ph-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="ph-duotone ph-gear-six"></i></div>
+          <h3>Instalación</h3>
+          <p>Instalación profesional incluida. Nuestros técnicos configuran todo para que funcione desde el día uno.</p>
+          <a href="#" class="service-link">Saber más <i class="ph-bold ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07. SOLUCIONES ===== -->
+  <section class="soluciones-v2 reveal" id="soluciones-v2">
+    <div class="soluciones-v2-glow"></div>
+    <div class="container">
+      <div class="section-label">Soluciones</div>
+      <h2 class="section-title">Seguridad para cada <span class="highlight-blue">necesidad</span></h2>
+      <p class="section-desc">Diseñamos soluciones a la medida para cada tipo de propiedad.</p>
+      <div class="sol2-grid stagger">
+        <!-- Card principal: CCTV (ocupa 2 rows) -->
+        <div class="sol2-card sol2-card--main">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform 0.6s ease;">
+            <source src="assets/sol-cctv-video.mp4" type="video/mp4">
+          </video>
+          <span class="sol2-badge-static"><i class="ph-fill ph-security-camera"></i> CCTV</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-security-camera"></i> CCTV / Videovigilancia</div>
+            <h3>Vigila desde cualquier lugar</h3>
+            <p>Cámaras WiFi e IP con grabación en la nube, visión nocturna y acceso remoto desde tu celular.</p>
+            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card: Comercial -->
+        <div class="sol2-card">
+          <img src="assets/sol-comercial.png" alt="Seguridad para negocios">
+          <span class="sol2-badge-static"><i class="ph-fill ph-storefront"></i> Comercial</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Comercial</div>
+            <h3>Tu negocio, siempre seguro</h3>
+            <p>Oficinas, locales y colegios con soluciones adaptadas a tu operación.</p>
+            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card: Industrial -->
+        <div class="sol2-card">
+          <img src="assets/sol-industrial.png" alt="Seguridad industrial perimetral">
+          <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Industrial</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Industrial</div>
+            <h3>Seguridad a gran escala</h3>
+            <p>Bodegas, naves y almacenes con cobertura perimetral completa.</p>
+            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card: Residencial (span full width bottom) -->
+        <div class="sol2-card" style="grid-column: 2 / 4;">
+          <img src="assets/sol-residencial.png" alt="Sistema de seguridad residencial">
+          <span class="sol2-badge-static"><i class="ph-fill ph-house"></i> Residencial</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-house"></i> Residencial</div>
+            <h3>Protege lo que más quieres</h3>
+            <p>Sistemas inteligentes para casas y departamentos. Monitoreo 24/7, app móvil y control total desde tu celular.</p>
+            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 08. COMO FUNCIONA ===== -->
+  <!-- ===== 08. PROCESO ===== -->
+  <section class="proceso-v2" id="proceso-v2">
+    <div class="container">
+      <div class="section-label">Proceso</div>
+      <h2 class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Así de fácil <span class="highlight">funciona</span></h2>
+      <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">En 4 simples pasos estarás protegido con tecnología de clase mundial.</p>
+      <div class="proc-timeline" id="procTimeline">
+        <div class="proc-timeline-progress" id="procTimelineProg"></div>
+        <div class="proc-card">
+          <div class="proc-dot"></div>
+          <div class="proc-step-num">01</div>
+          <div class="proc-card-icon"><i class="ph-duotone ph-chat-dots"></i></div>
+          <div class="proc-card-body">
+            <h3>Cuéntanos qué necesitas</h3>
+            <span>Llena nuestro cotizador o escríbenos por WhatsApp. Es rápido y gratuito.</span>
+          </div>
+        </div>
+        <div class="proc-card">
+          <div class="proc-dot"></div>
+          <div class="proc-step-num">02</div>
+          <div class="proc-card-icon"><i class="ph-duotone ph-clipboard-text"></i></div>
+          <div class="proc-card-body">
+            <h3>Diseñamos tu solución</h3>
+            <span>Un asesor especializado evalúa tu propiedad y diseña el sistema ideal para ti.</span>
+          </div>
+        </div>
+        <div class="proc-card">
+          <div class="proc-dot"></div>
+          <div class="proc-step-num">03</div>
+          <div class="proc-card-icon"><i class="ph-duotone ph-wrench"></i></div>
+          <div class="proc-card-body">
+            <h3>Instalación profesional</h3>
+            <span>Técnicos certificados instalan todo. Tú solo elige el día.</span>
+          </div>
+        </div>
+        <div class="proc-card">
+          <div class="proc-dot"></div>
+          <div class="proc-step-num">04</div>
+          <div class="proc-card-icon"><i class="ph-duotone ph-shield-check"></i></div>
+          <div class="proc-card-body">
+            <h3>Protección activa 24/7</h3>
+            <span>Desde el primer día, tu propiedad está monitoreada por nuestra central en Monterrey.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 09. PRODUCTOS ===== -->
+  <section class="productos reveal" id="productos">
+    <div class="container">
+      <div class="section-label">Productos</div>
+      <h2 class="section-title">Conoce lo que te <span class="highlight">protege</span></h2>
+      <p class="section-desc">Cada dispositivo cumple una función específica. Así es como trabajan para ti.</p>
+      <div class="productos-grid stagger">
+        <div class="producto-card">
+          <div class="gif-placeholder"><img src="assets/producto-sensor-movimiento.png" alt="Sensor de movimiento en sala de estar"></div>
+          <span class="producto-tag">Sensor de movimiento</span>
+          <h3>Detecta intrusos, ignora mascotas</h3>
+          <p>Protección inteligente para cada rincón. Diferencia entre personas y animales.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder"><img src="assets/producto-contacto-magnetico.jpg" alt="Contacto magnético en puerta"></div>
+          <span class="producto-tag">Contacto magnético</span>
+          <h3>Cada puerta y ventana vigilada</h3>
+          <p>Sabrás al instante si alguien entra. Se activa cuando se abre sin autorización.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder"><img src="assets/producto-detector-humo.png" alt="Detector de humo inteligente"></div>
+          <span class="producto-tag">Detector de humo</span>
+          <h3>Detecta humo antes de que sea tarde</h3>
+          <p>Protección contra incendios 24h. Alerta inmediata a tu celular y a nuestra central.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder"><img src="assets/producto-camara-seguridad.jpg" alt="Cámara de seguridad exterior en casa"></div>
+          <span class="producto-tag">Cámara de seguridad</span>
+          <h3>Ve tu propiedad en tiempo real</h3>
+          <p>Desde tu celular, estés donde estés. Grabación en la nube y visión nocturna.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder"><img src="assets/producto-boton-panico.jpg" alt="Botón de pánico en mostrador"></div>
+          <span class="producto-tag">Botón de pánico</span>
+          <h3>Un toque y nuestra central actúa</h3>
+          <p>Para emergencias que no pueden esperar. Activa el protocolo de respuesta al instante.</p>
+        </div>
+        <div class="producto-card">
+          <div class="gif-placeholder"><img src="assets/producto-sensor-perimetral.jpg" alt="Sensor perimetral exterior residencial y comercial"></div>
+          <span class="producto-tag">Sensor perimetral</span>
+          <h3>Protección desde el perímetro</h3>
+          <p>Detecta antes de que lleguen a tu puerta. Cobertura exterior inteligente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. PAQUETES ===== -->
+  <section class="paquetes reveal" id="paquetes">
+    <canvas class="paquetes-circuits" id="circuitsCanvasPaq"></canvas>
+    <div class="container">
+      <div class="section-label">Paquetes</div>
+      <h2 class="section-title">Paquetes para cada <span class="highlight">necesidad</span></h2>
+      <p class="section-desc">Estos son ejemplos de configuración. Cada sistema se diseña a la medida de tu propiedad.</p>
+      <div class="paquetes-grid stagger">
+        <div class="paquete-card">
+          <div class="paquete-header">
+            <h3>Esencial</h3>
+            <p>Ideal para departamentos y casas pequeñas</p>
+          </div>
+          <ul class="paquete-list">
+            <li><i class="ph-fill ph-check-circle"></i> Panel de alarma inteligente</li>
+            <li><i class="ph-fill ph-check-circle"></i> 2 sensores de movimiento</li>
+            <li><i class="ph-fill ph-check-circle"></i> 1 contacto magnético</li>
+            <li><i class="ph-fill ph-check-circle"></i> 1 control remoto</li>
+            <li><i class="ph-fill ph-check-circle"></i> Sirena interior</li>
+            <li><i class="ph-fill ph-check-circle"></i> Monitoreo 24/7</li>
+            <li><i class="ph-fill ph-check-circle"></i> App móvil</li>
+          </ul>
+          <a href="cotiza.html?paquete=Esencial" class="btn btn-outline">Quiero este paquete</a>
+        </div>
+        <div class="paquete-card featured">
+          <div class="paquete-badge">Más popular</div>
+          <div class="paquete-header">
+            <h3>Avanzado</h3>
+            <p>Para casas medianas y negocios pequeños</p>
+          </div>
+          <ul class="paquete-list">
+            <li><i class="ph-fill ph-check-circle"></i> Panel de alarma inteligente</li>
+            <li><i class="ph-fill ph-check-circle"></i> 4 sensores de movimiento</li>
+            <li><i class="ph-fill ph-check-circle"></i> 2 contactos magnéticos</li>
+            <li><i class="ph-fill ph-check-circle"></i> 2 controles remotos</li>
+            <li><i class="ph-fill ph-check-circle"></i> Sirena interior + exterior</li>
+            <li><i class="ph-fill ph-check-circle"></i> Detector de humo</li>
+            <li><i class="ph-fill ph-check-circle"></i> Monitoreo 24/7</li>
+            <li><i class="ph-fill ph-check-circle"></i> App móvil incluida</li>
+            <li><i class="ph-fill ph-check-circle"></i> Botón de pánico</li>
+          </ul>
+          <a href="cotiza.html?paquete=Avanzado" class="btn btn-primary">Quiero este paquete</a>
+        </div>
+        <div class="paquete-card">
+          <div class="paquete-header">
+            <h3>Integral</h3>
+            <p>Para casas grandes y negocios con CCTV</p>
+          </div>
+          <ul class="paquete-list">
+            <li><i class="ph-fill ph-check-circle"></i> Todo lo del Avanzado</li>
+            <li><i class="ph-fill ph-check-circle"></i> 6 sensores de movimiento</li>
+            <li><i class="ph-fill ph-check-circle"></i> 4 contactos magnéticos</li>
+            <li><i class="ph-fill ph-check-circle"></i> 3 controles remotos</li>
+            <li><i class="ph-fill ph-check-circle"></i> Sensor perimetral exterior</li>
+            <li><i class="ph-fill ph-check-circle"></i> 2 cámaras HD</li>
+            <li><i class="ph-fill ph-check-circle"></i> DVR 4 canales</li>
+            <li><i class="ph-fill ph-check-circle"></i> Sirena exterior adicional</li>
+          </ul>
+          <a href="cotiza.html?paquete=Integral" class="btn btn-outline">Quiero este paquete</a>
+        </div>
+      </div>
+      <p class="paquete-note">Nuestros asesores te ayudan a elegir exactamente lo que necesitas. Cada paquete se puede personalizar.</p>
+    </div>
+  </section>
+
+  <!-- ===== 11. COMPARADOR ===== -->
+  <section class="comparador reveal" id="comparador">
+    <video class="comp-bg-video" autoplay muted loop playsinline>
+      <source src="assets/comp-bg-video.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+      <div class="section-label">Comparador</div>
+      <h2 class="section-title">Lo que nos hace diferentes no es lo que decimos, <span class="highlight">es lo que hacemos</span></h2>
+      <p class="section-desc">Compara y decide con información transparente.</p>
+
+      <!-- Layout 2 columnas -->
+      <div class="comp-layout">
+        <!-- Izquierda: Toggle + Listas -->
+        <div class="comp-left">
+          <!-- Toggle -->
+          <div class="comp-toggle-wrap">
+            <div class="comp-toggle" id="compToggle">
+              <div class="comp-toggle-slider nda" id="compSlider"></div>
+              <div class="comp-toggle-btn active" id="compBtnNda" data-target="nda">Nacional de Alarmas</div>
+              <div class="comp-toggle-btn" id="compBtnOtros" data-target="otros">Otras empresas</div>
+            </div>
+          </div>
+
+          <!-- Listas -->
+          <div class="comp-list-wrap">
+            <!-- NDA -->
+            <div class="comp-list nda-list visible" id="compListNda">
+              <div class="comp-item">
+                <div class="comp-item-icon good"><i class="ph-fill ph-handshake"></i></div>
+                <div class="comp-item-text"><h4>Equipo sin costo inicial</h4><p>Con nuestro Safe Pack, empiezas sin inversión en equipo. Solo pagas tu monitoreo.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon good"><i class="ph-fill ph-broadcast"></i></div>
+                <div class="comp-item-text"><h4>Central de monitoreo propia</h4><p>Operamos desde Monterrey, 24/7, sin intermediarios.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon good"><i class="ph-fill ph-wrench"></i></div>
+                <div class="comp-item-text"><h4>Técnicos locales, mismo día</h4><p>Nuestro equipo llega el mismo día que nos contactas.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon good"><i class="ph-fill ph-receipt"></i></div>
+                <div class="comp-item-text"><h4>Cero costos ocultos</h4><p>Transparencia total. Lo que cotizamos es lo que pagas.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon good"><i class="ph-fill ph-package"></i></div>
+                <div class="comp-item-text"><h4>Múltiples marcas</h4><p>Ajax, Honeywell, Trikdis — elegimos la mejor para ti.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon good"><i class="ph-fill ph-trophy"></i></div>
+                <div class="comp-item-text"><h4>+30 años en Monterrey</h4><p>Desde 1993 protegiendo hogares y negocios regios.</p></div>
+              </div>
+            </div>
+            <!-- Otros -->
+            <div class="comp-list otros-list" id="compListOtros">
+              <div class="comp-item">
+                <div class="comp-item-icon bad"><i class="ph-fill ph-lock-key"></i></div>
+                <div class="comp-item-text"><h4>Atención impersonal</h4><p>Call centers genéricos sin conocimiento de tu zona.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon bad"><i class="ph-fill ph-map-pin-line"></i></div>
+                <div class="comp-item-text"><h4>Central tercerizada</h4><p>Monitoreo desde otra ciudad, sin conocimiento local.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon bad"><i class="ph-fill ph-clock"></i></div>
+                <div class="comp-item-text"><h4>Foráneos, días o semanas</h4><p>Técnicos que viajan desde lejos con tiempos largos de espera.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon bad"><i class="ph-fill ph-warning"></i></div>
+                <div class="comp-item-text"><h4>Equipos con costo elevado</h4><p>Inversión inicial alta solo para empezar con el servicio.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon bad"><i class="ph-fill ph-lock"></i></div>
+                <div class="comp-item-text"><h4>Solo su propia marca</h4><p>Te obligan a usar su equipo, sin alternativas.</p></div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-item-icon bad"><i class="ph-fill ph-globe-simple"></i></div>
+                <div class="comp-item-text"><h4>Multinacional sin raíces</h4><p>Sin presencia ni compromiso local real.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Derecha: Imagen versus -->
+        <div class="comp-right">
+          <div class="comp-image-wrap">
+            <div class="comp-image" id="compImage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 12. CLIENTES — Marquee infinito ===== -->
+  <section class="clientes-section" id="clientes">
+    <div class="clientes-bg-glow"></div>
+    <div class="container">
+      <div class="section-label">Clientes</div>
+      <h2 class="section-title">Empresas que ya <span class="highlight">confían</span> en Nacional de Alarmas</h2>
+      <p class="section-desc">Hogares, comercios e industrias protegidos con nuestra tecnología.</p>
+    </div>
+    <div class="clientes-viewport">
+      <div class="clientes-track">
+        <!-- Bloque original 36 celdas (34 logos + 2 relleno) -->
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+        <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
+        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
+        <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
+        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
+        <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
+        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
+        <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
+        <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
+        <div class="cl-logo"><img src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
+        <div class="cl-logo"><img src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
+        <div class="cl-logo"><img src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/LG.png" alt="Los Generales"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
+        <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
+        <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
+        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
+        <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
+        <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
+        <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
+        <div class="cl-logo"><img src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
+        <div class="cl-logo"><img src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
+        <div class="cl-logo"><img src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
+        <div class="cl-logo"><img src="assets/clientes/SPK.png" alt="Spikes"></div>
+        <div class="cl-logo"><img src="assets/clientes/SW.png" alt="Subway"></div>
+        <div class="cl-logo"><img src="assets/clientes/GP.png" alt="GP"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
+        <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
+        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
+        <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
+        <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
+        <!-- Relleno fila 6 -->
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+        <!-- Duplicado completo para loop infinito -->
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+        <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
+        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
+        <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
+        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
+        <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
+        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
+        <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
+        <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
+        <div class="cl-logo"><img src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
+        <div class="cl-logo"><img src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
+        <div class="cl-logo"><img src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/LG.png" alt="Los Generales"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
+        <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
+        <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
+        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
+        <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
+        <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
+        <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
+        <div class="cl-logo"><img src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
+        <div class="cl-logo"><img src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
+        <div class="cl-logo"><img src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
+        <div class="cl-logo"><img src="assets/clientes/SPK.png" alt="Spikes"></div>
+        <div class="cl-logo"><img src="assets/clientes/SW.png" alt="Subway"></div>
+        <div class="cl-logo"><img src="assets/clientes/GP.png" alt="GP"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
+        <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
+        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
+        <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
+        <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 13. TESTIMONIOS ===== -->
+  <section class="testimonios reveal" id="testimonios">
+    <div class="container">
+      <div class="section-label">Testimonios</div>
+      <h2 class="section-title">Miles de familias ya <span class="highlight">confían</span> en nosotros</h2>
+      <p class="section-desc">Calificación perfecta 5/5 basada en reseñas verificadas de Google.</p>
+      <div class="testimonial-carousel" id="carousel">
+        <div class="testimonial-track" id="carouselTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+              <p class="testimonial-text">Excelente servicio, instalaron el mismo día que llamé. El monitoreo funciona perfecto y la app es muy fácil de usar. Llevo 3 años con ellos y cero problemas.</p>
+              <p class="testimonial-name">Roberto García</p>
+              <p class="testimonial-role">Cliente residencial &middot; San Pedro</p>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+              <p class="testimonial-text">Tenemos 3 sucursales monitoreadas con Nacional de Alarmas. La respuesta ante cualquier incidencia es inmediata. Son muy profesionales y el precio es justo.</p>
+              <p class="testimonial-name">María Fernanda López</p>
+              <p class="testimonial-role">Dueña de negocio &middot; Monterrey Centro</p>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+              <p class="testimonial-text">Lo que más valoro es que tienen su propia Central de Monitoreo aquí en Monterrey. Cuando se activó mi alarma por error, me llamaron en segundos. El técnico vino el mismo día.</p>
+              <p class="testimonial-name">Carlos Treviño</p>
+              <p class="testimonial-role">Cliente residencial &middot; Cumbres</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-index="0"></button>
+          <button class="carousel-dot" data-index="1"></button>
+          <button class="carousel-dot" data-index="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14. BANNER CTA ===== -->
+  <section class="banner-cta reveal">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container">
+      <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
+      <p>En menos de 60 segundos puedes empezar. Cotización gratuita y asesoría personalizada.</p>
+      <div class="banner-ctas">
+        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+        <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15. FAQ ===== -->
+  <section class="faq reveal" id="faq">
+    <div class="container">
+      <div class="section-label">Preguntas frecuentes</div>
+      <h2 class="section-title">Resolvemos tus <span class="highlight">dudas</span></h2>
+      <p class="section-desc">Las preguntas más comunes sobre nuestros servicios.</p>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question"><h4>¿Cómo funciona la Central de Monitoreo 24/7?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Nuestra Central de Monitoreo propia en Monterrey vigila tu propiedad las 24 horas, los 365 días del año. Al recibir una señal de alarma, verificamos en segundos, te contactamos y activamos el protocolo de respuesta con las autoridades si es necesario.</p></div></div>
+        <div class="faq-item"><button class="faq-question"><h4>¿Cuánto cuesta un sistema de alarma?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Depende de tu propiedad y necesidades. Por eso ofrecemos una cotización personalizada gratuita. Contáctanos y en minutos te damos una propuesta a tu medida.</p></div></div>
+        <div class="faq-item"><button class="faq-question"><h4>¿Cuánto tiempo tarda la instalación?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>La instalación típica toma entre 2 y 4 horas. En la mayoría de los casos, instalamos el mismo día que nos contactas o al día siguiente.</p></div></div>
+        <div class="faq-item"><button class="faq-question"><h4>¿Qué pasa cuando se activa una alarma?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Nuestra central de monitoreo en Monterrey recibe la señal al instante. Verificamos la emergencia, te contactamos para confirmar y, si es necesario, activamos el protocolo de respuesta con las autoridades.</p></div></div>
+        <div class="faq-item"><button class="faq-question"><h4>¿Puedo controlar mi alarma desde el celular?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Sí. Con la app puedes armar y desarmar tu sistema, ver cámaras, recibir notificaciones en tiempo real y revisar el historial de eventos desde cualquier lugar.</p></div></div>
+        <div class="faq-item"><button class="faq-question"><h4>¿Qué marcas de equipo manejan?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Trabajamos con las mejores marcas del mundo: Ajax Systems, Honeywell, Trikdis y First Alert, entre otras. Nuestros asesores te recomiendan la mejor opción para tu caso.</p></div></div>
+        <div class="faq-item"><button class="faq-question"><h4>¿En qué zonas dan servicio?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Cubrimos Monterrey y toda su área metropolitana: San Pedro, San Nicolás, Guadalupe, Apodaca, Escobedo, Santa Catarina, García y más.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 16. CONTACTO ===== -->
+  <section class="contacto reveal" id="contacto">
+    <div class="container">
+      <div class="section-label">Contacto</div>
+      <h2 class="section-title">Solicita tu <span class="highlight">cotización</span></h2>
+      <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo en menos de 2 horas.</p>
+      <div class="contacto-grid">
+        <div id="contactoFormWrap">
+          <form id="contactoForm">
+            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678" required pattern="[0-9\s]{10,15}" title="Solo números (10 dígitos)" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9\s]/g, '')"></div>
+            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. nombre@gmail.com)"></div>
+            <div class="form-group"><label for="tipo">Tipo de propiedad</label><select id="tipo"><option value="" disabled selected>Selecciona una opción</option><option>Casa</option><option>Departamento</option><option>Negocio / Comercio</option><option>Nave industrial / Bodega</option><option>Otro</option></select></div>
+            <div class="form-group"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
+            <h3>Mensaje enviado</h3>
+            <p>Gracias por contactarnos. Un asesor se comunicará contigo en menos de 2 horas.</p>
+            <div class="form-success-actions">
+              <a href="https://wa.me/528127193393?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+              <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
+            </div>
+          </div>
+        </div>
+        <div class="contacto-info">
+          <div>
+            <h3>Información de contacto</h3>
+            <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
+          </div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2719 3393</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 17. FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* --- 1. Navbar scroll --- */
+    const navbar = document.getElementById('navbar');
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTop.classList.toggle('visible', window.scrollY > 600);
+    });
+
+    /* --- 2. Scroll to top --- */
+    scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* --- 3. Mobile menu --- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'rgba(7, 26, 46, 0.95)';
+        navLinks.style.backdropFilter = 'blur(12px)';
+        navLinks.style.padding = '24px';
+        navLinks.style.gap = '16px';
+        navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.12)';
+      } else {
+        navLinks.removeAttribute('style');
+      }
+    });
+
+    /* --- 4. FAQ accordion --- */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* --- 5. Testimonial carousel --- */
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    const totalSlides = dots.length;
+    function goToSlide(index) {
+      currentSlide = index;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+    dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index))));
+    setInterval(() => goToSlide((currentSlide + 1) % totalSlides), 5000);
+
+    /* --- 6. Scroll reveal + stagger --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+    /* --- 7. Counter animation on stats --- */
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          if (!target) return;
+          let current = 0;
+          const increment = Math.ceil(target / 60);
+          const prefix = el.dataset.prefix || '';
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) { current = target; clearInterval(timer); }
+            el.textContent = prefix + current.toLocaleString();
+          }, 25);
+          statObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
+
+    /* --- 8. Proceso V2: timeline vertical con línea de progreso --- */
+    (function() {
+      const timeline = document.getElementById('procTimeline');
+      if (!timeline) return;
+      const cards = timeline.querySelectorAll('.proc-card');
+      const prog = document.getElementById('procTimelineProg');
+
+      function update() {
+        const tRect = timeline.getBoundingClientRect();
+        const tTop = tRect.top;
+        const tHeight = tRect.height;
+        const viewH = window.innerHeight;
+        const triggerY = viewH * 0.65;
+
+        /* Línea de progreso */
+        const lineProgress = Math.max(0, Math.min((triggerY - tTop) / tHeight, 1));
+        if (prog) prog.style.height = (lineProgress * 100) + '%';
+
+        /* Cards: revelar y activar */
+        cards.forEach((card) => {
+          const cRect = card.getBoundingClientRect();
+          const cMid = cRect.top + cRect.height / 2;
+
+          if (cRect.top < triggerY) {
+            card.classList.add('visible');
+          }
+          if (cMid < triggerY && cMid > tTop) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    /* --- 8a. Pilares V2 (¿Por qué NDA?): líneas SVG — 3 floats → 3 items --- */
+    (function() {
+      const N = 3;
+      const section = document.getElementById('pilares-v2');
+      if (!section) return;
+      const split = section.querySelector('.pilares-v2-split');
+      if (!split) return;
+      const visual = section.querySelector('.pilares-v2-visual');
+      const floats = section.querySelectorAll('.pv2-float');
+      const items = section.querySelectorAll('.pv2-item');
+      const paths = [], glows = [], dots = [];
+      for (let k = 0; k < N; k++) {
+        paths.push(document.getElementById('pv2Path' + k));
+        glows.push(document.getElementById('pv2Glow' + k));
+        dots.push(document.getElementById('pv2Dot' + k));
+      }
+
+      function rel(el) {
+        const r = el.getBoundingClientRect();
+        const sr = split.getBoundingClientRect();
+        return {
+          x: r.left - sr.left, y: r.top - sr.top,
+          w: r.width, h: r.height,
+          cx: r.left - sr.left + r.width / 2,
+          cy: r.top - sr.top + r.height / 2,
+          right: r.left - sr.left + r.width,
+          bottom: r.top - sr.top + r.height
+        };
+      }
+
+      const floatToItem = [0, 1, 2];
+
+      function buildRoute(i) {
+        const f = rel(floats[i]);
+        const t = rel(items[floatToItem[i]]);
+        const v = rel(visual);
+        const toX = t.x;
+        const toY = t.cy;
+        let pts = [];
+
+        if (i === 0) {
+          /* Monitoreo (arriba centro) → derecha → baja */
+          const startX = f.right;
+          const startY = f.cy;
+          const extX = startX + 35;
+          pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
+        } else if (i === 1) {
+          /* Soporte (izquierda) → derecha → horizontal → baja */
+          const startX = f.right;
+          const startY = f.cy;
+          const extX = v.right + 20;
+          pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
+        } else {
+          /* Sin contrato (derecha) → baja → derecha al item */
+          const startX = f.right;
+          const startY = f.cy;
+          pts = [[startX, startY], [toX, startY], [toX, toY]];
+        }
+        const d = 'M' + pts.map(p => p[0] + ',' + p[1]).join(' L');
+        const end = pts[pts.length - 1];
+        return { d, end: { x: end[0], y: end[1] } };
+      }
+
+      function setupLine(i) {
+        if (!paths[i] || !floats[i] || !items[floatToItem[i]]) return;
+        const { d, end } = buildRoute(i);
+        paths[i].setAttribute('d', d);
+        glows[i].setAttribute('d', d);
+        dots[i].setAttribute('cx', end.x);
+        dots[i].setAttribute('cy', end.y);
+        const len = paths[i].getTotalLength();
+        paths[i].style.strokeDasharray = len;
+        paths[i].style.strokeDashoffset = len;
+        glows[i].style.strokeDasharray = len;
+        glows[i].style.strokeDashoffset = len;
+      }
+
+      function showLine(i) {
+        setupLine(i);
+        requestAnimationFrame(() => {
+          paths[i].style.strokeDashoffset = '0';
+          glows[i].style.strokeDashoffset = '0';
+          dots[i].style.opacity = (i === 2) ? '0.45' : '1';
+          dots[i].style.transition = 'opacity 0.3s ease 0.6s';
+        });
+        floats[i].classList.add('hovered');
+        items[floatToItem[i]].classList.add('highlighted');
+      }
+
+      function hideLine(i) {
+        const len = paths[i].getTotalLength();
+        paths[i].style.strokeDashoffset = len;
+        glows[i].style.strokeDashoffset = len;
+        dots[i].style.opacity = '0';
+        dots[i].style.transition = 'opacity 0.15s ease';
+        floats[i].classList.remove('hovered');
+        items[floatToItem[i]].classList.remove('highlighted');
+      }
+
+      /* Construye la ruta invertida: de item → float */
+      function buildRouteReverse(i) {
+        const f = rel(floats[i]);
+        const t = rel(items[floatToItem[i]]);
+        const v = rel(visual);
+        const toX = t.x;
+        const toY = t.cy;
+        let pts = [];
+
+        if (i === 0) {
+          const startX = f.right;
+          const startY = f.cy;
+          const extX = startX + 35;
+          pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
+        } else if (i === 1) {
+          const startX = f.right;
+          const startY = f.cy;
+          const extX = v.right + 20;
+          pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
+        } else {
+          const startX = f.right;
+          const startY = f.cy;
+          pts = [[startX, startY], [toX, startY], [toX, toY]];
+        }
+        /* Invertir puntos: ahora va de item → float */
+        pts.reverse();
+        const d = 'M' + pts.map(p => p[0] + ',' + p[1]).join(' L');
+        const end = pts[pts.length - 1];
+        return { d, end: { x: end[0], y: end[1] } };
+      }
+
+      function setupLineReverse(i) {
+        if (!paths[i] || !floats[i] || !items[floatToItem[i]]) return;
+        const { d, end } = buildRouteReverse(i);
+        paths[i].setAttribute('d', d);
+        glows[i].setAttribute('d', d);
+        /* Dot al final (ahora es el float) */
+        dots[i].setAttribute('cx', end.x);
+        dots[i].setAttribute('cy', end.y);
+        const len = paths[i].getTotalLength();
+        paths[i].style.strokeDasharray = len;
+        paths[i].style.strokeDashoffset = len;
+        glows[i].style.strokeDasharray = len;
+        glows[i].style.strokeDashoffset = len;
+      }
+
+      /* Reversa: anima la línea viajando de item → float */
+      function showLineReverse(i) {
+        setupLineReverse(i);
+        requestAnimationFrame(() => {
+          paths[i].style.strokeDashoffset = '0';
+          glows[i].style.strokeDashoffset = '0';
+          dots[i].style.opacity = (i === 2) ? '0.45' : '1';
+          dots[i].style.transition = 'opacity 0.3s ease 0.6s';
+        });
+        floats[i].classList.add('hovered');
+        items[floatToItem[i]].classList.add('highlighted');
+      }
+
+      function hideLineReverse(i) {
+        const len = paths[i].getTotalLength();
+        paths[i].style.strokeDashoffset = len;
+        glows[i].style.strokeDashoffset = len;
+        dots[i].style.opacity = '0';
+        dots[i].style.transition = 'opacity 0.15s ease';
+        floats[i].classList.remove('hovered');
+        items[floatToItem[i]].classList.remove('highlighted');
+      }
+
+      /* Mapeo inverso: item index → float index */
+      const itemToFloat = [];
+      floatToItem.forEach((itemIdx, floatIdx) => { itemToFloat[itemIdx] = floatIdx; });
+
+      /* Hover en floats → línea sale del float al item */
+      floats.forEach((fl, i) => {
+        if (i < N) {
+          fl.addEventListener('mouseenter', () => showLine(i));
+          fl.addEventListener('mouseleave', () => hideLine(i));
+        }
+      });
+
+      /* Hover en items → línea viaja del item al float */
+      items.forEach((item, itemIdx) => {
+        const floatIdx = itemToFloat[itemIdx];
+        if (floatIdx !== undefined && floatIdx < N) {
+          item.addEventListener('mouseenter', () => showLineReverse(floatIdx));
+          item.addEventListener('mouseleave', () => hideLineReverse(floatIdx));
+          item.style.cursor = 'pointer';
+        }
+      });
+
+      window.addEventListener('resize', () => { for (let k = 0; k < N; k++) setupLine(k); });
+    })();
+
+    /* --- 9. Comparador toggle NDA / Otros --- */
+    (function() {
+      const btnNda = document.getElementById('compBtnNda');
+      const btnOtros = document.getElementById('compBtnOtros');
+      const slider = document.getElementById('compSlider');
+      const listNda = document.getElementById('compListNda');
+      const listOtros = document.getElementById('compListOtros');
+      const compImage = document.getElementById('compImage');
+      if (!btnNda || !btnOtros) return;
+
+      function setActive(target) {
+        const toggle = document.getElementById('compToggle');
+        if (target === 'nda') {
+          btnNda.classList.add('active');
+          btnOtros.classList.remove('active');
+          slider.style.left = btnNda.offsetLeft - 4 + 'px';
+          slider.style.width = btnNda.offsetWidth + 'px';
+          slider.className = 'comp-toggle-slider nda';
+          listNda.classList.add('visible');
+          listOtros.classList.remove('visible');
+          if (compImage) compImage.classList.remove('otros');
+          toggle.classList.remove('otros-active');
+        } else {
+          btnOtros.classList.add('active');
+          btnNda.classList.remove('active');
+          slider.style.left = btnOtros.offsetLeft - 4 + 'px';
+          slider.style.width = btnOtros.offsetWidth + 'px';
+          slider.className = 'comp-toggle-slider otros';
+          listNda.classList.remove('visible');
+          listOtros.classList.add('visible');
+          if (compImage) compImage.classList.add('otros');
+          toggle.classList.add('otros-active');
+        }
+      }
+
+      /* Posicionar slider inicial */
+      setTimeout(() => setActive('nda'), 100);
+
+      btnNda.addEventListener('click', () => setActive('nda'));
+      btnOtros.addEventListener('click', () => setActive('otros'));
+    })();
+
+    /* --- 10. Hero Armar / Desarmar toggle --- */
+    (function() {
+      const btn = document.getElementById('heroArmBtn');
+      const card = document.querySelector('.hero-main-card');
+      const icon = document.getElementById('heroArmIcon');
+      const shieldIcon = document.getElementById('heroShieldIcon');
+      const text = document.getElementById('heroArmText');
+      const sub = document.getElementById('heroArmSub');
+      if (!btn || !card) return;
+
+      let armed = true;
+      /* Iniciar en armado */
+      card.classList.add('armed');
+
+      function toggle() {
+        armed = !armed;
+        if (armed) {
+          card.classList.remove('disarmed');
+          card.classList.add('armed');
+          btn.classList.remove('disarmed');
+          icon.classList.remove('ph-lock-key-open');
+          icon.classList.add('ph-lock-key');
+          shieldIcon.classList.remove('ph-lock-key-open');
+          shieldIcon.classList.add('ph-lock-key');
+          text.textContent = 'Armado';
+          sub.textContent = 'Sistema protegido';
+        } else {
+          card.classList.remove('armed');
+          card.classList.add('disarmed');
+          btn.classList.add('disarmed');
+          icon.classList.remove('ph-lock-key');
+          icon.classList.add('ph-lock-key-open');
+          shieldIcon.classList.remove('ph-lock-key');
+          shieldIcon.classList.add('ph-lock-key-open');
+          text.textContent = 'Desarmado';
+          sub.textContent = 'Sistema abierto';
+        }
+      }
+
+      /* Click manual */
+      btn.addEventListener('click', toggle);
+      /* Auto toggle cada 4 segundos */
+      setInterval(toggle, 4000);
+    })();
+
+    /* --- 11. Circuit connections background (reutilizable) --- */
+    function initCircuits(canvasId, excludeSel) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const section = canvas.parentElement;
+      let W, H, nodes = [], connections = [], exRect = null;
+
+      function getExcludeRect() {
+        if (!excludeSel) return null;
+        const el = section.querySelector(excludeSel);
+        if (!el) return null;
+        const sR = section.getBoundingClientRect();
+        const eR = el.getBoundingClientRect();
+        const pad = 20;
+        return {
+          x: eR.left - sR.left - pad,
+          y: eR.top - sR.top - pad,
+          w: eR.width + pad * 2,
+          h: eR.height + pad * 2
+        };
+      }
+
+      function inExclude(px, py) {
+        if (!exRect) return false;
+        return px > exRect.x && px < exRect.x + exRect.w &&
+               py > exRect.y && py < exRect.y + exRect.h;
+      }
+
+      function resize() {
+        W = section.offsetWidth;
+        H = section.offsetHeight;
+        canvas.width = W;
+        canvas.height = H;
+        exRect = getExcludeRect();
+        createNodes();
+      }
+
+      function createNodes() {
+        nodes = [];
+        const cols = Math.floor(W / 100);
+        const rows = Math.floor(H / 100);
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const x = (c + 0.5) * (W / cols) + (Math.random() - 0.5) * 40;
+            const y = (r + 0.5) * (H / rows) + (Math.random() - 0.5) * 40;
+            if (!inExclude(x, y)) nodes.push({ x, y });
+          }
+        }
+      }
+
+      function spawnConnection() {
+        if (nodes.length < 2) return;
+        const a = nodes[Math.floor(Math.random() * nodes.length)];
+        let best = null, bestDist = 280;
+        for (const n of nodes) {
+          if (n === a) continue;
+          const d = Math.hypot(n.x - a.x, n.y - a.y);
+          if (d < bestDist && Math.random() > 0.4) { best = n; bestDist = d; }
+        }
+        if (!best) return;
+        const mid = Math.random() > 0.5
+          ? { x: best.x, y: a.y }
+          : { x: a.x, y: best.y };
+        /* Descartar si el punto medio cae dentro de la zona excluida */
+        if (inExclude(mid.x, mid.y)) return;
+        connections.push({
+          points: [a, mid, best],
+          progress: 0, fade: 1, phase: 'draw', holdTimer: 0,
+          speed: 0.008 + Math.random() * 0.008,
+          color: Math.random() > 0.6 ? 'rgba(5,105,179,' : 'rgba(248,235,1,'
+        });
+      }
+
+      function getPointAt(pts, progress) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+        const drawLen = totalLen * progress;
+        let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+          if (drawn + segLen >= drawLen) {
+            const t = (drawLen - drawn) / segLen;
+            return { x: pts[i-1].x + (pts[i].x - pts[i-1].x) * t, y: pts[i-1].y + (pts[i].y - pts[i-1].y) * t };
+          }
+          drawn += segLen;
+        }
+        return pts[pts.length - 1];
+      }
+
+      function update() {
+        for (let i = connections.length - 1; i >= 0; i--) {
+          const c = connections[i];
+          if (c.phase === 'draw') {
+            c.progress += c.speed;
+            if (c.progress >= 1) { c.progress = 1; c.phase = 'hold'; c.holdTimer = 60 + Math.random() * 80; }
+          } else if (c.phase === 'hold') {
+            c.holdTimer--;
+            if (c.holdTimer <= 0) c.phase = 'fade';
+          } else {
+            c.fade -= 0.012;
+            if (c.fade <= 0) { connections.splice(i, 1); }
+          }
+        }
+      }
+
+      function drawPath(pts, progress, alpha, colorBase) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+        const drawLen = totalLen * progress;
+        ctx.beginPath();
+        ctx.moveTo(pts[0].x, pts[0].y);
+        let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+          if (drawn + segLen <= drawLen) {
+            ctx.lineTo(pts[i].x, pts[i].y);
+            drawn += segLen;
+          } else {
+            const t = (drawLen - drawn) / segLen;
+            ctx.lineTo(pts[i-1].x + (pts[i].x - pts[i-1].x) * t, pts[i-1].y + (pts[i].y - pts[i-1].y) * t);
+            break;
+          }
+        }
+        const a = Math.max(0, alpha * 0.18);
+        ctx.strokeStyle = colorBase + a + ')';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        const endPt = getPointAt(pts, progress);
+        if (endPt && alpha > 0.3) {
+          ctx.beginPath();
+          ctx.arc(endPt.x, endPt.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = colorBase + (a * 1.5) + ')';
+          ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.arc(pts[0].x, pts[0].y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = colorBase + (a * 0.8) + ')';
+        ctx.fill();
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, W, H);
+        for (const c of connections) drawPath(c.points, c.progress, c.fade, c.color);
+      }
+
+      let spawnCounter = 0;
+      function loop() {
+        update(); render();
+        spawnCounter++;
+        if (spawnCounter > 80 + Math.random() * 70) {
+          if (connections.length < 5) spawnConnection();
+          spawnCounter = 0;
+        }
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      spawnConnection();
+      spawnConnection();
+      loop();
+    }
+    initCircuits('circuitsCanvas');
+    initCircuits('circuitsCanvasPaq', '.paquetes-grid');
+
+    /* --- 12. Contact form success state --- */
+    (function() {
+      const form = document.getElementById('contactoForm');
+      const success = document.getElementById('formSuccess');
+      const resetBtn = document.getElementById('formReset');
+      if (!form || !success) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        success.classList.add('visible');
+      });
+
+      resetBtn.addEventListener('click', function() {
+        success.classList.remove('visible');
+        form.style.display = '';
+        form.reset();
+      });
+    })();
+
+  </script>
+</body>
+</html>

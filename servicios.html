@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios — Nacional de Alarmas | Monitoreo 24/7, Soporte Técnico e Instalación en Monterrey</title>
+  <meta name="description" content="Servicios de seguridad electrónica: monitoreo de alarmas 24/7, soporte técnico mismo día, app móvil, instalación profesional y asesoría personalizada. Nacional de Alarmas Monterrey.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-yellow-500: #e0d400;
+      --nda-yellow-600: #c4ba00;
+      --nda-yellow-700: #9e9600;
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --nda-blue-500: #045694;
+      --nda-blue-600: #034475;
+      --nda-blue-700: #023256;
+      --neutral-0: #ffffff;
+      --neutral-50: #f8fafc;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1e293b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-blur: 12px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+      --radius-2xl: 32px; --radius-full: 9999px;
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--doc-font);
+      background: var(--nda-dark-900);
+      color: var(--neutral-300);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea {
+      font-family: inherit; font-size: inherit;
+      border: none; outline: none; background: none; color: inherit;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--nda-yellow-400); margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700; color: var(--neutral-0);
+      letter-spacing: -0.5px; margin-bottom: var(--space-4); line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--neutral-400); max-width: 600px;
+      margin-bottom: var(--space-12); line-height: 1.7;
+    }
+    .highlight { color: var(--nda-yellow-400); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    /* Phosphor icon sizing helper */
+    .icon-box { display: flex; align-items: center; justify-content: center; }
+    .icon-box i { line-height: 1; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 14px 28px; border-radius: var(--radius-full);
+      font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn i { font-size: 18px; }
+    .btn-primary { background: var(--nda-yellow-400); color: var(--nda-dark-900); }
+    .btn-primary:hover {
+      background: var(--nda-yellow-300); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248, 235, 1, 0.25);
+    }
+    .btn-outline { border: 1.5px solid var(--glass-border); color: var(--neutral-0); }
+    .btn-outline:hover {
+      border-color: var(--neutral-300); background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover {
+      background: #20bd5a; transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Scroll reveal + stagger */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.5s; }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 99px; padding: 12px 28px;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(2, 14, 28, 0.92);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      top: 12px;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: none; padding: 0;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #F8EB01; }
+
+    /* Dropdown Soluciones */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color 0.3s; padding: 0;
+    }
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
+    .nav-dropdown-trigger.sol-active { color: #F8EB01; }
+    .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
+    .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; padding-top: 12px;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 8px;
+      display: flex; flex-direction: column; gap: 2px; min-width: 190px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); z-index: 999;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65) !important;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
+    .nav-dropdown-menu a.active { color: #F8EB01 !important; }
+    .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
+    .nav-cta {
+      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
+      color: #000 !important; background: #F8EB01 !important;
+    }
+    .nav-cta:hover { color: #000 !important; }
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      text-decoration: none; transition: all 0.25s ease;
+      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-contact-btn.phone {
+      background: rgba(5, 105, 179, 0.15); color: #0569B3;
+    }
+    .nav-contact-btn.phone:hover {
+      background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25);
+    }
+    .nav-contact-btn.whatsapp {
+      background: rgba(255,255,255,0.08); color: #ffffff;
+    }
+    .nav-contact-btn.whatsapp:hover {
+      background: rgba(255,255,255,0.18); box-shadow: 0 0 14px rgba(255,255,255,0.15);
+    }
+    .nav-mobile-toggle {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    }
+    .nav-mobile-toggle span {
+      width: 24px; height: 2px; background: var(--neutral-0);
+      border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== HERO SERVICIOS ===== */
+    .hero-servicios {
+      min-height: 70vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding-top: 120px; padding-bottom: 80px;
+      background: var(--nda-dark-900);
+    }
+    .hero-servicios-glow-1 {
+      position: absolute; top: -15%; right: 10%; width: 500px; height: 500px;
+      background: #0569B3; border-radius: 50%; opacity: 0.1; filter: blur(100px);
+      pointer-events: none;
+    }
+    .hero-servicios-glow-2 {
+      position: absolute; bottom: -10%; left: 5%; width: 350px; height: 350px;
+      background: #F8EB01; border-radius: 50%; opacity: 0.06; filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero-servicios .container {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+      align-items: center; position: relative; z-index: 2;
+    }
+    .hero-servicios-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(248,235,1,0.08); border: 1px solid rgba(248,235,1,0.15);
+      border-radius: 99px; padding: 5px 14px;
+      font-size: 12px; font-weight: 500; color: #F8EB01;
+      margin-bottom: 20px;
+    }
+    .hero-servicios-badge i { font-size: 14px; }
+    .hero-servicios h1 {
+      font-size: 42px; font-weight: 700; color: #fff;
+      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 14px;
+      max-width: 550px;
+    }
+    .hero-servicios-text {
+      font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;
+      margin-bottom: 28px; max-width: 460px;
+    }
+    .hero-servicios-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-servicios-ctas .btn {
+      border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700;
+    }
+    .hero-servicios-ctas .btn-primary {
+      box-shadow: 0 0 30px rgba(248,235,1,0.15);
+    }
+    .hero-servicios-visual {
+      display: flex; align-items: center; justify-content: center;
+      transform: translateX(-40px);
+    }
+    .hero-servicios-img {
+      width: 100%; max-width: 500px; position: relative;
+      border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .hero-servicios-img img, .hero-servicios-img video {
+      width: 100%; height: auto; display: block;
+    }
+    .hero-servicios-img::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, transparent 60%, rgba(2,14,28,0.5) 100%);
+    }
+    .hero-svc-float {
+      position: absolute; z-index: 5;
+      background: rgba(7, 26, 46, 0.82);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      padding: 12px 18px; display: flex; align-items: center; gap: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero-svc-float i { font-size: 20px; }
+    .hero-svc-float .hf-text { font-size: 13px; font-weight: 600; color: var(--neutral-200); }
+    .hero-svc-float .hf-sub { font-size: 11px; color: var(--neutral-500); font-weight: 400; }
+    .hero-svc-float-1 { top: 8%; right: -15px; }
+    .hero-svc-float-1 i { color: var(--nda-yellow-400); }
+    .hero-svc-float-2 { bottom: 15%; left: -20px; animation-delay: 1.5s; }
+    .hero-svc-float-2 i { color: var(--nda-blue-300); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== SERVICIOS DETALLADOS ===== */
+    .servicios-detail { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .servicios-detail-glow {
+      position: absolute; top: 20%; right: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .svc-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+      align-items: center; margin-bottom: var(--space-24);
+      position: relative; z-index: 1;
+    }
+    .svc-block:last-child { margin-bottom: 0; }
+    .svc-block.reverse { direction: rtl; }
+    .svc-block.reverse > * { direction: ltr; }
+    .svc-block-content {}
+    .svc-block-label {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--nda-yellow-400); margin-bottom: var(--space-3);
+    }
+    .svc-block-label i { font-size: 16px; }
+    .svc-block h3 {
+      font-size: 32px; font-weight: 700; color: var(--neutral-0);
+      line-height: 1.2; letter-spacing: -0.5px; margin-bottom: var(--space-4);
+    }
+    .svc-block p {
+      font-size: 16px; color: var(--neutral-400); line-height: 1.7;
+      margin-bottom: var(--space-6); max-width: 480px;
+    }
+    .svc-features {
+      display: flex; flex-direction: column; gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .svc-feature {
+      display: flex; align-items: center; gap: var(--space-3);
+      font-size: 15px; color: var(--neutral-200); font-weight: 500;
+    }
+    .svc-feature i { font-size: 18px; color: var(--success); flex-shrink: 0; }
+    .svc-block-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .svc-visual-card {
+      width: 100%; max-width: 480px; position: relative;
+      border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .svc-visual-inner {
+      width: 100%; aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-500));
+      position: relative; overflow: hidden;
+    }
+    .svc-visual-inner i { font-size: 72px; opacity: 0.15; }
+    .svc-visual-float {
+      position: absolute; z-index: 2;
+      background: rgba(7, 26, 46, 0.85);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      padding: 10px 16px; display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--neutral-200);
+    }
+    .svc-visual-float i { font-size: 18px; flex-shrink: 0; }
+    .svc-visual-float.top-right { top: 16px; right: 16px; }
+    .svc-visual-float.bottom-left { bottom: 16px; left: 16px; }
+
+    /* ===== COMPARADOR NDA vs OTROS ===== */
+    .comparador { padding: var(--space-24) 0; background: var(--nda-dark-800); position: relative; overflow: hidden; }
+    .comparador .container { position: relative; z-index: 2; }
+    .comparador-glow {
+      position: absolute; top: 30%; left: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .comparador .section-title,
+    .comparador .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    /* Toggle switch */
+    .comp-toggle-wrap {
+      display: flex; justify-content: center; margin: var(--space-10) 0 var(--space-8);
+    }
+    .comp-toggle {
+      display: flex; position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px; padding: 4px; gap: 0;
+    }
+    .comp-toggle-btn {
+      padding: 10px 28px; border-radius: 9999px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      position: relative; z-index: 1;
+      color: var(--neutral-400);
+      transition: color 0.4s ease;
+      user-select: none;
+    }
+    .comp-toggle-btn.active { color: var(--nda-dark-900); }
+    .comp-toggle.otros-active .comp-toggle-btn.active { color: #ffffff; }
+    .comp-toggle-slider {
+      position: absolute; top: 4px; height: calc(100% - 8px);
+      border-radius: 9999px;
+      transition: left 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .comp-toggle-slider.nda {
+      background: linear-gradient(135deg, var(--nda-yellow-400), var(--nda-yellow-300));
+      box-shadow: 0 0 20px rgba(248, 235, 1, 0.25);
+    }
+    .comp-toggle-slider.otros {
+      background: rgba(239, 68, 68, 0.7);
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+    }
+    /* Lista de puntos */
+    .comp-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+      align-items: center; margin-top: var(--space-12);
+    }
+    .comp-left { display: flex; flex-direction: column; }
+    .comp-right { display: flex; align-items: center; justify-content: center; }
+    .comp-image-wrap {
+      width: 100%; aspect-ratio: 1/1; border-radius: var(--radius-xl);
+      overflow: hidden; position: relative;
+    }
+    .comp-image {
+      width: 100%; height: 100%;
+      background-image: url('assets/nda-sensor.jpeg');
+      background-size: cover; background-position: center;
+      transition: opacity 0.5s ease;
+    }
+    .comp-image.otros {
+      background-image: url('assets/alarma-fallando.jpeg');
+      background-size: cover; background-position: center;
+    }
+    .comp-list-wrap {
+      position: relative;
+      min-height: 420px;
+    }
+    .comp-list {
+      display: flex; flex-direction: column; gap: 0;
+      position: absolute; top: 0; left: 0; width: 100%;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .comp-list.visible {
+      opacity: 1; transform: translateY(0);
+      pointer-events: auto; position: relative;
+    }
+    .comp-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      opacity: 0; transform: translateX(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .comp-list.visible .comp-item {
+      opacity: 1; transform: translateX(0);
+    }
+    .comp-list.visible .comp-item:nth-child(1) { transition-delay: 0.05s; }
+    .comp-list.visible .comp-item:nth-child(2) { transition-delay: 0.1s; }
+    .comp-list.visible .comp-item:nth-child(3) { transition-delay: 0.15s; }
+    .comp-list.visible .comp-item:nth-child(4) { transition-delay: 0.2s; }
+    .comp-list.visible .comp-item:nth-child(5) { transition-delay: 0.25s; }
+    .comp-list.visible .comp-item:nth-child(6) { transition-delay: 0.3s; }
+    .comp-list.visible .comp-item:nth-child(7) { transition-delay: 0.35s; }
+    .comp-list.visible .comp-item:nth-child(8) { transition-delay: 0.4s; }
+    .comp-item:last-child { border-bottom: none; }
+    .comp-item-icon {
+      width: 32px; height: 32px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .comp-item-icon.good {
+      background: rgba(34, 197, 94, 0.12); color: var(--success);
+    }
+    .comp-item-icon.bad {
+      background: rgba(239, 68, 68, 0.12); color: var(--error);
+    }
+    .comp-item-text h4 {
+      font-size: 13px; font-weight: 700; color: var(--neutral-0);
+      margin: 0 0 1px;
+    }
+    .comp-item-text p {
+      font-size: 11.5px; color: var(--neutral-400); margin: 0;
+    }
+
+    /* ===== BANNER CTA ===== */
+    .banner-cta {
+      padding: var(--space-20) 0; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+    }
+    .banner-glow-blue {
+      position: absolute; left: -10%; top: -50%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-glow-yellow {
+      position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
+    .banner-cta > .container > p {
+      font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10);
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12); padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); display: inline-flex; margin-left: -20px; }
+    .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-icon {
+      width: 36px; height: 36px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+    }
+    .social-icon i { font-size: 18px; color: var(--neutral-400); transition: color 0.3s; }
+    .social-icon:hover { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .social-icon:hover i { color: var(--nda-dark-900); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--neutral-500); padding: var(--space-1) 0; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: var(--space-8); flex-wrap: wrap; gap: var(--space-4);
+    }
+    .footer-bottom p { font-size: 13px; color: var(--neutral-600); }
+    .footer-bottom a { color: var(--nda-yellow-400); font-weight: 500; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed; bottom: var(--space-6); right: var(--space-6);
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); transition: all 0.3s;
+      animation: wa-pulse 2s infinite;
+    }
+    .whatsapp-float i { font-size: 28px; color: #fff; }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); animation: none; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      width: 44px; height: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; backdrop-filter: blur(12px);
+      opacity: 0; pointer-events: none; transition: all 0.3s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: var(--nda-dark-600); border-color: var(--neutral-500); }
+    .scroll-top i { font-size: 20px; color: var(--neutral-300); }
+
+    /* ===== HERO: CABLE ANIMATION ===== */
+    .hero-svc-cables-svg {
+      position: absolute; inset: 0; z-index: 3; pointer-events: none;
+      width: 100%; height: 100%;
+    }
+    /* Trail: el cable que queda encendido conforme pasa el pulso */
+    .hsv-track {
+      fill: none; stroke-width: 1; stroke-linecap: square; stroke-linejoin: miter; opacity: 0;
+    }
+    /* Segmento viajero (pulso tenue) */
+    .hsv-traveler      { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.45; }
+    .hsv-traveler-glow { fill: none; stroke-width: 8;  stroke-linecap: round; stroke-linejoin: round; opacity: 0.08; }
+    .hsv-dot { r: 3; opacity: 0; }
+    /* Power off overlay on video */
+    /* Estilo video igual que index.html hero-main-card */
+    #heroSvcVideoWrap {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    #heroSvcVideoWrap::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg,
+        rgba(2,14,28,0.15) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(2,14,28,0.3) 100%
+      );
+      z-index: 4;
+    }
+    .hero-svc-poweroff {
+      position: absolute; inset: 0; z-index: 2; border-radius: var(--radius-xl);
+      background: var(--nda-dark-900); display: flex; align-items: center;
+      justify-content: center; transition: opacity 0.9s ease; pointer-events: none;
+    }
+    .hero-svc-poweroff.powered { opacity: 0; }
+    .hero-svc-power-icon {
+      font-size: 56px; color: var(--nda-blue-300);
+      animation: hsvPowerPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes hsvPowerPulse {
+      0%, 100% { opacity: 0.15; filter: drop-shadow(0 0 6px rgba(45,160,232,0)); }
+      50% { opacity: 0.45; filter: drop-shadow(0 0 22px rgba(45,160,232,0.55)); }
+    }
+
+    /* ===== MONITOREO: ALERTA → CENTRAL ===== */
+    @keyframes alertPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+      50% { box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.45); }
+    }
+    @keyframes centralConfirm {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      50% { box-shadow: 0 0 18px 4px rgba(34, 197, 94, 0.4); }
+    }
+    .svc-visual-float.alert-active {
+      background: rgba(239, 68, 68, 0.18) !important;
+      border-color: rgba(239, 68, 68, 0.4) !important;
+      animation: alertPulse 0.8s ease-in-out 3, float 3s ease-in-out infinite !important;
+    }
+    .svc-visual-float.central-active {
+      background: rgba(34, 197, 94, 0.15) !important;
+      border-color: rgba(34, 197, 94, 0.35) !important;
+      animation: centralConfirm 0.7s ease-in-out 2, float 3s ease-in-out infinite 1.5s !important;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .svc-block { grid-template-columns: 1fr; gap: var(--space-10); }
+      .svc-block.reverse { direction: ltr; }
+      .comp-layout { grid-template-columns: 1fr; }
+      .comp-right { order: -1; }
+      .comp-image-wrap { max-width: 400px; margin: 0 auto; }
+      .comp-list-wrap { min-height: 460px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-servicios .container { grid-template-columns: 1fr; text-align: center; }
+      .hero-servicios h1 { font-size: 32px; }
+      .hero-servicios-text { max-width: 100%; }
+      .hero-servicios-ctas { justify-content: center; }
+      .hero-servicios-visual { display: none; }
+      .hero-servicios-badge { margin-left: auto; margin-right: auto; }
+      .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
+      .nav-links { display: none; }
+      .nav-contact-btns { margin-left: auto; margin-right: 12px; }
+      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-mobile-toggle { display: flex; }
+      .section-title { font-size: 28px; }
+      .svc-block h3 { font-size: 26px; }
+      .banner-cta h2 { font-size: 28px; }
+      .comp-toggle-btn { padding: 8px 18px; font-size: 13px; }
+      .comp-item { padding: 14px 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">Soluciones <i class="ph-bold ph-caret-down"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="industrial.html"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="camaras.html"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+          </div>
+        </div>
+        <a href="servicios.html" class="active">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== 01. HERO ===== -->
+  <section class="hero-servicios" id="hero">
+    <div class="hero-servicios-glow-1"></div>
+    <div class="hero-servicios-glow-2"></div>
+    <div class="container">
+      <div class="hero-servicios-content">
+        <div class="hero-servicios-badge"><i class="ph-fill ph-wrench"></i> Servicio integral</div>
+        <h1>Todo lo que necesitas para <span class="highlight">tu seguridad</span></h1>
+        <p class="hero-servicios-text">Monitoreo 24/7, soporte técnico el mismo día, app móvil, instalación profesional y asesoría personalizada. Todo respaldado por más de 30 años de experiencia.</p>
+        <div class="hero-servicios-ctas">
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
+        </div>
+      </div>
+      <div class="hero-servicios-visual">
+        <div class="hero-servicios-img" id="heroSvcVideoWrap" style="position:relative;">
+          <video autoplay muted loop playsinline
+            style="width:100%;height:auto;display:block;object-fit:cover;">
+            <source src="assets/smart_hybrid_sm_9cd8d4dc9b.mp4" type="video/mp4">
+          </video>
+          <!-- Overlay de apagado — se retira cuando los cables conectan -->
+          <div class="hero-svc-poweroff" id="heroSvcPowerOff">
+            <i class="ph-duotone ph-power hero-svc-power-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG cables que viajan desde la derecha hasta el video -->
+    <svg class="hero-svc-cables-svg" id="heroSvcCablesSvg" aria-hidden="true">
+      <defs>
+        <filter id="hsvGlowBlue">  <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="hsvGlowYellow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="hsvGlowGreen"> <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Guías permanentes (faint) -->
+      <path class="hsv-track" id="hsvTrack0" stroke="var(--nda-blue-300)"/>
+      <path class="hsv-track" id="hsvTrack1" stroke="var(--nda-yellow-400)" opacity="0.7"/>
+      <path class="hsv-track" id="hsvTrack2" stroke="var(--success)"/>
+      <!-- Glows del segmento viajero -->
+      <path class="hsv-traveler-glow" id="hsvTravGlow0" stroke="var(--nda-blue-300)"    filter="url(#hsvGlowBlue)"/>
+      <path class="hsv-traveler-glow" id="hsvTravGlow1" stroke="var(--nda-yellow-400)" filter="url(#hsvGlowYellow)"/>
+      <path class="hsv-traveler-glow" id="hsvTravGlow2" stroke="var(--success)"        filter="url(#hsvGlowGreen)"/>
+      <!-- Segmentos viajeros brillantes -->
+      <path class="hsv-traveler" id="hsvTrav0" stroke="var(--nda-blue-300)"/>
+      <path class="hsv-traveler" id="hsvTrav1" stroke="var(--nda-yellow-400)"/>
+      <path class="hsv-traveler" id="hsvTrav2" stroke="var(--success)"/>
+      <!-- Puntos de conexión en el video -->
+      <circle class="hsv-dot" id="hsvDot0" fill="var(--nda-blue-300)"    filter="url(#hsvGlowBlue)"/>
+      <circle class="hsv-dot" id="hsvDot1" fill="var(--nda-yellow-400)" filter="url(#hsvGlowYellow)"/>
+      <circle class="hsv-dot" id="hsvDot2" fill="var(--success)"        filter="url(#hsvGlowGreen)"/>
+    </svg>
+
+  </section>
+
+  <!-- ===== 02. SERVICIOS DETALLADOS ===== -->
+  <section class="servicios-detail" id="servicios">
+    <div class="servicios-detail-glow"></div>
+    <div class="container">
+      <div class="section-label">Nuestros servicios</div>
+      <h2 class="section-title">Respaldados por <span class="highlight">+30 años</span> de experiencia</h2>
+      <p class="section-desc">Cada servicio está diseñado para que tú solo te preocupes por lo importante: tu tranquilidad.</p>
+
+      <!-- MONITOREO 24/7 -->
+      <div class="svc-block reveal">
+        <div class="svc-block-content">
+          <div class="svc-block-label"><i class="ph-fill ph-headset"></i> Servicio principal</div>
+          <h3>Monitoreo <span class="highlight">24/7</span></h3>
+          <p>Central de monitoreo propia en Monterrey con operadores capacitados que vigilan tu propiedad las 24 horas del día, los 365 días del año. Respuesta inmediata ante cualquier evento.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Central de monitoreo propia en Monterrey</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Operadores capacitados 24/7/365</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Respuesta inmediata ante eventos</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Conexión con autoridades locales</div>
+          </div>
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza tu monitoreo</a>
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                <source src="assets/alarm_es_b2b5a20d43.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!-- Floats fuera del box, con animación de alerta → central -->
+          <div class="svc-visual-float" id="monFloatAlerta" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;transition:background 0.4s, border-color 0.4s, box-shadow 0.4s;">
+            <i class="ph-fill ph-pulse" id="monFloatAlertaIcon" style="color:var(--success);transition:color 0.3s;"></i>
+            <span id="monFloatAlertaText">En línea 24/7</span>
+          </div>
+          <div class="svc-visual-float" id="monFloatCentral" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;transition:background 0.4s, border-color 0.4s, box-shadow 0.4s;">
+            <i class="ph-fill ph-headset" id="monFloatCentralIcon" style="color:var(--nda-blue-300);transition:color 0.3s;"></i>
+            <span id="monFloatCentralText">Central NDA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOPORTE TÉCNICO -->
+      <div class="svc-block reverse reveal">
+        <div class="svc-block-content">
+          <div class="svc-block-label"><i class="ph-fill ph-wrench"></i> Soporte técnico</div>
+          <h3>Servicio técnico <span class="highlight-blue">mismo día</span></h3>
+          <p>Técnicos certificados con atención el mismo día, máximo 48 horas. Realizamos mantenimiento correctivo y preventivo para que tu sistema siempre funcione al 100%.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Atención el mismo día (máx. 48 hrs)</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Técnicos certificados</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento correctivo</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento preventivo (en implementación)</div>
+          </div>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20necesito%20soporte%20técnico%20para%20mi%20alarma." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar soporte</a>
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <img src="assets/servicio-mismo-dia.jpg" alt="Servicio técnico mismo día" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            </div>
+          </div>
+          <!-- Floats fuera del box con animación -->
+          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
+            <i class="ph-fill ph-clock" style="color:var(--nda-yellow-400);"></i> Mismo día
+          </div>
+          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
+            <i class="ph-fill ph-seal-check" style="color:var(--success);"></i> Certificados
+          </div>
+        </div>
+      </div>
+
+      <!-- APP MÓVIL -->
+      <div class="svc-block reveal">
+        <div class="svc-block-content">
+          <div class="svc-block-label"><i class="ph-fill ph-device-mobile"></i> Control remoto</div>
+          <h3>App móvil con <span class="highlight">soporte dedicado</span></h3>
+          <p>Controla tu sistema de alarma desde tu celular. Arma, desarma y recibe notificaciones en tiempo real. Nuestro equipo de soporte de app te ayuda con cualquier configuración.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Arma y desarma desde tu celular</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Notificaciones en tiempo real</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Historial de eventos</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Personal dedicado de soporte</div>
+          </div>
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Quiero la app</a>
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                <source src="assets/event_notifications_b320a634f1.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!-- Floats fuera del box con animación -->
+          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
+            <i class="ph-fill ph-bell-ringing" style="color:var(--warning);"></i> Alertas en vivo
+          </div>
+          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
+            <i class="ph-fill ph-device-mobile" style="color:var(--nda-blue-300);"></i> iOS & Android
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTALACIÓN PROFESIONAL -->
+      <div class="svc-block reverse reveal">
+        <div class="svc-block-content">
+          <div class="svc-block-label"><i class="ph-fill ph-gear-six"></i> Instalación</div>
+          <h3>Instalación <span class="highlight-blue">profesional</span></h3>
+          <p>Nuestros técnicos certificados instalan y configuran tu sistema completo. Todo queda funcionando desde el día uno sin que tú tengas que hacer nada.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Instalación incluida en tu plan</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Configuración completa del sistema</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Pruebas de funcionamiento</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Capacitación de uso al cliente</div>
+          </div>
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Agenda tu instalación</a>
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <img src="assets/instalacion-profesional.jpg" alt="Instalación profesional" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            </div>
+          </div>
+          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
+            <i class="ph-fill ph-check-circle" style="color:var(--success);"></i> Incluida
+          </div>
+          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
+            <i class="ph-fill ph-user-circle-gear" style="color:var(--nda-yellow-400);"></i> Técnico certificado
+          </div>
+        </div>
+      </div>
+
+      <!-- ASESORÍA -->
+      <div class="svc-block reveal">
+        <div class="svc-block-content">
+          <div class="svc-block-label"><i class="ph-fill ph-chats-circle"></i> Asesoría</div>
+          <h3>Asesoría <span class="highlight">personalizada</span></h3>
+          <p>Te ayudamos a elegir el sistema ideal para tu propiedad. Evaluamos tus necesidades y diseñamos la solución perfecta, sin compromisos.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Evaluación de seguridad gratuita</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Propuesta personalizada</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Sin compromisos</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Atención presencial o remota</div>
+          </div>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20una%20asesoría%20de%20seguridad%20para%20mi%20propiedad." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar asesoría</a>
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"><source src="assets/dp_p_dialogue_sm_66fabb61bb.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
+            <i class="ph-fill ph-hand-waving" style="color:var(--nda-yellow-400);"></i> Gratis
+          </div>
+          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
+            <i class="ph-fill ph-map-pin" style="color:var(--nda-blue-300);"></i> Presencial o remota
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03. COMPARADOR NDA vs OTROS ===== -->
+  <section class="comparador reveal" id="comparador">
+    <div class="comparador-glow"></div>
+    <div class="container">
+      <div class="section-label">Por qué elegirnos</div>
+      <h2 class="section-title">Nacional de Alarmas <span class="highlight">vs la competencia</span></h2>
+      <p class="section-desc">Comparamos nuestro servicio con la oferta típica del mercado en Monterrey.</p>
+
+      <div class="comp-layout">
+        <div class="comp-left">
+          <!-- Toggle -->
+          <div class="comp-toggle-wrap">
+            <div class="comp-toggle" id="compToggle">
+              <div class="comp-toggle-slider nda" id="compSlider"></div>
+              <div class="comp-toggle-btn active" id="compBtnNda" data-target="nda">Nacional de Alarmas</div>
+              <div class="comp-toggle-btn" id="compBtnOtros" data-target="otros">Otras empresas</div>
+            </div>
+          </div>
+
+          <!-- Listas -->
+          <div class="comp-list-wrap">
+        <!-- NDA -->
+        <div class="comp-list nda-list visible" id="compListNda">
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-broadcast"></i></div>
+            <div class="comp-item-text"><h4>Central de monitoreo propia</h4><p>Operamos desde Monterrey, 24/7, sin intermediarios ni tercerizaciones.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-wrench"></i></div>
+            <div class="comp-item-text"><h4>Soporte técnico mismo día</h4><p>Técnicos certificados que llegan el mismo día que nos contactas.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-trophy"></i></div>
+            <div class="comp-item-text"><h4>+30 años de experiencia</h4><p>Desde 1995 protegiendo hogares y negocios en Monterrey.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-device-mobile"></i></div>
+            <div class="comp-item-text"><h4>App móvil con soporte dedicado</h4><p>Personal dedicado para ayudarte con cualquier configuración de la app.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-gear-six"></i></div>
+            <div class="comp-item-text"><h4>Instalación profesional incluida</h4><p>Tu sistema queda funcionando desde el día uno, sin costo extra.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-package"></i></div>
+            <div class="comp-item-text"><h4>Marcas premium (Ajax, Honeywell)</h4><p>Elegimos la mejor tecnología para tu propiedad, sin atarte a una sola marca.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-handshake"></i></div>
+            <div class="comp-item-text"><h4>Sin permanencia obligatoria</h4><p>Te quedas porque quieres, no porque te obligan.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon good"><i class="ph-fill ph-chats-circle"></i></div>
+            <div class="comp-item-text"><h4>Asesoría personalizada gratuita</h4><p>Evaluamos tus necesidades y diseñamos la solución perfecta, sin compromiso.</p></div>
+          </div>
+        </div>
+        <!-- Otros -->
+        <div class="comp-list otros-list" id="compListOtros">
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-map-pin-line"></i></div>
+            <div class="comp-item-text"><h4>Central tercerizada</h4><p>Monitoreo desde otra ciudad, sin conocimiento local ni respuesta rápida.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-clock"></i></div>
+            <div class="comp-item-text"><h4>Soporte en 3 a 7 días</h4><p>Técnicos foráneos con tiempos largos de espera para cualquier falla.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-globe-simple"></i></div>
+            <div class="comp-item-text"><h4>Multinacional sin raíces</h4><p>Sin presencia ni compromiso local real con tu comunidad.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-x-circle"></i></div>
+            <div class="comp-item-text"><h4>App sin soporte</h4><p>Te dan la app pero te las arreglas solo si algo no funciona.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-warning"></i></div>
+            <div class="comp-item-text"><h4>Instalación con costo extra</h4><p>Te cobran la instalación por separado, elevando el costo total.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-lock"></i></div>
+            <div class="comp-item-text"><h4>Solo su propia marca</h4><p>Te obligan a usar su equipo sin alternativas ni comparación.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-lock-key"></i></div>
+            <div class="comp-item-text"><h4>Permanencia de 12 a 36 meses</h4><p>Contratos largos que te atan aunque no estés satisfecho.</p></div>
+          </div>
+          <div class="comp-item">
+            <div class="comp-item-icon bad"><i class="ph-fill ph-prohibit"></i></div>
+            <div class="comp-item-text"><h4>Sin asesoría personalizada</h4><p>Te venden un paquete genérico sin evaluar lo que realmente necesitas.</p></div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="comp-right">
+          <div class="comp-image-wrap">
+            <div class="comp-image" id="compImage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04. CTA FINAL ===== -->
+  <section class="banner-cta reveal" id="cta">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container">
+      <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
+      <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
+      <div class="banner-ctas">
+        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* --- Navbar scroll --- */
+    const navbar = document.getElementById('navbar');
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTop.classList.toggle('visible', window.scrollY > 600);
+    });
+
+    /* --- Scroll to top --- */
+    scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* --- Mobile menu --- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'rgba(7, 26, 46, 0.95)';
+        navLinks.style.backdropFilter = 'blur(12px)';
+        navLinks.style.padding = '24px';
+        navLinks.style.gap = '16px';
+        navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.12)';
+      } else {
+        navLinks.removeAttribute('style');
+      }
+    });
+
+    /* --- Hero cables: segmento viajero derecha → video → enciende el video --- */
+    (function() {
+      const hero  = document.querySelector('.hero-servicios');
+      const wrap  = document.getElementById('heroSvcVideoWrap');
+      const power = document.getElementById('heroSvcPowerOff');
+      if (!hero || !wrap) return;
+
+      const N = 3, SEG = 44, GAP_LOOP = 88;   // pulso y espacio entre pulsos
+      const PERIOD_LOOP = SEG + GAP_LOOP;
+      const delays  = [0, 0.55, 1.1];
+      const DUR     = 1.05;                    // segundos de viaje
+
+      const tracks = [], travs = [], travGlows = [], dots = [];
+      for (let k = 0; k < N; k++) {
+        tracks.push(document.getElementById('hsvTrack' + k));
+        travs.push(document.getElementById('hsvTrav' + k));
+        travGlows.push(document.getElementById('hsvTravGlow' + k));
+        dots.push(document.getElementById('hsvDot' + k));
+      }
+
+      function rel(el) {
+        const r = el.getBoundingClientRect(), hr = hero.getBoundingClientRect();
+        return { x: r.left-hr.left, y: r.top-hr.top, w: r.width, h: r.height,
+          right: r.left-hr.left+r.width, cx: r.left-hr.left+r.width/2,
+          cy: r.top-hr.top+r.height/2 };
+      }
+
+      function buildPath(i) {
+        const v = rel(wrap), W = hero.offsetWidth, H = hero.offsetHeight;
+        const ex = v.right;
+        // Puntos intermedios a distintas distancias del borde del video
+        const g1 = ex + (W - ex) * 0.22;   // 22% del gap
+        const g2 = ex + (W - ex) * 0.52;   // 52% del gap
+        let pts, ey;
+
+        if (i === 0) {
+          // Azul: entra desde arriba-derecha → escalera en dos pasos → toca video arriba
+          ey = v.y + v.h * 0.22;
+          const startY = Math.max(v.y - 50, 16);
+          pts = [
+            [W,  startY],            // ① borde derecho, sobre el video
+            [g2, startY],            // ② va izquierda hasta col media
+            [g2, v.y + v.h * 0.07], // ③ baja un poco
+            [g1, v.y + v.h * 0.07], // ④ va más a la izquierda
+            [g1, ey],                // ⑤ baja hasta el punto de conexión
+            [ex, ey]                 // ⑥ conecta al video
+          ];
+        } else if (i === 1) {
+          // Amarillo: entra desde la derecha en diagonal-Z → conecta al centro
+          ey = v.cy;
+          pts = [
+            [W,  ey - 48],           // ① borde derecho, sobre el centro
+            [g2, ey - 48],           // ② va izquierda
+            [g2, ey],                // ③ baja al nivel del centro
+            [ex, ey]                 // ④ conecta al video
+          ];
+        } else {
+          // Verde: entra desde abajo-derecha → escalera en dos pasos → toca video abajo
+          ey = v.y + v.h * 0.78;
+          const startY = Math.min(v.y + v.h + 50, H - 16);
+          pts = [
+            [W,  startY],            // ① borde derecho, bajo el video
+            [g2, startY],            // ② va izquierda hasta col media
+            [g2, v.y + v.h * 0.93], // ③ sube un poco
+            [g1, v.y + v.h * 0.93], // ④ va más a la izquierda
+            [g1, ey],                // ⑤ sube hasta el punto de conexión
+            [ex, ey]                 // ⑥ conecta al video
+          ];
+        }
+        return { d: 'M' + pts.map(p => p.join(',')).join(' L'), end: [ex, ey] };
+      }
+
+      const lens = [];
+      const easing = 'cubic-bezier(0.42, 0, 0.28, 1)';
+
+      // ── Calcula paths y mide longitudes ──────────────────────────────────
+      function setupCable(i) {
+        if (!travs[i]) return;
+        const { d, end } = buildPath(i);
+        [tracks[i], travs[i], travGlows[i]].forEach(el => {
+          el.setAttribute('d', d); el.style.transition = 'none';
+        });
+        lens[i] = travs[i].getTotalLength();
+        dots[i].setAttribute('cx', end[0]);
+        dots[i].setAttribute('cy', end[1]);
+      }
+
+      // ── Primera vez: trail crece + pulso grande + dot (quedan permanentes) ──
+      function initCable(i) {
+        const len = lens[i];
+        tracks[i].style.strokeDasharray = len + ' ' + len;
+        tracks[i].style.strokeDashoffset = len;
+        tracks[i].style.opacity = '0.25';
+        // Pulso grande en posición de salida
+        [travs[i], travGlows[i]].forEach(el => {
+          el.style.strokeDasharray = SEG + ' ' + (len + SEG * 2);
+          el.style.strokeDashoffset = len + SEG;
+        });
+        dots[i].style.transition = 'none';
+        dots[i].style.opacity = '0';
+      }
+
+      function launchFirst(i) {
+        const len = lens[i];
+        // Velocidad = len px / DUR s → período del loop a la misma velocidad
+        const periodMs = (PERIOD_LOOP / len) * DUR * 1000;
+        // Offset inicial del loop que visualmente continúa donde terminó el primer pulso
+        const contOff = ((len - SEG / 2) % PERIOD_LOOP + PERIOD_LOOP) % PERIOD_LOOP;
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          // Trail crece permanentemente
+          tracks[i].style.transition = 'stroke-dashoffset ' + DUR + 's ' + easing;
+          tracks[i].style.strokeDashoffset = '0';
+
+          // Primer pulso: usa Web Animations API para poder encadenar con .finished
+          [travs[i], travGlows[i]].forEach(el => {
+            el.style.transition = 'none';
+            const a1 = el.animate(
+              [
+                { strokeDashoffset: String(len + SEG) },
+                { strokeDashoffset: String(-(len - SEG)) }
+              ],
+              { duration: DUR * 1000, easing: easing, fill: 'forwards' }
+            );
+            // Encadenado directo: sin pausa, sin cambio de velocidad
+            a1.finished.then(() => {
+              el.style.strokeDasharray = SEG + ' ' + GAP_LOOP;
+              el.animate(
+                [
+                  { strokeDashoffset: String(contOff) },
+                  { strokeDashoffset: String(contOff - PERIOD_LOOP) }
+                ],
+                { duration: periodMs, iterations: Infinity, easing: 'linear' }
+              );
+            });
+          });
+
+          // Dot se enciende al llegar
+          setTimeout(() => {
+            dots[i].style.transition = 'opacity 0.35s ease';
+            dots[i].style.opacity = '1';
+          }, DUR * 1000);
+        }));
+      }
+
+      function start() {
+        for (let i = 0; i < N; i++) { setupCable(i); initCable(i); }
+        for (let i = 0; i < N; i++) {
+          setTimeout(() => launchFirst(i), delays[i] * 1000);
+        }
+        setTimeout(() => { if (power) power.classList.add('powered'); },
+          (delays[N-1] + DUR + 0.45) * 1000);
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(start, 500);
+      } else {
+        window.addEventListener('load', () => setTimeout(start, 500));
+      }
+
+      window.addEventListener('resize', () => {
+        for (let i = 0; i < N; i++) setupCable(i);
+      });
+    })();
+
+    /* --- Monitoreo: secuencia Alerta → Central notificada --- */
+    (function() {
+      const fAlerta  = document.getElementById('monFloatAlerta');
+      const fCentral = document.getElementById('monFloatCentral');
+      const iAlerta  = document.getElementById('monFloatAlertaIcon');
+      const tAlerta  = document.getElementById('monFloatAlertaText');
+      const iCentral = document.getElementById('monFloatCentralIcon');
+      const tCentral = document.getElementById('monFloatCentralText');
+      if (!fAlerta || !fCentral) return;
+
+      function runAlertCycle() {
+        // 1) Alarma detectada
+        fAlerta.classList.add('alert-active');
+        iAlerta.className = 'ph-fill ph-warning';
+        iAlerta.style.color = 'var(--error)';
+        tAlerta.textContent = 'Alarma activada';
+
+        // 2) 1.8s después → Central recibe
+        setTimeout(() => {
+          fCentral.classList.add('central-active');
+          iCentral.className = 'ph-fill ph-phone-call';
+          iCentral.style.color = 'var(--success)';
+          tCentral.textContent = 'Central notificada';
+        }, 1800);
+
+        // 3) 4.5s después → Todo vuelve a la normalidad
+        setTimeout(() => {
+          fAlerta.classList.remove('alert-active');
+          iAlerta.className = 'ph-fill ph-pulse';
+          iAlerta.style.color = 'var(--success)';
+          tAlerta.textContent = 'En línea 24/7';
+
+          fCentral.classList.remove('central-active');
+          iCentral.className = 'ph-fill ph-headset';
+          iCentral.style.color = 'var(--nda-blue-300)';
+          tCentral.textContent = 'Central NDA';
+        }, 4500);
+      }
+
+      // Primera ejecución a los 3s, luego cada 8s
+      setTimeout(() => {
+        runAlertCycle();
+        setInterval(runAlertCycle, 8000);
+      }, 3000);
+    })();
+
+    /* --- Comparador toggle NDA / Otros --- */
+    (function() {
+      const btnNda = document.getElementById('compBtnNda');
+      const btnOtros = document.getElementById('compBtnOtros');
+      const slider = document.getElementById('compSlider');
+      const listNda = document.getElementById('compListNda');
+      const listOtros = document.getElementById('compListOtros');
+      const compImage = document.getElementById('compImage');
+      if (!btnNda || !btnOtros) return;
+
+      function setActive(target) {
+        if (target === 'nda') {
+          btnNda.classList.add('active');
+          btnOtros.classList.remove('active');
+          slider.style.left = btnNda.offsetLeft - 4 + 'px';
+          slider.style.width = btnNda.offsetWidth + 'px';
+          slider.className = 'comp-toggle-slider nda';
+          listNda.classList.add('visible');
+          listOtros.classList.remove('visible');
+          if (compImage) compImage.classList.remove('otros');
+        } else {
+          btnOtros.classList.add('active');
+          btnNda.classList.remove('active');
+          slider.style.left = btnOtros.offsetLeft - 4 + 'px';
+          slider.style.width = btnOtros.offsetWidth + 'px';
+          slider.className = 'comp-toggle-slider otros';
+          listNda.classList.remove('visible');
+          listOtros.classList.add('visible');
+          if (compImage) compImage.classList.add('otros');
+        }
+      }
+
+      setTimeout(() => setActive('nda'), 100);
+      btnNda.addEventListener('click', () => setActive('nda'));
+      btnOtros.addEventListener('click', () => setActive('otros'));
+    })();
+
+    /* --- Scroll reveal + stagger --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

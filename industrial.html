@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alarmas Industriales en Monterrey — Nacional de Alarmas | Bodegas y Naves</title>
+  <meta name="description" content="Seguridad industrial con monitoreo 24/7 para bodegas, naves industriales y centros de distribución en Monterrey. Photobeam, sensores de impacto, fotoceldas y más. Solicita visita técnica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-yellow-500: #e0d400;
+      --nda-yellow-600: #c4ba00;
+      --nda-yellow-700: #9e9600;
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --nda-blue-500: #045694;
+      --nda-blue-600: #034475;
+      --nda-blue-700: #023256;
+      --neutral-0: #ffffff;
+      --neutral-50: #f8fafc;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1e293b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-blur: 12px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+      --radius-2xl: 32px; --radius-full: 9999px;
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+      /* Acento industrial */
+      --ind-accent: #f8eb01;
+      --ind-accent-light: #faf355;
+      --ind-bg: rgba(248, 235, 1, 0.08);
+      --ind-border: rgba(248, 235, 1, 0.2);
+      --ind-orange: #f97316;
+      --ind-orange-bg: rgba(249, 115, 22, 0.1);
+      --ind-orange-border: rgba(249, 115, 22, 0.25);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--doc-font);
+      background: var(--nda-dark-900);
+      color: var(--neutral-300);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea {
+      font-family: inherit; font-size: inherit;
+      border: none; outline: none; background: none; color: inherit;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--ind-accent); margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700; color: var(--neutral-0);
+      letter-spacing: -0.5px; margin-bottom: var(--space-4); line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--neutral-400); max-width: 600px;
+      margin-bottom: var(--space-12); line-height: 1.7;
+    }
+    .highlight { color: var(--nda-yellow-400); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 14px 28px; border-radius: var(--radius-full);
+      font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn i { font-size: 18px; }
+    .btn-primary { background: var(--nda-yellow-400); color: var(--nda-dark-900); }
+    .btn-primary:hover {
+      background: var(--nda-yellow-300); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248, 235, 1, 0.25);
+    }
+    .btn-outline { border: 1.5px solid var(--glass-border); color: var(--neutral-0); }
+    .btn-outline:hover {
+      border-color: var(--neutral-300); background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover {
+      background: #20bd5a; transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Scroll reveal + stagger */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.5s; }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 99px; padding: 12px 28px;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(2, 14, 28, 0.92);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      top: 12px;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: none; padding: 0;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+
+    /* Dropdown Soluciones */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color 0.3s; padding: 0;
+    }
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
+    .nav-dropdown-trigger.sol-active { color: #F8EB01; }
+    .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
+    .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; padding-top: 12px;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 8px;
+      display: flex; flex-direction: column; gap: 2px; min-width: 190px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); z-index: 999;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65) !important;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
+    .nav-dropdown-menu a.active { color: #F8EB01 !important; }
+    .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: var(--ind-accent); }
+    .nav-cta {
+      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
+      color: #000 !important; background: #F8EB01 !important;
+    }
+    .nav-cta:hover { color: #000 !important; }
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      text-decoration: none; transition: all 0.25s ease;
+      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
+    .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
+    .nav-contact-btn.whatsapp { background: rgba(255,255,255,0.08); color: #ffffff; }
+    .nav-contact-btn.whatsapp:hover { background: rgba(255,255,255,0.18); box-shadow: 0 0 14px rgba(255,255,255,0.15); }
+    .nav-mobile-toggle {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    }
+    .nav-mobile-toggle span {
+      width: 24px; height: 2px; background: var(--neutral-0);
+      border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding-top: 100px;
+      background: #020e1c;
+    }
+    .hero-bg-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.18; pointer-events: none;
+      filter: grayscale(0.3);
+      z-index: 0;
+    }
+    .hero-glow-1 {
+      position: absolute; top: -20%; right: 5%; width: 500px; height: 500px;
+      background: var(--ind-accent); border-radius: 50%; opacity: 0.07; filter: blur(100px);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -10%; left: 10%; width: 350px; height: 350px;
+      background: #0569B3; border-radius: 50%; opacity: 0.07; filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero-glow-3 {
+      position: absolute; top: 40%; left: 5%; width: 300px; height: 300px;
+      background: var(--ind-orange); border-radius: 50%; opacity: 0.04; filter: blur(70px);
+      pointer-events: none;
+    }
+    .hero .container {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+      align-items: center; position: relative; z-index: 2;
+    }
+    .hero-visual { order: -1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: var(--ind-bg); border: 1px solid var(--ind-border);
+      border-radius: 99px; padding: 5px 14px;
+      font-size: 12px; font-weight: 500; color: var(--ind-accent);
+      margin-bottom: 20px;
+    }
+    .hero-badge i { font-size: 14px; }
+    .hero h1 {
+      font-size: 48px; font-weight: 800; color: #fff;
+      line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px;
+      max-width: 560px;
+    }
+    .hero-text {
+      font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7;
+      margin-bottom: 28px; max-width: 440px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: var(--space-8); }
+    .hero-ctas .btn { border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700; }
+    .hero-ctas .btn-primary { box-shadow: 0 0 30px rgba(248,235,1,0.15); }
+    .hero-trust { display: flex; gap: var(--space-6); font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; }
+    .hero-trust span { display: flex; align-items: center; gap: var(--space-2); }
+    .hero-trust i { color: var(--ind-accent); font-size: 14px; }
+
+    /* Hero visual — Esquema de nave */
+    /* ===== HERO VISUAL — Panel de Monitoreo ===== */
+    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .warehouse-vis { position: relative; width: 100%; max-width: 480px; }
+    .wh-card {
+      background: rgba(5,20,40,0.7);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px; padding: 22px;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      position: relative; overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .wh-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--ind-accent) 40%, rgba(248,235,1,0.3) 100%);
+    }
+    .wh-card::after {
+      content: '';
+      position: absolute; bottom: -80px; right: -80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(248,235,1,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Topbar */
+    .wh-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .wh-topbar-left { display: flex; align-items: center; gap: 8px; }
+    .wh-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0;
+      box-shadow: 0 0 6px var(--success);
+      animation: wh-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes wh-pulse { 0%,100%{opacity:1;box-shadow:0 0 6px var(--success)} 50%{opacity:0.4;box-shadow:0 0 2px var(--success)} }
+    .wh-topbar-title { font-size: 11px; font-weight: 700; color: var(--neutral-0); letter-spacing: 0.3px; }
+    .wh-topbar-right { display: flex; align-items: center; gap: 8px; }
+    .wh-signal { display: flex; align-items: flex-end; gap: 2px; }
+    .wh-signal span {
+      width: 3px; border-radius: 2px; background: var(--success);
+      animation: sig-flicker 2s ease-in-out infinite;
+    }
+    .wh-signal span:nth-child(1) { height: 5px;  animation-delay: 0s; }
+    .wh-signal span:nth-child(2) { height: 9px;  animation-delay: 0.15s; }
+    .wh-signal span:nth-child(3) { height: 13px; animation-delay: 0.3s; }
+    .wh-signal span:nth-child(4) { height: 17px; animation-delay: 0.45s; }
+    @keyframes sig-flicker { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .wh-status {
+      font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--success); background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.28); border-radius: 99px; padding: 3px 9px;
+    }
+
+    /* Plano de nave */
+    .wh-plan {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; padding: 16px;
+      margin-bottom: 12px;
+      position: relative; overflow: hidden;
+    }
+    /* Radar sweep */
+    .wh-radar {
+      position: absolute; inset: 0; border-radius: 12px;
+      overflow: hidden; pointer-events: none; z-index: 3;
+    }
+    .wh-radar::before {
+      content: '';
+      position: absolute; inset: -60%;
+      background: conic-gradient(from 0deg, transparent 87%, rgba(248,235,1,0.14) 94%, rgba(248,235,1,0.03) 100%);
+      animation: radar-rotate 4.5s linear infinite;
+      transform-origin: center;
+    }
+    @keyframes radar-rotate { to { transform: rotate(360deg); } }
+    /* Dot grid */
+    .wh-radar::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(248,235,1,0.05) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    /* Horizontal scanline */
+    .wh-scanline {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(248,235,1,0.18), transparent);
+      animation: scanline-move 6s linear infinite;
+      z-index: 2; pointer-events: none;
+    }
+    @keyframes scanline-move {
+      0%   { top: 0%; opacity: 0; }
+      4%   { opacity: 1; }
+      96%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    /* Alert toast */
+    .wh-alert-toast {
+      position: absolute; top: 8px; right: 8px; z-index: 10;
+      background: rgba(239,68,68,0.18); border: 1px solid rgba(239,68,68,0.45);
+      border-radius: 8px; padding: 5px 10px;
+      font-size: 9px; font-weight: 700; color: #f87171;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      display: flex; align-items: center; gap: 5px;
+      opacity: 0; transform: translateY(-6px);
+      transition: opacity 0.35s, transform 0.35s;
+      pointer-events: none;
+    }
+    .wh-alert-toast.visible { opacity: 1; transform: translateY(0); }
+    .wh-alert-toast.clear { background: rgba(34,197,94,0.14); border-color: rgba(34,197,94,0.38); color: var(--success); }
+    .wh-alert-toast i { font-size: 11px; }
+
+    .wh-building { width: 100%; height: 188px; position: relative; }
+    .wh-nave {
+      position: absolute; inset: 8px;
+      border: 1.5px solid rgba(248,235,1,0.18); border-radius: 5px;
+      background: rgba(248,235,1,0.01);
+    }
+    .wh-zone {
+      position: absolute;
+      border: 1px dashed rgba(255,255,255,0.07); border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.5s ease, border-color 0.5s ease, border-style 0.1s;
+    }
+    .wh-zone-label { font-size: 8px; color: rgba(255,255,255,0.22); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+    .wh-zone.almacen  { top: 12%; left: 4%; width: 42%; height: 62%; background: rgba(45,160,232,0.03); border-color: rgba(45,160,232,0.1); }
+    .wh-zone.oficinas { top: 12%; right: 4%; width: 32%; height: 35%; background: rgba(248,235,1,0.02); border-color: rgba(248,235,1,0.09); }
+    .wh-zone.carga    { bottom: 8%; right: 4%; width: 32%; height: 38%; background: rgba(249,115,22,0.02); border-color: rgba(249,115,22,0.1); }
+    .wh-zone.zone-alert { background: rgba(239,68,68,0.12) !important; border-color: rgba(239,68,68,0.5) !important; border-style: solid !important; }
+    .wh-zone.zone-clear { background: rgba(34,197,94,0.07) !important; border-color: rgba(34,197,94,0.38) !important; border-style: solid !important; }
+
+    /* Sensores */
+    .wh-sensor {
+      position: absolute; width: 17px; height: 17px;
+      background: rgba(248,235,1,0.14); border: 1.5px solid rgba(248,235,1,0.55);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      z-index: 4; transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+    }
+    .wh-sensor i { font-size: 8px; color: var(--ind-accent); }
+    .wh-sensor::after {
+      content: ''; position: absolute; inset: -7px; border-radius: 50%;
+      border: 1px solid rgba(248,235,1,0.18);
+      animation: s-ring 2.8s ease-out infinite;
+    }
+    .wh-sensor::before {
+      content: ''; position: absolute; inset: -14px; border-radius: 50%;
+      border: 1px solid rgba(248,235,1,0.07);
+      animation: s-ring 2.8s ease-out infinite 0.7s;
+    }
+    @keyframes s-ring { 0%{transform:scale(0.7);opacity:0.7} 100%{transform:scale(1.5);opacity:0} }
+
+    .wh-sensor.blue  { background: rgba(45,160,232,0.14); border-color: rgba(45,160,232,0.55); }
+    .wh-sensor.blue i { color: var(--nda-blue-300); }
+    .wh-sensor.blue::after  { border-color: rgba(45,160,232,0.18); animation-delay: 0.5s; }
+    .wh-sensor.blue::before { border-color: rgba(45,160,232,0.07); animation-delay: 1.2s; }
+
+    .wh-sensor.orange  { background: rgba(249,115,22,0.14); border-color: rgba(249,115,22,0.55); }
+    .wh-sensor.orange i { color: var(--ind-orange); }
+    .wh-sensor.orange::after  { border-color: rgba(249,115,22,0.18); animation-delay: 0.9s; }
+    .wh-sensor.orange::before { border-color: rgba(249,115,22,0.07); animation-delay: 1.6s; }
+
+    .wh-sensor.sensor-alert {
+      background: rgba(239,68,68,0.22) !important; border-color: rgba(239,68,68,0.75) !important;
+      box-shadow: 0 0 12px rgba(239,68,68,0.4);
+    }
+    .wh-sensor.sensor-alert i { color: #f87171 !important; }
+    .wh-sensor.sensor-alert::after  { border-color: rgba(239,68,68,0.35); animation-duration: 0.7s; }
+    .wh-sensor.sensor-alert::before { border-color: rgba(239,68,68,0.15); animation-duration: 0.7s; animation-delay: 0.35s; }
+
+    .ws-s1 { top: 4%;  left: 17%; }
+    .ws-s2 { top: 4%;  right: 20%; }
+    .ws-s3 { bottom: 5%; left: 4%; }
+    .ws-s4 { bottom: 5%; right: 14%; }
+    .ws-s5 { top: 38%; left: 42%; }
+
+    /* Photobeam */
+    .wh-beam {
+      position: absolute; top: 7%; left: 19%; right: 23%; height: 1px;
+      background: linear-gradient(90deg, rgba(248,235,1,0), rgba(248,235,1,0.75), rgba(248,235,1,0));
+      animation: beam-anim 2.5s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+    @keyframes beam-anim {
+      0%   { opacity: 0.85; transform: scaleX(1); }
+      100% { opacity: 0.12; transform: scaleX(0.55); transform-origin: left; }
+    }
+
+    /* Event log */
+    .wh-log { margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
+    .wh-log-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 10px; color: var(--neutral-500); line-height: 1.4;
+      opacity: 0; transform: translateY(5px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .wh-log-item.in { opacity: 1; transform: translateY(0); }
+    .wh-log-item i { font-size: 11px; flex-shrink: 0; }
+    .wh-log-item.ok   i { color: var(--success); }
+    .wh-log-item.warn i { color: #f59e0b; }
+    .wh-log-time { color: rgba(255,255,255,0.18); flex-shrink: 0; }
+
+    /* Stats */
+    .wh-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .wh-stat {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 10px 8px; text-align: center;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+    .wh-stat-val {
+      font-size: 17px; font-weight: 800; color: var(--neutral-0); margin-bottom: 2px;
+      transition: color 0.4s;
+    }
+    .wh-stat-val.yellow { color: var(--ind-accent); }
+    .wh-stat-val.blue   { color: var(--nda-blue-300); }
+    .wh-stat-val.green  { color: var(--success); }
+    .wh-stat-label { font-size: 9px; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Stat zonas: counter roll */
+    @keyframes stat-roll {
+      0%   { transform: translateY(60%); opacity: 0; }
+      100% { transform: translateY(0);   opacity: 1; }
+    }
+    .wh-stat-val.rolling { animation: stat-roll 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+
+    /* Stat estado: OK pulse */
+    .stat-ok-wrap { display: flex; align-items: center; justify-content: center; gap: 5px; }
+    .stat-ok-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0;
+      box-shadow: 0 0 6px var(--success);
+      animation: ok-pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes ok-pulse { 0%,100%{box-shadow:0 0 4px var(--success);transform:scale(1)} 50%{box-shadow:0 0 10px var(--success);transform:scale(1.25)} }
+    .wh-stat.stat-alert { border-color: rgba(239,68,68,0.45); box-shadow: 0 0 12px rgba(239,68,68,0.15); }
+    .wh-stat.stat-alert .wh-stat-val { color: #f87171; }
+    .wh-stat.stat-alert .stat-ok-dot { background: #ef4444; box-shadow: 0 0 6px #ef4444; animation: none; }
+
+    /* Stat 24/7: reloj en vivo */
+    .stat-clock { font-variant-numeric: tabular-nums; letter-spacing: -0.5px; }
+    @keyframes clock-tick {
+      0%,90% { opacity: 1; }
+      95%    { opacity: 0.2; }
+      100%   { opacity: 1; }
+    }
+    .stat-clock-sep { animation: clock-tick 1s step-end infinite; }
+
+    /* ===== 02. CASOS DE USO ===== */
+    /* ===== 02. SOLUCIONES INDUSTRIALES ===== */
+    .soluciones-tipo { padding: var(--space-24) 0; position: relative; overflow: hidden; }
+    .sol-bento-glow {
+      position: absolute; top: 20%; right: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(248,235,1,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sol2-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: auto auto;
+      gap: var(--space-5); position: relative; z-index: 1;
+    }
+    .sol2-card {
+      position: relative; border-radius: var(--radius-xl); overflow: hidden;
+      min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: var(--space-8); transition: all 0.4s ease; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sol2-card::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(2,14,28,0.85) 0%, rgba(2,14,28,0.4) 40%, rgba(2,14,28,0.1) 70%, transparent 100%);
+      transition: all 0.4s ease;
+    }
+    .sol2-card:hover::before {
+      background: linear-gradient(to top, rgba(2,14,28,0.97) 0%, rgba(2,14,28,0.85) 50%, rgba(2,14,28,0.4) 100%);
+    }
+    .sol2-card:hover { transform: translateY(-4px); border-color: rgba(248,235,1,0.35); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .sol2-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0; transition: transform 0.6s ease;
+    }
+    .sol2-card:hover img { transform: scale(1.05); }
+    .sol2-content {
+      position: relative; z-index: 2;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .sol2-card:hover .sol2-content { opacity: 1; transform: translateY(0); }
+    .sol2-badge-static {
+      position: absolute; bottom: var(--space-6); left: var(--space-8); z-index: 2;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--neutral-0); transition: opacity 0.25s ease;
+    }
+    .sol2-card:hover .sol2-badge-static { opacity: 0; }
+    .sol2-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--ind-accent); margin-bottom: var(--space-3);
+    }
+    .sol2-badge i { font-size: 14px; }
+    .sol2-card h3 { font-size: 22px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .sol2-card p { font-size: 14px; color: var(--neutral-300); line-height: 1.6; margin-bottom: var(--space-5); max-width: 320px; }
+    .sol2-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600; color: var(--ind-accent); transition: gap 0.3s;
+    }
+    .sol2-link:hover { gap: 10px; }
+    .sol2-link i { font-size: 16px; }
+    .sol2-card--main { grid-row: 1 / 3; min-height: 580px; }
+    .sol2-card--main h3 { font-size: 26px; }
+
+    /* ===== 03. PRODUCTOS ESPECIALIZADOS ===== */
+    /* ===== CATÁLOGO VISUAL (Vista rápida) ===== */
+    .catalogo-visual {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-900);
+    }
+
+    /* Tabs horizontales */
+    .cv-tabs {
+      display: flex; flex-direction: row;
+      gap: var(--space-3);
+      margin-top: var(--space-12);
+      flex-wrap: wrap;
+    }
+    .cv-tab {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: var(--neutral-400);
+      font-size: 14px; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+      font-family: inherit;
+    }
+    .cv-tab i { font-size: 16px; }
+    .cv-tab:hover { color: var(--neutral-0); border-color: rgba(255,255,255,0.25); }
+    .cv-tab.active[data-cat="perimetral"] { background: rgba(248,235,1,0.12);   border-color: #F8EB01; color: #F8EB01; }
+    .cv-tab.active[data-cat="accesos"]    { background: rgba(45,160,232,0.15);  border-color: #2da0e8; color: #2da0e8; }
+    .cv-tab.active[data-cat="interior"]  { background: rgba(34,197,94,0.13);   border-color: #22c55e; color: #22c55e; }
+    .cv-tab.active[data-cat="incendio"]  { background: rgba(239,68,68,0.14);   border-color: #ef4444; color: #ef4444; }
+
+    /* Panels */
+    .cv-panel {
+      display: none;
+      margin-top: var(--space-8);
+      grid-template-columns: 1fr 320px;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    .cv-panel.active { display: grid; }
+
+    /* Hero - imagen grande */
+    .cv-hero {
+      border-radius: 16px;
+      background: var(--nda-dark-800);
+      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    @keyframes cv-float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    .cv-hero-wrap {
+      width: 100%; height: calc(100% + 40px);
+      margin-top: -10px;
+      display: flex; align-items: center; justify-content: center;
+      animation: cv-float 3.5s ease-in-out infinite;
+      position: relative; z-index: 1;
+    }
+    .cv-hero-img {
+      height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative; overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .cv-hero-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      opacity: 0.35;
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .cv-panel[data-cat="perimetral"] .cv-hero-img::before { background: radial-gradient(circle, rgba(248,235,1,0.4)  0%, transparent 70%); }
+    .cv-panel[data-cat="accesos"]    .cv-hero-img::before { background: radial-gradient(circle, rgba(45,160,232,0.5) 0%, transparent 70%); }
+    .cv-panel[data-cat="interior"]   .cv-hero-img::before { background: radial-gradient(circle, rgba(34,197,94,0.45) 0%, transparent 70%); }
+    .cv-panel[data-cat="incendio"]   .cv-hero-img::before { background: radial-gradient(circle, rgba(239,68,68,0.5)  0%, transparent 70%); }
+
+    .cv-hero-img i { font-size: 56px; color: rgba(255,255,255,0.1); position: relative; z-index: 1; }
+    .cv-hero-img img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      filter: contrast(1.05);
+      transform: scale(1.65) translateY(0px);
+      transition: transform 0.4s ease;
+    }
+    .cv-thumb-img img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 5px;
+      mix-blend-mode: multiply;
+    }
+
+    .cv-hero-info { padding: 20px 24px; }
+    .cv-hero-name {
+      font-size: 20px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: 6px;
+    }
+    .cv-hero-cat {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    .cv-panel[data-cat="perimetral"] .cv-hero-cat { color: #F8EB01; }
+    .cv-panel[data-cat="accesos"]    .cv-hero-cat { color: #2da0e8; }
+    .cv-panel[data-cat="interior"]   .cv-hero-cat { color: #22c55e; }
+    .cv-panel[data-cat="incendio"]   .cv-hero-cat { color: #ef4444; }
+
+    /* Lista de miniaturas */
+    .cv-thumbs {
+      display: flex; flex-direction: column; gap: var(--space-3);
+    }
+    .cv-thumb {
+      display: flex; align-items: center; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--nda-dark-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cv-thumb:hover { background: rgba(255,255,255,0.05); }
+    .cv-panel[data-cat="perimetral"] .cv-thumb.active { border-color: rgba(248,235,1,0.45); background: rgba(248,235,1,0.07); }
+    .cv-panel[data-cat="accesos"]    .cv-thumb.active { border-color: rgba(45,160,232,0.5); background: rgba(45,160,232,0.08); }
+    .cv-panel[data-cat="interior"]   .cv-thumb.active { border-color: rgba(34,197,94,0.5);  background: rgba(34,197,94,0.08); }
+    .cv-panel[data-cat="incendio"]   .cv-thumb.active { border-color: rgba(239,68,68,0.5);  background: rgba(239,68,68,0.08); }
+
+    .cv-thumb-img {
+      width: 56px; height: 56px; flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px dashed rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cv-thumb-img i { font-size: 20px; color: rgba(255,255,255,0.18); }
+    .cv-thumb-name {
+      font-size: 13px; color: var(--neutral-300);
+      line-height: 1.3; font-weight: 500;
+    }
+
+    @media (max-width: 860px) {
+      .cv-panel.active { grid-template-columns: 1fr; }
+      .cv-thumbs { flex-direction: row; flex-wrap: wrap; }
+      .cv-thumb { flex: 1 1 calc(50% - 6px); }
+    }
+    @media (max-width: 480px) {
+      .cv-thumb { flex: 1 1 100%; }
+    }
+
+    /* ===== 04. PROCESO + VISITA TÉCNICA ===== */
+    .proceso {
+      padding: var(--space-24) 0;
+      background: var(--nda-dark-800);
+      position: relative; overflow: hidden;
+    }
+    .proceso-circuits {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .proceso-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+      align-items: stretch;
+    }
+    .proceso-steps {
+      display: flex; flex-direction: column; gap: var(--space-4);
+      height: 100%;
+    }
+    .paso {
+      display: flex; gap: var(--space-5); align-items: flex-start;
+      padding: var(--space-5); border-radius: var(--radius-lg);
+      background: var(--nda-dark-700); border: 1px solid var(--glass-border);
+      transition: border-color 0.3s; flex: 1;
+    }
+    .paso:hover { border-color: rgba(248,235,1,0.15); }
+    .paso-num {
+      width: 44px; height: 44px; border-radius: var(--radius-md);
+      background: var(--ind-bg); border: 1px solid var(--ind-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; color: var(--ind-accent); flex-shrink: 0;
+    }
+    .paso-body h4 { font-size: 15px; font-weight: 700; color: var(--neutral-0); margin-bottom: 6px; }
+    .paso-body p  { font-size: 13px; color: var(--neutral-500); line-height: 1.6; }
+
+    /* Líneas SVG conexión pasos → visita */
+    .proceso-grid { position: relative; }
+    .proceso-svg {
+      position: absolute; inset: 0; z-index: 5;
+      pointer-events: none; overflow: visible;
+    }
+    .proc-line, .proc-glow {
+      fill: none; stroke-linecap: square;
+      transition: stroke-dashoffset 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .proc-line { stroke-width: 1.5; }
+    .proc-glow { stroke-width: 6; opacity: 0.15; }
+    #procPath0, #procGlow0 { stroke: #ef4444; fill: none; }
+    #procPath1, #procGlow1 { stroke: #2da0e8; fill: none; }
+    #procPath2, #procGlow2 { stroke: #22c55e; fill: none; }
+    #procPath3, #procGlow3 { stroke: #F8EB01; fill: none; }
+    #procDot0 { fill: #ef4444; }
+    #procDot1 { fill: #2da0e8; }
+    #procDot2 { fill: #22c55e; }
+    #procDot3 { fill: #F8EB01; }
+    .proc-dot {
+      r: 4; opacity: 0;
+      transition: opacity 0.25s ease 0.55s;
+    }
+    .proc-dot.visible { opacity: 1; }
+    .paso.paso-hovered { border-color: var(--proc-color, rgba(248,235,1,0.35)); box-shadow: 0 0 18px rgba(0,0,0,0.06); }
+    .visita-card.proc-highlighted { border-color: var(--proc-color, rgba(248,235,1,0.45)); box-shadow: 0 0 32px rgba(0,0,0,0.1); }
+
+    /* Card visita técnica */
+    .visita-card {
+      background: linear-gradient(145deg, var(--nda-dark-700), var(--nda-dark-600));
+      border: 1px solid rgba(248,235,1,0.15);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .visita-card::before {
+      content: ''; position: absolute; top: -60%; right: -30%;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(248,235,1,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .visita-icon {
+      width: 72px; height: 72px; border-radius: var(--radius-xl);
+      background: var(--ind-bg); border: 1px solid var(--ind-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 34px; color: var(--ind-accent);
+      margin: 0 auto var(--space-6);
+    }
+    .visita-card h3 {
+      font-size: 26px; font-weight: 800; color: var(--neutral-0);
+      margin-bottom: var(--space-3); letter-spacing: -0.5px;
+    }
+    .visita-card p {
+      font-size: 15px; color: var(--neutral-400); line-height: 1.7;
+      margin-bottom: var(--space-8); max-width: 320px; margin-left: auto; margin-right: auto;
+    }
+    .visita-benefits {
+      display: flex; flex-direction: column; gap: var(--space-3);
+      margin-bottom: var(--space-8); text-align: left;
+    }
+    .visita-benefit {
+      display: flex; align-items: center; gap: var(--space-3);
+      font-size: 14px; color: var(--neutral-300);
+    }
+    .visita-benefit i { font-size: 18px; color: var(--ind-accent); flex-shrink: 0; }
+    .visita-ctas { display: flex; flex-direction: column; gap: var(--space-3); }
+    .visita-ctas .btn { width: 100%; justify-content: center; }
+
+    /* ===== TESTIMONIOS ===== */
+    .testimonios {
+      padding: var(--space-24) 0;
+    }
+    .testimonial-carousel { position: relative; overflow: hidden; }
+    .testimonial-track {
+      display: flex; transition: transform 0.5s ease;
+    }
+    .testimonial-card {
+      flex: 0 0 100%; padding: 0 var(--space-4);
+    }
+    .testimonial-inner {
+      background: var(--nda-dark-800); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl); padding: var(--space-10);
+      text-align: center; max-width: 720px; margin: 0 auto;
+      position: relative;
+    }
+    .testimonial-quote {
+      position: absolute; top: var(--space-4); left: var(--space-8);
+      font-size: 80px; color: var(--nda-yellow-400); opacity: 0.1;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .testimonial-stars { margin-bottom: var(--space-5); display: flex; justify-content: center; gap: 2px; }
+    .testimonial-stars i { font-size: 18px; color: var(--nda-yellow-400); }
+    .testimonial-text {
+      font-size: 18px; color: var(--neutral-200); line-height: 1.7;
+      margin-bottom: var(--space-6); font-style: italic;
+    }
+    .testimonial-name { font-size: 15px; font-weight: 600; color: var(--neutral-0); }
+    .testimonial-role { font-size: 13px; color: var(--neutral-500); }
+    .carousel-dots { display: flex; justify-content: center; gap: var(--space-2); margin-top: var(--space-8); }
+    .carousel-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--nda-dark-400); border: none; cursor: pointer; transition: all 0.3s;
+    }
+    .carousel-dot.active { background: var(--nda-yellow-400); width: 28px; border-radius: var(--radius-full); }
+
+    /* ===== BANNER CTA ===== */
+    .banner-cta {
+      padding: var(--space-20) 0; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+    }
+    .banner-glow-blue {
+      position: absolute; left: -10%; top: -50%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-glow-yellow {
+      position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
+    .banner-cta > .container > p {
+      font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10);
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FAQ ===== */
+    .faq { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .faq .section-title, .faq .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--glass-border); }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-6) 0; cursor: pointer; text-align: left;
+    }
+    .faq-question h4 { font-size: 16px; font-weight: 600; color: var(--neutral-0); padding-right: var(--space-4); }
+    .faq-icon {
+      width: 28px; height: 28px; min-width: 28px; border-radius: 50%;
+      border: 1.5px solid var(--glass-border); display: flex; align-items: center;
+      justify-content: center; transition: all 0.3s;
+    }
+    .faq-icon i { font-size: 16px; color: var(--neutral-400); transition: transform 0.3s; }
+    .faq-item.open .faq-icon { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .faq-item.open .faq-icon i { color: var(--nda-dark-900); transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; padding-bottom: var(--space-6); }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ===== CONTACTO ===== */
+    .contacto { padding: var(--space-24) 0; }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
+    .form-group { margin-bottom: var(--space-5); }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--neutral-300); margin-bottom: var(--space-2); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px var(--space-4); background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      color: var(--neutral-0); font-size: 15px; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--nda-blue-400); outline: none; }
+    .form-group select {
+      appearance: none; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
+    }
+    .form-group select option { background: var(--nda-dark-800); color: var(--neutral-0); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-success {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: var(--space-12) var(--space-8);
+      min-height: 400px;
+    }
+    .form-success.visible { display: flex; }
+    .form-success-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(34, 197, 94, 0.12); border: 2px solid rgba(34, 197, 94, 0.3);
+      display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-6);
+    }
+    .form-success-icon i { font-size: 36px; color: var(--success); }
+    .form-success h3 { font-size: 24px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .form-success p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; max-width: 380px; margin-bottom: var(--space-8); }
+    .form-success-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+    .form-success-actions .btn { font-size: 14px; padding: 12px 24px; }
+    .contacto-info { display: flex; flex-direction: column; gap: var(--space-8); }
+    .contacto-info h3 { font-size: 24px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-4); }
+    .contacto-info-item { display: flex; align-items: flex-start; gap: var(--space-4); }
+    .info-icon {
+      width: 44px; height: 44px; min-width: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .info-icon i { font-size: 20px; color: var(--nda-blue-300); }
+    .contacto-info-item h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: 2px; }
+    .contacto-info-item p { font-size: 14px; color: var(--neutral-400); }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12); padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); display: inline-flex; margin-left: -20px; }
+    .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-icon {
+      width: 36px; height: 36px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+    }
+    .social-icon i { font-size: 18px; color: var(--neutral-400); transition: color 0.3s; }
+    .social-icon:hover { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .social-icon:hover i { color: var(--nda-dark-900); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--neutral-500); padding: var(--space-1) 0; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: var(--space-8); flex-wrap: wrap; gap: var(--space-4);
+    }
+    .footer-bottom p { font-size: 13px; color: var(--neutral-600); }
+    .footer-bottom a { color: var(--nda-yellow-400); font-weight: 500; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed; bottom: var(--space-6); right: var(--space-6);
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); transition: all 0.3s;
+      animation: wa-pulse 2s infinite;
+    }
+    .whatsapp-float i { font-size: 28px; color: #fff; }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); animation: none; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      width: 44px; height: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; backdrop-filter: blur(12px);
+      opacity: 0; pointer-events: none; transition: all 0.3s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: var(--nda-dark-600); border-color: var(--neutral-500); }
+    .scroll-top i { font-size: 20px; color: var(--neutral-300); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .sol2-grid { grid-template-columns: 1fr 1fr; }
+      .sol2-card--main { grid-row: auto; min-height: 320px; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 38px; }
+      .hero-text { max-width: 100%; }
+      .hero-ctas { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-visual { display: none; }
+      .hero-badge { margin-left: auto; margin-right: auto; }
+      .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
+      .nav-links { display: none; }
+      .nav-contact-btns { margin-left: auto; margin-right: 12px; }
+      .nav-mobile-toggle { display: flex; }
+      .sol2-grid { grid-template-columns: 1fr; }
+      .sol2-card { min-height: 240px; }
+      .sol2-card--main { min-height: 300px; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .contacto-grid { grid-template-columns: 1fr; }
+      .banner-cta h2 { font-size: 28px; }
+      .section-title { font-size: 28px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger sol-active">Soluciones <i class="ph-bold ph-caret-down"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="industrial.html" class="active"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="camaras.html"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+          </div>
+        </div>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== 01. HERO ===== -->
+  <section class="hero" id="hero">
+    <img class="hero-bg-img" src="assets/warehouse-hero-bg.jpg" alt="" aria-hidden="true">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-glow-3"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="ph-fill ph-factory"></i> Alarmas industriales · Monterrey</div>
+        <h1>Seguridad para <span class="highlight">naves industriales</span></h1>
+        <p class="hero-text">Protección perimetral a gran escala para bodegas, naves y centros de distribución. Sensores especializados, monitoreo 24/7 y respuesta inmediata desde nuestra Central de Monitoreo propia.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Hablar con asesor</a>
+        </div>
+        <div class="hero-trust">
+          <span><i class="ph-fill ph-shield-check"></i> +30 años de experiencia</span>
+          <span><i class="ph-fill ph-shield-check"></i> Monitoreo 24/7 propio</span>
+          <span><i class="ph-fill ph-shield-check"></i> Visita técnica gratuita</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="warehouse-vis">
+          <div class="wh-card">
+
+            <!-- Topbar -->
+            <div class="wh-topbar">
+              <div class="wh-topbar-left">
+                <div class="wh-dot"></div>
+                <span class="wh-topbar-title">Panel de Monitoreo · NDA Industrial</span>
+              </div>
+              <div class="wh-topbar-right">
+                <div class="wh-signal"><span></span><span></span><span></span><span></span></div>
+                <span class="wh-status">Activo</span>
+              </div>
+            </div>
+
+            <!-- Plano de nave -->
+            <div class="wh-plan">
+              <div class="wh-radar"></div>
+              <div class="wh-scanline"></div>
+              <div class="wh-alert-toast" id="whToast">
+                <i class="ph-fill ph-warning" id="whToastIcon"></i>
+                <span id="whToastMsg">Intrusión detectada</span>
+              </div>
+              <div class="wh-building">
+                <div class="wh-nave">
+                  <div class="wh-zone almacen"><span class="wh-zone-label">Almacén</span></div>
+                  <div class="wh-zone oficinas"><span class="wh-zone-label">Oficinas</span></div>
+                  <div class="wh-zone carga" id="zoneCarga"><span class="wh-zone-label">Zona carga</span></div>
+                </div>
+                <div class="wh-beam"></div>
+                <div class="wh-sensor ws-s1"><i class="ph-fill ph-radar"></i></div>
+                <div class="wh-sensor blue ws-s3"><i class="ph-fill ph-video-camera"></i></div>
+                <div class="wh-sensor orange ws-s4" id="sensorS4"><i class="ph-fill ph-door-open"></i></div>
+                <div class="wh-sensor ws-s5"><i class="ph-fill ph-cell-signal-full"></i></div>
+              </div>
+            </div>
+
+            <!-- Event log -->
+            <div class="wh-log" id="whLog">
+              <div class="wh-log-item ok"><i class="ph-fill ph-check-circle"></i><span class="wh-log-time">06:42</span><span>Zona almacén: sin actividad</span></div>
+              <div class="wh-log-item ok"><i class="ph-fill ph-check-circle"></i><span class="wh-log-time">06:55</span><span>Acceso principal: cerrado</span></div>
+              <div class="wh-log-item warn"><i class="ph-fill ph-warning"></i><span class="wh-log-time">07:02</span><span>Sensor perimetral N2: activado</span></div>
+              <div class="wh-log-item ok"><i class="ph-fill ph-shield-check"></i><span class="wh-log-time">07:02</span><span>Central notificada · Zona asegurada</span></div>
+            </div>
+
+            <!-- Stats -->
+            <div class="wh-stats">
+              <div class="wh-stat">
+                <div class="wh-stat-val yellow" id="statZonas">0</div>
+                <div class="wh-stat-label">Zonas</div>
+              </div>
+              <div class="wh-stat" id="statEstadoBox">
+                <div class="wh-stat-val green" id="statEstado">
+                  <span class="stat-ok-wrap"><span class="stat-ok-dot" id="statOkDot"></span>OK</span>
+                </div>
+                <div class="wh-stat-label">Estado</div>
+              </div>
+              <div class="wh-stat">
+                <div class="wh-stat-val blue stat-clock" id="statClock">24/7</div>
+                <div class="wh-stat-label">Monitoreo</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02. CASOS DE USO ===== -->
+  <!-- ===== 02. SOLUCIONES INDUSTRIALES ===== -->
+  <section class="soluciones-tipo reveal" id="soluciones">
+    <div class="sol-bento-glow"></div>
+    <div class="container">
+      <div class="section-label">Soluciones industriales</div>
+      <h2 class="section-title">Protección para <span class="highlight">cada operación</span></h2>
+      <p class="section-desc">Diseñamos sistemas de seguridad adaptados a las necesidades específicas de cada instalación industrial.</p>
+      <div class="sol2-grid stagger">
+
+        <!-- Card principal: Bodegas (ocupa 2 rows) -->
+        <div class="sol2-card sol2-card--main">
+          <img src="assets/sol-industrial.png" alt="Seguridad para bodegas y almacenes">
+          <span class="sol2-badge-static"><i class="ph-fill ph-warehouse"></i> Bodegas</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-warehouse"></i> Bodegas y almacenes</div>
+            <h3>Tu inventario, siempre protegido</h3>
+            <p>Sensores perimetrales, control en portones y cortinas metálicas, y monitoreo 24/7 con respuesta inmediata.</p>
+            <a href="#contacto" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card: Naves industriales -->
+        <div class="sol2-card">
+          <img src="assets/sol-comercial.png" alt="Naves industriales">
+          <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Naves industriales</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Naves industriales</div>
+            <h3>Perímetros de hasta 150 m protegidos</h3>
+            <p>Photobeam, fotoceldas y sensores de vibración para naves de producción y manufactura.</p>
+            <a href="#contacto" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card: Centros de distribución -->
+        <div class="sol2-card">
+          <img src="assets/sol-residencial.png" alt="Centros de distribución">
+          <span class="sol2-badge-static"><i class="ph-fill ph-truck"></i> Centros de distribución</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-truck"></i> Centros de distribución</div>
+            <h3>Control en andenes y zonas de carga</h3>
+            <p>Registro de apertura por turno, accesos vehiculares monitoreados e integración con CCTV.</p>
+            <a href="#contacto" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Card: Parques industriales (span 2 cols) -->
+        <div class="sol2-card" style="grid-column: 2 / 4;">
+          <img src="assets/sol-comercial.png" alt="Parques industriales">
+          <span class="sol2-badge-static"><i class="ph-fill ph-buildings"></i> Parques industriales</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-buildings"></i> Parques industriales</div>
+            <h3>Seguridad multi-zona, un solo panel</h3>
+            <p>Sistemas independientes por nave o inquilino con monitoreo centralizado y app móvil por usuario.</p>
+            <a href="#contacto" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03. PRODUCTOS ESPECIALIZADOS ===== -->
+  <!-- ===== CATÁLOGO VISUAL ===== -->
+  <section class="catalogo-visual reveal" id="productos">
+    <div class="container">
+      <div class="section-label">Tecnología especializada</div>
+      <h2 class="section-title">Protección perimetral <span class="highlight">a gran escala</span></h2>
+      <p class="section-desc">Equipos de alto desempeño diseñados para las exigencias del entorno industrial: condiciones extremas, grandes distancias y accesos de uso rudo.</p>
+
+      <!-- Tabs horizontales -->
+      <div class="cv-tabs">
+        <button class="cv-tab active" data-cat="perimetral"><i class="ph-fill ph-arrows-out-line-horizontal"></i> Perimetral</button>
+        <button class="cv-tab" data-cat="accesos"><i class="ph-fill ph-garage"></i> Accesos</button>
+        <button class="cv-tab" data-cat="interior"><i class="ph-fill ph-scan"></i> Interior</button>
+        <button class="cv-tab" data-cat="incendio"><i class="ph-fill ph-fire"></i> Incendio</button>
+      </div>
+
+      <!-- Panel: Perimetral -->
+      <div class="cv-panel active" data-cat="perimetral">
+        <div class="cv-hero">
+          <div class="cv-hero-img">
+            <i class="ph ph-arrows-out-line-horizontal"></i>
+          </div>
+          <div class="cv-hero-info">
+            <div class="cv-hero-cat">Perimetral</div>
+            <div class="cv-hero-name">Photobeam (barrera infrarroja)</div>
+          </div>
+        </div>
+        <div class="cv-thumbs">
+          <div class="cv-thumb active" data-name="Photobeam (barrera infrarroja)">
+            <div class="cv-thumb-img"><i class="ph ph-arrows-out-line-horizontal"></i></div>
+            <span class="cv-thumb-name">Photobeam (barrera infrarroja)</span>
+          </div>
+          <div class="cv-thumb" data-name="Fotoceldas de barrera">
+            <div class="cv-thumb-img"><i class="ph ph-sun"></i></div>
+            <span class="cv-thumb-name">Fotoceldas de barrera</span>
+          </div>
+          <div class="cv-thumb" data-name="Sensor de impacto">
+            <div class="cv-thumb-img"><i class="ph ph-hand-fist"></i></div>
+            <span class="cv-thumb-name">Sensor de impacto</span>
+          </div>
+          <div class="cv-thumb" data-name="Sensor de vibración">
+            <div class="cv-thumb-img"><i class="ph ph-vibrate"></i></div>
+            <span class="cv-thumb-name">Sensor de vibración</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Accesos -->
+      <div class="cv-panel" data-cat="accesos">
+        <div class="cv-hero">
+          <div class="cv-hero-img">
+            <i class="ph ph-garage"></i>
+          </div>
+          <div class="cv-hero-info">
+            <div class="cv-hero-cat">Accesos</div>
+            <div class="cv-hero-name">Overhead uso rudo</div>
+          </div>
+        </div>
+        <div class="cv-thumbs">
+          <div class="cv-thumb active" data-name="Overhead uso rudo">
+            <div class="cv-thumb-img"><i class="ph ph-garage"></i></div>
+            <span class="cv-thumb-name">Overhead uso rudo</span>
+          </div>
+          <div class="cv-thumb" data-name="Contacto uso rudo">
+            <div class="cv-thumb-img"><i class="ph ph-shield-warning"></i></div>
+            <span class="cv-thumb-name">Contacto uso rudo</span>
+          </div>
+          <div class="cv-thumb" data-name="Transmisor inalámbrico">
+            <div class="cv-thumb-img"><i class="ph ph-broadcast"></i></div>
+            <span class="cv-thumb-name">Transmisor inalámbrico</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Interior -->
+      <div class="cv-panel" data-cat="interior">
+        <div class="cv-hero">
+          <div class="cv-hero-img">
+            <i class="ph ph-scan"></i>
+          </div>
+          <div class="cv-hero-info">
+            <div class="cv-hero-cat">Interior</div>
+            <div class="cv-hero-name">PIR industrial largo alcance</div>
+          </div>
+        </div>
+        <div class="cv-thumbs">
+          <div class="cv-thumb active" data-name="PIR industrial largo alcance">
+            <div class="cv-thumb-img"><i class="ph ph-person-simple-run"></i></div>
+            <span class="cv-thumb-name">PIR industrial largo alcance</span>
+          </div>
+          <div class="cv-thumb" data-name="Sensor de doble tecnología">
+            <div class="cv-thumb-img"><i class="ph ph-intersect-three"></i></div>
+            <span class="cv-thumb-name">Sensor de doble tecnología</span>
+          </div>
+          <div class="cv-thumb" data-name="Sensor inalámbrico industrial">
+            <div class="cv-thumb-img"><i class="ph ph-broadcast"></i></div>
+            <span class="cv-thumb-name">Sensor inalámbrico industrial</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Incendio -->
+      <div class="cv-panel" data-cat="incendio">
+        <div class="cv-hero">
+          <div class="cv-hero-img">
+            <i class="ph ph-fire"></i>
+          </div>
+          <div class="cv-hero-info">
+            <div class="cv-hero-cat">Incendio</div>
+            <div class="cv-hero-name">Detector de humo</div>
+          </div>
+        </div>
+        <div class="cv-thumbs">
+          <div class="cv-thumb active" data-name="Detector de humo">
+            <div class="cv-thumb-img"><i class="ph ph-cloud-fog"></i></div>
+            <span class="cv-thumb-name">Detector de humo</span>
+          </div>
+          <div class="cv-thumb" data-name="Detector de gas LP">
+            <div class="cv-thumb-img"><i class="ph ph-warning-circle"></i></div>
+            <span class="cv-thumb-name">Detector de gas LP</span>
+          </div>
+          <div class="cv-thumb" data-name="Detector térmico industrial">
+            <div class="cv-thumb-img"><i class="ph ph-thermometer-hot"></i></div>
+            <span class="cv-thumb-name">Detector térmico industrial</span>
+          </div>
+          <div class="cv-thumb" data-name="Detector inalámbrico">
+            <div class="cv-thumb-img"><i class="ph ph-broadcast"></i></div>
+            <span class="cv-thumb-name">Detector inalámbrico</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 04. PROCESO + VISITA TÉCNICA ===== -->
+  <section class="proceso reveal" id="proceso">
+    <canvas class="proceso-circuits" id="procesoCircuits"></canvas>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-label">Cómo funciona</div>
+      <h2 class="section-title">De la visita técnica a la <span class="highlight">protección total</span></h2>
+      <p class="section-desc" style="margin-bottom: var(--space-12);">Un proceso claro y profesional, adaptado a los tiempos y operaciones de tu empresa.</p>
+
+      <div class="proceso-grid">
+
+        <svg class="proceso-svg" id="procesoSvg" aria-hidden="true">
+          <defs>
+            <filter id="procGlowF"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <path class="proc-glow" id="procGlow0" filter="url(#procGlowF)"/>
+          <path class="proc-glow" id="procGlow1" filter="url(#procGlowF)"/>
+          <path class="proc-glow" id="procGlow2" filter="url(#procGlowF)"/>
+          <path class="proc-glow" id="procGlow3" filter="url(#procGlowF)"/>
+          <path class="proc-line" id="procPath0"/>
+          <path class="proc-line" id="procPath1"/>
+          <path class="proc-line" id="procPath2"/>
+          <path class="proc-line" id="procPath3"/>
+          <circle class="proc-dot" id="procDot0"/>
+          <circle class="proc-dot" id="procDot1"/>
+          <circle class="proc-dot" id="procDot2"/>
+          <circle class="proc-dot" id="procDot3"/>
+        </svg>
+
+        <div class="proceso-steps">
+          <div class="paso">
+            <div class="paso-num">1</div>
+            <div class="paso-body">
+              <h4>Visita técnica gratuita</h4>
+              <p>Nuestro equipo visita tu instalación para evaluar el perímetro, accesos, zonas de riesgo y requerimientos específicos.</p>
+            </div>
+          </div>
+          <div class="paso">
+            <div class="paso-num">2</div>
+            <div class="paso-body">
+              <h4>Diseño del sistema</h4>
+              <p>Elaboramos un plano de seguridad con la ubicación de cada dispositivo, zonas cubiertas y propuesta técnica a la medida.</p>
+            </div>
+          </div>
+          <div class="paso">
+            <div class="paso-num">3</div>
+            <div class="paso-body">
+              <h4>Instalación profesional</h4>
+              <p>Instalamos sin interrumpir tu operación. Coordinamos horarios según tus turnos y tiempos de producción.</p>
+            </div>
+          </div>
+          <div class="paso">
+            <div class="paso-num">4</div>
+            <div class="paso-body">
+              <h4>Monitoreo 24/7</h4>
+              <p>Tu nave queda conectada a nuestra Central de Monitoreo propia en Monterrey. Respuesta inmediata ante cualquier señal de alarma.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card visita -->
+        <div class="visita-card" id="visita">
+          <div class="visita-icon"><i class="ph-fill ph-clipboard-text"></i></div>
+          <h3>Solicita tu visita técnica</h3>
+          <p>Sin costo, sin compromiso. Un asesor especializado en seguridad industrial va a tu instalación.</p>
+          <div class="visita-benefits">
+            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Evaluación completa del perímetro</div>
+            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Propuesta técnica personalizada</div>
+            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Sin costo y sin compromiso</div>
+            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Respuesta en menos de 24 horas</div>
+          </div>
+          <div class="visita-ctas">
+            <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20agendar%20una%20visita%20técnica%20para%20mi%20nave%20industrial." class="btn btn-primary" target="_blank" rel="noopener">
+              <i class="ph-fill ph-whatsapp-logo"></i> Agendar por WhatsApp
+            </a>
+            <a href="tel:+528183488085" class="btn btn-outline">
+              <i class="ph-bold ph-phone"></i> Llamar: 81 8348 8085
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIOS ===== -->
+  <section class="testimonios reveal" id="testimonios">
+    <div class="container">
+      <div class="section-label">Testimonios industriales</div>
+      <h2 class="section-title">Empresas que ya <span class="highlight">confían</span> en nosotros</h2>
+      <p class="section-desc">Calificación perfecta 5/5 basada en reseñas verificadas de Google.</p>
+      <div class="testimonial-carousel" id="carousel">
+        <div class="testimonial-track" id="carouselTrack">
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="testimonial-text">Tenemos dos naves de más de 2,000 m² cada una. Nacional de Alarmas instaló el sistema en un fin de semana sin parar nuestra producción. La cobertura es total y el monitoreo responde muy rápido.</p>
+              <p class="testimonial-name">Ing. Roberto Sánchez</p>
+              <p class="testimonial-role">Director de operaciones &middot; Parque Industrial Apodaca</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="testimonial-text">Antes teníamos problemas de robos en el turno nocturno. Desde que instalaron el sistema de Photobeam en el perímetro y sensores en las cortinas, no ha vuelto a pasar nada. La inversión se pagó sola en dos meses.</p>
+              <p class="testimonial-name">Carlos Villanueva</p>
+              <p class="testimonial-role">Gerente general &middot; Centro de distribución, Escobedo N.L.</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote">&ldquo;</div>
+              <div class="testimonial-stars">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="testimonial-text">La visita técnica fue muy profesional. Me entregaron un plano completo con cada sensor y su función. Todo quedó instalado limpiamente y la app funciona de maravilla para armar y ver el historial.</p>
+              <p class="testimonial-name">Patricia Garza</p>
+              <p class="testimonial-role">Administradora &middot; Bodega logística, Monterrey</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-index="0"></button>
+          <button class="carousel-dot" data-index="1"></button>
+          <button class="carousel-dot" data-index="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BANNER CTA ===== -->
+  <section class="banner-cta reveal">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container">
+      <h2>¿Listo para proteger <span class="highlight">tu nave industrial</span>?</h2>
+      <p>Solicita tu visita técnica gratuita. En menos de 24 horas un asesor va a tu instalación.</p>
+      <div class="banner-ctas">
+        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+        <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq reveal" id="faq">
+    <div class="container">
+      <div class="section-label">Preguntas frecuentes</div>
+      <h2 class="section-title">Dudas sobre <span class="highlight">alarmas industriales</span></h2>
+      <p class="section-desc">Las preguntas más comunes de nuestros clientes industriales.</p>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Qué tan grande puede ser el perímetro que cubren?</h4>
+            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
+          </button>
+          <div class="faq-answer"><p>Con tecnología Photobeam podemos proteger perímetros de hasta 150 metros lineales por dispositivo, y se pueden encadenar para cubrir instalaciones más extensas. No existe un límite fijo; diseñamos el sistema según las dimensiones reales de tu nave o parque industrial.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Los sensores funcionan con polvo, calor o vibraciones de maquinaria?</h4>
+            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
+          </button>
+          <div class="faq-answer"><p>Sí. Seleccionamos equipos diseñados específicamente para entornos industriales: sensores de movimiento resistentes al calor, detectores de impacto con umbral de vibración ajustable y fotoceldas con filtros anti-interferencia. La calibración se hace en sitio para evitar falsas alarmas.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Pueden proteger cortinas metálicas y portones de gran tamaño?</h4>
+            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
+          </button>
+          <div class="faq-answer"><p>Sí. Usamos contactos magnéticos de uso rudo y sensores overhead especiales para cortinas metálicas industriales, portones de doble hoja y accesos vehiculares de gran tamaño. Soportan miles de ciclos de apertura sin degradar la señal.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿La instalación afecta mis turnos de producción?</h4>
+            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
+          </button>
+          <div class="faq-answer"><p>No. Coordinamos la instalación en horarios que no interfieran con tu operación: fines de semana, turnos nocturnos o periodos de paro programado. El tiempo de instalación depende del tamaño de la instalación, pero normalmente completamos en 1 a 2 jornadas.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Qué pasa si se va la luz en la nave?</h4>
+            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
+          </button>
+          <div class="faq-answer"><p>El panel de alarma tiene batería de respaldo que mantiene el sistema activo durante varios horas sin energía eléctrica. Además, los sistemas GSM siguen comunicándose con la Central de Monitoreo vía red celular aunque falle la conexión a internet o la luz.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿En qué zonas industriales de Monterrey dan servicio?</h4>
+            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
+          </button>
+          <div class="faq-answer"><p>Cubrimos todos los parques y zonas industriales del área metropolitana de Monterrey: Apodaca, Escobedo, García, San Nicolás, Guadalupe, Santa Catarina, Pesquería y más. Contáctanos para confirmar cobertura en tu ubicación específica.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="contacto reveal" id="contacto">
+    <div class="container">
+      <div class="section-label">Cotización</div>
+      <h2 class="section-title">Solicita tu <span class="highlight">cotización gratuita</span></h2>
+      <p class="section-desc">Déjanos tus datos y un asesor especializado en seguridad industrial se comunicará contigo en menos de 2 horas.</p>
+      <div class="contacto-grid">
+        <div id="contactoFormWrap">
+          <form id="contactoForm">
+            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678" required inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9\s]/g, '')"></div>
+            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@empresa.com" required></div>
+            <div class="form-group">
+              <label for="tipo">Tipo de instalación</label>
+              <select id="tipo">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Bodega / Almacén</option>
+                <option>Nave industrial</option>
+                <option>Centro de distribución</option>
+                <option>Parque industrial</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="mensaje">Detalles (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu instalación: superficie aproximada, número de accesos, zonas de riesgo..."></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
+            <h3>Mensaje enviado</h3>
+            <p>Gracias por contactarnos. Un asesor industrial se comunicará contigo en menos de 2 horas.</p>
+            <div class="form-success-actions">
+              <a href="https://wa.me/528127193393?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20industrial%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+              <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
+            </div>
+          </div>
+        </div>
+        <div class="contacto-info">
+          <div>
+            <h3>Información de contacto</h3>
+            <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon"><i class="ph-fill ph-phone"></i></div>
+            <div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
+            <div><h4>WhatsApp</h4><p><a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20industrial." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2719 3393</a></p></div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon"><i class="ph-fill ph-map-pin"></i></div>
+            <div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a></p></div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="info-icon"><i class="ph-fill ph-clock"></i></div>
+            <div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* --- Navbar scroll --- */
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* --- Mobile menu --- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        Object.assign(navLinks.style, {
+          position: 'absolute', top: '100%', left: '0', right: '0',
+          flexDirection: 'column', background: 'rgba(7,26,46,0.95)',
+          backdropFilter: 'blur(12px)', padding: '24px', gap: '16px',
+          borderBottom: '1px solid rgba(255,255,255,0.12)'
+        });
+      } else {
+        navLinks.removeAttribute('style');
+      }
+    });
+
+    /* --- FAQ accordion --- */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* --- Testimonial carousel --- */
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    function goToSlide(index) {
+      currentSlide = index;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+    dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index))));
+    setInterval(() => goToSlide((currentSlide + 1) % dots.length), 5500);
+
+    /* --- Formulario submit --- */
+    const form = document.getElementById('contactoForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const formReset = document.getElementById('formReset');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.nombre.value.trim() || !form.telefono.value.trim() || !form.email.value.trim()) return;
+      form.style.display = 'none';
+      formSuccess.classList.add('visible');
+    });
+    formReset.addEventListener('click', () => {
+      form.reset();
+      form.style.display = 'block';
+      formSuccess.classList.remove('visible');
+    });
+
+    // Canvas circuits background
+    function initCircuits(canvasId, excludeSel) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const section = canvas.parentElement;
+      let W, H, nodes = [], connections = [], exRect = null;
+
+      function getExcludeRect() {
+        if (!excludeSel) return null;
+        const el = section.querySelector(excludeSel);
+        if (!el) return null;
+        const sR = section.getBoundingClientRect(), eR = el.getBoundingClientRect(), pad = 20;
+        return { x: eR.left-sR.left-pad, y: eR.top-sR.top-pad, w: eR.width+pad*2, h: eR.height+pad*2 };
+      }
+      function inExclude(px, py) {
+        if (!exRect) return false;
+        return px > exRect.x && px < exRect.x+exRect.w && py > exRect.y && py < exRect.y+exRect.h;
+      }
+      function resize() {
+        W = section.offsetWidth; H = section.offsetHeight;
+        canvas.width = W; canvas.height = H;
+        exRect = getExcludeRect(); createNodes();
+      }
+      function createNodes() {
+        nodes = [];
+        const cols = Math.floor(W/100), rows = Math.floor(H/100);
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = (c+0.5)*(W/cols)+(Math.random()-0.5)*40;
+          const y = (r+0.5)*(H/rows)+(Math.random()-0.5)*40;
+          if (!inExclude(x, y)) nodes.push({ x, y });
+        }
+      }
+      function spawnConnection() {
+        if (nodes.length < 2) return;
+        const a = nodes[Math.floor(Math.random()*nodes.length)];
+        let best = null, bestDist = 280;
+        for (const n of nodes) {
+          if (n === a) continue;
+          const d = Math.hypot(n.x-a.x, n.y-a.y);
+          if (d < bestDist && Math.random() > 0.4) { best = n; bestDist = d; }
+        }
+        if (!best) return;
+        const mid = Math.random() > 0.5 ? { x: best.x, y: a.y } : { x: a.x, y: best.y };
+        if (inExclude(mid.x, mid.y)) return;
+        const colors = ['rgba(248,235,1,', 'rgba(239,68,68,', 'rgba(45,160,232,', 'rgba(34,197,94,'];
+        connections.push({
+          points: [a, mid, best], progress: 0, fade: 1, phase: 'draw', holdTimer: 0,
+          speed: 0.008+Math.random()*0.008,
+          color: colors[Math.floor(Math.random()*colors.length)]
+        });
+      }
+      function getPointAt(pts, progress) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x-pts[i-1].x, pts[i].y-pts[i-1].y);
+        const drawLen = totalLen*progress; let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x-pts[i-1].x, pts[i].y-pts[i-1].y);
+          if (drawn+segLen >= drawLen) {
+            const t = (drawLen-drawn)/segLen;
+            return { x: pts[i-1].x+(pts[i].x-pts[i-1].x)*t, y: pts[i-1].y+(pts[i].y-pts[i-1].y)*t };
+          }
+          drawn += segLen;
+        }
+        return pts[pts.length-1];
+      }
+      function update() {
+        for (let i = connections.length-1; i >= 0; i--) {
+          const c = connections[i];
+          if (c.phase === 'draw') { c.progress += c.speed; if (c.progress >= 1) { c.progress = 1; c.phase = 'hold'; c.holdTimer = 60+Math.random()*80; } }
+          else if (c.phase === 'hold') { c.holdTimer--; if (c.holdTimer <= 0) c.phase = 'fade'; }
+          else { c.fade -= 0.012; if (c.fade <= 0) connections.splice(i, 1); }
+        }
+      }
+      function drawPath(pts, progress, alpha, colorBase) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x-pts[i-1].x, pts[i].y-pts[i-1].y);
+        const drawLen = totalLen*progress;
+        ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y); let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x-pts[i-1].x, pts[i].y-pts[i-1].y);
+          if (drawn+segLen <= drawLen) { ctx.lineTo(pts[i].x, pts[i].y); drawn += segLen; }
+          else { const t = (drawLen-drawn)/segLen; ctx.lineTo(pts[i-1].x+(pts[i].x-pts[i-1].x)*t, pts[i-1].y+(pts[i].y-pts[i-1].y)*t); break; }
+        }
+        const a = Math.max(0, alpha*0.18);
+        ctx.strokeStyle = colorBase+a+')'; ctx.lineWidth = 1.5; ctx.stroke();
+        const endPt = getPointAt(pts, progress);
+        if (endPt && alpha > 0.3) { ctx.beginPath(); ctx.arc(endPt.x, endPt.y, 3, 0, Math.PI*2); ctx.fillStyle = colorBase+(a*1.5)+')'; ctx.fill(); }
+        ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, 2.5, 0, Math.PI*2); ctx.fillStyle = colorBase+(a*0.8)+')'; ctx.fill();
+      }
+      function render() { ctx.clearRect(0, 0, W, H); for (const c of connections) drawPath(c.points, c.progress, c.fade, c.color); }
+      let spawnCounter = 0;
+      function loop() {
+        update(); render(); spawnCounter++;
+        if (spawnCounter > 80+Math.random()*70) { if (connections.length < 5) spawnConnection(); spawnCounter = 0; }
+        requestAnimationFrame(loop);
+      }
+      window.addEventListener('resize', resize);
+      resize(); spawnConnection(); loop();
+    }
+    initCircuits('procesoCircuits', '.proceso-grid');
+
+    // Proceso: líneas SVG pasos → visita-card
+    (function() {
+      const grid       = document.querySelector('.proceso-grid');
+      const pasos      = document.querySelectorAll('.proceso-steps .paso');
+      const visitaCard = document.getElementById('visita');
+      if (!grid || !pasos.length || !visitaCard) return;
+
+      const colors = ['#ef4444', '#2da0e8', '#22c55e', '#F8EB01'];
+      const paths = [], glows = [], dots = [];
+      for (let i = 0; i < 4; i++) {
+        paths.push(document.getElementById('procPath' + i));
+        glows.push(document.getElementById('procGlow' + i));
+        dots.push(document.getElementById('procDot' + i));
+      }
+
+      function rel(el) {
+        const r  = el.getBoundingClientRect();
+        const gr = grid.getBoundingClientRect();
+        return {
+          x:     r.left   - gr.left,
+          y:     r.top    - gr.top,
+          right: r.right  - gr.left,
+          cy:    r.top    - gr.top + r.height / 2,
+        };
+      }
+
+      function buildPath(i) {
+        const p    = rel(pasos[i]);
+        const v    = rel(visitaCard);
+        const x1   = p.right,   y1 = p.cy;
+        const x2   = v.x,       y2 = v.cy;
+        const midX = x1 + (x2 - x1) * 0.5;
+        const d    = `M${x1},${y1} L${midX},${y1} L${midX},${y2} L${x2},${y2}`;
+        return { d, endX: x2, endY: y2 };
+      }
+
+      function setup(i) {
+        const { d, endX, endY } = buildPath(i);
+        [paths[i], glows[i]].forEach(el => {
+          el.setAttribute('d', d);
+          const len = el.getTotalLength ? el.getTotalLength() : paths[i].getTotalLength();
+          el.style.strokeDasharray  = len;
+          el.style.strokeDashoffset = len;
+        });
+        dots[i].setAttribute('cx', endX);
+        dots[i].setAttribute('cy', endY);
+      }
+
+      function show(i) {
+        setup(i);
+        requestAnimationFrame(() => {
+          paths[i].style.strokeDashoffset = '0';
+          glows[i].style.strokeDashoffset = '0';
+          dots[i].classList.add('visible');
+        });
+        pasos[i].style.setProperty('--proc-color', colors[i]);
+        visitaCard.style.setProperty('--proc-color', colors[i]);
+        pasos[i].classList.add('paso-hovered');
+        visitaCard.classList.add('proc-highlighted');
+      }
+
+      function hide(i) {
+        const len = paths[i].getTotalLength();
+        paths[i].style.strokeDashoffset = len;
+        glows[i].style.strokeDashoffset = len;
+        dots[i].classList.remove('visible');
+        pasos[i].classList.remove('paso-hovered');
+        visitaCard.classList.remove('proc-highlighted');
+      }
+
+      pasos.forEach((paso, i) => {
+        paso.addEventListener('mouseenter', () => show(i));
+        paso.addEventListener('mouseleave', () => hide(i));
+      });
+
+      window.addEventListener('resize', () => pasos.forEach((_, i) => setup(i)));
+    })();
+
+    // Stats animations
+    (function() {
+      // 1. Counter: Zonas 0 → 5
+      const statZonas = document.getElementById('statZonas');
+      if (statZonas) {
+        let count = 0;
+        const target = 5;
+        function rollTo(n) {
+          statZonas.textContent = n;
+          statZonas.classList.remove('rolling');
+          void statZonas.offsetWidth;
+          statZonas.classList.add('rolling');
+        }
+        setTimeout(function tick() {
+          count++;
+          rollTo(count);
+          if (count < target) setTimeout(tick, 160);
+        }, 800);
+      }
+
+      // 2. Reloj en vivo
+      const statClock = document.getElementById('statClock');
+      if (statClock) {
+        function updateClock() {
+          const now = new Date();
+          const h = String(now.getHours()).padStart(2,'0');
+          const m = String(now.getMinutes()).padStart(2,'0');
+          statClock.innerHTML = `${h}<span class="stat-clock-sep">:</span>${m}`;
+        }
+        setTimeout(() => {
+          updateClock();
+          setInterval(updateClock, 1000);
+        }, 1400);
+      }
+
+      // 3. Estado: sincroniza con el ciclo de alerta
+      const statEstadoBox = document.getElementById('statEstadoBox');
+      const statEstado    = document.getElementById('statEstado');
+      const statOkDot     = document.getElementById('statOkDot');
+      window._setStatAlert = function(on) {
+        if (!statEstadoBox) return;
+        if (on) {
+          statEstadoBox.classList.add('stat-alert');
+          statEstado.innerHTML = '<span class="stat-ok-wrap"><span class="stat-ok-dot" id="statOkDot" style="background:#ef4444;box-shadow:0 0 6px #ef4444;animation:none"></span>⚠</span>';
+        } else {
+          statEstadoBox.classList.remove('stat-alert');
+          statEstado.innerHTML = '<span class="stat-ok-wrap"><span class="stat-ok-dot" id="statOkDot"></span>OK</span>';
+        }
+      };
+    })();
+
+    // Hero panel: event log + alert cycle
+    (function() {
+      // Animate log items in sequentially
+      document.querySelectorAll('.wh-log-item').forEach((item, i) => {
+        setTimeout(() => item.classList.add('in'), 700 + i * 380);
+      });
+
+      const toast     = document.getElementById('whToast');
+      const toastIcon = document.getElementById('whToastIcon');
+      const toastMsg  = document.getElementById('whToastMsg');
+      const sensorS4  = document.getElementById('sensorS4');
+      const zoneCarga = document.getElementById('zoneCarga');
+
+      function triggerAlert() {
+        // Phase 1: alert
+        window._setStatAlert && window._setStatAlert(true);
+        sensorS4  && sensorS4.classList.add('sensor-alert');
+        zoneCarga && zoneCarga.classList.add('zone-alert');
+        toastIcon.className  = 'ph-fill ph-warning';
+        toastMsg.textContent = 'Intrusión detectada';
+        toast.classList.remove('clear');
+        toast.classList.add('visible');
+
+        // Phase 2: clear
+        setTimeout(() => {
+          window._setStatAlert && window._setStatAlert(false);
+          sensorS4  && sensorS4.classList.remove('sensor-alert');
+          zoneCarga && zoneCarga.classList.remove('zone-alert');
+          zoneCarga && zoneCarga.classList.add('zone-clear');
+          toastIcon.className  = 'ph-fill ph-shield-check';
+          toastMsg.textContent = 'Zona asegurada';
+          toast.classList.add('clear');
+        }, 2400);
+
+        // Phase 3: hide
+        setTimeout(() => {
+          toast.classList.remove('visible');
+          setTimeout(() => {
+            zoneCarga && zoneCarga.classList.remove('zone-clear');
+            toast.classList.remove('clear');
+          }, 400);
+        }, 4600);
+      }
+
+      setTimeout(triggerAlert, 2800);
+      setInterval(triggerAlert, 9000);
+    })();
+
+    // Catálogo visual: tabs + thumbnails
+    (function() {
+      const tabs   = document.querySelectorAll('.cv-tab');
+      const panels = document.querySelectorAll('.cv-panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const cat = tab.dataset.cat;
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.querySelector(`.cv-panel[data-cat="${cat}"]`).classList.add('active');
+        });
+      });
+
+      panels.forEach(panel => {
+        const thumbs   = panel.querySelectorAll('.cv-thumb');
+        const heroName = panel.querySelector('.cv-hero-name');
+        const heroImg  = panel.querySelector('.cv-hero-img');
+
+        thumbs.forEach(thumb => {
+          thumb.addEventListener('click', () => {
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+            heroName.textContent = thumb.dataset.name;
+
+            const thumbImgEl = thumb.querySelector('img');
+            let wrap = heroImg.querySelector('.cv-hero-wrap');
+            let existing = wrap ? wrap.querySelector('img') : null;
+            if (thumbImgEl) {
+              if (!wrap) {
+                wrap = document.createElement('div');
+                wrap.className = 'cv-hero-wrap';
+                heroImg.innerHTML = '';
+                heroImg.appendChild(wrap);
+              }
+              if (!existing) {
+                existing = document.createElement('img');
+                wrap.appendChild(existing);
+              }
+              existing.src = thumbImgEl.src;
+              existing.alt = thumb.dataset.name;
+              const fit        = thumb.dataset.fit      || 'contain';
+              const blend      = thumb.dataset.blend    || 'multiply';
+              const scale      = thumb.dataset.scale    || (fit === 'cover' ? '1' : '1.65');
+              const translateY = thumb.dataset.translatey || '0px';
+              const position   = thumb.dataset.position  || 'center center';
+              existing.style.objectFit      = fit;
+              existing.style.objectPosition = fit === 'cover' ? position : '';
+              existing.style.mixBlendMode   = blend;
+              existing.style.transform      = `scale(${scale}) translateY(${translateY})`;
+            } else {
+              const thumbIcon = thumb.querySelector('i');
+              if (thumbIcon) {
+                heroImg.innerHTML = `<i class="${thumbIcon.className}" style="font-size:56px;color:rgba(255,255,255,0.15);position:relative;z-index:1;"></i>`;
+              }
+            }
+          });
+        });
+      });
+    })();
+
+    /* --- Scroll reveal + stagger --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

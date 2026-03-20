@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cámaras de Seguridad en Monterrey — Nacional de Alarmas | CCTV y Videovigilancia</title>
+  <meta name="description" content="Instala cámaras de seguridad IP, WiFi y CCTV en Monterrey. Grabación 24/7, acceso remoto desde tu celular, detección de movimiento y más. Solicita cotización gratis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --neutral-0: #ffffff;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.12);
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+      --radius-2xl: 32px; --radius-full: 9999px;
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+      /* Acento cámaras — amarillo NDA */
+      --cam-accent: #F8EB01;
+      --cam-accent-light: #faf355;
+      --cam-bg: rgba(248, 235, 1, 0.08);
+      --cam-border: rgba(248, 235, 1, 0.2);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--doc-font); background: var(--nda-dark-900); color: var(--neutral-300); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font-family: inherit; font-size: inherit; border: none; outline: none; background: none; color: inherit; }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--cam-accent); margin-bottom: var(--space-2);
+    }
+    .section-title { font-size: 36px; font-weight: 700; color: var(--neutral-0); letter-spacing: -0.5px; margin-bottom: var(--space-4); line-height: 1.2; }
+    .section-desc { font-size: 16px; color: var(--neutral-400); max-width: 600px; margin-bottom: var(--space-12); line-height: 1.7; }
+    .highlight { color: var(--cam-accent); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    .btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: 14px 28px; border-radius: var(--radius-full); font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s ease; }
+    .btn i { font-size: 18px; }
+    .btn-primary { background: var(--nda-yellow-400); color: var(--nda-dark-900); }
+    .btn-primary:hover { background: var(--nda-yellow-300); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(248,235,1,0.25); }
+    .btn-green { background: var(--cam-accent); color: #000; }
+    .btn-green:hover { background: var(--cam-accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(248,235,1,0.3); }
+    .btn-outline { border: 1.5px solid var(--glass-border); color: var(--neutral-0); }
+    .btn-outline:hover { border-color: var(--neutral-300); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.3); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ===== NAVBAR ===== */
+    .navbar { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: calc(100% - 120px); max-width: 1080px; background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 99px; padding: 12px 28px; transition: all 0.3s ease; }
+    .navbar.scrolled { background: rgba(2,14,28,0.92); border-color: rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.4); top: 12px; }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; max-width: none; padding: 0; }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: var(--cam-accent); }
+    .nav-cta { padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; }
+    .nav-cta:hover { color: #000 !important; }
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; text-decoration: none; transition: all 0.25s ease; font-size: 17px; border: 1px solid rgba(255,255,255,0.12); }
+    .nav-contact-btn.phone { background: rgba(5,105,179,0.15); color: #0569B3; }
+    .nav-contact-btn.phone:hover { background: rgba(5,105,179,0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
+    .nav-contact-btn.whatsapp { background: rgba(255,255,255,0.08); color: #ffffff; }
+    .nav-contact-btn.whatsapp:hover { background: rgba(255,255,255,0.18); box-shadow: 0 0 14px rgba(255,255,255,0.15); }
+    .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-mobile-toggle span { width: 24px; height: 2px; background: var(--neutral-0); border-radius: 2px; transition: all 0.3s; }
+
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.3s; padding: 0; }
+    .nav-dropdown-trigger:hover, .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
+    .nav-dropdown-trigger.sol-active { color: var(--cam-accent); }
+    .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
+    .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; padding-top: 12px; transform: translateX(-50%) translateY(-6px); background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 8px; display: flex; flex-direction: column; gap: 2px; min-width: 190px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; backdrop-filter: blur(16px); z-index: 999; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); transition: all 0.2s; }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .nav-dropdown-menu a.active { color: var(--cam-accent); background: var(--cam-bg); }
+    .nav-dropdown-menu a i { font-size: 16px; }
+
+    /* ===== HERO ===== */
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 100px; background: #020e1c; }
+    .hero-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.6; pointer-events: none; z-index: 0; }
+    .hero-bg-gradient { position: absolute; inset: 0; background: linear-gradient(to right, #020e1c 30%, rgba(2,14,28,0.6) 55%, rgba(2,14,28,0.1) 100%); pointer-events: none; z-index: 1; }
+    .hero-glow-1 { position: absolute; top: -20%; right: 5%; width: 500px; height: 500px; background: var(--cam-accent); border-radius: 50%; opacity: 0.07; filter: blur(100px); pointer-events: none; z-index: 1; }
+    .hero-glow-2 { position: absolute; bottom: -10%; left: 10%; width: 350px; height: 350px; background: #0569B3; border-radius: 50%; opacity: 0.06; filter: blur(80px); pointer-events: none; z-index: 1; }
+    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; position: relative; z-index: 2; }
+    .hero-visual { position: relative; z-index: 2; }
+    .hero-visual { order: -1; display: flex; align-items: center; justify-content: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: var(--space-2); background: var(--cam-bg); border: 1px solid var(--cam-border); border-radius: 99px; padding: 5px 14px; font-size: 12px; font-weight: 500; color: var(--cam-accent); margin-bottom: 20px; }
+    .hero-badge i { font-size: 14px; }
+    .hero h1 { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px; max-width: 540px; }
+    .hero-text { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 28px; max-width: 440px; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: var(--space-8); }
+    .hero-ctas .btn { border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700; }
+    .hero-trust { display: flex; gap: var(--space-6); font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; }
+    .hero-trust span { display: flex; align-items: center; gap: var(--space-2); }
+    .hero-trust i { color: var(--cam-accent); font-size: 14px; }
+
+    /* ===== HERO CAM PANEL ===== */
+    .cam-panel { position: relative; width: 100%; max-width: 480px; }
+    .cam-card { background: rgba(5,20,40,0.7); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 18px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); position: relative; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06); }
+    .cam-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent 0%, var(--cam-accent) 40%, rgba(248,235,1,0.3) 100%); }
+
+    /* Topbar */
+    .cam-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .cam-topbar-left { display: flex; align-items: center; gap: 8px; }
+    .cam-rec-dot { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; flex-shrink: 0; box-shadow: 0 0 6px #ef4444; animation: rec-blink 1.4s ease-in-out infinite; }
+    @keyframes rec-blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    .cam-title { font-size: 11px; font-weight: 700; color: var(--neutral-0); letter-spacing: 0.3px; }
+    .cam-topbar-right { display: flex; align-items: center; gap: 8px; }
+    .cam-live-badge { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ef4444; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.28); border-radius: 99px; padding: 3px 9px; }
+    .cam-timestamp { font-size: 10px; color: var(--neutral-400); font-variant-numeric: tabular-nums; }
+
+    /* Camera grid */
+    .cam-grid { display: block; margin-bottom: 10px; }
+    .cam-feed { position: relative; border-radius: 10px; overflow: hidden; background: #000; aspect-ratio: 16/9; }
+    .cam-feed.main { grid-column: span 2; aspect-ratio: 16/9; }
+    .cam-feed-inner { width: 100%; height: 100%; position: relative; overflow: hidden; }
+
+    /* Static/noise effect */
+    .cam-noise { position: absolute; inset: 0; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 120px; pointer-events: none; z-index: 3; }
+
+    /* Main feed — animated scene */
+    .cam-main-scene { width: 100%; height: 100%; background: linear-gradient(160deg, #0a1a0a 0%, #0d1f0d 40%, #071207 100%); position: relative; }
+    .cam-grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(248,235,1,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(248,235,1,0.04) 1px, transparent 1px); background-size: 24px 24px; }
+    .cam-scanline-h { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(248,235,1,0.3), transparent); animation: scanH 5s linear infinite; z-index: 2; pointer-events: none; }
+    @keyframes scanH { 0%{top:0;opacity:0} 5%{opacity:1} 95%{opacity:1} 100%{top:100%;opacity:0} }
+    /* Grupo persona + bounding box — animados juntos */
+    .cam-track-group { position: absolute; bottom: 14%; width: 22px; height: 36px; animation: cam-walk 8s ease-in-out infinite; }
+    @keyframes cam-walk { 0%{left:8%;opacity:0} 10%{opacity:1} 50%{left:68%} 90%{opacity:1} 100%{left:78%;opacity:0} }
+    .cam-det-box { position: absolute; inset: 0; border: 1.5px solid var(--cam-accent); border-radius: 3px; }
+    .cam-det-label { position: absolute; top: -16px; left: 0; font-size: 7px; font-weight: 700; color: var(--cam-accent); white-space: nowrap; letter-spacing: 0.5px; }
+    .cam-person { position: absolute; top: 4px; left: 4px; width: 14px; height: 28px; }
+    .cam-person::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; border-radius: 50%; background: rgba(248,235,1,0.8); }
+    .cam-person::after { content: ''; position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 6px; height: 14px; background: rgba(248,235,1,0.6); border-radius: 2px; }
+    .cam-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%); z-index: 1; }
+    .cam-corner { position: absolute; width: 10px; height: 10px; border-color: var(--cam-accent); border-style: solid; opacity: 0.6; }
+    .cam-corner.tl { top: 6px; left: 6px; border-width: 1.5px 0 0 1.5px; }
+    .cam-corner.tr { top: 6px; right: 6px; border-width: 1.5px 1.5px 0 0; }
+    .cam-corner.bl { bottom: 6px; left: 6px; border-width: 0 0 1.5px 1.5px; }
+    .cam-corner.br { bottom: 6px; right: 6px; border-width: 0 1.5px 1.5px 0; }
+    .cam-feed-label { position: absolute; bottom: 6px; left: 8px; font-size: 8px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; z-index: 4; }
+
+    /* Small feeds */
+    .cam-small-scene { width: 100%; height: 100%; position: relative; }
+    .cam-small-scene-1 { background: linear-gradient(160deg, #1a0a0a 0%, #0d0505 100%); }
+    .cam-small-scene-2 { background: linear-gradient(160deg, #0a100a 0%, #050d05 100%); }
+    .cam-small-dot { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--cam-accent); opacity: 0.5; animation: dot-blink 2.5s ease-in-out infinite; }
+    @keyframes dot-blink { 0%,100%{opacity:0.2} 50%{opacity:0.8} }
+    .cam-ir { position: absolute; top: 6px; right: 6px; font-size: 7px; font-weight: 700; color: #ef4444; letter-spacing: 0.5px; }
+
+    /* Stats bar */
+    .cam-stats { display: flex; gap: 6px; }
+    .cam-stat { flex: 1; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 8px 10px; }
+    .cam-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--neutral-500); margin-bottom: 2px; }
+    .cam-stat-value { font-size: 13px; font-weight: 700; color: var(--neutral-0); font-variant-numeric: tabular-nums; }
+    .cam-stat-value.green { color: var(--cam-accent); }
+    .cam-stat-value.red { color: #ef4444; }
+
+    /* Alert toast */
+    .cam-alert {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 8px; padding: 8px 12px; margin-top: 8px;
+      position: relative; overflow: hidden;
+      animation: alert-appear 0.4s ease;
+      box-shadow: 0 0 0 0 rgba(239,68,68,0.3);
+      animation: alert-appear 0.4s ease, alert-glow 2s ease-in-out infinite;
+    }
+    @keyframes alert-glow {
+      0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); border-color: rgba(239,68,68,0.3); }
+      50%      { box-shadow: 0 0 10px 2px rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.7); }
+    }
+    /* Barra de progreso en la parte inferior del alert */
+    .cam-alert::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; height: 2px;
+      background: linear-gradient(90deg, #ef4444, rgba(239,68,68,0.3));
+      animation: alert-progress 4s linear infinite;
+    }
+    @keyframes alert-progress { 0%{width:100%} 100%{width:0%} }
+    .cam-alert-icon { font-size: 16px; color: #ef4444; flex-shrink: 0; animation: icon-pulse 1s ease-in-out infinite; }
+    @keyframes icon-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.85)} }
+    .cam-alert-body { flex: 1; min-width: 0; }
+    .cam-alert-label { font-size: 8px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #ef4444; margin-bottom: 2px; }
+    .cam-alert-text { font-size: 10px; color: var(--neutral-200); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cam-alert-time { font-size: 9px; color: var(--neutral-500); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    @keyframes alert-appear { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+    /* Flash en el panel entero cuando llega alerta nueva */
+    .cam-card.alert-flash { animation: card-flash 0.5s ease; }
+    @keyframes card-flash { 0%{box-shadow:0 0 0 0 rgba(239,68,68,0)} 30%{box-shadow:0 0 24px 6px rgba(239,68,68,0.25)} 100%{box-shadow:0 24px 80px rgba(0,0,0,0.45)} }
+
+    /* ===== STATS STRIP ===== */
+    .stats-strip { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: var(--space-10) 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-8); }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 40px; font-weight: 800; color: var(--cam-accent); letter-spacing: -1px; margin-bottom: 4px; }
+    .stat-label { font-size: 14px; color: var(--neutral-400); }
+
+    /* ===== TIPOS DE CÁMARAS — FLIP CARDS ===== */
+    .tipos { padding: var(--space-24) 0; }
+    .tipos-header { text-align: center; }
+    .tipos-header .section-desc { margin-left: auto; margin-right: auto; }
+    .tipos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-6); }
+
+    /* Flip card container */
+    .flip-card { perspective: 1000px; cursor: pointer; height: 340px; }
+    .flip-card-inner {
+      position: relative; width: 100%; height: 100%;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+
+    /* Shared face styles */
+    .flip-card-front, .flip-card-back {
+      position: absolute; inset: 0;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+
+    /* FRONT */
+    .flip-card-front { background: var(--nda-dark-800); }
+    .flip-front-visual {
+      width: 100%; height: 68%; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .flip-front-visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .flip-card:hover .flip-front-visual img { transform: scale(1.05); }
+    .flip-front-visual-icon {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
+    }
+    /* Color overlay gradient per card type */
+    .flip-front-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+    }
+    .flip-front-info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: var(--space-5) var(--space-6) var(--space-4);
+      z-index: 2;
+    }
+    .flip-front-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--cam-accent);
+      margin-bottom: 4px; display: block;
+    }
+    .flip-front-title {
+      font-size: 17px; font-weight: 700; color: #fff;
+      margin-bottom: 6px; line-height: 1.2;
+    }
+    .flip-hint {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 99px; padding: 3px 10px;
+      transition: all 0.3s;
+    }
+    .flip-hint i { font-size: 11px; }
+    .flip-card:hover .flip-hint { color: var(--cam-accent); border-color: var(--cam-border); }
+
+    /* Top accent line per card */
+    .flip-card-front::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--flip-color, var(--cam-accent)); z-index: 3;
+    }
+
+    /* BACK */
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: var(--nda-dark-700);
+      padding: var(--space-6);
+      display: flex; flex-direction: column;
+    }
+    .flip-card-back::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--flip-color, var(--cam-accent));
+    }
+    .flip-back-header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+    .flip-back-icon {
+      width: 40px; height: 40px; min-width: 40px; border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--flip-color, var(--cam-accent));
+    }
+    .flip-back-header h3 { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.2; }
+    .flip-back-desc { font-size: 12px; color: var(--neutral-400); line-height: 1.65; margin-bottom: var(--space-4); flex: 1; }
+    .flip-back-features { display: flex; flex-direction: column; gap: 6px; }
+    .flip-back-feature { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--neutral-300); }
+    .flip-back-feature i { font-size: 13px; color: var(--flip-color, var(--cam-accent)); flex-shrink: 0; }
+    .flip-back-cta {
+      margin-top: auto; padding-top: var(--space-4);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .flip-back-btn {
+      font-size: 11px; font-weight: 700; color: #000;
+      background: var(--cam-accent); border-radius: 99px; padding: 6px 14px;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .flip-back-flip {
+      font-size: 11px; color: rgba(255,255,255,0.3);
+      display: flex; align-items: center; gap: 4px; cursor: pointer;
+    }
+    .flip-back-flip i { font-size: 13px; }
+
+    /* ===== GRABACIÓN / NVR ===== */
+    .grabacion { padding: var(--space-24) 0; background: var(--nda-dark-800); position: relative; overflow: hidden; }
+    .grabacion::before { content: ''; position: absolute; inset: 0; background: url('assets/black-camera-lens-brown-wooden-table.jpg') left center / cover no-repeat; opacity: 0.07; pointer-events: none; z-index: 0; }
+    .grabacion .container { position: relative; z-index: 1; }
+    .grabacion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+    .grabacion-visual { display: flex; flex-direction: column; gap: var(--space-4); }
+    .nvr-card { background: rgba(5,20,40,0.8); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-6); position: relative; overflow: hidden; }
+    .nvr-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--cam-accent), transparent); }
+    .nvr-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4); }
+    .nvr-header-title { font-size: 13px; font-weight: 700; color: var(--neutral-0); display: flex; align-items: center; gap: 8px; }
+    .nvr-header-title i { font-size: 16px; color: var(--cam-accent); }
+    .nvr-storage-bar { background: rgba(255,255,255,0.06); border-radius: 4px; height: 6px; margin-bottom: 6px; overflow: hidden; }
+    .nvr-storage-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--cam-accent), var(--cam-accent-light)); }
+    .nvr-storage-label { font-size: 11px; color: var(--neutral-500); display: flex; justify-content: space-between; }
+    .nvr-timeline { display: flex; gap: 4px; margin-top: var(--space-4); }
+    .nvr-day { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .nvr-day-bar { width: 100%; border-radius: 3px; background: rgba(248,235,1,0.25); }
+    .nvr-day-label { font-size: 8px; color: var(--neutral-500); }
+    .nvr-badge { font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 99px; }
+    .nvr-badge.local { background: rgba(248,235,1,0.15); color: var(--cam-accent); border: 1px solid var(--cam-border); }
+    .nvr-badge.cloud { background: rgba(45,160,232,0.15); color: var(--nda-blue-300); border: 1px solid rgba(45,160,232,0.2); }
+
+    /* NVR animations */
+    @keyframes nvr-scan { 0%{left:-60%} 100%{left:110%} }
+    @keyframes nvr-fill { 0%,100%{width:72%} 40%{width:76%} 70%{width:68%} }
+    @keyframes rec-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes cloud-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(45,160,232,0)} 50%{box-shadow:0 0 0 4px rgba(45,160,232,0.12)} }
+    @keyframes bar-wave { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(1.15)} }
+
+    .nvr-card::after { content:''; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(90deg,transparent,rgba(248,235,1,0.04),transparent); animation:nvr-scan 3.5s ease-in-out infinite; pointer-events:none; }
+    .nvr-storage-fill { animation: nvr-fill 8s ease-in-out infinite; }
+    .nvr-rec-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:#ef4444; margin-right:5px; animation:rec-blink 1.2s step-end infinite; }
+    .nvr-day-bar { transform-origin: bottom; transition: height 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .nvr-card.cloud-card { animation: cloud-pulse 3s ease-in-out infinite; }
+
+    .grabacion-text .section-desc { max-width: 100%; }
+    .storage-opts { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-8); }
+    .storage-opt { display: flex; align-items: flex-start; gap: var(--space-4); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); transition: border-color 0.3s; }
+    .storage-opt:hover { border-color: var(--cam-border); }
+    .storage-opt-icon { width: 40px; height: 40px; min-width: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .storage-opt-icon.local { background: var(--cam-bg); color: var(--cam-accent); }
+    .storage-opt-icon.cloud { background: rgba(45,160,232,0.1); color: var(--nda-blue-300); }
+    .storage-opt h4 { font-size: 15px; font-weight: 600; color: var(--neutral-0); margin-bottom: 3px; }
+    .storage-opt p { font-size: 13px; color: var(--neutral-400); line-height: 1.6; }
+
+    /* ===== APP MÓVIL ===== */
+    .app-movil { padding: var(--space-24) 0; }
+    .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+    .app-text .section-label { display: block; }
+    .app-text .section-desc { max-width: 100%; }
+    .app-features { display: flex; flex-direction: column; gap: var(--space-5); margin-bottom: var(--space-8); }
+    .app-feat { display: flex; align-items: flex-start; gap: var(--space-4); }
+    .app-feat-icon { width: 44px; height: 44px; min-width: 44px; border-radius: var(--radius-md); background: var(--cam-bg); border: 1px solid var(--cam-border); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--cam-accent); }
+    .app-feat h4 { font-size: 15px; font-weight: 600; color: var(--neutral-0); margin-bottom: 3px; }
+    .app-feat p { font-size: 13px; color: var(--neutral-400); line-height: 1.6; }
+
+    /* App video */
+    .app-video-wrap { display: flex; justify-content: center; align-items: center; }
+    .app-video-glow { display: none; }
+    .app-video-player { width: 100%; max-width: 280px; border-radius: 20px; display: block; object-fit: cover; mix-blend-mode: multiply; }
+
+    /* ===== COMPLEMENTO ALARMAS ===== */
+    .complemento { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .complemento-inner { background: linear-gradient(135deg, rgba(248,235,1,0.06) 0%, rgba(5,105,179,0.06) 100%); border: 1px solid rgba(248,235,1,0.15); border-radius: var(--radius-2xl); padding: var(--space-12) var(--space-12); position: relative; overflow: hidden; }
+    .complemento-inner::after { content: ''; position: absolute; inset: 0; background: url('assets/descarga (3).avif') center center / cover no-repeat; opacity: 0.08; pointer-events: none; z-index: 0; border-radius: var(--radius-2xl); transform: scaleX(-1); }
+    .complemento-inner::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(248,235,1,0.07) 0%, transparent 70%); pointer-events: none; }
+    .complemento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; position: relative; z-index: 1; }
+    .complemento-text .section-desc { max-width: 100%; margin-bottom: var(--space-8); }
+    .compl-benefits { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-8); }
+    .compl-benefit { display: flex; align-items: center; gap: var(--space-3); font-size: 15px; color: var(--neutral-200); }
+    .compl-benefit i { font-size: 20px; color: var(--cam-accent); flex-shrink: 0; }
+    .compl-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .compl-cards { display: flex; flex-direction: column; gap: var(--space-4); }
+    .compl-card { background: rgba(5,20,40,0.7); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-5) var(--space-6); display: flex; align-items: center; gap: var(--space-4); }
+    .compl-card-icon { width: 48px; height: 48px; min-width: 48px; border-radius: var(--radius-md); background: var(--cam-bg); border: 1px solid var(--cam-border); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--cam-accent); }
+    .compl-card h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: 3px; }
+    .compl-card p { font-size: 13px; color: var(--neutral-400); line-height: 1.5; }
+
+    /* ===== FAQ ===== */
+    .faq { padding: var(--space-24) 0; }
+    .faq .section-title, .faq .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--glass-border); }
+    .faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: var(--space-6) 0; cursor: pointer; text-align: left; }
+    .faq-question h4 { font-size: 16px; font-weight: 600; color: var(--neutral-0); padding-right: var(--space-4); }
+    .faq-icon { width: 28px; height: 28px; min-width: 28px; border-radius: 50%; border: 1.5px solid var(--glass-border); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .faq-icon i { font-size: 16px; color: var(--neutral-400); transition: transform 0.3s; }
+    .faq-item.open .faq-icon { background: var(--cam-accent); border-color: var(--cam-accent); }
+    .faq-item.open .faq-icon i { color: #fff; transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; padding-bottom: var(--space-6); }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ===== BANNER CTA ===== */
+    .banner-cta { padding: var(--space-20) 0; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600)); }
+    .banner-glow-green { position: absolute; left: -5%; top: -50%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(248,235,1,0.15) 0%, transparent 70%); pointer-events: none; }
+    .banner-glow-blue { position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(5,105,179,0.12) 0%, transparent 70%); pointer-events: none; }
+    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
+    .banner-cta > .container > p { font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10); max-width: 500px; margin-left: auto; margin-right: auto; }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-12); padding-bottom: var(--space-12); border-bottom: 1px solid var(--glass-border); }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); display: inline-flex; margin-left: -20px; }
+    .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-icon { width: 36px; height: 36px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .social-icon i { font-size: 18px; color: var(--neutral-400); transition: color 0.3s; }
+    .social-icon:hover { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .social-icon:hover i { color: var(--nda-dark-900); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--neutral-500); padding: var(--space-1) 0; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: var(--space-8); flex-wrap: wrap; gap: var(--space-4); }
+    .footer-bottom p { font-size: 13px; color: var(--neutral-600); }
+    .footer-bottom a { color: var(--nda-yellow-400); font-weight: 500; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float { position: fixed; bottom: var(--space-6); right: var(--space-6); width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; cursor: pointer; box-shadow: 0 4px 20px rgba(37,211,102,0.3); transition: all 0.3s; animation: wa-pulse 2s infinite; }
+    .whatsapp-float i { font-size: 28px; color: #fff; }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.4); animation: none; }
+    @keyframes wa-pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.3)} 50%{box-shadow:0 4px 30px rgba(37,211,102,0.5)} }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top { position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px); width: 44px; height: 44px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; cursor: pointer; backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: all 0.3s; }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { background: var(--nda-dark-600); border-color: var(--neutral-500); }
+    .scroll-top i { font-size: 20px; color: var(--neutral-300); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .tipos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .navbar { width: calc(100% - 40px); padding: 10px 20px; }
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .hero .container, .grabacion-grid, .app-grid, .complemento-grid { grid-template-columns: 1fr; }
+      .hero-visual { order: 0; }
+      .hero h1 { font-size: 34px; }
+      .tipos-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger sol-active">Soluciones <i class="ph-bold ph-caret-down"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="industrial.html"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="camaras.html" class="active"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+          </div>
+        </div>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20instalar%20cámaras%20de%20seguridad." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <!-- Video de fondo -->
+    <video class="hero-bg-video" src="assets/domecam_explosion_xl_da58b501a1.mp4" autoplay muted loop playsinline></video>
+    <!-- Degradado oscuro a la izquierda para legibilidad del texto -->
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container">
+
+      <!-- Panel animado de cámaras -->
+      <div class="hero-visual">
+        <div class="cam-panel">
+          <div class="cam-card">
+            <!-- Topbar -->
+            <div class="cam-topbar">
+              <div class="cam-topbar-left">
+                <div class="cam-rec-dot"></div>
+                <span class="cam-title">SISTEMA DE VIDEOVIGILANCIA</span>
+              </div>
+              <div class="cam-topbar-right">
+                <span class="cam-live-badge">● REC</span>
+                <span class="cam-timestamp" id="camTime">00:00:00</span>
+              </div>
+            </div>
+
+            <!-- Feeds -->
+            <div class="cam-grid">
+              <!-- Main feed -->
+              <div class="cam-feed main">
+                <div class="cam-feed-inner">
+                  <div class="cam-main-scene">
+                    <div class="cam-grid-lines"></div>
+                    <div class="cam-scanline-h"></div>
+                    <!-- Persona + bounding box sincronizados -->
+                    <div class="cam-track-group">
+                      <div class="cam-det-box"><span class="cam-det-label">PERSONA 94%</span></div>
+                      <div class="cam-person"></div>
+                    </div>
+                    <div class="cam-overlay"></div>
+                  </div>
+                  <div class="cam-noise"></div>
+                  <div class="cam-corner tl"></div>
+                  <div class="cam-corner tr"></div>
+                  <div class="cam-corner bl"></div>
+                  <div class="cam-corner br"></div>
+                  <span class="cam-feed-label">CAM-01 · ENTRADA PRINCIPAL</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Alert -->
+            <div class="cam-alert" id="camAlert">
+              <i class="ph-fill ph-warning cam-alert-icon"></i>
+              <div class="cam-alert-body">
+                <div class="cam-alert-label">⚠ Alerta de movimiento</div>
+                <div class="cam-alert-text" id="alertMsg">Movimiento detectado — CAM-01 Entrada Principal</div>
+              </div>
+              <span class="cam-alert-time" id="alertTime">Ahora</span>
+            </div>
+
+            <!-- Stats -->
+            <div class="cam-stats" style="margin-top:8px;">
+              <div class="cam-stat">
+                <div class="cam-stat-label">Cámaras</div>
+                <div class="cam-stat-value green" id="statCamaras" style="font-size:10px;letter-spacing:-0.3px;">1 / 1  ▊▊▊▊</div>
+              </div>
+              <div class="cam-stat">
+                <div class="cam-stat-label">Estado</div>
+                <div class="cam-stat-value green" id="statEstado" style="transition:opacity 0.25s,color 0.25s;">EN LÍNEA</div>
+              </div>
+              <div class="cam-stat">
+                <div class="cam-stat-label">Almacenado</div>
+                <div class="cam-stat-value" id="statAlmacenado">30d 00h</div>
+              </div>
+              <div class="cam-stat">
+                <div class="cam-stat-label">Alertas hoy</div>
+                <div class="cam-stat-value red" id="alertCount" style="transition:transform 0.2s;">3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto hero -->
+      <div class="hero-text-col">
+        <div class="hero-badge"><i class="ph-fill ph-video-camera"></i> Videovigilancia Profesional</div>
+        <h1>Vigila tu propiedad desde <span style="color:var(--cam-accent)">cualquier lugar</span></h1>
+        <p class="hero-text">Cámaras IP de alta resolución, visión nocturna, detección de movimiento y acceso en tiempo real desde tu celular. Instalación profesional en Monterrey y área metropolitana.</p>
+        <div class="hero-ctas">
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar cotización</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20instalar%20cámaras%20de%20seguridad." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+        </div>
+        <div class="hero-trust">
+          <span><i class="ph-fill ph-check-circle"></i> Instalación en 24–48 hrs</span>
+          <span><i class="ph-fill ph-check-circle"></i> Garantía 2 años</span>
+          <span><i class="ph-fill ph-check-circle"></i> Soporte 24/7</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== STATS STRIP ===== -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-grid stagger">
+        <div class="stat-item">
+          <div class="stat-number">4K</div>
+          <div class="stat-label">Resolución máxima disponible</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30m</div>
+          <div class="stat-label">Alcance visión nocturna IR</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30</div>
+          <div class="stat-label">Días de grabación continua</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Monitoreo y acceso remoto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TIPOS DE CÁMARAS ===== -->
+  <section class="tipos" id="tipos">
+    <div class="container">
+      <div class="tipos-header reveal">
+        <p class="section-label">Catálogo</p>
+        <h2 class="section-title">Encuentra la cámara <span class="highlight">perfecta para ti</span></h2>
+        <p class="section-desc">Desde cámaras WiFi de fácil instalación hasta sistemas IP profesionales para grandes instalaciones.</p>
+      </div>
+      <div class="tipos-grid stagger">
+
+        <!-- 1. WiFi -->
+        <div class="flip-card" style="--flip-color:#F8EB01">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-front-visual" style="background:var(--nda-dark-700)">
+                                <img src="assets/camara-wifi.jpeg" alt="Cámara WiFi" style="position:absolute;inset:0;object-fit:cover;object-position:center 20%;width:100%;height:100%">
+              </div>
+              <div class="flip-front-info">
+                <span class="flip-front-tag">Para casas y negocios</span>
+                <div class="flip-front-title">Cámaras WiFi</div>
+                <span class="flip-hint"><i class="ph-bold ph-arrow-clockwise"></i> Ver especificaciones</span>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-back-header">
+                <div class="flip-back-icon"><i class="ph-fill ph-wifi-high"></i></div>
+                <h3>Cámaras WiFi</h3>
+              </div>
+              <p class="flip-back-desc">Instalación sencilla sin cableado. Conexión inalámbrica a tu red WiFi existente. Ideal para interiores y exteriores en zonas con buena señal.</p>
+              <div class="flip-back-features">
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Resolución 2MP – 4MP</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Visión nocturna a color</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Audio bidireccional</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Notificaciones push al celular</div>
+              </div>
+              <div class="flip-back-cta">
+                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. IP + NVR -->
+        <div class="flip-card" style="--flip-color:#2da0e8">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-front-visual" style="background:var(--nda-dark-700)">
+                                <img src="assets/ip-con-nvr.jpeg" alt="Cámara IP NVR" style="position:absolute;inset:0;object-fit:cover;object-position:center 70%;width:100%;height:100%">
+              </div>
+              <div class="flip-front-info">
+                <span class="flip-front-tag" style="color:#2da0e8">Para negocios y empresas</span>
+                <div class="flip-front-title">Cámaras IP con NVR</div>
+                <span class="flip-hint"><i class="ph-bold ph-arrow-clockwise"></i> Ver especificaciones</span>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-back-header">
+                <div class="flip-back-icon"><i class="ph-fill ph-hard-drives"></i></div>
+                <h3>Cámaras IP con NVR</h3>
+              </div>
+              <p class="flip-back-desc">Sistema profesional con grabadora de red (NVR). Mayor estabilidad, almacenamiento local y calidad de imagen superior. Ideal para bodegas y comercios.</p>
+              <div class="flip-back-features">
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Resolución 4MP – 8MP (4K)</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Grabación 24/7 sin interrupciones</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Hasta 16 cámaras por NVR</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Acceso remoto simultáneo</div>
+              </div>
+              <div class="flip-back-cta">
+                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. IA -->
+        <div class="flip-card" style="--flip-color:#a855f7">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-front-visual" style="background:var(--nda-dark-700)">
+                                <img src="assets/camara-ai.jpeg" alt="Cámara IA" style="position:absolute;inset:0;object-fit:cover;object-position:center 15%;width:100%;height:100%">
+              </div>
+              <div class="flip-front-info">
+                <span class="flip-front-tag" style="color:#a855f7">Detección inteligente</span>
+                <div class="flip-front-title">Cámaras con IA</div>
+                <span class="flip-hint"><i class="ph-bold ph-arrow-clockwise"></i> Ver especificaciones</span>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-back-header">
+                <div class="flip-back-icon"><i class="ph-fill ph-eye"></i></div>
+                <h3>Cámaras con IA</h3>
+              </div>
+              <p class="flip-back-desc">Tecnología de inteligencia artificial para detección de personas, vehículos y comportamientos sospechosos. Menos falsas alarmas, más precisión.</p>
+              <div class="flip-back-features">
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Detección de personas y vehículos</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Zonas de detección personalizadas</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Reconocimiento facial opcional</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Alertas inteligentes en tiempo real</div>
+              </div>
+              <div class="flip-back-cta">
+                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Full Color Nocturna -->
+        <div class="flip-card" style="--flip-color:#f59e0b">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-front-visual" style="background:var(--nda-dark-700)">
+                                <img src="assets/full-color-nocturna.jpeg" alt="Full Color Nocturna" style="position:absolute;inset:0;object-fit:cover;width:100%;height:100%">
+              </div>
+              <div class="flip-front-info">
+                <span class="flip-front-tag" style="color:#f59e0b">Sin puntos ciegos</span>
+                <div class="flip-front-title">Full Color Nocturna</div>
+                <span class="flip-hint"><i class="ph-bold ph-arrow-clockwise"></i> Ver especificaciones</span>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-back-header">
+                <div class="flip-back-icon"><i class="ph-fill ph-sun"></i></div>
+                <h3>Full Color Nocturna</h3>
+              </div>
+              <p class="flip-back-desc">Imágenes a color incluso en completa oscuridad gracias a sensores de alta sensibilidad y LEDs de luz blanca activados por movimiento.</p>
+              <div class="flip-back-features">
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Color 24/7 sin IR</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> LED blanco activado por movimiento</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Ideal para estacionamientos</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Efecto disuasivo comprobado</div>
+              </div>
+              <div class="flip-back-cta">
+                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Domo / PTZ -->
+        <div class="flip-card" style="--flip-color:#22c55e">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-front-visual" style="background:var(--nda-dark-700)">
+                                <img src="assets/camara-domo.jpeg" alt="Domo PTZ" style="position:absolute;inset:0;object-fit:cover;width:100%;height:100%">
+              </div>
+              <div class="flip-front-info">
+                <span class="flip-front-tag" style="color:#22c55e">Cobertura total 360°</span>
+                <div class="flip-front-title">Cámaras Domo / PTZ</div>
+                <span class="flip-hint"><i class="ph-bold ph-arrow-clockwise"></i> Ver especificaciones</span>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-back-header">
+                <div class="flip-back-icon"><i class="ph-fill ph-video-camera"></i></div>
+                <h3>Cámaras Domo / PTZ</h3>
+              </div>
+              <p class="flip-back-desc">Cámaras motorizadas que pueden rotar, inclinar y hacer zoom de forma remota. Perfectas para vigilar áreas grandes desde un solo punto.</p>
+              <div class="flip-back-features">
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Pan 360° / Tilt 90°</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Zoom óptico 18x – 30x</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Seguimiento automático</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Control remoto desde app</div>
+              </div>
+              <div class="flip-back-cta">
+                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Bullet IP67 -->
+        <div class="flip-card" style="--flip-color:#ef4444">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-front-visual" style="background:var(--nda-dark-700)">
+                                <img src="assets/bullet-turret.jpeg" alt="Bullet IP67" style="position:absolute;inset:0;object-fit:cover;width:100%;height:100%">
+              </div>
+              <div class="flip-front-info">
+                <span class="flip-front-tag" style="color:#ef4444">Exterior resistente</span>
+                <div class="flip-front-title">Bullet / Turret IP67</div>
+                <span class="flip-hint"><i class="ph-bold ph-arrow-clockwise"></i> Ver especificaciones</span>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-back-header">
+                <div class="flip-back-icon"><i class="ph-fill ph-shield-warning"></i></div>
+                <h3>Bullet / Turret IP67</h3>
+              </div>
+              <p class="flip-back-desc">Cámaras de exterior con protección IP67 contra polvo y agua. Resistentes a condiciones climáticas extremas, perfectas para perimetral exterior.</p>
+              <div class="flip-back-features">
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Protección IP67 agua y polvo</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Temperatura -40°C a +60°C</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> IR hasta 60 metros</div>
+                <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Carcasa antivandálica IK10</div>
+              </div>
+              <div class="flip-back-cta">
+                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GRABACIÓN / NVR ===== -->
+  <section class="grabacion" id="grabacion">
+    <div class="container">
+      <div class="grabacion-grid">
+
+        <!-- Visual NVR -->
+        <div class="grabacion-visual reveal">
+          <!-- NVR card -->
+          <div class="nvr-card">
+            <div class="nvr-header">
+              <span class="nvr-header-title"><i class="ph-fill ph-hard-drive"></i> NVR Local — 4TB</span>
+              <span class="nvr-badge local"><span class="nvr-rec-dot"></span>REC</span>
+            </div>
+            <div class="nvr-storage-bar">
+              <div class="nvr-storage-fill" style="width:72%"></div>
+            </div>
+            <div class="nvr-storage-label">
+              <span>Usado: 2.88 TB</span>
+              <span>Libre: 1.12 TB</span>
+            </div>
+            <div class="nvr-timeline" id="nvrTimeline">
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:28px"></div><div class="nvr-day-label">L</div></div>
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:22px"></div><div class="nvr-day-label">M</div></div>
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:32px"></div><div class="nvr-day-label">M</div></div>
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:18px"></div><div class="nvr-day-label">J</div></div>
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:26px"></div><div class="nvr-day-label">V</div></div>
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:14px"></div><div class="nvr-day-label">S</div></div>
+              <div class="nvr-day"><div class="nvr-day-bar" style="height:10px"></div><div class="nvr-day-label">D</div></div>
+            </div>
+          </div>
+
+          <!-- Cloud card -->
+          <div class="nvr-card cloud-card" style="margin-top:0;">
+            <div class="nvr-header">
+              <span class="nvr-header-title"><i class="ph-fill ph-cloud"></i> Respaldo en Nube</span>
+              <span class="nvr-badge cloud">NUBE</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;">
+              <div style="flex:1;">
+                <div style="font-size:11px;color:var(--neutral-500);margin-bottom:4px;">Sincronizado hace</div>
+                <div id="nvrSyncTime" style="font-size:15px;font-weight:700;color:var(--neutral-0);">2 min</div>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:11px;color:var(--neutral-500);margin-bottom:4px;">Eventos guardados</div>
+                <div id="nvrEventCount" style="font-size:15px;font-weight:700;color:var(--cam-accent);">1,284</div>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:11px;color:var(--neutral-500);margin-bottom:4px;">Retención</div>
+                <div style="font-size:15px;font-weight:700;color:var(--neutral-0);">90 días</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="grabacion-text reveal">
+          <p class="section-label">Almacenamiento</p>
+          <h2 class="section-title">Tu grabación,<br><span class="highlight">siempre segura</span></h2>
+          <p class="section-desc">Ofrecemos dos modalidades de almacenamiento para que nunca pierdas evidencia importante. Ambas son accesibles desde tu celular en cualquier momento.</p>
+
+          <div class="storage-opts">
+            <div class="storage-opt">
+              <div class="storage-opt-icon local"><i class="ph-fill ph-hard-drive"></i></div>
+              <div>
+                <h4>Almacenamiento Local (NVR/DVR)</h4>
+                <p>Grabadora física en tu instalación. Sin cuotas mensuales, sin depender de internet. Capacidad desde 1 TB hasta 8 TB con grabación continua 24/7.</p>
+              </div>
+            </div>
+            <div class="storage-opt">
+              <div class="storage-opt-icon cloud"><i class="ph-fill ph-cloud"></i></div>
+              <div>
+                <h4>Respaldo en Nube</h4>
+                <p>Copias de seguridad automáticas en la nube. Si alguien roba o daña la grabadora, tus videos están a salvo. Acceso desde cualquier lugar del mundo.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="cotiza.html" class="btn btn-green"><i class="ph-bold ph-arrow-right"></i> Ver planes de almacenamiento</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APP MÓVIL ===== -->
+  <section class="app-movil" id="app">
+    <div class="container">
+      <div class="app-grid">
+
+        <!-- Text -->
+        <div class="app-text reveal">
+          <p class="section-label">Acceso Remoto</p>
+          <h2 class="section-title">Tu propiedad en<br><span class="highlight">tu bolsillo</span></h2>
+          <p class="section-desc">Descarga la app gratuita y accede a todas tus cámaras desde tu smartphone, tablet o computadora. En tiempo real, desde cualquier lugar del mundo.</p>
+
+          <div class="app-features">
+            <div class="app-feat">
+              <div class="app-feat-icon"><i class="ph-fill ph-device-mobile-camera"></i></div>
+              <div>
+                <h4>Vista en vivo 24/7</h4>
+                <p>Accede a tus cámaras en tiempo real desde iOS y Android. Soporte multi-cámara en una sola pantalla.</p>
+              </div>
+            </div>
+            <div class="app-feat">
+              <div class="app-feat-icon"><i class="ph-fill ph-bell-ringing"></i></div>
+              <div>
+                <h4>Notificaciones instantáneas</h4>
+                <p>Recibe alertas push con foto o clip de video en el momento en que se detecta movimiento o una persona.</p>
+              </div>
+            </div>
+            <div class="app-feat">
+              <div class="app-feat-icon"><i class="ph-fill ph-video"></i></div>
+              <div>
+                <h4>Reproducción y descarga</h4>
+                <p>Busca y reproduce grabaciones por fecha, hora o evento. Descarga clips directamente a tu celular.</p>
+              </div>
+            </div>
+            <div class="app-feat">
+              <div class="app-feat-icon"><i class="ph-fill ph-users-three"></i></div>
+              <div>
+                <h4>Comparte el acceso</h4>
+                <p>Agrega usuarios adicionales (familia, empleados) con permisos personalizados. Sin costo extra.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar instalación</a>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="app-video-wrap reveal">
+          <div class="app-video-glow"></div>
+          <video
+            class="app-video-player"
+            src="assets/aesthetic-autumn-story-2.mp4"
+            autoplay muted loop playsinline
+          ></video>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPLEMENTO CON ALARMAS ===== -->
+  <section class="complemento" id="alarmas">
+    <div class="container">
+      <div class="complemento-inner">
+        <div class="complemento-grid">
+
+          <div class="complemento-text reveal">
+            <p class="section-label">Mayor Protección</p>
+            <h2 class="section-title">Cámaras + Alarma =<br><span class="highlight">Seguridad completa</span></h2>
+            <p class="section-desc">Combinar cámaras con una alarma profesional te da la protección más completa del mercado. Las cámaras ven, la alarma actúa.</p>
+
+            <div class="compl-benefits">
+              <div class="compl-benefit"><i class="ph-fill ph-check-circle"></i> Las cámaras graban evidencia antes, durante y después</div>
+              <div class="compl-benefit"><i class="ph-fill ph-check-circle"></i> La alarma disuade y avisa cuando hay una intrusión</div>
+              <div class="compl-benefit"><i class="ph-fill ph-check-circle"></i> Central de monitoreo verifica la amenaza en tiempo real</div>
+              <div class="compl-benefit"><i class="ph-fill ph-check-circle"></i> Respuesta policial más rápida con evidencia visual</div>
+            </div>
+
+            <div class="compl-ctas">
+              <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Cotizar paquete completo</a>
+              <a href="residencial.html" class="btn btn-outline"><i class="ph-bold ph-arrow-right"></i> Ver alarmas</a>
+            </div>
+          </div>
+
+          <div class="compl-cards reveal">
+            <div class="compl-card">
+              <div class="compl-card-icon"><i class="ph-fill ph-bell-ringing"></i></div>
+              <div>
+                <h4>Alarma + Monitoreo 24/7</h4>
+                <p>Central de monitoreo certificada que reacciona ante cualquier alerta y coordina la respuesta policial.</p>
+              </div>
+            </div>
+            <div class="compl-card">
+              <div class="compl-card-icon"><i class="ph-fill ph-video-camera"></i></div>
+              <div>
+                <h4>CCTV + Grabación continua</h4>
+                <p>Evidencia en video de todo lo que ocurre. Indispensable para seguros, demandas y seguridad operativa.</p>
+              </div>
+            </div>
+            <div class="compl-card">
+              <div class="compl-card-icon"><i class="ph-fill ph-device-mobile-camera"></i></div>
+              <div>
+                <h4>App unificada de control</h4>
+                <p>Controla tu alarma y accede a tus cámaras desde una sola aplicación en tu smartphone.</p>
+              </div>
+            </div>
+            <div class="compl-card">
+              <div class="compl-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+              <div>
+                <h4>Garantía de instalación</h4>
+                <p>Técnicos certificados, garantía de 2 años en equipos y servicio post-venta incluido.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="section-label reveal" style="text-align:center">Preguntas Frecuentes</p>
+      <h2 class="section-title reveal">Lo que nos preguntan sobre cámaras</h2>
+      <p class="section-desc reveal" style="text-align:center;margin-left:auto;margin-right:auto;">Resolvemos tus dudas más comunes antes de que las hagas.</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Cuántas cámaras necesito para mi casa o negocio?</h4>
+            <div class="faq-icon"><i class="ph-bold ph-plus"></i></div>
+          </button>
+          <div class="faq-answer"><p>Para una casa típica, 4 cámaras suelen ser suficientes: entrada principal, patio trasero, cochera y sala. Para negocios, depende del tamaño del espacio. Nuestros técnicos hacen una valoración gratuita y te recomiendan la cantidad exacta sin sobrevender.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Puedo ver mis cámaras desde mi celular?</h4>
+            <div class="faq-icon"><i class="ph-bold ph-plus"></i></div>
+          </button>
+          <div class="faq-answer"><p>Sí. Todos nuestros sistemas incluyen acceso remoto desde smartphones iOS y Android, tabletas y computadoras. La app es gratuita y puedes agregar múltiples usuarios con diferentes niveles de acceso.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Qué pasa si se va la luz o el internet?</h4>
+            <div class="faq-icon"><i class="ph-bold ph-plus"></i></div>
+          </button>
+          <div class="faq-answer"><p>Los sistemas NVR locales continúan grabando aunque no haya internet. Si se va la luz, puedes agregar un UPS (batería de respaldo) para mantener el sistema activo por varias horas. El almacenamiento en nube hace respaldo automático cuando se restablece la conexión.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Las cámaras graban de noche?</h4>
+            <div class="faq-icon"><i class="ph-bold ph-plus"></i></div>
+          </button>
+          <div class="faq-answer"><p>Sí. Todos nuestros equipos tienen visión nocturna infrarroja (IR) con alcance de 20 a 60 metros según el modelo. También ofrecemos modelos full-color nocturna que capturan imágenes a color incluso en oscuridad total mediante LEDs de luz blanca.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Cuánto tiempo se guardan las grabaciones?</h4>
+            <div class="faq-icon"><i class="ph-bold ph-plus"></i></div>
+          </button>
+          <div class="faq-answer"><p>Depende de la capacidad del disco duro instalado y el número de cámaras. Con un disco de 2TB y 4 cámaras en HD, puedes grabar aproximadamente 15 a 30 días continuos. Para mayor retención, ofrecemos discos de hasta 8TB o combinación con almacenamiento en nube.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h4>¿Necesito contratar un servicio mensual?</h4>
+            <div class="faq-icon"><i class="ph-bold ph-plus"></i></div>
+          </button>
+          <div class="faq-answer"><p>No es obligatorio. El sistema NVR local funciona sin cuotas mensuales. El servicio de monitoreo y la nube son opcionales y se contratan según tus necesidades. Solo pagas el equipo y la instalación, y el sistema es tuyo para siempre.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BANNER CTA ===== -->
+  <section class="banner-cta">
+    <div class="banner-glow-green"></div>
+    <div class="banner-glow-blue"></div>
+    <div class="container">
+      <p class="section-label reveal">¿Listo para instalar?</p>
+      <h2 class="reveal">Cotización gratis,<br><span style="color:var(--cam-accent)">sin compromiso</span></h2>
+      <p class="reveal">Un técnico visita tu propiedad, evalúa tus necesidades y te entrega un presupuesto detallado sin costo.</p>
+      <div class="banner-ctas reveal">
+        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar visita técnica</a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20cotizar%20cámaras%20de%20seguridad." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20cámaras%20de%20seguridad." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* Mobile menu */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        Object.assign(navLinks.style, {
+          position: 'absolute', top: '100%', left: '0', right: '0',
+          flexDirection: 'column', background: 'rgba(7,26,46,0.95)',
+          backdropFilter: 'blur(12px)', padding: '24px', gap: '16px',
+          borderBottom: '1px solid rgba(255,255,255,0.12)'
+        });
+      } else { navLinks.removeAttribute('style'); }
+    });
+
+    /* Flip cards */
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+    document.querySelectorAll('.flip-back-flip').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        btn.closest('.flip-card').classList.remove('flipped');
+      });
+    });
+    document.querySelectorAll('.flip-back-btn').forEach(btn => {
+      btn.addEventListener('click', e => e.stopPropagation());
+    });
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* Scroll reveal */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+    /* Live clock in hero */
+    function updateCamTime() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2,'0');
+      const m = String(now.getMinutes()).padStart(2,'0');
+      const s = String(now.getSeconds()).padStart(2,'0');
+      const el = document.getElementById('camTime');
+      if (el) el.textContent = h + ':' + m + ':' + s;
+    }
+    updateCamTime();
+    setInterval(updateCamTime, 1000);
+
+    /* Alertas cíclicas animadas */
+    const alertMessages = [
+      'Movimiento detectado — CAM-01 Entrada Principal',
+      'Persona detectada — CAM-01 Entrada Principal',
+      'Actividad inusual — CAM-01 Entrada Principal',
+      'Vehículo detectado — CAM-01 Entrada Principal',
+      'Movimiento nocturno — CAM-01 Entrada Principal',
+    ];
+    let alertCount = 3;
+    let alertIdx = 0;
+
+    function triggerAlert(msg) {
+      const alertEl = document.getElementById('camAlert');
+      const msgEl = document.getElementById('alertMsg');
+      const timeEl = document.getElementById('alertTime');
+      const countEl = document.getElementById('alertCount');
+      const card = alertEl ? alertEl.closest('.cam-card') : null;
+
+      if (!alertEl || !msgEl) return;
+
+      // Actualizar mensaje con animación de salida/entrada
+      alertEl.style.opacity = '0';
+      alertEl.style.transform = 'translateY(4px)';
+      setTimeout(() => {
+        msgEl.textContent = msg;
+        if (timeEl) timeEl.textContent = 'Ahora';
+        alertEl.style.transition = 'opacity 0.3s, transform 0.3s';
+        alertEl.style.opacity = '1';
+        alertEl.style.transform = 'translateY(0)';
+      }, 280);
+
+      // Flash en el panel
+      if (card) {
+        card.classList.remove('alert-flash');
+        void card.offsetWidth; // reflow para reiniciar animación
+        card.classList.add('alert-flash');
+        setTimeout(() => card.classList.remove('alert-flash'), 600);
+      }
+
+      // Bump contador
+      alertCount++;
+      if (countEl) {
+        countEl.textContent = alertCount;
+        countEl.style.transition = 'transform 0.2s';
+        countEl.style.transform = 'scale(1.4)';
+        setTimeout(() => { countEl.style.transform = 'scale(1)'; }, 250);
+      }
+    }
+
+    // Ciclar alertas cada 4.5s
+    setInterval(() => {
+      alertIdx = (alertIdx + 1) % alertMessages.length;
+      triggerAlert(alertMessages[alertIdx]);
+    }, 4500);
+
+    // Actualizar el tiempo "Hace Xs" en el alert
+    let alertSeconds = 0;
+    setInterval(() => {
+      alertSeconds++;
+      const timeEl = document.getElementById('alertTime');
+      if (!timeEl) return;
+      if (alertSeconds === 1) timeEl.textContent = 'Hace 1s';
+      else if (alertSeconds < 60) timeEl.textContent = `Hace ${alertSeconds}s`;
+    }, 1000);
+
+    /* ===== STATS ANIMADOS ===== */
+
+    // ESTADO — cicla entre modos con colores
+    const estadoStates = [
+      { text: 'EN LÍNEA',   color: 'var(--cam-accent)' },
+      { text: 'GRABANDO',   color: '#ef4444' },
+      { text: 'EN LÍNEA',   color: 'var(--cam-accent)' },
+      { text: 'SYNC...',    color: '#2da0e8' },
+    ];
+    let estadoIdx = 0;
+    function cycleEstado() {
+      estadoIdx = (estadoIdx + 1) % estadoStates.length;
+      const el = document.getElementById('statEstado');
+      if (!el) return;
+      el.style.opacity = '0';
+      setTimeout(() => {
+        el.textContent = estadoStates[estadoIdx].text;
+        el.style.color = estadoStates[estadoIdx].color;
+        el.style.opacity = '1';
+      }, 250);
+    }
+    setInterval(cycleEstado, 3200);
+
+    // ALMACENADO — simula consumo de espacio en tiempo real
+    let storageDays = 29;
+    let storageHours = 23;
+    let storageMinutes = 58;
+    function tickStorage() {
+      storageMinutes--;
+      if (storageMinutes < 0) { storageMinutes = 59; storageHours--; }
+      if (storageHours < 0)   { storageHours = 23;   storageDays--;  }
+      if (storageDays < 0)    { storageDays = 30; storageHours = 0; storageMinutes = 0; }
+      const el = document.getElementById('statAlmacenado');
+      if (!el) return;
+      el.textContent = `${storageDays}d ${String(storageHours).padStart(2,'0')}h`;
+    }
+    // Arranca con el tiempo actual para que sea diferente cada vez
+    const now = new Date();
+    storageHours = now.getHours();
+    storageMinutes = now.getMinutes();
+    setInterval(tickStorage, 1800); // avanza ~1 min cada 1.8s (visible pero no frenético)
+
+    // CÁMARAS — muestra "señal" fluctuante de calidad
+    const camSignals = ['1 / 1  ▊▊▊▊', '1 / 1  ▊▊▊░', '1 / 1  ▊▊▊▊', '1 / 1  ▊▊░░'];
+    let camSigIdx = 0;
+    setInterval(() => {
+      camSigIdx = (camSigIdx + 1) % camSignals.length;
+      const el = document.getElementById('statCamaras');
+      if (el) el.textContent = camSignals[camSigIdx];
+    }, 2400);
+
+    /* ===== NVR ILLUSTRATION ANIMATIONS ===== */
+    // Timeline bars — randomize heights every 2.8s
+    const timelineBars = document.querySelectorAll('#nvrTimeline .nvr-day-bar');
+    function randomizeBars() {
+      timelineBars.forEach(bar => {
+        const h = Math.floor(Math.random() * 26) + 8; // 8–34px
+        bar.style.height = h + 'px';
+      });
+    }
+    setInterval(randomizeBars, 2800);
+
+    // Cloud sync time — tick up every 30s
+    let syncMinutes = 2;
+    const syncEl = document.getElementById('nvrSyncTime');
+    setInterval(() => {
+      syncMinutes++;
+      syncEl.style.opacity = '0';
+      setTimeout(() => {
+        syncEl.textContent = syncMinutes < 60 ? syncMinutes + ' min' : Math.floor(syncMinutes/60) + ' h';
+        syncEl.style.opacity = '1';
+      }, 200);
+    }, 30000);
+
+    // Events counter — increment occasionally
+    let eventCount = 1284;
+    const evEl = document.getElementById('nvrEventCount');
+    setInterval(() => {
+      eventCount += Math.floor(Math.random() * 3) + 1;
+      evEl.style.opacity = '0';
+      setTimeout(() => {
+        evEl.textContent = eventCount.toLocaleString('es-MX');
+        evEl.style.opacity = '1';
+      }, 200);
+    }, 7000);
+
+    // Transition for sync and events counter
+    if (syncEl) syncEl.style.transition = 'opacity 0.2s';
+    if (evEl) evEl.style.transition = 'opacity 0.2s';
+  </script>
+</body>
+</html>

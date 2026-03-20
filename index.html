@@ -168,12 +168,72 @@
     }
     .nav-links a:hover { color: #fff; }
     .nav-links a.active { color: #F8EB01; }
+
+    /* Dropdown Soluciones */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color 0.3s; padding: 0;
+    }
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
+    .nav-dropdown-trigger.sol-active { color: #F8EB01; }
+    .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
+    .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; padding-top: 12px;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 8px;
+      display: flex; flex-direction: column; gap: 2px; min-width: 190px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); z-index: 999;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65) !important;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
+    .nav-dropdown-menu a.active { color: #F8EB01 !important; }
+    .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
     .nav-cta {
       padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
       border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
       color: #000 !important; background: #F8EB01 !important;
     }
     .nav-cta:hover { color: #000 !important; }
+
+    /* --- Nav Contact Buttons (persistent) --- */
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      text-decoration: none; transition: all 0.25s ease;
+      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-contact-btn.phone {
+      background: rgba(5, 105, 179, 0.15); color: #0569B3;
+    }
+    .nav-contact-btn.phone:hover {
+      background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25);
+    }
+    .nav-contact-btn.whatsapp {
+      background: rgba(255,255,255,0.08); color: #ffffff;
+    }
+    .nav-contact-btn.whatsapp:hover {
+      background: rgba(255,255,255,0.18); box-shadow: 0 0 14px rgba(255,255,255,0.15);
+    }
+
     .nav-mobile-toggle {
       display: none; flex-direction: column; gap: 5px; cursor: pointer;
     }
@@ -695,7 +755,7 @@
       transform: translateY(-6px); border-color: rgba(255,255,255,0.2);
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
-    .service-card.featured { border-color: var(--nda-yellow-400); box-shadow: 0 0 40px rgba(248, 235, 1, 0.08); }
+    .service-card.featured { }
     .service-icon {
       width: 48px; height: 48px; background: var(--nda-dark-600);
       border-radius: var(--radius-md); display: flex; align-items: center;
@@ -1030,13 +1090,15 @@
     }
     .comp-image {
       width: 100%; height: 100%;
-      background-image: url('assets/comp-versus.png');
-      background-size: 220% auto;
-      background-position: 0% 20%;
-      transition: background-position 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      background-image: url('assets/nda-sensor.jpeg');
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.5s ease;
     }
     .comp-image.otros {
-      background-position: 100% 20%;
+      background-image: url('assets/alarma-fallando.jpeg');
+      background-size: cover;
+      background-position: center;
     }
     /* Toggle switch */
     .comp-toggle-wrap {
@@ -1057,6 +1119,7 @@
       user-select: none;
     }
     .comp-toggle-btn.active { color: var(--nda-dark-900); }
+    .comp-toggle.otros-active .comp-toggle-btn.active { color: var(--neutral-0); }
     .comp-toggle-slider {
       position: absolute; top: 4px; height: calc(100% - 8px);
       border-radius: 9999px;
@@ -1384,6 +1447,40 @@
     }
     .form-group select option { background: var(--nda-dark-800); color: var(--neutral-0); }
     .form-group textarea { resize: vertical; min-height: 100px; }
+    /* Form success state */
+    .form-success {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: var(--space-12) var(--space-8);
+      min-height: 400px;
+      animation: formFadeIn 0.5s ease;
+    }
+    .form-success.visible { display: flex; }
+    .form-success-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(34, 197, 94, 0.12); border: 2px solid rgba(34, 197, 94, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--space-6);
+      animation: formPulse 2s ease-in-out infinite;
+    }
+    .form-success-icon i { font-size: 36px; color: var(--success); }
+    .form-success h3 {
+      font-size: 24px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: var(--space-2);
+    }
+    .form-success p {
+      font-size: 15px; color: var(--neutral-400); line-height: 1.7;
+      max-width: 380px; margin-bottom: var(--space-8);
+    }
+    .form-success-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+    .form-success-actions .btn { font-size: 14px; padding: 12px 24px; }
+    @keyframes formFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes formPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.15); }
+      50% { box-shadow: 0 0 0 16px rgba(34, 197, 94, 0); }
+    }
     .contacto-info { display: flex; flex-direction: column; gap: var(--space-8); }
     .contacto-info h3 { font-size: 24px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-4); }
     .contacto-info-item { display: flex; align-items: flex-start; gap: var(--space-4); }
@@ -1403,7 +1500,7 @@
       gap: var(--space-12); padding-bottom: var(--space-12);
       border-bottom: 1px solid var(--glass-border);
     }
-    .footer-brand .nav-logo { margin-bottom: var(--space-4); }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); display: inline-flex; margin-left: -20px; }
     .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
     .footer-social { display: flex; gap: var(--space-3); }
     .social-icon {
@@ -1472,6 +1569,8 @@
       .hero-badge { margin-left: auto; margin-right: auto; }
       .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
       .nav-links { display: none; }
+      .nav-contact-btns { margin-left: auto; margin-right: 12px; }
+      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
       .nav-mobile-toggle { display: flex; }
       .stat-item { border-right: none; border-bottom: 1px solid var(--glass-border); padding: var(--space-5) var(--space-4); }
       .stat-item:last-child { border-bottom: none; }
@@ -1502,13 +1601,25 @@
         <img src="recursos/logo.png" alt="Nacional de Alarmas">
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#hero" class="active">Inicio</a>
-        <a href="#soluciones">Residencial</a>
-        <a href="#soluciones">Comercial</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#diferenciadores">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-        <a href="#contacto" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="index.html" class="active">Inicio</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">Soluciones <i class="ph-bold ph-caret-down"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="industrial.html"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="camaras.html"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+          </div>
+        </div>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
       </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1898,7 +2009,7 @@
             <li><i class="ph-fill ph-check-circle"></i> Monitoreo 24/7</li>
             <li><i class="ph-fill ph-check-circle"></i> App móvil</li>
           </ul>
-          <a href="#contacto" class="btn btn-outline">Cotiza este paquete</a>
+          <a href="cotiza.html?paquete=Esencial" class="btn btn-outline">Quiero este paquete</a>
         </div>
         <div class="paquete-card featured">
           <div class="paquete-badge">Más popular</div>
@@ -1917,7 +2028,7 @@
             <li><i class="ph-fill ph-check-circle"></i> App móvil incluida</li>
             <li><i class="ph-fill ph-check-circle"></i> Botón de pánico</li>
           </ul>
-          <a href="#contacto" class="btn btn-primary">Cotiza este paquete</a>
+          <a href="cotiza.html?paquete=Avanzado" class="btn btn-primary">Quiero este paquete</a>
         </div>
         <div class="paquete-card">
           <div class="paquete-header">
@@ -1934,7 +2045,7 @@
             <li><i class="ph-fill ph-check-circle"></i> DVR 4 canales</li>
             <li><i class="ph-fill ph-check-circle"></i> Sirena exterior adicional</li>
           </ul>
-          <a href="#contacto" class="btn btn-outline">Cotiza este paquete</a>
+          <a href="cotiza.html?paquete=Integral" class="btn btn-outline">Quiero este paquete</a>
         </div>
       </div>
       <p class="paquete-note">Nuestros asesores te ayudan a elegir exactamente lo que necesitas. Cada paquete se puede personalizar.</p>
@@ -2175,9 +2286,9 @@
       <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
       <p>En menos de 60 segundos puedes empezar. Cotización gratuita y asesoría personalizada.</p>
       <div class="banner-ctas">
-        <a href="#contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
+        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
         <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
-        <a href="tel:+528188480085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
+        <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
       </div>
     </div>
   </section>
@@ -2207,22 +2318,33 @@
       <h2 class="section-title">Solicita tu <span class="highlight">cotización</span></h2>
       <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo en menos de 2 horas.</p>
       <div class="contacto-grid">
-        <form onsubmit="event.preventDefault(); alert('Formulario enviado (prototipo)');">
-          <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre"></div>
-          <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678"></div>
-          <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com"></div>
-          <div class="form-group"><label for="tipo">Tipo de propiedad</label><select id="tipo"><option value="" disabled selected>Selecciona una opción</option><option>Casa</option><option>Departamento</option><option>Negocio / Comercio</option><option>Nave industrial / Bodega</option><option>Otro</option></select></div>
-          <div class="form-group"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
-        </form>
+        <div id="contactoFormWrap">
+          <form id="contactoForm">
+            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678" required pattern="[0-9\s]{10,15}" title="Solo números (10 dígitos)" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9\s]/g, '')"></div>
+            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. nombre@gmail.com)"></div>
+            <div class="form-group"><label for="tipo">Tipo de propiedad</label><select id="tipo"><option value="" disabled selected>Selecciona una opción</option><option>Casa</option><option>Departamento</option><option>Negocio / Comercio</option><option>Nave industrial / Bodega</option><option>Otro</option></select></div>
+            <div class="form-group"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
+            <h3>Mensaje enviado</h3>
+            <p>Gracias por contactarnos. Un asesor se comunicará contigo en menos de 2 horas.</p>
+            <div class="form-success-actions">
+              <a href="https://wa.me/528127193393?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+              <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
+            </div>
+          </div>
+        </div>
         <div class="contacto-info">
           <div>
             <h3>Información de contacto</h3>
             <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
           </div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p>81 8348 8085</p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p>81 2719 3393</p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p>Gonzalitos 502-B, Vista Hermosa<br>Monterrey, Nuevo León</p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2719 3393</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p></div></div>
         </div>
       </div>
@@ -2234,7 +2356,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
           <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
           <div class="footer-social">
             <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
@@ -2244,24 +2366,22 @@
         </div>
         <div class="footer-col">
           <h4>Soluciones</h4>
-          <a href="#">Residencial</a><a href="#">Comercial</a><a href="#">Industrial / Bodegas</a><a href="#">CCTV / Cámaras</a>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
         </div>
         <div class="footer-col">
           <h4>Empresa</h4>
-          <a href="#">Nosotros</a><a href="#">Servicios</a><a href="#">Blog</a><a href="#">Clientes</a><a href="#">FAQ</a>
+          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="index.html#faq">FAQ</a>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
-          <a href="tel:+528188480085">Tel: 81 8348 8085</a>
-          <a href="https://wa.me/528127193393" target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
-          <a href="#">Gonzalitos 502-B, Vista Hermosa</a>
-          <a href="#">Monterrey, N.L.</a>
-          <a href="#">L-V 9am - 6pm</a>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
-        <p>Diseño por <a href="#">Mercanaut</a></p>
       </div>
     </div>
   </footer>
@@ -2601,6 +2721,7 @@
       if (!btnNda || !btnOtros) return;
 
       function setActive(target) {
+        const toggle = document.getElementById('compToggle');
         if (target === 'nda') {
           btnNda.classList.add('active');
           btnOtros.classList.remove('active');
@@ -2610,6 +2731,7 @@
           listNda.classList.add('visible');
           listOtros.classList.remove('visible');
           if (compImage) compImage.classList.remove('otros');
+          toggle.classList.remove('otros-active');
         } else {
           btnOtros.classList.add('active');
           btnNda.classList.remove('active');
@@ -2619,6 +2741,7 @@
           listNda.classList.remove('visible');
           listOtros.classList.add('visible');
           if (compImage) compImage.classList.add('otros');
+          toggle.classList.add('otros-active');
         }
       }
 
@@ -2839,6 +2962,26 @@
     }
     initCircuits('circuitsCanvas');
     initCircuits('circuitsCanvasPaq', '.paquetes-grid');
+
+    /* --- 12. Contact form success state --- */
+    (function() {
+      const form = document.getElementById('contactoForm');
+      const success = document.getElementById('formSuccess');
+      const resetBtn = document.getElementById('formReset');
+      if (!form || !success) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        success.classList.add('visible');
+      });
+
+      resetBtn.addEventListener('click', function() {
+        success.classList.remove('visible');
+        form.style.display = '';
+        form.reset();
+      });
+    })();
 
   </script>
 </body>

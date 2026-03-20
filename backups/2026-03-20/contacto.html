@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos — Nacional de Alarmas | Monterrey</title>
+  <meta name="description" content="Contáctanos: llámanos, escríbenos por WhatsApp o visítanos en Gonzalitos 502-B, Vista Hermosa, Monterrey. Atención L-V 9am-6pm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* ===== DESIGN SYSTEM TOKENS ===== */
+    :root {
+      --brand-yellow: #F8EB01;
+      --brand-blue: #0569B3;
+      --nda-dark-900: #020e1c;
+      --nda-dark-800: #071a2e;
+      --nda-dark-700: #0c2440;
+      --nda-dark-600: #0e2a4a;
+      --nda-dark-500: #133558;
+      --nda-dark-400: #1b4470;
+      --nda-yellow-300: #faf355;
+      --nda-yellow-400: #f8eb01;
+      --nda-yellow-500: #e0d400;
+      --nda-yellow-600: #c4ba00;
+      --nda-yellow-700: #9e9600;
+      --nda-blue-300: #2da0e8;
+      --nda-blue-400: #0569B3;
+      --nda-blue-500: #045694;
+      --nda-blue-600: #034475;
+      --nda-blue-700: #023256;
+      --neutral-0: #ffffff;
+      --neutral-50: #f8fafc;
+      --neutral-100: #f1f5f9;
+      --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1;
+      --neutral-400: #94a3b8;
+      --neutral-500: #64748b;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1e293b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --info: #3b82f6;
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-blur: 12px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 24px;
+      --radius-2xl: 32px; --radius-full: 9999px;
+      --doc-font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--doc-font);
+      background: var(--nda-dark-900);
+      color: var(--neutral-300);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea {
+      font-family: inherit; font-size: inherit;
+      border: none; outline: none; background: none; color: inherit;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--nda-yellow-400); margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700; color: var(--neutral-0);
+      letter-spacing: -0.5px; margin-bottom: var(--space-4); line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--neutral-400); max-width: 600px;
+      margin-bottom: var(--space-12); line-height: 1.7;
+    }
+    .highlight { color: var(--nda-yellow-400); }
+    .highlight-blue { color: var(--nda-blue-300); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 14px 28px; border-radius: var(--radius-full);
+      font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn i { font-size: 18px; }
+    .btn-primary { background: var(--nda-yellow-400); color: var(--nda-dark-900); }
+    .btn-primary:hover {
+      background: var(--nda-yellow-300); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248, 235, 1, 0.25);
+    }
+    .btn-outline { border: 1.5px solid var(--glass-border); color: var(--neutral-0); }
+    .btn-outline:hover {
+      border-color: var(--neutral-300); background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover {
+      background: #20bd5a; transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 99px; padding: 12px 28px;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(2, 14, 28, 0.92);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      top: 12px;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: none; padding: 0;
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #F8EB01; }
+
+    /* Dropdown Soluciones */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      transition: color 0.3s; padding: 0;
+    }
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
+    .nav-dropdown-trigger.sol-active { color: #F8EB01; }
+    .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
+    .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; padding-top: 12px;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 8px;
+      display: flex; flex-direction: column; gap: 2px; min-width: 190px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); z-index: 999;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65) !important;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
+    .nav-dropdown-menu a.active { color: #F8EB01 !important; }
+    .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
+    .nav-cta {
+      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
+      color: #000 !important; background: #F8EB01 !important;
+    }
+    .nav-cta:hover { color: #000 !important; }
+    .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+    .nav-contact-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      text-decoration: none; transition: all 0.25s ease;
+      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
+    .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
+    .nav-contact-btn.whatsapp { background: rgba(255,255,255,0.08); color: #ffffff; }
+    .nav-contact-btn.whatsapp:hover { background: rgba(255,255,255,0.18); box-shadow: 0 0 14px rgba(255,255,255,0.15); }
+    .nav-mobile-toggle {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    }
+    .nav-mobile-toggle span {
+      width: 24px; height: 2px; background: var(--neutral-0);
+      border-radius: 2px; transition: all 0.3s;
+    }
+
+    .hero-circuits {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    }
+
+    /* ===== HERO CONTACTO ===== */
+    .hero-contacto {
+      min-height: 50vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding-top: 120px; padding-bottom: 60px;
+      background: #0e2a4a;
+    }
+    .hero-contacto-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    /* Fade inferior hacia el fondo oscuro */
+    .hero-contacto-bg::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px; z-index: 1;
+      background: linear-gradient(to top, var(--nda-dark-900), transparent);
+    }
+    /* Glow amarillo arriba-derecha */
+    .hero-glow-1 {
+      position: absolute; top: -20%; right: 5%; width: 500px; height: 500px;
+      background: var(--nda-yellow-400); border-radius: 50%; opacity: 0.08; filter: blur(100px);
+      pointer-events: none;
+    }
+    /* Glow azul abajo-izquierda */
+    .hero-glow-2 {
+      position: absolute; bottom: -10%; left: 10%; width: 350px; height: 350px;
+      background: #0569B3; border-radius: 50%; opacity: 0.07; filter: blur(80px);
+      pointer-events: none;
+    }
+    /* Glow amarillo centro-izquierda */
+    .hero-glow-3 {
+      position: absolute; top: 35%; left: 8%; width: 280px; height: 280px;
+      background: var(--nda-yellow-400); border-radius: 50%; opacity: 0.05; filter: blur(70px);
+      pointer-events: none;
+    }
+    .hero-contacto .container {
+      position: relative; z-index: 3;
+      display: flex; justify-content: center;
+    }
+    .hero-contacto-content { max-width: 620px; text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(248,235,1,0.1); border: 1px solid rgba(248,235,1,0.2);
+      border-radius: 99px; padding: 5px 14px;
+      font-size: 12px; font-weight: 500; color: #F8EB01;
+      margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .hero-badge i { font-size: 14px; }
+    .hero-contacto h1 {
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 800; color: #fff; line-height: 1.1;
+      letter-spacing: -1px; margin-bottom: var(--space-5);
+    }
+    .hero-contacto p {
+      font-size: 18px; color: var(--neutral-400); line-height: 1.7; max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ===== SECCIÓN PRINCIPAL: FORM + INFO ===== */
+    .contacto-main {
+      padding: var(--space-12) 0 var(--space-16);
+    }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: var(--space-8);
+      align-items: stretch;
+    }
+
+    /* --- Formulario --- */
+    .form-card {
+      background: var(--nda-dark-800);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      height: 100%;
+    }
+    .form-card h2 {
+      font-size: 24px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: var(--space-2);
+    }
+    .form-card .form-desc {
+      font-size: 14px; color: var(--neutral-500);
+      margin-bottom: var(--space-8);
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-4); margin-bottom: var(--space-4);
+    }
+    .form-group {
+      display: flex; flex-direction: column; gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: 13px; font-weight: 600; color: var(--neutral-300);
+      letter-spacing: 0.3px;
+    }
+    .form-group label span.req { color: var(--nda-yellow-400); margin-left: 2px; }
+    .form-control {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      color: var(--neutral-0);
+      font-size: 14px;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+    .form-control::placeholder { color: var(--neutral-600); }
+    .form-control:focus {
+      border-color: var(--nda-blue-300);
+      background: rgba(5,105,179,0.06);
+      outline: none;
+    }
+    select.form-control { cursor: pointer; appearance: none; }
+    textarea.form-control { resize: vertical; min-height: 110px; }
+
+    /* Tipo de propiedad chips */
+    .tipo-chips {
+      display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);
+    }
+    .tipo-chip {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-full);
+      font-size: 13px; font-weight: 500;
+      color: var(--neutral-400);
+      cursor: pointer; transition: all 0.2s;
+      background: rgba(255,255,255,0.03);
+    }
+    .tipo-chip i { font-size: 16px; }
+    .tipo-chip:hover, .tipo-chip.selected {
+      border-color: var(--nda-yellow-400);
+      color: var(--nda-yellow-400);
+      background: rgba(248,235,1,0.07);
+    }
+    input[name="tipo_propiedad"] { display: none; }
+
+    .form-submit {
+      margin-top: var(--space-6);
+    }
+    .btn-submit {
+      width: 100%; padding: 16px; font-size: 16px; font-weight: 700;
+      background: var(--nda-yellow-400); color: var(--nda-dark-900);
+      border-radius: var(--radius-full); cursor: pointer;
+      transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+      border: none;
+    }
+    .btn-submit i { font-size: 20px; }
+    .btn-submit:hover {
+      background: var(--nda-yellow-300); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(248,235,1,0.25);
+    }
+    .form-privacy {
+      text-align: center; font-size: 12px; color: var(--neutral-600);
+      margin-top: var(--space-4);
+    }
+    .form-privacy a { color: var(--nda-yellow-400); }
+
+    /* ===== Mensaje de éxito ===== */
+    .form-success {
+      display: none;
+      text-align: center; padding: var(--space-12);
+    }
+    .form-success i {
+      font-size: 56px; color: var(--success); margin-bottom: var(--space-4); display: block;
+    }
+    .form-success h3 { font-size: 20px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .form-success p { font-size: 14px; color: var(--neutral-500); }
+
+    /* --- Panel lateral: info + mapa --- */
+    .info-panel {
+      display: flex; flex-direction: column;
+    }
+
+    .contact-info-card {
+      background: var(--nda-dark-800);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      flex: 1;
+      overflow: hidden;
+    }
+    .contact-info-card .card-body {
+      padding: var(--space-6);
+      margin: calc(-1 * var(--space-6));
+      margin-bottom: 0;
+    }
+    #map {
+      height: 200px;
+      margin: var(--space-4) calc(-1 * var(--space-6)) calc(-1 * var(--space-6));
+    }
+    .contact-info-card h3 {
+      font-size: 16px; font-weight: 700; color: var(--neutral-0);
+      margin-bottom: var(--space-6); text-transform: uppercase; letter-spacing: 1px;
+    }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .contact-item-icon {
+      width: 42px; height: 42px; border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .contact-item-icon.blue { background: rgba(5,105,179,0.15); color: var(--nda-blue-300); }
+    .contact-item-icon.green { background: rgba(255,255,255,0.08); color: #ffffff; }
+    .contact-item-icon.yellow { background: rgba(248,235,1,0.1); color: var(--nda-yellow-400); }
+    .contact-item-icon.red { background: rgba(239,68,68,0.1); color: #f87171; }
+    .contact-item-body { flex: 1; min-width: 0; }
+    .contact-item-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--neutral-500); margin-bottom: 3px;
+    }
+    .contact-item-value {
+      font-size: 15px; color: var(--neutral-200); font-weight: 500; line-height: 1.4;
+    }
+    .contact-item-value a { color: var(--neutral-200); transition: color 0.2s; }
+    .contact-item-value a:hover { color: var(--nda-yellow-400); }
+    .contact-item-note {
+      font-size: 12px; color: var(--neutral-500); margin-top: 3px;
+    }
+
+    /* Separador de sección dentro de la info card */
+    .info-section-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--nda-yellow-400);
+      margin: var(--space-4) 0 var(--space-2);
+    }
+    .info-section-title:first-child { margin-top: 0; }
+
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-10); margin-bottom: var(--space-10);
+    }
+    .footer-brand .nav-logo { margin-bottom: var(--space-4); display: inline-flex; margin-left: -20px; }
+    .footer-brand p { font-size: 14px; color: var(--neutral-500); margin-bottom: var(--space-6); line-height: 1.6; max-width: 280px; }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--neutral-400); transition: all 0.2s;
+    }
+    .social-icon:hover { background: var(--nda-yellow-400); border-color: var(--nda-yellow-400); }
+    .social-icon:hover i { color: var(--nda-dark-900); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--neutral-500); padding: var(--space-1) 0; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--neutral-200); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--glass-border); padding-top: var(--space-6);
+    }
+    .footer-bottom p { font-size: 13px; color: var(--neutral-600); }
+    .footer-bottom a { color: var(--nda-yellow-400); font-weight: 500; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: #fff; font-size: 28px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 32px rgba(37,211,102,0.55);
+    }
+
+    /* ===== SCROLL TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: 28px; left: 28px; z-index: 999;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      color: var(--neutral-300); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .contacto-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
+      .nav-links { display: none; }
+      .nav-contact-btns { margin-left: auto; margin-right: 12px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .info-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: var(--space-2); }
+      .form-card { padding: var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">Soluciones <i class="ph-bold ph-caret-down"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="industrial.html"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="camaras.html"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+          </div>
+        </div>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html" class="active">Contacto</a>
+        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+      </div>
+      <div class="nav-contact-btns">
+        <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
+        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== 01. HERO ===== -->
+  <section class="hero-contacto" id="hero">
+    <div class="hero-contacto-bg"></div>
+    <canvas class="hero-circuits" id="heroCircuitsCanvas"></canvas>
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-glow-3"></div>
+    <div class="container">
+      <div class="hero-contacto-content reveal">
+        <div class="hero-badge">
+          <i class="ph-fill ph-chat-circle-dots"></i>
+          Estamos para ayudarte
+        </div>
+        <h1>Contáctanos,<br><span class="highlight">respondemos rápido</span></h1>
+        <p>Cuéntanos qué necesitas proteger y te preparamos una propuesta a la medida. Sin compromiso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02. FORMULARIO + INFO ===== -->
+  <section class="contacto-main">
+    <div class="container">
+      <div class="contacto-grid">
+
+        <!-- Columna izquierda: formulario -->
+        <div class="form-card reveal">
+          <h2>Envíanos un mensaje</h2>
+          <p class="form-desc">Responderemos en menos de 2 horas en horario hábil.</p>
+
+          <!-- Mensaje de éxito (oculto por defecto) -->
+          <div class="form-success" id="formSuccess">
+            <i class="ph-fill ph-check-circle"></i>
+            <h3>¡Mensaje enviado!</h3>
+            <p>Gracias, nos pondremos en contacto contigo muy pronto.<br>También puedes escribirnos por WhatsApp si necesitas respuesta inmediata.</p>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre <span class="req">*</span></label>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="empresa">Empresa <span style="color:var(--neutral-600);font-weight:400;">(opcional)</span></label>
+                <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Nombre de empresa">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefono">Teléfono <span class="req">*</span></label>
+                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="81 0000 0000" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="correo@ejemplo.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>¿Qué quieres proteger? <span class="req">*</span></label>
+              <div class="tipo-chips" id="tipoChips">
+                <button type="button" class="tipo-chip" data-value="residencial">
+                  <i class="ph-bold ph-house"></i> Casa / Departamento
+                </button>
+                <button type="button" class="tipo-chip" data-value="comercial">
+                  <i class="ph-bold ph-storefront"></i> Negocio / Oficina
+                </button>
+                <button type="button" class="tipo-chip" data-value="industrial">
+                  <i class="ph-bold ph-factory"></i> Bodega / Industria
+                </button>
+                <button type="button" class="tipo-chip" data-value="cctv">
+                  <i class="ph-bold ph-video-camera"></i> Cámaras / CCTV
+                </button>
+              </div>
+              <input type="hidden" name="tipo_propiedad" id="tipoInput" required>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje <span style="color:var(--neutral-600);font-weight:400;">(opcional)</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Cuéntanos sobre tu propiedad, zonas a cubrir, si tienes sistema actual..."></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn-submit">
+                <i class="ph-bold ph-paper-plane-tilt"></i> Enviar mensaje
+              </button>
+            </div>
+            <p class="form-privacy">Al enviar aceptas nuestro <a href="#">aviso de privacidad</a>. No spam.</p>
+          </form>
+        </div>
+
+        <!-- Columna derecha: info + mapa -->
+        <div class="info-panel">
+
+          <!-- Card única de información -->
+          <div class="contact-info-card reveal">
+
+            <p class="info-section-title">Teléfonos y WhatsApp</p>
+
+            <div class="contact-item">
+              <div class="contact-item-icon green">
+                <i class="ph-fill ph-whatsapp-logo"></i>
+              </div>
+              <div class="contact-item-body">
+                <div class="contact-item-label">WhatsApp</div>
+                <div class="contact-item-value">
+                  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." target="_blank" rel="noopener">81 2719 3393</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon blue">
+                <i class="ph-bold ph-phone"></i>
+              </div>
+              <div class="contact-item-body">
+                <div class="contact-item-label">Teléfono</div>
+                <div class="contact-item-value">
+                  <a href="tel:+528183488085">81 8348 8085</a>
+                </div>
+              </div>
+            </div>
+
+            <p class="info-section-title">Horario y Monitoreo</p>
+
+            <div class="contact-item">
+              <div class="contact-item-icon blue">
+                <i class="ph-fill ph-clock"></i>
+              </div>
+              <div class="contact-item-body">
+                <div class="contact-item-label">Atención comercial</div>
+                <div class="contact-item-value">Lunes a Viernes &nbsp;9:00 am – 6:00 pm</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon green">
+                <i class="ph-fill ph-shield-check"></i>
+              </div>
+              <div class="contact-item-body">
+                <div class="contact-item-label">Central de Monitoreo</div>
+                <div class="contact-item-value">24 horas · 7 días · 365 días</div>
+                <div class="contact-item-note">Monitoreo propio, siempre activo</div>
+              </div>
+            </div>
+
+            <p class="info-section-title">Dirección</p>
+
+            <div class="contact-item">
+              <div class="contact-item-icon yellow">
+                <i class="ph-fill ph-map-pin"></i>
+              </div>
+              <div class="contact-item-body">
+                <div class="contact-item-label">Oficina</div>
+                <div class="contact-item-value">
+                  <a href="https://www.google.com/maps/search/?api=1&query=Gonzalitos+502-B+Col.+Vista+Hermosa+Monterrey+Nuevo+Leon+Mexico" target="_blank" rel="noopener">
+                    Gonzalitos 502-B, Col. Vista Hermosa<br>Monterrey, Nuevo León, México
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="map"></div>
+
+          </div>
+
+
+        </div>
+        <!-- /info-panel -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" class="social-icon" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" class="social-icon" title="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
+          <span style="opacity:0.5;">L-V 9am - 6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="#">Aviso de privacidad</a> &middot; <a href="#">Términos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== SCROLL TOP ===== -->
+  <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
+
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* --- Navbar scroll --- */
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* --- Mobile menu --- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    /* --- Scroll reveal --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+    /* --- Tipo chips --- */
+    const chips = document.querySelectorAll('.tipo-chip');
+    const tipoInput = document.getElementById('tipoInput');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        tipoInput.value = chip.dataset.value;
+      });
+    });
+
+    /* --- Formulario submit --- */
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = form.nombre.value.trim();
+      const telefono = form.telefono.value.trim();
+      const tipo = tipoInput.value;
+      if (!nombre || !telefono || !tipo) {
+        // Marcar campos faltantes
+        if (!nombre) form.nombre.style.borderColor = 'var(--error)';
+        if (!telefono) form.telefono.style.borderColor = 'var(--error)';
+        if (!tipo) {
+          document.getElementById('tipoChips').style.outline = '1px solid var(--error)';
+          document.getElementById('tipoChips').style.borderRadius = '8px';
+        }
+        return;
+      }
+      // Simulación de envío exitoso (reemplazar con fetch a endpoint real)
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+
+    // Limpiar estilos de error al escribir
+    ['nombre','telefono','email'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => el.style.borderColor = '');
+    });
+
+    /* --- Circuit connections background --- */
+    function initCircuits(canvasId, excludeSel) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const section = canvas.parentElement;
+      let W, H, nodes = [], connections = [], exRect = null;
+
+      function getExcludeRect() {
+        if (!excludeSel) return null;
+        const el = section.querySelector(excludeSel);
+        if (!el) return null;
+        const sR = section.getBoundingClientRect();
+        const eR = el.getBoundingClientRect();
+        const pad = 20;
+        return { x: eR.left - sR.left - pad, y: eR.top - sR.top - pad, w: eR.width + pad * 2, h: eR.height + pad * 2 };
+      }
+      function inExclude(px, py) {
+        if (!exRect) return false;
+        return px > exRect.x && px < exRect.x + exRect.w && py > exRect.y && py < exRect.y + exRect.h;
+      }
+      function resize() {
+        W = section.offsetWidth; H = section.offsetHeight;
+        canvas.width = W; canvas.height = H;
+        exRect = getExcludeRect(); createNodes();
+      }
+      function createNodes() {
+        nodes = [];
+        const cols = Math.floor(W / 100), rows = Math.floor(H / 100);
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const x = (c + 0.5) * (W / cols) + (Math.random() - 0.5) * 40;
+            const y = (r + 0.5) * (H / rows) + (Math.random() - 0.5) * 40;
+            if (!inExclude(x, y)) nodes.push({ x, y });
+          }
+        }
+      }
+      function spawnConnection() {
+        if (nodes.length < 2) return;
+        const a = nodes[Math.floor(Math.random() * nodes.length)];
+        let best = null, bestDist = 280;
+        for (const n of nodes) {
+          if (n === a) continue;
+          const d = Math.hypot(n.x - a.x, n.y - a.y);
+          if (d < bestDist && Math.random() > 0.4) { best = n; bestDist = d; }
+        }
+        if (!best) return;
+        const mid = Math.random() > 0.5 ? { x: best.x, y: a.y } : { x: a.x, y: best.y };
+        if (inExclude(mid.x, mid.y)) return;
+        connections.push({
+          points: [a, mid, best], progress: 0, fade: 1, phase: 'draw', holdTimer: 0,
+          speed: 0.008 + Math.random() * 0.008,
+          color: Math.random() > 0.6 ? 'rgba(5,105,179,' : 'rgba(248,235,1,'
+        });
+      }
+      function getPointAt(pts, progress) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+        const drawLen = totalLen * progress;
+        let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+          if (drawn + segLen >= drawLen) {
+            const t = (drawLen - drawn) / segLen;
+            return { x: pts[i-1].x + (pts[i].x - pts[i-1].x) * t, y: pts[i-1].y + (pts[i].y - pts[i-1].y) * t };
+          }
+          drawn += segLen;
+        }
+        return pts[pts.length - 1];
+      }
+      function update() {
+        for (let i = connections.length - 1; i >= 0; i--) {
+          const c = connections[i];
+          if (c.phase === 'draw') {
+            c.progress += c.speed;
+            if (c.progress >= 1) { c.progress = 1; c.phase = 'hold'; c.holdTimer = 60 + Math.random() * 80; }
+          } else if (c.phase === 'hold') {
+            c.holdTimer--;
+            if (c.holdTimer <= 0) c.phase = 'fade';
+          } else {
+            c.fade -= 0.012;
+            if (c.fade <= 0) connections.splice(i, 1);
+          }
+        }
+      }
+      function drawPath(pts, progress, alpha, colorBase) {
+        let totalLen = 0;
+        for (let i = 1; i < pts.length; i++) totalLen += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+        const drawLen = totalLen * progress;
+        ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+        let drawn = 0;
+        for (let i = 1; i < pts.length; i++) {
+          const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
+          if (drawn + segLen <= drawLen) { ctx.lineTo(pts[i].x, pts[i].y); drawn += segLen; }
+          else {
+            const t = (drawLen - drawn) / segLen;
+            ctx.lineTo(pts[i-1].x + (pts[i].x - pts[i-1].x) * t, pts[i-1].y + (pts[i].y - pts[i-1].y) * t);
+            break;
+          }
+        }
+        const a = Math.max(0, alpha * 0.18);
+        ctx.strokeStyle = colorBase + a + ')'; ctx.lineWidth = 1.5; ctx.stroke();
+        const endPt = getPointAt(pts, progress);
+        if (endPt && alpha > 0.3) {
+          ctx.beginPath(); ctx.arc(endPt.x, endPt.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = colorBase + (a * 1.5) + ')'; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = colorBase + (a * 0.8) + ')'; ctx.fill();
+      }
+      function render() {
+        ctx.clearRect(0, 0, W, H);
+        for (const c of connections) drawPath(c.points, c.progress, c.fade, c.color);
+      }
+      let spawnCounter = 0;
+      function loop() {
+        update(); render();
+        spawnCounter++;
+        if (spawnCounter > 80 + Math.random() * 70) {
+          if (connections.length < 5) spawnConnection();
+          spawnCounter = 0;
+        }
+        requestAnimationFrame(loop);
+      }
+      window.addEventListener('resize', resize);
+      resize(); spawnConnection(); spawnConnection(); loop();
+    }
+    initCircuits('heroCircuitsCanvas', '.hero-contacto-content');
+
+  </script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView([25.6864, -100.3311], 16);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://carto.com/">CARTO</a>', maxZoom: 19
+    }).addTo(map);
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="width:32px;height:32px;border-radius:50% 50% 50% 0;background:#F8EB01;transform:rotate(-45deg);border:3px solid #071a2e;box-shadow:0 4px 16px rgba(248,235,1,0.5);"></div>`,
+      iconSize: [32, 32], iconAnchor: [16, 32]
+    });
+    L.marker([25.6864, -100.3311], { icon }).addTo(map)
+      .bindPopup('<b>Nacional de Alarmas</b><br>Gonzalitos 502-B, Vista Hermosa');
+  </script>
+
+</body>
+</html>
