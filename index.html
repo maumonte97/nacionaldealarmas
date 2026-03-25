@@ -58,7 +58,7 @@
 
     /* ===== RESET ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: var(--doc-font);
       background: var(--nda-dark-900);
@@ -1049,7 +1049,7 @@
     }
 
     /* ===== 09. PRODUCTOS ===== */
-    .productos { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .productos { padding: var(--space-24) 0; background: var(--nda-dark-800); overflow: hidden; }
     .prod-nav { display: none; }
     .productos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
     .producto-card[aria-hidden="true"] { display: none; }
@@ -1629,6 +1629,18 @@
     }
 
     @media (max-width: 768px) {
+      /* Faster animations on mobile */
+      .reveal { transition: opacity 0.3s ease, transform 0.3s ease; }
+      .stagger > * { transition: opacity 0.25s ease, transform 0.25s ease; }
+      .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+      .stagger.visible > *:nth-child(2) { transition-delay: 0.05s; }
+      .stagger.visible > *:nth-child(3) { transition-delay: 0.1s; }
+      .stagger.visible > *:nth-child(4) { transition-delay: 0.15s; }
+      .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
+      .stagger.visible > *:nth-child(6) { transition-delay: 0.25s; }
+      * { -webkit-transform: translateZ(0); }
+
+      .hero { min-height: auto; padding-top: 80px; padding-bottom: var(--space-10); }
       .hero .container { grid-template-columns: 1fr; text-align: center; }
       .hero h1 { font-size: 38px; }
       .hero-text { max-width: 100%; }
@@ -1657,6 +1669,34 @@
       .hero-badge { margin-left: auto; margin-right: auto; }
       .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
       .nav-links { display: none; }
+      .nav-dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 0 0 16px !important;
+        min-width: auto !important;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .nav-dropdown-menu.open {
+        display: flex !important;
+      }
+      .nav-dropdown-menu a {
+        padding: 6px 0 !important;
+        font-size: 15px !important;
+      }
+      .nav-dropdown-trigger {
+        font-size: 15px !important;
+        width: 100%;
+        text-align: left;
+      }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
       .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
       .nav-mobile-toggle { display: flex; }
@@ -2040,18 +2080,22 @@
       .comp-item-text { text-align: center; }
       .comp-item { justify-content: center; }
 
-      /* Productos — marquee por defecto */
+      /* Productos — scroll manual con dots */
       .productos-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
         gap: var(--space-4) !important;
-        overflow: hidden;
-        width: max-content;
-        animation: prodScroll 35s linear infinite;
+        width: 100% !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
+      .productos-grid::-webkit-scrollbar { display: none; }
       .producto-card {
-        flex-shrink: 0;
-        width: 260px;
+        flex: 0 0 85%;
+        width: 85%;
+        scroll-snap-align: center;
         padding: var(--space-5) !important;
         text-align: left;
       }
@@ -2064,28 +2108,7 @@
         margin-bottom: var(--space-4) !important;
       }
       .producto-card .gif-placeholder img { object-fit: cover; width: 100% !important; height: 100% !important; border-radius: var(--radius-md); }
-      .producto-card[aria-hidden="true"] { display: block; }
-      @keyframes prodScroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-
-      /* Modo manual — scroll snap horizontal */
-      .productos-grid.prod-manual {
-        animation: none !important;
-        width: 100% !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .productos-grid.prod-manual::-webkit-scrollbar { display: none; }
-      .productos-grid.prod-manual .producto-card {
-        flex: 0 0 85%;
-        width: 85%;
-        scroll-snap-align: center;
-      }
-      .productos-grid.prod-manual .producto-card[aria-hidden="true"] { display: none; }
+      .producto-card[aria-hidden="true"] { display: none; }
 
       /* Nav dots productos */
       .prod-nav {
@@ -2246,7 +2269,7 @@
         <h1>Alarmas y monitoreo 24/7<br><span class="highlight">con Central de Monitoreo propia en Monterrey</span></h1>
         <p class="hero-text">Sistemas de seguridad electrónica para casas, negocios e industrias. +30 años protegiendo lo que más importa.</p>
         <div class="hero-ctas">
-          <a href="#contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
+          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
           <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
         </div>
         <div class="hero-trust">
@@ -3149,15 +3172,30 @@
         navLinks.style.left = '0';
         navLinks.style.right = '0';
         navLinks.style.flexDirection = 'column';
-        navLinks.style.background = 'rgba(7, 26, 46, 0.95)';
-        navLinks.style.backdropFilter = 'blur(12px)';
+        navLinks.style.background = 'rgba(7, 26, 46, 0.97)';
+        navLinks.style.backdropFilter = 'blur(16px)';
+        navLinks.style.webkitBackdropFilter = 'blur(16px)';
         navLinks.style.padding = '24px';
         navLinks.style.gap = '16px';
         navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.12)';
+        navLinks.style.borderRadius = '0 0 16px 16px';
       } else {
         navLinks.removeAttribute('style');
+        var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+        if (ddMenu) ddMenu.classList.remove('open');
       }
     });
+
+    /* Dropdown toggle on mobile */
+    var ddTrigger = document.querySelector('.nav-dropdown-trigger');
+    if (ddTrigger && window.innerWidth <= 768) {
+      ddTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
+        menu.classList.toggle('open');
+        ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
 
     /* --- 4. FAQ accordion --- */
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -4041,50 +4079,31 @@
       overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('visible'); });
     })();
 
-    /* --- Productos: dots para ver uno a uno (móvil) --- */
+    /* --- Productos: dots + scroll manual (móvil) --- */
     (function() {
       if (window.innerWidth > 768) return;
       var grid = document.querySelector('.productos-grid');
       var dots = document.querySelectorAll('.prod-dot');
       if (!grid || !dots.length) return;
 
-      var allCards = Array.from(grid.querySelectorAll('.producto-card'));
-      var origCards = allCards.filter(function(c) { return c.getAttribute('aria-hidden') !== 'true'; });
-      var current = -1;
-      var isManual = false;
-
-      function goManual(idx) {
-        if (!isManual) {
-          grid.classList.add('prod-manual');
-          isManual = true;
-        }
-        current = idx;
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-        // Scroll al card correcto
-        origCards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-
-      function goMarquee() {
-        grid.classList.remove('prod-manual');
-        dots.forEach(function(d) { d.classList.remove('active'); });
-        current = -1;
-        isManual = false;
-      }
+      var origCards = Array.from(grid.querySelectorAll('.producto-card:not([aria-hidden="true"])'));
+      var current = 0;
+      dots[0].classList.add('active');
 
       // Click en dots
       for (var i = 0; i < dots.length; i++) {
         (function(dot, idx) {
           dot.addEventListener('click', function() {
-            if (current === idx) { goMarquee(); }
-            else { goManual(idx); }
+            current = idx;
+            dots.forEach(function(d, j) { d.classList.toggle('active', j === idx); });
+            origCards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
           });
         })(dots[i], i);
       }
 
-      // Sync dots al scroll manual
+      // Sync dots al scroll
       var scrollTimer;
       grid.addEventListener('scroll', function() {
-        if (!isManual) return;
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(function() {
           var gridRect = grid.getBoundingClientRect();

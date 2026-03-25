@@ -51,7 +51,7 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: var(--doc-font); background: var(--nda-dark-900); color: var(--neutral-300); line-height: 1.6; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -500,8 +500,47 @@
     }
     .hero-radar { display: none; }
     @media (max-width: 768px) {
+      /* Faster animations on mobile */
+      .reveal { transition: opacity 0.3s ease, transform 0.3s ease; }
+      .stagger > * { transition: opacity 0.25s ease, transform 0.25s ease; }
+      .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+      .stagger.visible > *:nth-child(2) { transition-delay: 0.05s; }
+      .stagger.visible > *:nth-child(3) { transition-delay: 0.1s; }
+      .stagger.visible > *:nth-child(4) { transition-delay: 0.15s; }
+      .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
+      .stagger.visible > *:nth-child(6) { transition-delay: 0.25s; }
+      * { -webkit-transform: translateZ(0); }
+      .hero { min-height: auto; padding-top: 80px; padding-bottom: var(--space-10); }
       .navbar { width: calc(100% - 32px); padding: 10px 16px; }
       .nav-links { display: none; }
+      .nav-dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 0 0 16px !important;
+        min-width: auto !important;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .nav-dropdown-menu.open {
+        display: flex !important;
+      }
+      .nav-dropdown-menu a {
+        padding: 6px 0 !important;
+        font-size: 15px !important;
+      }
+      .nav-dropdown-trigger {
+        font-size: 15px !important;
+        width: 100%;
+        text-align: left;
+      }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
       .nav-mobile-toggle { display: flex; }
       .hero .container, .grabacion-grid, .app-grid, .complemento-grid { grid-template-columns: 1fr; }
@@ -601,10 +640,21 @@
         flex: 0 0 80%;
         min-width: 0;
         scroll-snap-align: center;
-        height: 260px;
+        height: 300px;
       }
+      .tipos-grid > .flip-card {
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+      }
+      .flip-card-back {
+        padding: var(--space-4) !important;
+      }
+      .flip-back-header { margin-bottom: var(--space-2) !important; }
+      .flip-back-desc { margin-bottom: var(--space-2) !important; font-size: 11px !important; }
+      .flip-back-features { gap: 4px !important; }
+      .flip-back-cta { padding-top: var(--space-2) !important; }
       .flip-front-info {
-        padding: var(--space-5) var(--space-6) var(--space-6);
+        padding: var(--space-5) var(--space-6) var(--space-8);
       }
       .tipos-carousel-arrows {
         display: flex; justify-content: center; align-items: center;
@@ -1488,8 +1538,23 @@
           backdropFilter: 'blur(12px)', padding: '24px', gap: '16px',
           borderBottom: '1px solid rgba(255,255,255,0.12)'
         });
-      } else { navLinks.removeAttribute('style'); }
+      } else {
+        navLinks.removeAttribute('style');
+        var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+        if (ddMenu) ddMenu.classList.remove('open');
+      }
     });
+
+    /* Dropdown toggle on mobile */
+    var ddTrigger = document.querySelector('.nav-dropdown-trigger');
+    if (ddTrigger && window.innerWidth <= 768) {
+      ddTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
+        menu.classList.toggle('open');
+        ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
 
     /* Flip cards */
     document.querySelectorAll('.flip-card').forEach(card => {

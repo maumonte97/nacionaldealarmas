@@ -62,7 +62,7 @@
 
     /* ===== RESET ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: var(--doc-font);
       background: var(--nda-dark-900);
@@ -518,6 +518,16 @@
       .sol2-card--main { grid-row: auto; min-height: 320px; }
     }
     @media (max-width: 768px) {
+      /* Faster animations on mobile */
+      .reveal { transition: opacity 0.3s ease, transform 0.3s ease; }
+      .stagger > * { transition: opacity 0.25s ease, transform 0.25s ease; }
+      .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+      .stagger.visible > *:nth-child(2) { transition-delay: 0.05s; }
+      .stagger.visible > *:nth-child(3) { transition-delay: 0.1s; }
+      .stagger.visible > *:nth-child(4) { transition-delay: 0.15s; }
+      .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
+      .stagger.visible > *:nth-child(6) { transition-delay: 0.25s; }
+      * { -webkit-transform: translateZ(0); }
       .sol2-card { min-height: 0; }
       .sol2-card--main { min-height: 0; }
     }
@@ -1337,8 +1347,54 @@
         box-shadow: 0 0 16px rgba(167,139,250,0.6);
       }
       .hero-badge { margin-left: auto; margin-right: auto; }
+      .hero { min-height: auto; padding-top: 80px; padding-bottom: var(--space-10); }
+
+      /* Proceso visual — contener desborde */
+      .pfunc { overflow: hidden; }
+      .pfunc-vis-container { max-width: 100%; height: 300px; }
+      .pfunc-vis-icon { width: 100px; height: 100px; }
+      .pfunc-vis-icon i { font-size: 48px; }
+      .pfunc-vis-float { font-size: 11px; padding: 8px 12px; }
+      .pfunc-vf-a { top: 10px; right: 0; }
+      .pfunc-vf-b { bottom: 10px; left: 0; }
+      .pfunc-vf-c { bottom: 10px; right: 0; }
+      .pfunc-node-circle { width: 40px; height: 40px; }
+      .pfunc-num { font-size: 14px; }
+      .pfunc-node.active .pfunc-num { font-size: 16px; }
+      .pfunc-node-badge { font-size: 10px; }
+      .pfunc .section-desc { white-space: normal !important; }
+      .pfunc-vs1 { flex-direction: column !important; gap: 16px; }
+
       .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
       .nav-links { display: none; }
+      .nav-dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 0 0 16px !important;
+        min-width: auto !important;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .nav-dropdown-menu.open {
+        display: flex !important;
+      }
+      .nav-dropdown-menu a {
+        padding: 6px 0 !important;
+        font-size: 15px !important;
+      }
+      .nav-dropdown-trigger {
+        font-size: 15px !important;
+        width: 100%;
+        text-align: left;
+      }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
       .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
       .nav-mobile-toggle { display: flex; }
@@ -1530,7 +1586,7 @@
         </div>
         <a href="servicios.html">Servicios</a>
         <a href="nosotros.html">Nosotros</a>
-        <a href="#contacto">Contacto</a>
+        <a href="contacto.html">Contacto</a>
         
         <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
       </div>
@@ -1711,7 +1767,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-buildings"></i> Oficinas</div>
             <h3>Tu operación, siempre protegida</h3>
             <p>Control de acceso, sensores de movimiento y monitoreo 24/7 para espacios corporativos y empresariales.</p>
-            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1723,7 +1779,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Locales comerciales</div>
             <h3>Sin robos, sin interrupciones</h3>
             <p>Sensores de apertura, impacto y botones de pánico para proteger tu negocio.</p>
-            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1735,7 +1791,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-fork-knife"></i> Restaurantes</div>
             <h3>Detección de humo, gas y más</h3>
             <p>Alarmas con monitoreo nocturno, detectores de gas LP y cobertura total para tu establecimiento.</p>
-            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1747,7 +1803,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-graduation-cap"></i> Colegios e instituciones</div>
             <h3>Seguridad donde más importa</h3>
             <p>Sistemas de alarma perimetral, detectores de incendio y monitoreo 24/7 para instituciones educativas.</p>
-            <a href="#contacto" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -2864,8 +2920,21 @@
         navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.12)';
       } else {
         navLinks.removeAttribute('style');
+        var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+        if (ddMenu) ddMenu.classList.remove('open');
       }
     });
+
+    /* Dropdown toggle on mobile */
+    var ddTrigger = document.querySelector('.nav-dropdown-trigger');
+    if (ddTrigger && window.innerWidth <= 768) {
+      ddTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
+        menu.classList.toggle('open');
+        ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
 
     /* --- FAQ accordion --- */
     document.querySelectorAll('.faq-question').forEach(btn => {
