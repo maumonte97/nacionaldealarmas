@@ -137,13 +137,19 @@
     .stagger.visible > * { opacity: 1; transform: translateY(0); }
 
     /* ===== NAVBAR ===== */
+    /* ===== LOGO EXTERNO ===== */
+    .hero-logo {
+      display: none;
+    }
+    .hero-logo img { height: 56px; width: auto; }
+
     .navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 12px 28px;
+      border-radius: 99px; padding: 8px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -154,14 +160,13 @@
     }
     .navbar .container {
       display: flex; align-items: center; justify-content: space-between;
-      max-width: none; padding: 0;
+      max-width: none; padding: 0; gap: 8px;
     }
     .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 36px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 32px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-logo img { height: 56px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 44px; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -171,7 +176,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -573,7 +578,7 @@
 
     /* ===== SCROLL TO TOP ===== */
     .scroll-top {
-      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
       width: 44px; height: 44px; background: var(--glass-bg);
       border: 1px solid var(--glass-border); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -704,7 +709,12 @@
         text-align: left;
       }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
-      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
+      .hero-logo { display: none; }
+      .nav-logo { display: flex !important; }
+      .nav-logo img { height: 40px; }
+      .navbar .container { justify-content: center; }
+      .navbar { left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: none; }
       .nav-mobile-toggle { display: flex; }
 
       /* --- Hero --- */
@@ -817,6 +827,12 @@
 <body>
 
   <!-- ===== NAVBAR ===== -->
+  <!-- ===== LOGO ===== -->
+  <a href="index.html" class="hero-logo">
+    <img src="recursos/logo.png" alt="Nacional de Alarmas">
+  </a>
+
+  <!-- ===== 01. NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
@@ -841,7 +857,7 @@
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
       </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -860,7 +876,7 @@
         <p class="hero-servicios-text">Monitoreo 24/7, soporte técnico el mismo día, app móvil, instalación profesional y asesoría personalizada. Todo respaldado por más de 30 años de experiencia.</p>
         <div class="hero-servicios-ctas">
           <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
         </div>
       </div>
       <div class="hero-servicios-visual">
@@ -958,7 +974,7 @@
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento correctivo</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento preventivo (en implementación)</div>
           </div>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20necesito%20soporte%20técnico%20para%20mi%20alarma." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar soporte</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20necesito%20soporte%20técnico%20para%20mi%20alarma." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar soporte</a>
         </div>
         <div class="svc-block-visual" style="position:relative;">
           <div class="svc-visual-card">
@@ -1049,7 +1065,7 @@
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Sin compromisos</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Atención presencial o remota</div>
           </div>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20una%20asesoría%20de%20seguridad%20para%20mi%20propiedad." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar asesoría</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20una%20asesoría%20de%20seguridad%20para%20mi%20propiedad." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar asesoría</a>
         </div>
         <div class="svc-block-visual" style="position:relative;">
           <div class="svc-visual-card">
@@ -1179,7 +1195,7 @@
       <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
       <div class="banner-ctas">
         <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
       </div>
     </div>
   </section>
@@ -1195,7 +1211,6 @@
           <div class="footer-social">
             <a href="https://www.facebook.com/ndealarmas" class="social-icon" title="Facebook" target="_blank" rel="noopener"><i class="ph-fill ph-facebook-logo"></i></a>
             <a href="https://www.instagram.com/nacionaldealarmas/" class="social-icon" title="Instagram" target="_blank" rel="noopener"><i class="ph-fill ph-instagram-logo"></i></a>
-            <a href="https://www.tiktok.com/@nacionaldealarmas" class="social-icon" title="TikTok" target="_blank" rel="noopener"><i class="ph-fill ph-tiktok-logo"></i></a>
           </div>
         </div>
         <div class="footer-col">
@@ -1209,19 +1224,19 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
           <span style="opacity:0.5;">L-V 9am - 6pm</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos</a></p>
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos y Condiciones</a></p>
       </div>
     </div>
   </footer>
 
   <!-- ===== WHATSAPP FLOAT ===== -->
-  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+  <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
@@ -1271,6 +1286,19 @@
         var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
         menu.classList.toggle('open');
         ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
+
+    /* Close mobile menu when any nav link is clicked */
+    if (window.innerWidth <= 768) {
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.removeAttribute('style');
+          var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+          if (ddMenu) ddMenu.classList.remove('open');
+          var ddIcon = navLinks.querySelector('.nav-dropdown-trigger i');
+          if (ddIcon) ddIcon.style.transform = '';
+        });
       });
     }
 

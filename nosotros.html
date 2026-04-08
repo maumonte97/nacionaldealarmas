@@ -138,13 +138,19 @@
     .stagger.visible > * { opacity: 1; transform: translateY(0); }
 
     /* ===== NAVBAR ===== */
+    /* ===== LOGO EXTERNO ===== */
+    .hero-logo {
+      display: none;
+    }
+    .hero-logo img { height: 56px; width: auto; }
+
     .navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 12px 28px;
+      border-radius: 99px; padding: 8px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -155,14 +161,14 @@
     }
     .navbar .container {
       display: flex; align-items: center; justify-content: space-between;
-      max-width: none; padding: 0;
+      max-width: none; padding: 0; gap: 8px;
     }
     .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 36px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 32px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-logo img { height: 56px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 56px; }
+    .nav-links { display: flex; align-items: center; gap: 44px; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -172,7 +178,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -781,6 +787,7 @@
       .central-section {
         position: sticky; top: 0;
         padding: var(--space-12) 0 var(--space-16);
+        overflow: visible;
       }
       .central-features {
         min-height: 160px; position: relative;
@@ -892,16 +899,8 @@
     }
     #ndaMap {
       width: 100%; height: 100%; border: none;
+      filter: invert(90%) hue-rotate(180deg) brightness(0.8) contrast(1.2) saturate(0.3);
     }
-    .leaflet-attribution-flag { display: none !important; }
-    .leaflet-container { background: var(--nda-dark-700); }
-    .leaflet-popup-content-wrapper {
-      background: var(--nda-dark-700); color: var(--neutral-200);
-      border: 1px solid var(--glass-border); border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-    .leaflet-popup-tip { background: var(--nda-dark-700); }
-    .leaflet-popup-content b { color: var(--nda-yellow-400); }
     .ubicacion-info { display: flex; flex-direction: column; gap: var(--space-6); }
     .ubicacion-item {
       display: flex; align-items: flex-start; gap: var(--space-4);
@@ -990,7 +989,7 @@
 
     /* ===== SCROLL TO TOP ===== */
     .scroll-top {
-      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
       width: 44px; height: 44px; background: var(--glass-bg);
       border: 1px solid var(--glass-border); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -1067,7 +1066,12 @@
         text-align: left;
       }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
-      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
+      .hero-logo { display: none; }
+      .nav-logo { display: flex !important; }
+      .nav-logo img { height: 40px; }
+      .navbar .container { justify-content: center; }
+      .navbar { left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: none; top: 10px; }
       .nav-mobile-toggle { display: flex; }
       .section-title { font-size: 28px; }
       .banner-cta { padding: var(--space-12) 0 !important; }
@@ -1123,11 +1127,15 @@
       .timeline-dot { left: 20px; }
     }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
+  <!-- ===== LOGO ===== -->
+  <a href="index.html" class="hero-logo">
+    <img src="recursos/logo.png" alt="Nacional de Alarmas">
+  </a>
+
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
@@ -1152,7 +1160,7 @@
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
       </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1170,7 +1178,7 @@
         <p class="hero-nosotros-text">Somos una empresa regiomontana con central de monitoreo propia, técnicos certificados y el respaldo de las mejores marcas del mundo en seguridad electrónica.</p>
         <div class="hero-nosotros-ctas">
           <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20quiero%20conocer%20más%20sobre%20Nacional%20de%20Alarmas." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con nosotros</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20conocer%20más%20sobre%20Nacional%20de%20Alarmas." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con nosotros</a>
         </div>
       </div>
     </div>
@@ -1207,7 +1215,7 @@
     <canvas class="tlv2-circuits" id="tlv2CircuitsCanvas"></canvas>
     <div class="tlv2-header">
       <div class="container">
-        <div class="section-label">Nuestra historia — V2</div>
+        <div class="section-label">Nuestra historia</div>
         <h2 class="section-title">Una trayectoria de <span class="highlight">confianza</span></h2>
         <p class="section-desc">Desde 1995, Nacional de Alarmas ha crecido junto con Monterrey.</p>
       </div>
@@ -1426,7 +1434,7 @@
       <p class="section-desc">Estamos en el corazón de Monterrey, listos para atenderte.</p>
       <div class="ubicacion-grid">
         <div class="ubicacion-map">
-          <div id="ndaMap"></div>
+          <iframe id="ndaMap" src="https://www.google.com/maps?q=Nacional+de+Alarmas+Gonzalitos+502-B+Vista+Hermosa+Monterrey&output=embed" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="ubicacion-info">
           <a class="ubicacion-item ubicacion-link" href="https://www.google.com/maps/search/?api=1&query=Gonzalitos+502-B+Col.+Vista+Hermosa+Monterrey+Nuevo+Leon+Mexico" target="_blank" rel="noopener">
@@ -1440,7 +1448,7 @@
             <div class="ubicacion-icon"><i class="ph-fill ph-phone"></i></div>
             <div>
               <h4>Teléfonos</h4>
-              <p><a class="ubicacion-link" href="tel:+528183488085">81 8348 8085</a><br><a class="ubicacion-link" href="https://wa.me/528127193393" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> 81 2719 3393</a></p>
+              <p><a class="ubicacion-link" href="tel:+528183488085">81 8348 8085</a><br><a class="ubicacion-link" href="https://wa.me/5218120409959" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> 81 2040 9959</a></p>
             </div>
           </div>
           <div class="ubicacion-item">
@@ -1471,7 +1479,7 @@
       <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
       <div class="banner-ctas">
         <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
       </div>
     </div>
   </section>
@@ -1500,19 +1508,19 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
           <span style="opacity:0.5;">L-V 9am - 6pm</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos</a></p>
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos y Condiciones</a></p>
       </div>
     </div>
   </footer>
 
   <!-- ===== WHATSAPP FLOAT ===== -->
-  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+  <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
@@ -1562,6 +1570,19 @@
         var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
         menu.classList.toggle('open');
         ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
+
+    /* Close mobile menu when any nav link is clicked */
+    if (window.innerWidth <= 768) {
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.removeAttribute('style');
+          var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+          if (ddMenu) ddMenu.classList.remove('open');
+          var ddIcon = navLinks.querySelector('.nav-dropdown-trigger i');
+          if (ddIcon) ddIcon.style.transform = '';
+        });
       });
     }
 
@@ -1916,53 +1937,7 @@
       startAuto();
     })();
   </script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    (() => {
-      const NDA_LAT = 25.6748;
-      const NDA_LNG = -100.3311;
 
-      const map = L.map('ndaMap', {
-        center: [23.6345, -102.5528],
-        zoom: 5,
-        zoomControl: true,
-        scrollWheelZoom: false
-      });
-
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a> © <a href="https://carto.com">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 20
-      }).addTo(map);
-
-      const pinIcon = L.divIcon({
-        className: '',
-        html: `<div style="width:18px;height:18px;background:var(--nda-yellow-400);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.5);"></div>`,
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
-        popupAnchor: [0, -12]
-      });
-
-      const marker = L.marker([NDA_LAT, NDA_LNG], { icon: pinIcon })
-        .addTo(map)
-        .bindPopup('<b>Nacional de Alarmas</b><br>Gonzalitos 502-B, Vista Hermosa<br>Monterrey, Nuevo León');
-
-      let hasFlown = false;
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !hasFlown) {
-            hasFlown = true;
-            setTimeout(() => {
-              map.flyTo([NDA_LAT, NDA_LNG], 16, { duration: 3.5 });
-              setTimeout(() => marker.openPopup(), 4000);
-            }, 400);
-          }
-        });
-      }, { threshold: 0.3 });
-
-      observer.observe(document.getElementById('ubicacion'));
-    })();
-  </script>
 
 </body>
 </html>

@@ -110,14 +110,20 @@
       box-shadow: none !important;
     }
 
+    /* ===== LOGO EXTERNO ===== */
+    .hero-logo {
+      display: none;
+    }
+    .hero-logo img { height: 56px; width: auto; }
+
     /* ===== NAVBAR ===== */
     .navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 12px 28px;
+      border-radius: 99px; padding: 8px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -128,14 +134,14 @@
     }
     .navbar .container {
       display: flex; align-items: center; justify-content: space-between;
-      max-width: none; padding: 0;
+      max-width: none; padding: 0; gap: 8px;
     }
     .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 36px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 32px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-logo img { height: 56px; width: auto; }
+    .navbar.scrolled .nav-logo img { height: 56px; }
+    .nav-links { display: flex; align-items: center; gap: 44px; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -145,7 +151,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -602,7 +608,7 @@
 
     /* ===== SCROLL TO TOP ===== */
     .scroll-top {
-      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
       width: 44px; height: 44px; background: var(--glass-bg);
       border: 1px solid var(--glass-border); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -614,6 +620,9 @@
     .scroll-top i { font-size: 20px; color: var(--neutral-300); }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
       /* Faster animations on mobile */
       .reveal { transition: opacity 0.3s ease, transform 0.3s ease; }
@@ -656,7 +665,12 @@
         text-align: left;
       }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
-      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
+      .hero-logo { display: none; }
+      .nav-logo { display: flex !important; }
+      .nav-logo img { height: 40px; }
+      .navbar .container { justify-content: center; }
+      .navbar { left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: none; top: 10px; }
       .nav-mobile-toggle { display: flex; }
       .wizard-header h1 { font-size: 28px; }
       .wizard-card { padding: var(--space-6); }
@@ -696,6 +710,11 @@
 </head>
 <body>
 
+  <!-- ===== LOGO ===== -->
+  <a href="index.html" class="hero-logo">
+    <img src="recursos/logo.png" alt="Nacional de Alarmas">
+  </a>
+
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -721,7 +740,7 @@
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
       </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1021,7 +1040,7 @@
           <h2>¡Cotización enviada!</h2>
           <p>Recibimos tu solicitud. Un asesor de Nacional de Alarmas te contactará en menos de 2 horas con tu propuesta personalizada.</p>
           <div class="success-actions">
-            <a href="https://wa.me/528127193393?text=Hola%2C%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." id="waLink" class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+            <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." id="waLink" class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
             <a href="index.html" class="btn btn-outline"><i class="ph-bold ph-house"></i> Ir al inicio</a>
           </div>
         </div>
@@ -1062,19 +1081,19 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
           <span style="opacity:0.5;">L-V 9am - 6pm</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos</a></p>
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos y Condiciones</a></p>
       </div>
     </div>
   </footer>
 
   <!-- ===== WHATSAPP FLOAT ===== -->
-  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+  <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
@@ -1122,6 +1141,19 @@
         var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
         menu.classList.toggle('open');
         ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
+
+    /* Close mobile menu when any nav link is clicked */
+    if (window.innerWidth <= 768) {
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.removeAttribute('style');
+          var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+          if (ddMenu) ddMenu.classList.remove('open');
+          var ddIcon = navLinks.querySelector('.nav-dropdown-trigger i');
+          if (ddIcon) ddIcon.style.transform = '';
+        });
       });
     }
 
@@ -1304,7 +1336,7 @@
       if (state.colonia) msg += `*Zona:* ${state.colonia}\n`;
       if (state.mensaje) msg += `*Comentarios:* ${state.mensaje}\n`;
 
-      const waUrl = `https://wa.me/528127193393?text=${encodeURIComponent(msg)}`;
+      const waUrl = `https://wa.me/5218120409959?text=${encodeURIComponent(msg)}`;
       document.getElementById('waLink').href = waUrl;
 
       // Show success
