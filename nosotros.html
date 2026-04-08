@@ -848,16 +848,50 @@
     .stat-label { font-size: 14px; color: var(--neutral-400); font-weight: 500; }
 
     /* ===== CLIENTES LOGOS ===== */
-    .clientes-nosotros {
-      padding: var(--space-24) 0; background: var(--nda-dark-800);
+    .clientes-section {
+      padding: var(--space-24) 0 var(--space-16); position: relative; overflow: hidden;
     }
-    .clientes-nosotros .section-title,
-    .clientes-nosotros .section-desc {
+    .clientes-section .section-title,
+    .clientes-section .section-desc {
       text-align: center; margin-left: auto; margin-right: auto;
     }
-    .clientes-logos-grid {
-      display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-4);
-      max-width: 900px; margin: 0 auto;
+    .clientes-bg-glow {
+      position: absolute; top: 50%; left: 50%; width: 800px; height: 600px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(248,235,1,0.05) 0%, rgba(5,105,179,0.03) 40%, transparent 70%);
+      pointer-events: none; z-index: 0; filter: blur(80px);
+    }
+    .clientes-viewport {
+      position: relative;
+      max-width: 1000px;
+      margin: var(--space-12) auto 0;
+      height: 378px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .clientes-viewport::before,
+    .clientes-viewport::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 100px;
+      z-index: 3; pointer-events: none;
+    }
+    .clientes-viewport::before {
+      top: 0; background: linear-gradient(180deg, var(--nda-dark-900) 0%, transparent 100%);
+    }
+    .clientes-viewport::after {
+      bottom: 0; background: linear-gradient(0deg, var(--nda-dark-900) 0%, transparent 100%);
+    }
+    .clientes-track {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      animation: clScrollUp 25s linear infinite;
+    }
+    .clientes-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes clScrollUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
     }
     .cl-logo {
       display: flex; align-items: center; justify-content: center;
@@ -1012,7 +1046,8 @@
         background: linear-gradient(180deg, var(--nda-dark-900) 0%, rgba(2,14,28,0.3) 50%, transparent 100%);
       }
       .central-split { grid-template-columns: 1fr; }
-      .clientes-logos-grid { grid-template-columns: repeat(4, 1fr); }
+      .clientes-viewport { height: 300px; }
+      .clientes-track { grid-template-columns: repeat(4, 1fr); gap: 10px; }
       .ubicacion-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -1113,7 +1148,8 @@
       .mision-section .section-title { text-align: center; }
       .mision-nav { justify-content: center; flex-wrap: nowrap; gap: var(--space-2); }
       .mision-dot { padding: 8px 14px; font-size: 12px; white-space: nowrap; }
-      .clientes-logos-grid { grid-template-columns: repeat(3, 1fr); }
+      .clientes-viewport { height: 260px; }
+      .clientes-track { grid-template-columns: repeat(3, 1fr); gap: 10px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       /* Timeline: todo a la izquierda en mobile */
@@ -1426,6 +1462,93 @@
     </div>
   </section>
 
+  <!-- ===== CLIENTES ===== -->
+  <section class="clientes-section" id="clientes">
+    <div class="clientes-bg-glow"></div>
+    <div class="container">
+      <div class="section-label">Clientes</div>
+      <h2 class="section-title">Empresas que ya <span class="highlight">confían</span> en Nacional de Alarmas</h2>
+      <p class="section-desc">Hogares, comercios e industrias protegidos con nuestra tecnología.</p>
+    </div>
+    <div class="clientes-viewport">
+      <div class="clientes-track">
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+        <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
+        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
+        <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
+        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
+        <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
+        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
+        <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
+        <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
+        <div class="cl-logo"><img src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
+        <div class="cl-logo"><img src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
+        <div class="cl-logo"><img src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/LG.png" alt="Los Generales"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
+        <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
+        <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
+        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
+        <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
+        <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
+        <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
+        <div class="cl-logo"><img src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
+        <div class="cl-logo"><img src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
+        <div class="cl-logo"><img src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
+        <div class="cl-logo"><img src="assets/clientes/SPK.png" alt="Spikes"></div>
+        <div class="cl-logo"><img src="assets/clientes/SW.png" alt="Subway"></div>
+        <div class="cl-logo"><img src="assets/clientes/GP.png" alt="GP"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
+        <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
+        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
+        <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
+        <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+        <!-- Duplicado para loop infinito -->
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+        <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
+        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
+        <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
+        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
+        <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
+        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
+        <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
+        <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
+        <div class="cl-logo"><img src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
+        <div class="cl-logo"><img src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
+        <div class="cl-logo"><img src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/LG.png" alt="Los Generales"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
+        <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
+        <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
+        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
+        <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
+        <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
+        <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
+        <div class="cl-logo"><img src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
+        <div class="cl-logo"><img src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
+        <div class="cl-logo"><img src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
+        <div class="cl-logo"><img src="assets/clientes/SPK.png" alt="Spikes"></div>
+        <div class="cl-logo"><img src="assets/clientes/SW.png" alt="Subway"></div>
+        <div class="cl-logo"><img src="assets/clientes/GP.png" alt="GP"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
+        <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
+        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
+        <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
+        <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
+        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
+        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== 06. UBICACIÓN ===== -->
   <section class="ubicacion-section reveal" id="ubicacion">
     <div class="container">
@@ -1434,7 +1557,7 @@
       <p class="section-desc">Estamos en el corazón de Monterrey, listos para atenderte.</p>
       <div class="ubicacion-grid">
         <div class="ubicacion-map">
-          <iframe id="ndaMap" src="https://www.google.com/maps?q=Nacional+de+Alarmas+Gonzalitos+502-B+Vista+Hermosa+Monterrey&output=embed" allowfullscreen="" loading="lazy"></iframe>
+          <iframe id="ndaMap" src="https://www.google.com/maps?q=Nacional+de+Alarmas+Gonzalitos+502-B+Vista+Hermosa+Monterrey&hl=es&output=embed" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="ubicacion-info">
           <a class="ubicacion-item ubicacion-link" href="https://www.google.com/maps/search/?api=1&query=Gonzalitos+502-B+Col.+Vista+Hermosa+Monterrey+Nuevo+Leon+Mexico" target="_blank" rel="noopener">
