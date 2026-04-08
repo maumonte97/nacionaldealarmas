@@ -142,15 +142,23 @@
     .carousel-arrows { display: none; }
     .carousel-wrap { position: relative; }
 
+    /* ===== LOGO EXTERNO ===== */
+    .hero-logo {
+      position: fixed; top: 22px; left: 60px;
+      z-index: 1001; transition: all 0.3s ease;
+      display: flex; align-items: center;
+    }
+    .hero-logo img { height: 56px; width: auto; }
+
     /* ===== 01. NAVBAR ===== */
     /* Navbar — pill glass (Design System spec) */
     .navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 120px); max-width: 1080px;
+      position: fixed; top: 14px; left: 55%; transform: translateX(-50%);
+      z-index: 1000; width: calc(100% - 240px); max-width: 960px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 12px 28px;
+      border-radius: 99px; padding: 14px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -160,15 +168,14 @@
       top: 12px;
     }
     .navbar .container {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: none; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      max-width: none; padding: 0; gap: 8px;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 36px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 32px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-logo { display: none; align-items: center; }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 44px; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -178,7 +185,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -808,7 +815,7 @@
       pointer-events: none;
     }
     .sol2-grid {
-      display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: auto auto;
+      display: grid; grid-template-columns: 1.2fr 1fr 0.8fr; grid-template-rows: auto auto;
       gap: var(--space-5); position: relative; z-index: 1;
     }
     .sol2-card {
@@ -853,6 +860,8 @@
     .sol2-badge i { font-size: 14px; }
     .sol2-card h3 { font-size: 22px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
     .sol2-card p { font-size: 14px; color: var(--neutral-300); line-height: 1.6; margin-bottom: var(--space-5); max-width: 320px; }
+    .sol2-link-mobile { display: none; }
+    .sol2-link-desktop { display: inline-flex; }
     .sol2-features {
       display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5);
     }
@@ -1608,7 +1617,7 @@
 
     /* ===== SCROLL TO TOP ===== */
     .scroll-top {
-      position: fixed; bottom: var(--space-6); right: calc(var(--space-6) + 68px);
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
       width: 44px; height: 44px; background: var(--glass-bg);
       border: 1px solid var(--glass-border); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -1697,8 +1706,11 @@
         width: 100%;
         text-align: left;
       }
+      .hero-logo { display: none; }
+      .nav-logo { display: flex !important; }
+      .navbar { left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: none; top: 10px; }
       .nav-contact-btns { margin-left: auto; margin-right: 12px; }
-      .nav-contact-btn { width: 34px; height: 34px; font-size: 16px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
       .nav-mobile-toggle { display: flex; }
       .stats { padding: var(--space-10) 0 var(--space-4); }
       .stats-grid {
@@ -1853,6 +1865,8 @@
       .service-card h3 { font-size: 13px; margin-bottom: 0; }
       .service-icon { margin-bottom: var(--space-2); }
       /* Soluciones — cards apiladas con imagen de fondo */
+      .sol2-link-desktop { display: none !important; }
+      .sol2-link-mobile { display: inline-flex !important; }
       .soluciones-v2 { padding: var(--space-12) 0 var(--space-10); }
       .sol2-grid {
         display: flex !important;
@@ -1932,6 +1946,8 @@
       .sol2-card.sol-mob-active .sol2-content .sol2-link {
         color: var(--nda-yellow-400); font-size: 13px; font-weight: 600;
       }
+      .sol2-card.sol-mob-active .sol2-link-desktop { display: none !important; }
+      .sol2-card.sol-mob-active .sol2-link-mobile { display: inline-flex !important; }
       .sol2-card.sol-mob-active .sol2-badge-static {
         color: var(--nda-yellow-400);
       }
@@ -2221,6 +2237,11 @@
 </head>
 <body>
 
+  <!-- ===== LOGO ===== -->
+  <a href="index.html" class="hero-logo">
+    <img src="recursos/logo.png" alt="Nacional de Alarmas">
+  </a>
+
   <!-- ===== 01. NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -2246,7 +2267,7 @@
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." class="nav-contact-btn whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
       </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -2270,7 +2291,7 @@
         <p class="hero-text">Sistemas de seguridad electrónica para casas, negocios e industrias. +30 años protegiendo lo que más importa.</p>
         <div class="hero-ctas">
           <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
         </div>
         <div class="hero-trust">
           <span><i class="ph-fill ph-star"></i> +30 años de experiencia</span>
@@ -2303,7 +2324,7 @@
           </div>
           <div class="hero-float hero-float-2">
             <i class="ph-fill ph-lock-key"></i>
-            <div><div class="hf-text">Central propia</div><div class="hf-sub">Monterrey 24/7</div></div>
+            <div><div class="hf-text">Respuesta inmediata</div><div class="hf-sub">En minutos</div></div>
           </div>
           <div class="hero-float hero-float-3">
             <i class="ph-fill ph-device-mobile"></i>
@@ -2472,8 +2493,44 @@
       <h2 class="section-title">Seguridad para cada <span class="highlight-blue">necesidad</span></h2>
       <p class="section-desc">Diseñamos soluciones a la medida para cada tipo de propiedad.</p>
       <div class="sol2-grid stagger">
-        <!-- Card principal: CCTV (ocupa 2 rows) -->
-        <div class="sol2-card sol2-card--main">
+        <!-- Card principal: Residencial (full width arriba) -->
+        <div class="sol2-card" style="grid-column: 1 / -1; min-height: 380px;">
+          <img src="assets/sol-residencial.png" alt="Sistema de seguridad residencial">
+          <span class="sol2-badge-static"><i class="ph-fill ph-house"></i> Residencial</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-house"></i> Residencial</div>
+            <h3>Protege lo que más quieres</h3>
+            <p>Sistemas inteligentes para casas y departamentos. Monitoreo 24/7, app móvil y control total desde tu celular.</p>
+            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="residencial.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card: Comercial (grande) -->
+        <div class="sol2-card">
+          <img src="assets/sol-comercial.png" alt="Seguridad para negocios">
+          <span class="sol2-badge-static"><i class="ph-fill ph-storefront"></i> Comercial</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Comercial</div>
+            <h3>Tu negocio, siempre seguro</h3>
+            <p>Oficinas, locales y colegios con soluciones adaptadas a tu operación.</p>
+            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="comercial.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card: Industrial (mediano) -->
+        <div class="sol2-card">
+          <img src="assets/sol-industrial.png" alt="Seguridad industrial perimetral">
+          <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Industrial</span>
+          <div class="sol2-content">
+            <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Industrial</div>
+            <h3>Seguridad a gran escala</h3>
+            <p>Bodegas, naves y almacenes con cobertura perimetral completa.</p>
+            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="industrial.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card: CCTV (más pequeña) -->
+        <div class="sol2-card">
           <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform 0.6s ease;">
             <source src="assets/sol-cctv-video.mp4" type="video/mp4">
           </video>
@@ -2482,40 +2539,8 @@
             <div class="sol2-badge"><i class="ph-fill ph-security-camera"></i> CCTV / Videovigilancia</div>
             <h3>Vigila desde cualquier lugar</h3>
             <p>Cámaras WiFi e IP con grabación en la nube, visión nocturna y acceso remoto desde tu celular.</p>
-            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Card: Comercial -->
-        <div class="sol2-card">
-          <img src="assets/sol-comercial.png" alt="Seguridad para negocios">
-          <span class="sol2-badge-static"><i class="ph-fill ph-storefront"></i> Comercial</span>
-          <div class="sol2-content">
-            <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Comercial</div>
-            <h3>Tu negocio, siempre seguro</h3>
-            <p>Oficinas, locales y colegios con soluciones adaptadas a tu operación.</p>
-            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Card: Industrial -->
-        <div class="sol2-card">
-          <img src="assets/sol-industrial.png" alt="Seguridad industrial perimetral">
-          <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Industrial</span>
-          <div class="sol2-content">
-            <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Industrial</div>
-            <h3>Seguridad a gran escala</h3>
-            <p>Bodegas, naves y almacenes con cobertura perimetral completa.</p>
-            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Card: Residencial (span full width bottom) -->
-        <div class="sol2-card" style="grid-column: 2 / 4;">
-          <img src="assets/sol-residencial.png" alt="Sistema de seguridad residencial">
-          <span class="sol2-badge-static"><i class="ph-fill ph-house"></i> Residencial</span>
-          <div class="sol2-content">
-            <div class="sol2-badge"><i class="ph-fill ph-house"></i> Residencial</div>
-            <h3>Protege lo que más quieres</h3>
-            <p>Sistemas inteligentes para casas y departamentos. Monitoreo 24/7, app móvil y control total desde tu celular.</p>
-            <a href="cotiza.html" class="sol2-link">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="camaras.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -3016,7 +3041,7 @@
       <p>En menos de 60 segundos puedes empezar. Cotización gratuita y asesoría personalizada.</p>
       <div class="banner-ctas">
         <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
-        <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
         <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
       </div>
     </div>
@@ -3064,7 +3089,7 @@
             <h3>Mensaje enviado</h3>
             <p>Gracias por contactarnos. Un asesor se comunicará contigo en menos de 2 horas.</p>
             <div class="form-success-actions">
-              <a href="https://wa.me/528127193393?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+              <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
               <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
             </div>
           </div>
@@ -3075,7 +3100,7 @@
             <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
           </div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2719 3393</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2040 9959</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p></div></div>
         </div>
@@ -3094,7 +3119,7 @@
       </div>
       <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
-        <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/528127193393" target="_blank" rel="noopener">81 2719 3393</a></p></div>
+        <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959" target="_blank" rel="noopener">81 2040 9959</a></p></div>
       </div>
       <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-map-pin"></i></div>
@@ -3130,7 +3155,7 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
-          <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2719 3393</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
           <span style="opacity:0.5;">L-V 9am - 6pm</span>
         </div>
@@ -3142,7 +3167,7 @@
   </footer>
 
   <!-- ===== WHATSAPP FLOAT ===== -->
-  <a href="https://wa.me/528127193393?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+  <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
@@ -3194,6 +3219,19 @@
         var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
         menu.classList.toggle('open');
         ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    }
+
+    /* Close mobile menu when any nav link is clicked */
+    if (window.innerWidth <= 768) {
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.removeAttribute('style');
+          var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
+          if (ddMenu) ddMenu.classList.remove('open');
+          var ddIcon = navLinks.querySelector('.nav-dropdown-trigger i');
+          if (ddIcon) ddIcon.style.transform = '';
+        });
       });
     }
 
@@ -3459,20 +3497,24 @@
       const itemToFloat = [];
       floatToItem.forEach((itemIdx, floatIdx) => { itemToFloat[itemIdx] = floatIdx; });
 
-      /* Hover en floats → línea sale del float al item */
+      /* Hover/Touch en floats → línea sale del float al item */
       floats.forEach((fl, i) => {
         if (i < N) {
           fl.addEventListener('mouseenter', () => showLine(i));
           fl.addEventListener('mouseleave', () => hideLine(i));
+          fl.addEventListener('touchstart', (e) => { e.preventDefault(); showLine(i); }, { passive: false });
+          fl.addEventListener('touchend', () => hideLine(i));
         }
       });
 
-      /* Hover en items → línea viaja del item al float */
+      /* Hover/Touch en items → línea viaja del item al float */
       items.forEach((item, itemIdx) => {
         const floatIdx = itemToFloat[itemIdx];
         if (floatIdx !== undefined && floatIdx < N) {
           item.addEventListener('mouseenter', () => showLineReverse(floatIdx));
           item.addEventListener('mouseleave', () => hideLineReverse(floatIdx));
+          item.addEventListener('touchstart', (e) => { e.preventDefault(); showLineReverse(floatIdx); }, { passive: false });
+          item.addEventListener('touchend', () => hideLineReverse(floatIdx));
           item.style.cursor = 'pointer';
         }
       });
