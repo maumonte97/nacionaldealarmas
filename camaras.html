@@ -97,20 +97,20 @@
     .hero-logo img { height: 56px; width: auto; }
 
     /* ===== NAVBAR ===== */
-    .navbar { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 1000; width: calc(100% - 80px); max-width: 1100px; background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 99px; padding: 8px 32px; transition: all 0.3s ease; }
+    .navbar { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 1000; width: calc(100% - 60px); max-width: 1240px; background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 99px; padding: 4px 32px; transition: all 0.3s ease; }
     .navbar.scrolled { background: rgba(2,14,28,0.92); border-color: rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.4); top: 12px; }
     .navbar .container { display: flex; align-items: center; justify-content: space-between; max-width: none; padding: 0; gap: 8px; }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 56px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 56px; }
-    .nav-links { display: flex; align-items: center; gap: 44px; }
-    .nav-links a { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 64px; width: auto; max-width: none; }
+    .navbar.scrolled .nav-logo img { height: 64px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
     .nav-links a:hover { color: #fff; }
-    .nav-links a.active { color: var(--cam-accent); }
-    .nav-cta { padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; }
+    .nav-links a.active { color: #F8EB01; }
+    .nav-cta { padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; white-space: nowrap; margin-left: 16px; }
     .nav-cta:hover { color: #000 !important; }
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
-    .nav-contact-btn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; text-decoration: none; transition: all 0.25s ease; font-size: 17px; border: 1px solid rgba(255,255,255,0.12); }
+    .nav-contact-btn { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; overflow: hidden; text-decoration: none; transition: all 0.25s ease; font-size: 20px; border: 1px solid rgba(255,255,255,0.12); }
     .nav-contact-btn.phone { background: rgba(5,105,179,0.15); color: #0569B3; }
     .nav-contact-btn.phone:hover { background: rgba(5,105,179,0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
     .nav-contact-btn.whatsapp { background: rgba(37,211,102,0.15); color: #25D366; }
@@ -120,16 +120,16 @@
 
     /* Dropdown */
     .nav-dropdown { position: relative; }
-    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.3s; padding: 0; }
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.3s; padding: 0; }
     .nav-dropdown-trigger:hover, .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
-    .nav-dropdown-trigger.sol-active { color: var(--cam-accent); }
+    .nav-dropdown-trigger.sol-active { color: #F8EB01; }
     .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
     .nav-dropdown:hover .nav-dropdown-trigger i { transform: rotate(180deg); }
     .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; padding-top: 12px; transform: translateX(-50%) translateY(-6px); background: rgba(2,14,28,0.97); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 8px; display: flex; flex-direction: column; gap: 2px; min-width: 190px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; backdrop-filter: blur(16px); z-index: 999; }
     .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
     .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); transition: all 0.2s; }
     .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.06); color: #fff; }
-    .nav-dropdown-menu a.active { color: var(--cam-accent); background: var(--cam-bg); }
+    .nav-dropdown-menu a.active { color: #F8EB01; background: var(--cam-bg); }
     .nav-dropdown-menu a i { font-size: 16px; }
 
     /* ===== HERO ===== */
@@ -544,7 +544,7 @@
         font-size: 15px !important;
       }
       .nav-dropdown-trigger {
-        font-size: 15px !important;
+        font-size: 17px !important;
         width: 100%;
         text-align: left;
       }
@@ -828,7 +828,7 @@
         <a href="servicios.html">Servicios</a>
         <a href="nosotros.html">Nosotros</a>
         <a href="contacto.html">Contacto</a>
-        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -937,7 +937,7 @@
         <h1>Vigila tu propiedad desde <span style="color:var(--cam-accent)">cualquier lugar</span></h1>
         <p class="hero-text">Cámaras IP de alta resolución, visión nocturna, detección de movimiento y acceso en tiempo real desde tu celular. Instalación profesional en Monterrey y área metropolitana.</p>
         <div class="hero-ctas">
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar cotización</a>
+          <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar cotización</a>
           <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20instalar%20cámaras%20de%20seguridad." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
         </div>
         <div class="hero-trust">
@@ -1010,7 +1010,7 @@
                 <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Notificaciones push al celular</div>
               </div>
               <div class="flip-back-cta">
-                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <a href="contacto.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
                 <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
               </div>
             </div>
@@ -1043,7 +1043,7 @@
                 <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Acceso remoto simultáneo</div>
               </div>
               <div class="flip-back-cta">
-                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <a href="contacto.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
                 <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
               </div>
             </div>
@@ -1076,7 +1076,7 @@
                 <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Alertas inteligentes en tiempo real</div>
               </div>
               <div class="flip-back-cta">
-                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <a href="contacto.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
                 <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
               </div>
             </div>
@@ -1109,7 +1109,7 @@
                 <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Efecto disuasivo comprobado</div>
               </div>
               <div class="flip-back-cta">
-                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <a href="contacto.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
                 <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
               </div>
             </div>
@@ -1142,7 +1142,7 @@
                 <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Control remoto desde app</div>
               </div>
               <div class="flip-back-cta">
-                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <a href="contacto.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
                 <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
               </div>
             </div>
@@ -1175,7 +1175,7 @@
                 <div class="flip-back-feature"><i class="ph-fill ph-check-circle"></i> Carcasa antivandálica IK10</div>
               </div>
               <div class="flip-back-cta">
-                <a href="cotiza.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
+                <a href="contacto.html" class="flip-back-btn"><i class="ph-bold ph-arrow-right"></i> Cotizar</a>
                 <span class="flip-back-flip"><i class="ph-bold ph-arrow-counter-clockwise"></i> Voltear</span>
               </div>
             </div>
@@ -1238,7 +1238,7 @@
               </div>
             </div>
           </div>
-          <a href="cotiza.html" class="btn btn-green grabacion-btn"><i class="ph-bold ph-arrow-right"></i> Solicitar cotización</a>
+          <a href="contacto.html" class="btn btn-green grabacion-btn"><i class="ph-bold ph-arrow-right"></i> Solicitar cotización</a>
         </div>
 
         <!-- Text -->
@@ -1313,7 +1313,7 @@
             </div>
           </div>
 
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar instalación</a>
+          <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar instalación</a>
         </div>
 
         <!-- Phone mockup -->
@@ -1351,7 +1351,7 @@
             </div>
 
             <div class="compl-ctas">
-              <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Cotizar paquete completo</a>
+              <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Cotizar paquete completo</a>
               <a href="residencial.html" class="btn btn-outline"><i class="ph-bold ph-arrow-right"></i> Ver alarmas</a>
             </div>
           </div>
@@ -1404,7 +1404,7 @@
         <div class="compl-benefit"><i class="ph-fill ph-check-circle"></i> Respuesta policial más rápida con evidencia visual</div>
       </div>
       <div class="compl-ctas" style="display:flex;justify-content:center;">
-        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Cotizar paquete completo</a>
+        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Cotizar paquete completo</a>
       </div>
     </div>
   </div>
@@ -1472,7 +1472,7 @@
       <h2 class="reveal">Cotización gratis,<br><span style="color:var(--cam-accent)">sin compromiso</span></h2>
       <p class="reveal">Un técnico visita tu propiedad, evalúa tus necesidades y te entrega un presupuesto detallado sin costo.</p>
       <div class="banner-ctas reveal">
-        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar visita técnica</a>
+        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar visita técnica</a>
         <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20cotizar%20cámaras%20de%20seguridad." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
       </div>
     </div>

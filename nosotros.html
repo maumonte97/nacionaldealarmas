@@ -146,11 +146,11 @@
 
     .navbar {
       position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
+      z-index: 1000; width: calc(100% - 60px); max-width: 1240px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 8px 32px;
+      border-radius: 99px; padding: 4px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -163,12 +163,12 @@
       display: flex; align-items: center; justify-content: space-between;
       max-width: none; padding: 0; gap: 8px;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 56px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 56px; }
-    .nav-links { display: flex; align-items: center; gap: 44px; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 64px; width: auto; max-width: none; }
+    .navbar.scrolled .nav-logo img { height: 64px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -178,7 +178,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -212,17 +212,18 @@
     .nav-dropdown-menu a.active { color: #F8EB01 !important; }
     .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
     .nav-cta {
-      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important;
       border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
       color: #000 !important; background: #F8EB01 !important;
+      white-space: nowrap; margin-left: 16px;
     }
     .nav-cta:hover { color: #000 !important; }
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -246,8 +247,8 @@
 
     /* ===== HERO NOSOTROS ===== */
     .hero-nosotros {
-      min-height: 85vh; display: flex; align-items: center;
-      position: relative; overflow: hidden; padding-top: 120px; padding-bottom: 80px;
+      min-height: 85vh; display: flex; align-items: flex-start;
+      position: relative; overflow: hidden; padding-top: 140px; padding-bottom: 24px;
       background: #0e2a4a;
     }
     .hero-nosotros-bg {
@@ -530,7 +531,7 @@
 
     /* ===== MISIÓN, VALORES, CERTIFICACIONES ===== */
     .mision-section {
-      padding: var(--space-4) 0 var(--space-12); position: relative; overflow: hidden;
+      padding: 0 0 var(--space-12); position: relative; overflow: hidden;
     }
     .mision-glow {
       position: absolute; top: 30%; left: -10%; width: 500px; height: 500px;
@@ -548,21 +549,65 @@
       position: relative; z-index: 2; overflow: visible;
     }
     .mision-carousel-col > div { width: 100%; }
+    .mision-carousel-col .section-title { margin-bottom: 4px; }
+    .mision-carousel-col .section-desc { margin-bottom: var(--space-6); }
     /* Image column */
     .mision-img-col {
-      flex: 0 0 45%; position: relative; overflow: hidden;
+      flex: 0 0 45%; position: relative; overflow: visible;
+      display: flex; align-items: center; justify-content: center;
+      padding: calc(var(--space-8) + 40px) var(--space-8) var(--space-8) 0;
     }
-    .mision-img-col img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+    .mision-img-wrap {
+      position: relative; width: 100%; max-width: 520px;
     }
-    .mision-img-col::before {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(90deg,
-        var(--nda-dark-900) 0%,
-        rgba(2,14,28,0.75) 30%,
-        rgba(2,14,28,0.3) 60%,
-        transparent 100%
-      );
+    .mision-img-wrap img {
+      width: 100%; height: auto; display: block;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      transition: opacity 0.4s ease;
+    }
+    /* Valores / Certificaciones: imagen más cuadrada (4:3 → recortada con cover) */
+    .mision-img-wrap img:not(.is-logo) {
+      aspect-ratio: 4 / 3; height: auto; object-fit: cover;
+    }
+    /* Cuando la imagen es el logo del ojo (slide Misión), va más chica y centrada, sin sombra/box */
+    .mision-img-wrap img.is-logo {
+      max-width: 260px; margin: 0 auto;
+      box-shadow: none; border-radius: 0;
+      background: transparent; aspect-ratio: auto;
+    }
+    .mision-img-wrap.no-frame::before,
+    .mision-img-wrap.no-frame::after { display: none; }
+    /* Floats: ocultos cuando es Misión, fade in escalonado al volver */
+    .mision-img-wrap .central-float-1,
+    .mision-img-wrap .central-float-2 {
+      opacity: 1; visibility: visible;
+    }
+    .mision-img-wrap .central-float-1 { transition: opacity 0.55s ease 0.2s, visibility 0s linear 0.2s; }
+    .mision-img-wrap .central-float-2 { transition: opacity 0.55s ease 0.4s, visibility 0s linear 0.4s; }
+    .mision-img-wrap.no-frame .central-float-1,
+    .mision-img-wrap.no-frame .central-float-2 {
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+    .mision-img-wrap::before {
+      content: ''; position: absolute; inset: -8px -8px 30% -8px; z-index: -1;
+      border-radius: calc(var(--radius-xl) + 8px);
+      background: linear-gradient(135deg, rgba(5,105,179,0.3), rgba(248,235,1,0.15), rgba(5,105,179,0.25));
+      filter: blur(14px); opacity: 0.7;
+    }
+    .mision-img-wrap::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 40px rgba(5,105,179,0.18);
+    }
+    /* Floats internos a la imagen — sin sobresalir, anclados a la derecha */
+    .mision-img-wrap .central-float-1 {
+      top: -28px; left: auto; right: -20px; transform: none;
+    }
+    .mision-img-wrap .central-float-2 {
+      top: auto; bottom: 16px; left: -20px; right: auto;
     }
     /* Carousel slides — CSS grid stack trick */
     .mision-slides {
@@ -895,28 +940,29 @@
     }
     .cl-logo {
       display: flex; align-items: center; justify-content: center;
-      height: 90px; border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      padding: 16px 20px;
+      height: 110px; border-radius: 12px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 14px 18px;
       transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
     }
     .cl-logo:hover {
       transform: scale(1.06);
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(248, 235, 1, 0.25);
+      background: rgba(255,255,255,0.28);
+      border-color: rgba(248, 235, 1, 0.45);
     }
     .cl-logo i {
       font-size: 32px; color: var(--neutral-400); opacity: 0.5;
     }
     .cl-logo img {
-      max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.6;
-      transition: opacity 0.3s;
+      max-width: 100%; max-height: 100%; object-fit: contain;
+      opacity: 0.95;
+      transition: opacity 0.3s, filter 0.3s;
     }
     .cl-logo:hover img { opacity: 1; }
-    .cl-logo.cl-dark img {
-      filter: brightness(0) invert(1);
-    }
+    .cl-logo.cl-dark img { filter: brightness(0) invert(1); }
+    /* Logos con fondo blanco sólido — invertir colores y usar screen para "transparentar" el blanco */
+    .cl-logo.cl-whitebg img { filter: invert(1); mix-blend-mode: screen; }
 
     /* ===== UBICACIÓN ===== */
     .ubicacion-section {
@@ -940,13 +986,13 @@
       display: flex; align-items: flex-start; gap: var(--space-4);
     }
     .ubicacion-icon {
-      width: 44px; height: 44px; min-width: 44px; background: var(--glass-bg);
+      width: 52px; height: 52px; min-width: 52px; background: var(--glass-bg);
       border: 1px solid var(--glass-border); border-radius: var(--radius-md);
       display: flex; align-items: center; justify-content: center;
     }
-    .ubicacion-icon i { font-size: 20px; color: var(--nda-blue-300); }
-    .ubicacion-item h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: 2px; }
-    .ubicacion-item p { font-size: 14px; color: var(--neutral-400); }
+    .ubicacion-icon i { font-size: 24px; color: var(--nda-blue-300); }
+    .ubicacion-item h4 { font-size: 17px; font-weight: 700; color: var(--neutral-0); margin-bottom: 4px; }
+    .ubicacion-item p { font-size: 16px; color: var(--neutral-300); line-height: 1.5; }
     a.ubicacion-link, .ubicacion-item p a.ubicacion-link {
       text-decoration: none; color: inherit; transition: color 0.2s;
     }
@@ -1162,6 +1208,59 @@
       }
       .timeline-dot { left: 20px; }
     }
+
+    /* ===== Trust bar (marcas) ===== */
+    .trust-bar {
+      background: var(--nda-dark-700); padding: var(--space-6) 0 var(--space-10);
+      border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+    }
+    .trust-bar p {
+      text-align: center; font-size: 13px; color: var(--neutral-500);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+      margin-bottom: var(--space-8);
+    }
+    .trust-logos { display: flex; align-items: center; justify-content: center; gap: var(--space-16); flex-wrap: wrap; }
+    .trust-logo { opacity: 0.5; transition: opacity 0.3s; display: flex; align-items: center; }
+    .trust-logo:hover { opacity: 0.9; }
+    .trust-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); }
+    .trust-logo.logo-ajax img { height: 30px; }
+    .trust-logo.logo-trikdis img { height: 24px; filter: none; }
+    .trust-logo.logo-honeywell img { height: 32px; }
+    .trust-logo[aria-hidden="true"] { display: none; }
+    @media (max-width: 768px) {
+      .trust-bar { overflow: hidden; }
+      .trust-logos { gap: var(--space-10); flex-wrap: nowrap; animation: trustScroll 18s linear infinite; }
+      .trust-logo { flex-shrink: 0; }
+      .trust-logo[aria-hidden="true"] { display: flex; }
+      @keyframes trustScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    }
+
+    /* ===== Stat counter como caja debajo del hero ===== */
+    .stats { padding: var(--space-8) 0 var(--space-16); margin-top: 0; }
+    .stats-grid { max-width: 540px; margin: 0 auto; padding: 0 var(--space-4); }
+    .hero-stat-box { margin-top: var(--space-8) !important; padding: 0 !important; }
+    .stat-item {
+      flex: none; width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-8);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 40px rgba(248, 235, 1, 0.06);
+      text-align: center;
+      border-right: none;
+    }
+    .stat-item .stat-number {
+      font-size: 46px; color: var(--nda-yellow-400);
+      letter-spacing: -1.5px; margin-bottom: var(--space-2);
+    }
+    .stat-item .stat-label { font-size: 15px; color: #fff; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .stat-item { padding: var(--space-6) var(--space-5); }
+      .stat-item .stat-number { font-size: 44px; }
+      .stat-item .stat-label { font-size: 15px; }
+    }
   </style>
 </head>
 <body>
@@ -1192,7 +1291,7 @@
         <a href="nosotros.html" class="active">Nosotros</a>
         <a href="contacto.html">Contacto</a>
         
-        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -1212,133 +1311,30 @@
         <div class="hero-nosotros-badge"><i class="ph-fill ph-buildings"></i> Desde 1995 en Monterrey</div>
         <h1>Más de 30 años <span class="highlight">protegiendo Monterrey</span></h1>
         <p class="hero-nosotros-text">Somos una empresa regiomontana con central de monitoreo propia, técnicos certificados y el respaldo de las mejores marcas del mundo en seguridad electrónica.</p>
-        <div class="hero-nosotros-ctas">
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20conocer%20más%20sobre%20Nacional%20de%20Alarmas." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con nosotros</a>
+        <div class="stats-grid hero-stat-box">
+          <div class="stat-item">
+            <div class="stat-number" data-target="10000" data-prefix="+">+10,000</div>
+            <div class="stat-label">Familias y empresas confían en nosotros</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 02. STATS ===== -->
-  <section class="stats reveal" id="stats">
-    <div class="stats-glow"></div>
+  <!-- ===== TRUST BAR (marcas) ===== -->
+  <section class="trust-bar reveal">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number" data-target="10000" data-prefix="+">+10,000</div>
-          <div class="stat-label">Clientes protegidos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">30+</div>
-          <div class="stat-label">Años de experiencia</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5.0</div>
-          <div class="stat-label">Estrellas en reseñas</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Monitoreo sin interrupciones</div>
-        </div>
+      <p>Tecnología de clase mundial</p>
+      <div class="trust-logos">
+        <span class="trust-logo logo-honeywell"><img src="assets/logo-honeywell.png" alt="Honeywell"></span>
+        <span class="trust-logo logo-trikdis"><img src="assets/logo-trikdis.png" alt="Trikdis"></span>
+        <!-- Duplicados para loop infinito en móvil -->
+        <span class="trust-logo logo-honeywell" aria-hidden="true"><img src="assets/logo-honeywell.png" alt=""></span>
+        <span class="trust-logo logo-trikdis" aria-hidden="true"><img src="assets/logo-trikdis.png" alt=""></span>
       </div>
     </div>
   </section>
 
-
-<!-- ===== 03-B. TIMELINE V2 — PROC STYLE ===== -->
-  <section class="tlv2" id="historia-v2">
-    <canvas class="tlv2-circuits" id="tlv2CircuitsCanvas"></canvas>
-    <div class="tlv2-header">
-      <div class="container">
-        <div class="section-label">Nuestra historia</div>
-        <h2 class="section-title">Una trayectoria de <span class="highlight">confianza</span></h2>
-        <p class="section-desc">Desde 1995, Nacional de Alarmas ha crecido junto con Monterrey.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="tlv2-timeline" id="tlv2Timeline">
-        <div class="tlv2-timeline-progress" id="tlv2Prog"></div>
-        <div class="tlv2-card" data-i="0">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">1995</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-buildings"></i></div>
-            <div class="tlv2-card-body">
-              <h3>Nace Nacional de Alarmas</h3>
-              <span>Fundada en Monterrey con la visión de ofrecer seguridad electrónica profesional.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tlv2-card" data-i="1">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">2000</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-monitor"></i></div>
-            <div class="tlv2-card-body">
-              <h3>Primera central de monitoreo</h3>
-              <span>Nuestra propia central en Monterrey, sin dependencia de terceros.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tlv2-card" data-i="2">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">2008</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-shield-check"></i></div>
-            <div class="tlv2-card-body">
-              <h3>Franquicia First Alert</h3>
-              <span>Tecnología de clase mundial como franquicia oficial.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tlv2-card" data-i="3">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">2015</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-wifi-high"></i></div>
-            <div class="tlv2-card-body">
-              <h3>Alianza con Ajax Systems</h3>
-              <span>Seguridad inalámbrica del líder europeo.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tlv2-card" data-i="4">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">2020</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-users-three"></i></div>
-            <div class="tlv2-card-body">
-              <h3>+10,000 clientes protegidos</h3>
-              <span>Familias y empresas que confían en nosotros.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tlv2-card" data-i="5">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">2024</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-video-camera"></i></div>
-            <div class="tlv2-card-body">
-              <h3>CCTV y App móvil</h3>
-              <span>Videovigilancia y control remoto desde tu celular.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tlv2-card" data-i="6">
-          <div class="tlv2-dot"></div>
-          <div class="tlv2-year">Hoy</div>
-          <div class="tlv2-card-box">
-            <div class="tlv2-card-icon"><i class="ph-duotone ph-rocket-launch"></i></div>
-            <div class="tlv2-card-body">
-              <h3>La empresa de seguridad de Monterrey</h3>
-              <span>Tecnología de punta y la confianza de miles de clientes.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== 04. MISIÓN, VALORES Y CERTIFICACIONES ===== -->
   <section class="mision-section" id="mision">
@@ -1348,8 +1344,8 @@
       <!-- Carousel -->
       <div class="mision-carousel-col">
         <div>
-          <div class="section-label">Quiénes somos</div>
-          <h2 class="section-title">Lo que nos <span class="highlight">define</span></h2>
+          <h2 class="section-title">Una trayectoria de <span class="highlight">confianza</span></h2>
+          <p class="section-desc">Desde 1995, Nacional de Alarmas ha crecido junto con Monterrey.</p>
 
           <div class="mision-nav">
             <button class="mision-dot active" data-slide="0">Misión</button>
@@ -1367,13 +1363,12 @@
             </div>
 
             <div class="mision-slide">
-              <div class="valores-grid">
-                <div class="valor-box"><i class="ph-fill ph-handshake"></i><span>Confianza y transparencia</span></div>
-                <div class="valor-box"><i class="ph-fill ph-lightning"></i><span>Respuesta inmediata</span></div>
-                <div class="valor-box"><i class="ph-fill ph-lightbulb"></i><span>Innovación constante</span></div>
-                <div class="valor-box"><i class="ph-fill ph-map-pin"></i><span>Compromiso local</span></div>
-                <div class="valor-box"><i class="ph-fill ph-user-circle"></i><span>Servicio personalizado</span></div>
-              </div>
+              <ul>
+                <li><i class="ph-fill ph-check-circle"></i> Distribuidor Ajax Systems</li>
+                <li><i class="ph-fill ph-check-circle"></i> Partner Honeywell</li>
+                <li><i class="ph-fill ph-check-circle"></i> Distribuidor Trikdis</li>
+                <li><i class="ph-fill ph-check-circle"></i> Técnicos certificados</li>
+              </ul>
             </div>
 
             <div class="mision-slide">
@@ -1390,24 +1385,10 @@
         </div>
       </div>
 
-      <!-- Image with gradient -->
+      <!-- Image flotante redondeada + floats -->
       <div class="mision-img-col">
-        <img src="assets/central-seg.jpg" alt="Nacional de Alarmas — Quiénes somos">
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== 05. CENTRAL DE MONITOREO ===== -->
-  <section class="central-section reveal" id="central">
-    <div class="central-glow"></div>
-    <div class="container">
-      <div class="section-label">Nuestra central</div>
-      <h2 class="section-title">Central de monitoreo <span class="highlight">propia</span> en Monterrey</h2>
-      <p class="section-desc">Lo que nos diferencia de la competencia: operamos nuestra propia central de monitoreo, sin intermediarios.</p>
-      <div class="central-split">
-        <div class="central-visual">
-          <img src="assets/central-alarmas.jpg" alt="Central de monitoreo Nacional de Alarmas">
+        <div class="mision-img-wrap">
+          <img id="misionImg" src="assets/logotipo-ojo.png" alt="Nacional de Alarmas">
           <div class="central-float central-float-1">
             <i class="ph-fill ph-eye"></i>
             <div><div class="central-float-label">Monitoreo 24/7</div><div class="central-float-sub">Central propia</div></div>
@@ -1416,49 +1397,9 @@
             <i class="ph-fill ph-lightning"></i>
             <div><div class="central-float-label">Respuesta inmediata</div><div class="central-float-sub">Protocolos activos</div></div>
           </div>
-          <div class="central-float central-float-3">
-            <i class="ph-fill ph-map-pin"></i>
-            <div><div class="central-float-label">100% Monterrey</div><div class="central-float-sub">Sin intermediarios</div></div>
-          </div>
-        </div>
-        <div class="central-features">
-          <div class="central-feature">
-            <div class="central-feature-icon"><i class="ph-duotone ph-eye"></i></div>
-            <div>
-              <h4>Vigilancia 24/7/365</h4>
-              <p>Operadores capacitados monitoreando tu propiedad las 24 horas, los 365 días del año.</p>
-            </div>
-          </div>
-          <div class="central-feature">
-            <div class="central-feature-icon"><i class="ph-duotone ph-map-pin"></i></div>
-            <div>
-              <h4>100% local</h4>
-              <p>Nuestra central está en Monterrey. No tercerizamos a otras ciudades ni países.</p>
-            </div>
-          </div>
-          <div class="central-feature">
-            <div class="central-feature-icon"><i class="ph-duotone ph-lightning"></i></div>
-            <div>
-              <h4>Respuesta inmediata</h4>
-              <p>Ante cualquier alerta, activamos protocolos de emergencia y contactamos a las autoridades.</p>
-            </div>
-          </div>
-          <div class="central-feature">
-            <div class="central-feature-icon"><i class="ph-duotone ph-device-mobile"></i></div>
-            <div>
-              <h4>App móvil integrada</h4>
-              <p>Arma, desarma y recibe notificaciones en tiempo real desde tu celular.</p>
-            </div>
-          </div>
-          <div class="central-feature">
-            <div class="central-feature-icon"><i class="ph-duotone ph-shield-check"></i></div>
-            <div>
-              <h4>Redundancia total</h4>
-              <p>Respaldos de energía y comunicación para que nunca pierdas la protección.</p>
-            </div>
-          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1475,11 +1416,11 @@
         <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
         <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
         <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
-        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
         <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
-        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
+        <div class="cl-logo"><img src="assets/clientes/GOVI2.png?v=2" alt="GOVI"></div>
         <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
-        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
         <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
         <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
         <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
@@ -1490,7 +1431,7 @@
         <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
         <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
         <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
-        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/ST.png" alt="Steren"></div>
         <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
         <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
         <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
@@ -1503,7 +1444,7 @@
         <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
         <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
         <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
-        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
+        <div class="cl-logo"><img src="assets/clientes/PDP.png?v=5" alt="Pizza Deprizza"></div>
         <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
         <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
         <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
@@ -1512,11 +1453,11 @@
         <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
         <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
         <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
-        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
         <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
-        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
+        <div class="cl-logo"><img src="assets/clientes/GOVI2.png?v=2" alt="GOVI"></div>
         <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
-        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
         <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
         <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
         <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
@@ -1527,7 +1468,7 @@
         <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
         <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
         <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
-        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
+        <div class="cl-logo cl-dark"><img src="assets/clientes/ST.png" alt="Steren"></div>
         <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
         <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
         <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
@@ -1540,7 +1481,7 @@
         <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
         <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
         <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
-        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
+        <div class="cl-logo"><img src="assets/clientes/PDP.png?v=5" alt="Pizza Deprizza"></div>
         <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
         <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
         <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
@@ -1567,18 +1508,25 @@
               <p>Gonzalitos 502-B, Col. Vista Hermosa<br>Monterrey, Nuevo León, México</p>
             </div>
           </a>
-          <div class="ubicacion-item">
+          <a class="ubicacion-item ubicacion-link" href="tel:+528183488085">
             <div class="ubicacion-icon"><i class="ph-fill ph-phone"></i></div>
             <div>
-              <h4>Teléfonos</h4>
-              <p><a class="ubicacion-link" href="tel:+528183488085">81 8348 8085</a><br><a class="ubicacion-link" href="https://wa.me/5218120409959" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> 81 2040 9959</a></p>
+              <h4>Teléfono</h4>
+              <p>81 8348 8085</p>
             </div>
-          </div>
+          </a>
+          <a class="ubicacion-item ubicacion-link" href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20alarma." target="_blank" rel="noopener">
+            <div class="ubicacion-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>81 2040 9959</p>
+            </div>
+          </a>
           <div class="ubicacion-item">
             <div class="ubicacion-icon"><i class="ph-fill ph-clock"></i></div>
             <div>
               <h4>Horario</h4>
-              <p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábados: 9:00 am - 2:00 pm</p>
+              <p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábados: 9:00 am - 1:00 pm</p>
             </div>
           </div>
           <div class="ubicacion-item">
@@ -1601,7 +1549,7 @@
       <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
       <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
       <div class="banner-ctas">
-        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
         <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
       </div>
     </div>
@@ -2026,12 +1974,31 @@
       let current = 0;
       let timer = null;
 
+      const img = document.getElementById('misionImg');
+      const wrap = img ? img.closest('.mision-img-wrap') : null;
+      const imgByIndex = ['assets/logotipo-ojo.png', 'assets/fachada-nda.png', 'assets/fachada-nda.png'];
+      // estado inicial (slide 0 = Misión = logo, sin floats)
+      if (img && current === 0) { img.classList.add('is-logo'); if (wrap) wrap.classList.add('no-frame'); }
+
+      function swapImage(newSrc, isLogo) {
+        if (!img) return;
+        if (img.src.endsWith(newSrc.split('/').pop()) && img.classList.contains('is-logo') === isLogo) return;
+        img.style.opacity = '0';
+        setTimeout(() => {
+          img.src = newSrc;
+          img.classList.toggle('is-logo', isLogo);
+          if (wrap) wrap.classList.toggle('no-frame', isLogo);
+          img.style.opacity = '1';
+        }, 220);
+      }
+
       function goTo(idx) {
         slides[current].classList.remove('active');
         dots[current].classList.remove('active');
         current = (idx + slides.length) % slides.length;
         slides[current].classList.add('active');
         dots[current].classList.add('active');
+        if (imgByIndex[current]) swapImage(imgByIndex[current], current === 0);
         startProgress();
       }
 

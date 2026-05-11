@@ -145,11 +145,11 @@
 
     .navbar {
       position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
+      z-index: 1000; width: calc(100% - 60px); max-width: 1240px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 8px 32px;
+      border-radius: 99px; padding: 4px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -162,11 +162,11 @@
       display: flex; align-items: center; justify-content: space-between;
       max-width: none; padding: 0; gap: 8px;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 56px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 44px; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 64px; width: auto; max-width: none; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -176,7 +176,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -209,18 +209,14 @@
     .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
     .nav-dropdown-menu a.active { color: #F8EB01 !important; }
     .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
-    .nav-cta {
-      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
-      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
-      color: #000 !important; background: #F8EB01 !important;
-    }
+    .nav-cta { padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; white-space: nowrap; margin-left: 16px; }
     .nav-cta:hover { color: #000 !important; }
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -260,16 +256,56 @@
     }
     .hero-servicios .container {
       display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
-      align-items: center; position: relative; z-index: 2;
+      align-items: stretch; position: relative; z-index: 2;
     }
     .hero-servicios-badge {
+      position: relative;
       display: inline-flex; align-items: center; gap: var(--space-2);
-      background: rgba(248,235,1,0.08); border: 1px solid rgba(248,235,1,0.15);
-      border-radius: 99px; padding: 5px 14px;
-      font-size: 12px; font-weight: 500; color: #F8EB01;
-      margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(248,235,1,0.18), rgba(248,235,1,0.08));
+      border: 1.5px solid rgba(248,235,1,0.45);
+      border-radius: 99px; padding: 9px 20px;
+      font-size: 13px; font-weight: 800; color: #F8EB01;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      margin-bottom: 22px;
+      box-shadow: 0 0 30px rgba(248,235,1,0.15), inset 0 0 16px rgba(248,235,1,0.05);
+      animation: badgeZapIn 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.4) both, badgeElectric 3.6s ease-in-out 1s infinite;
+      isolation: isolate;
+      overflow: hidden;
     }
-    .hero-servicios-badge i { font-size: 14px; }
+    /* Halo eléctrico que recorre el contorno */
+    .hero-servicios-badge::before {
+      content: ''; position: absolute; inset: -2px; border-radius: 99px;
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(248,235,1,0.9) 12deg, transparent 60deg, transparent 360deg);
+      z-index: -1;
+      animation: badgeArc 2.8s linear infinite;
+      filter: blur(2px);
+    }
+    /* Máscara para que el conic solo se vea como contorno */
+    .hero-servicios-badge::after {
+      content: ''; position: absolute; inset: 1.5px; border-radius: 99px;
+      background: linear-gradient(135deg, #131c33 0%, #0c1530 100%);
+      z-index: -1;
+    }
+    .hero-servicios-badge i { font-size: 16px; position: relative; z-index: 1; }
+    .hero-servicios-badge > * { position: relative; z-index: 1; }
+    @keyframes badgeZapIn {
+      0% { opacity: 0; transform: scale(0.7); filter: brightness(2.5) drop-shadow(0 0 20px #F8EB01); }
+      40% { opacity: 1; transform: scale(1.08); filter: brightness(1.8) drop-shadow(0 0 14px #F8EB01); }
+      55% { transform: scale(0.96); filter: brightness(0.6); }
+      70% { transform: scale(1.04); filter: brightness(1.6) drop-shadow(0 0 10px #F8EB01); }
+      85% { transform: scale(0.98); filter: brightness(0.8); }
+      100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+    }
+    @keyframes badgeElectric {
+      0%, 88%, 100% { box-shadow: 0 0 30px rgba(248,235,1,0.18), inset 0 0 16px rgba(248,235,1,0.05); }
+      90% { box-shadow: 0 0 50px rgba(248,235,1,0.55), inset 0 0 20px rgba(248,235,1,0.2); }
+      92% { box-shadow: 0 0 20px rgba(248,235,1,0.1), inset 0 0 8px rgba(248,235,1,0.02); }
+      94% { box-shadow: 0 0 60px rgba(248,235,1,0.7), inset 0 0 22px rgba(248,235,1,0.25); }
+    }
+    @keyframes badgeArc {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     .hero-servicios h1 {
       font-size: 42px; font-weight: 700; color: #fff;
       line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 14px;
@@ -279,6 +315,52 @@
       font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;
       margin-bottom: 28px; max-width: 460px;
     }
+    .hero-servicios-list {
+      list-style: none; padding: 0;
+      margin: 0 0 28px 0;
+      display: flex; flex-direction: column; gap: 14px;
+      max-width: 480px;
+    }
+    .hsv-chip {
+      display: flex; align-items: center; gap: 14px;
+      width: 100%;
+      padding: 12px 22px 12px 12px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-left: 3px solid var(--hsv-c, #F8EB01);
+      border-radius: 14px;
+      font-size: 16px; font-weight: 500; color: #fff;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(8px);
+      opacity: 0; transform: translateX(-12px);
+      animation: hsvChipIn 0.5s ease forwards;
+    }
+    .hero-servicios-list li:nth-child(1) .hsv-chip { animation-delay: 0.1s; }
+    .hero-servicios-list li:nth-child(2) .hsv-chip { animation-delay: 0.2s; }
+    .hero-servicios-list li:nth-child(3) .hsv-chip { animation-delay: 0.3s; }
+    .hero-servicios-list li:nth-child(4) .hsv-chip { animation-delay: 0.4s; }
+    .hero-servicios-list li:nth-child(5) .hsv-chip { animation-delay: 0.5s; }
+    .hsv-chip:hover {
+      transform: translateX(4px);
+      background: linear-gradient(90deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+      border-color: var(--hsv-c, #F8EB01);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 24px color-mix(in srgb, var(--hsv-c, #F8EB01) 22%, transparent);
+    }
+    .hsv-chip-ic {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--hsv-c, #F8EB01) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--hsv-c, #F8EB01) 35%, transparent);
+      display: inline-flex; align-items: center; justify-content: center;
+      box-shadow: inset 0 0 12px color-mix(in srgb, var(--hsv-c, #F8EB01) 12%, transparent);
+    }
+    .hsv-chip-ic i { font-size: 18px; color: var(--hsv-c, #F8EB01); }
+    @keyframes hsvChipIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
     .hero-servicios-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
     .hero-servicios-ctas .btn {
       border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700;
@@ -287,22 +369,46 @@
       box-shadow: 0 0 30px rgba(248,235,1,0.15);
     }
     .hero-servicios-visual {
-      display: flex; align-items: center; justify-content: center;
-      transform: translateX(-40px);
+      display: flex; align-items: stretch; justify-content: center;
     }
     .hero-servicios-img {
-      width: 100%; max-width: 500px; position: relative;
+      width: 100%; max-width: 560px; position: relative;
       border-radius: var(--radius-xl); overflow: hidden;
       border: 1px solid var(--glass-border);
       box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
     .hero-servicios-img img, .hero-servicios-img video {
-      width: 100%; height: auto; display: block;
+      width: 100%; height: 100%; display: block; object-fit: cover;
     }
     .hero-servicios-img::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       border-radius: var(--radius-xl);
       background: linear-gradient(180deg, transparent 60%, rgba(2,14,28,0.5) 100%);
+    }
+    /* Placeholder mientras no haya video/imagen final */
+    .hero-servicios-placeholder {
+      min-height: 100%;
+      background: linear-gradient(135deg, rgba(5,105,179,0.18) 0%, rgba(2,14,28,0.6) 50%, rgba(248,235,1,0.12) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px;
+      position: relative; overflow: hidden;
+    }
+    .hsv-placeholder-glow {
+      position: absolute; inset: -20%;
+      background: radial-gradient(circle at 50% 50%, rgba(5,105,179,0.25) 0%, transparent 60%);
+      filter: blur(40px); animation: hsvGlow 6s ease-in-out infinite alternate;
+    }
+    @keyframes hsvGlow {
+      0% { transform: translate(-10%, -5%) scale(1); }
+      100% { transform: translate(8%, 4%) scale(1.1); }
+    }
+    .hsv-placeholder-icon {
+      font-size: 80px; color: rgba(255,255,255,0.35); position: relative; z-index: 1;
+      filter: drop-shadow(0 0 30px rgba(5,105,179,0.5));
+    }
+    .hsv-placeholder-text {
+      font-size: 13px; font-weight: 600; letter-spacing: 3px;
+      color: rgba(255,255,255,0.45); text-transform: uppercase; position: relative; z-index: 1;
     }
     .hero-svc-float {
       position: absolute; z-index: 5;
@@ -335,6 +441,7 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
       align-items: center; margin-bottom: var(--space-24);
       position: relative; z-index: 1;
+      scroll-margin-top: 110px;
     }
     .svc-block:last-child { margin-bottom: 0; }
     .svc-block.reverse { direction: rtl; }
@@ -347,22 +454,22 @@
     }
     .svc-block-label i { font-size: 16px; }
     .svc-block h3 {
-      font-size: 32px; font-weight: 700; color: var(--neutral-0);
-      line-height: 1.2; letter-spacing: -0.5px; margin-bottom: var(--space-4);
+      font-size: 40px; font-weight: 700; color: var(--neutral-0);
+      line-height: 1.2; letter-spacing: -0.5px; margin-bottom: var(--space-5);
     }
     .svc-block p {
-      font-size: 16px; color: var(--neutral-400); line-height: 1.7;
-      margin-bottom: var(--space-6); max-width: 480px;
+      font-size: 18px; color: var(--neutral-300); line-height: 1.7;
+      margin-bottom: var(--space-6); max-width: 520px;
     }
     .svc-features {
-      display: flex; flex-direction: column; gap: var(--space-3);
+      display: flex; flex-direction: column; gap: var(--space-4);
       margin-bottom: var(--space-8);
     }
     .svc-feature {
       display: flex; align-items: center; gap: var(--space-3);
-      font-size: 15px; color: var(--neutral-200); font-weight: 500;
+      font-size: 18px; color: #fff; font-weight: 500;
     }
-    .svc-feature i { font-size: 18px; color: var(--success); flex-shrink: 0; }
+    .svc-feature i { font-size: 22px; color: var(--success); flex-shrink: 0; }
     .svc-block-visual {
       display: flex; align-items: center; justify-content: center;
     }
@@ -704,7 +811,7 @@
         font-size: 15px !important;
       }
       .nav-dropdown-trigger {
-        font-size: 15px !important;
+        font-size: 17px !important;
         width: 100%;
         text-align: left;
       }
@@ -853,7 +960,7 @@
         <a href="nosotros.html">Nosotros</a>
         <a href="contacto.html">Contacto</a>
         
-        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -872,23 +979,20 @@
     <div class="container">
       <div class="hero-servicios-content">
         <div class="hero-servicios-badge"><i class="ph-fill ph-wrench"></i> Servicio integral</div>
-        <h1>Todo lo que necesitas para <span class="highlight">tu seguridad</span></h1>
-        <p class="hero-servicios-text">Monitoreo 24/7, soporte técnico el mismo día, app móvil, instalación profesional y asesoría personalizada. Todo respaldado por más de 30 años de experiencia.</p>
-        <div class="hero-servicios-ctas">
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
-        </div>
+        <h1>Lo que necesitas para <span class="highlight">tu seguridad</span></h1>
+        <ul class="hero-servicios-list">
+          <li><a class="hsv-chip" href="#monitoreo" style="--hsv-c: #2da0e8;"><span class="hsv-chip-ic"><i class="ph-fill ph-headset"></i></span> Monitoreo</a></li>
+          <li><a class="hsv-chip" href="#instalacion" style="--hsv-c: #F8EB01;"><span class="hsv-chip-ic"><i class="ph-fill ph-gear-six"></i></span> Instalaciones</a></li>
+          <li><a class="hsv-chip" href="#servicio-tecnico" style="--hsv-c: #22c55e;"><span class="hsv-chip-ic"><i class="ph-fill ph-wrench"></i></span> Servicio Técnico</a></li>
+          <li><a class="hsv-chip" href="#soporte-app" style="--hsv-c: #EF4444;"><span class="hsv-chip-ic"><i class="ph-fill ph-device-mobile"></i></span> Soporte de App</a></li>
+          <li><a class="hsv-chip" href="#asesoria" style="--hsv-c: #C084FC;"><span class="hsv-chip-ic"><i class="ph-fill ph-shield-check"></i></span> Asesoría en seguridad</a></li>
+        </ul>
       </div>
       <div class="hero-servicios-visual">
-        <div class="hero-servicios-img" id="heroSvcVideoWrap" style="position:relative;">
-          <video autoplay muted loop playsinline
-            style="width:100%;height:auto;display:block;object-fit:cover;">
-            <source src="assets/smart_hybrid_sm_9cd8d4dc9b.mp4" type="video/mp4">
-          </video>
-          <!-- Overlay de apagado — se retira cuando los cables conectan -->
-          <div class="hero-svc-poweroff" id="heroSvcPowerOff">
-            <i class="ph-duotone ph-power hero-svc-power-icon"></i>
-          </div>
+        <div class="hero-servicios-img hero-servicios-placeholder">
+          <div class="hsv-placeholder-glow"></div>
+          <i class="ph-duotone ph-shield-check hsv-placeholder-icon"></i>
+          <span class="hsv-placeholder-text">Próximamente</span>
         </div>
       </div>
     </div>
@@ -924,119 +1028,38 @@
   <section class="servicios-detail" id="servicios">
     <div class="servicios-detail-glow"></div>
     <div class="container">
-      <div class="section-label">Nuestros servicios</div>
-      <h2 class="section-title">Respaldados por <span class="highlight">+30 años</span> de experiencia</h2>
-      <p class="section-desc">Cada servicio está diseñado para que tú solo te preocupes por lo importante: tu tranquilidad.</p>
 
       <!-- MONITOREO 24/7 -->
-      <div class="svc-block reveal">
+      <div class="svc-block reveal" id="monitoreo">
         <div class="svc-block-content">
-          <div class="svc-block-label"><i class="ph-fill ph-headset"></i> Servicio principal</div>
           <h3>Monitoreo <span class="highlight">24/7</span></h3>
-          <p>Central de monitoreo propia en Monterrey con operadores capacitados que vigilan tu propiedad las 24 horas del día, los 365 días del año. Respuesta inmediata ante cualquier evento.</p>
           <div class="svc-features">
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Central de monitoreo propia en Monterrey</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Operadores capacitados 24/7/365</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Respuesta inmediata ante eventos</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Conexión con autoridades locales</div>
           </div>
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza tu monitoreo</a>
         </div>
         <div class="svc-block-visual" style="position:relative;">
           <div class="svc-visual-card">
             <div class="svc-visual-inner" style="padding:0;">
-              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                <source src="assets/alarm_es_b2b5a20d43.mp4" type="video/mp4">
-              </video>
+              <img src="assets/central-seg.jpg" alt="Central de monitoreo Nacional de Alarmas" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+              <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg, rgba(2,14,28,0.85) 0%, rgba(2,14,28,0.45) 40%, rgba(2,14,28,0.1) 75%, rgba(2,14,28,0) 100%);"></div>
             </div>
-          </div>
-          <!-- Floats fuera del box, con animación de alerta → central -->
-          <div class="svc-visual-float" id="monFloatAlerta" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;transition:background 0.4s, border-color 0.4s, box-shadow 0.4s;">
-            <i class="ph-fill ph-pulse" id="monFloatAlertaIcon" style="color:var(--success);transition:color 0.3s;"></i>
-            <span id="monFloatAlertaText">En línea 24/7</span>
-          </div>
-          <div class="svc-visual-float" id="monFloatCentral" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;transition:background 0.4s, border-color 0.4s, box-shadow 0.4s;">
-            <i class="ph-fill ph-headset" id="monFloatCentralIcon" style="color:var(--nda-blue-300);transition:color 0.3s;"></i>
-            <span id="monFloatCentralText">Central NDA</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SOPORTE TÉCNICO -->
-      <div class="svc-block reverse reveal">
-        <div class="svc-block-content">
-          <div class="svc-block-label"><i class="ph-fill ph-wrench"></i> Soporte técnico</div>
-          <h3>Servicio técnico <span class="highlight-blue">mismo día</span></h3>
-          <p>Técnicos certificados con atención el mismo día, máximo 48 horas. Realizamos mantenimiento correctivo y preventivo para que tu sistema siempre funcione al 100%.</p>
-          <div class="svc-features">
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Atención el mismo día (máx. 48 hrs)</div>
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Técnicos certificados</div>
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento correctivo</div>
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento preventivo (en implementación)</div>
-          </div>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20necesito%20soporte%20técnico%20para%20mi%20alarma." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar soporte</a>
-        </div>
-        <div class="svc-block-visual" style="position:relative;">
-          <div class="svc-visual-card">
-            <div class="svc-visual-inner" style="padding:0;">
-              <img src="assets/servicio-mismo-dia.jpg" alt="Servicio técnico mismo día" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-            </div>
-          </div>
-          <!-- Floats fuera del box con animación -->
-          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
-            <i class="ph-fill ph-clock" style="color:var(--nda-yellow-400);"></i> Mismo día
-          </div>
-          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
-            <i class="ph-fill ph-seal-check" style="color:var(--success);"></i> Certificados
-          </div>
-        </div>
-      </div>
-
-      <!-- APP MÓVIL -->
-      <div class="svc-block reveal">
-        <div class="svc-block-content">
-          <div class="svc-block-label"><i class="ph-fill ph-device-mobile"></i> Control remoto</div>
-          <h3>App móvil con <span class="highlight">soporte dedicado</span></h3>
-          <p>Controla tu sistema de alarma desde tu celular. Arma, desarma y recibe notificaciones en tiempo real. Nuestro equipo de soporte de app te ayuda con cualquier configuración.</p>
-          <div class="svc-features">
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Arma y desarma desde tu celular</div>
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Notificaciones en tiempo real</div>
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Historial de eventos</div>
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Personal dedicado de soporte</div>
-          </div>
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Quiero la app</a>
-        </div>
-        <div class="svc-block-visual" style="position:relative;">
-          <div class="svc-visual-card">
-            <div class="svc-visual-inner" style="padding:0;">
-              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                <source src="assets/event_notifications_b320a634f1.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <!-- Floats fuera del box con animación -->
-          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
-            <i class="ph-fill ph-bell-ringing" style="color:var(--warning);"></i> Alertas en vivo
-          </div>
-          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
-            <i class="ph-fill ph-device-mobile" style="color:var(--nda-blue-300);"></i> iOS & Android
           </div>
         </div>
       </div>
 
       <!-- INSTALACIÓN PROFESIONAL -->
-      <div class="svc-block reverse reveal">
+      <div class="svc-block reverse reveal" id="instalacion">
         <div class="svc-block-content">
-          <div class="svc-block-label"><i class="ph-fill ph-gear-six"></i> Instalación</div>
           <h3>Instalación <span class="highlight-blue">profesional</span></h3>
           <p>Nuestros técnicos certificados instalan y configuran tu sistema completo. Todo queda funcionando desde el día uno sin que tú tengas que hacer nada.</p>
           <div class="svc-features">
-            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Instalación incluida en tu plan</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Configuración completa del sistema</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Pruebas de funcionamiento</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Capacitación de uso al cliente</div>
           </div>
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Agenda tu instalación</a>
         </div>
         <div class="svc-block-visual" style="position:relative;">
           <div class="svc-visual-card">
@@ -1044,19 +1067,52 @@
               <img src="assets/instalacion-profesional.jpg" alt="Instalación profesional" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
             </div>
           </div>
-          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
-            <i class="ph-fill ph-check-circle" style="color:var(--success);"></i> Incluida
+        </div>
+      </div>
+
+      <!-- SOPORTE TÉCNICO -->
+      <div class="svc-block reveal" id="servicio-tecnico">
+        <div class="svc-block-content">
+          <h3>Servicio técnico <span class="highlight-blue">mismo día</span></h3>
+          <p>Técnicos certificados con atención el mismo día, máximo 48 horas. Realizamos mantenimiento correctivo y preventivo para que tu sistema siempre funcione al 100%.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Técnicos certificados</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento correctivo</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Mantenimiento preventivo (en implementación)</div>
           </div>
-          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
-            <i class="ph-fill ph-user-circle-gear" style="color:var(--nda-yellow-400);"></i> Técnico certificado
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <img src="assets/servicio-mismo-dia.jpg" alt="Servicio técnico mismo día" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- APP MÓVIL -->
+      <div class="svc-block reverse reveal" id="soporte-app">
+        <div class="svc-block-content">
+          <h3>Soporte de <span class="highlight">App Móvil</span></h3>
+          <p>Controla tu sistema de alarma desde tu celular. Arma, desarma y recibe notificaciones en tiempo real. Nuestro equipo de soporte de app te ayuda con cualquier configuración.</p>
+          <div class="svc-features">
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Arma y desarma desde tu celular</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Notificaciones en tiempo real</div>
+            <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Historial de eventos</div>
+          </div>
+        </div>
+        <div class="svc-block-visual" style="position:relative;">
+          <div class="svc-visual-card">
+            <div class="svc-visual-inner" style="padding:0;">
+              <img src="assets/soporte-app.jpg" alt="Soporte de App Móvil" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            </div>
           </div>
         </div>
       </div>
 
       <!-- ASESORÍA -->
-      <div class="svc-block reveal">
+      <div class="svc-block reveal" id="asesoria">
         <div class="svc-block-content">
-          <div class="svc-block-label"><i class="ph-fill ph-chats-circle"></i> Asesoría</div>
           <h3>Asesoría <span class="highlight">personalizada</span></h3>
           <p>Te ayudamos a elegir el sistema ideal para tu propiedad. Evaluamos tus necesidades y diseñamos la solución perfecta, sin compromisos.</p>
           <div class="svc-features">
@@ -1065,121 +1121,12 @@
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Sin compromisos</div>
             <div class="svc-feature"><i class="ph-fill ph-check-circle"></i> Atención presencial o remota</div>
           </div>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20quiero%20una%20asesoría%20de%20seguridad%20para%20mi%20propiedad." class="btn btn-outline" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Solicitar asesoría</a>
         </div>
         <div class="svc-block-visual" style="position:relative;">
           <div class="svc-visual-card">
             <div class="svc-visual-inner" style="padding:0;">
-              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"><source src="assets/dp_p_dialogue_sm_66fabb61bb.mp4" type="video/mp4"></video>
+              <img src="assets/asesoria-nacional.jpg" alt="Asesoría personalizada Nacional de Alarmas" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
             </div>
-          </div>
-          <div class="svc-visual-float" style="position:absolute;top:-12px;right:-18px;z-index:5;animation:float 3s ease-in-out infinite;">
-            <i class="ph-fill ph-hand-waving" style="color:var(--nda-yellow-400);"></i> Gratis
-          </div>
-          <div class="svc-visual-float" style="position:absolute;bottom:-12px;left:-18px;z-index:5;animation:float 3s ease-in-out infinite 1.5s;">
-            <i class="ph-fill ph-map-pin" style="color:var(--nda-blue-300);"></i> Presencial o remota
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 03. COMPARADOR NDA vs OTROS ===== -->
-  <section class="comparador reveal" id="comparador">
-    <div class="comparador-glow"></div>
-    <div class="container">
-      <div class="section-label">Por qué elegirnos</div>
-      <h2 class="section-title">Nacional de Alarmas <span class="highlight">vs la competencia</span></h2>
-      <p class="section-desc">Comparamos nuestro servicio con la oferta típica del mercado en Monterrey.</p>
-
-      <div class="comp-layout">
-        <div class="comp-left">
-          <!-- Toggle -->
-          <div class="comp-toggle-wrap">
-            <div class="comp-toggle" id="compToggle">
-              <div class="comp-toggle-slider nda" id="compSlider"></div>
-              <div class="comp-toggle-btn active" id="compBtnNda" data-target="nda">Nacional de Alarmas</div>
-              <div class="comp-toggle-btn" id="compBtnOtros" data-target="otros">Otras empresas</div>
-            </div>
-          </div>
-
-          <!-- Listas -->
-          <div class="comp-list-wrap">
-        <!-- NDA -->
-        <div class="comp-list nda-list visible" id="compListNda">
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-broadcast"></i></div>
-            <div class="comp-item-text"><h4>Central de monitoreo propia</h4><p>Operamos desde Monterrey, 24/7, sin intermediarios ni tercerizaciones.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-wrench"></i></div>
-            <div class="comp-item-text"><h4>Soporte técnico mismo día</h4><p>Técnicos certificados que llegan el mismo día que nos contactas.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-trophy"></i></div>
-            <div class="comp-item-text"><h4>+30 años de experiencia</h4><p>Desde 1995 protegiendo hogares y negocios en Monterrey.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-device-mobile"></i></div>
-            <div class="comp-item-text"><h4>App móvil con soporte dedicado</h4><p>Personal dedicado para ayudarte con cualquier configuración de la app.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-gear-six"></i></div>
-            <div class="comp-item-text"><h4>Instalación profesional incluida</h4><p>Tu sistema queda funcionando desde el día uno, sin costo extra.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-package"></i></div>
-            <div class="comp-item-text"><h4>Marcas premium (Ajax, Honeywell)</h4><p>Elegimos la mejor tecnología para tu propiedad, sin atarte a una sola marca.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-handshake"></i></div>
-            <div class="comp-item-text"><h4>Sin permanencia obligatoria</h4><p>Te quedas porque quieres, no porque te obligan.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon good"><i class="ph-fill ph-chats-circle"></i></div>
-            <div class="comp-item-text"><h4>Asesoría personalizada gratuita</h4><p>Evaluamos tus necesidades y diseñamos la solución perfecta, sin compromiso.</p></div>
-          </div>
-        </div>
-        <!-- Otros -->
-        <div class="comp-list otros-list" id="compListOtros">
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-map-pin-line"></i></div>
-            <div class="comp-item-text"><h4>Central tercerizada</h4><p>Monitoreo desde otra ciudad, sin conocimiento local ni respuesta rápida.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-clock"></i></div>
-            <div class="comp-item-text"><h4>Soporte en 3 a 7 días</h4><p>Técnicos foráneos con tiempos largos de espera para cualquier falla.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-globe-simple"></i></div>
-            <div class="comp-item-text"><h4>Multinacional sin raíces</h4><p>Sin presencia ni compromiso local real con tu comunidad.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-x-circle"></i></div>
-            <div class="comp-item-text"><h4>App sin soporte</h4><p>Te dan la app pero te las arreglas solo si algo no funciona.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-warning"></i></div>
-            <div class="comp-item-text"><h4>Instalación con costo extra</h4><p>Te cobran la instalación por separado, elevando el costo total.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-lock"></i></div>
-            <div class="comp-item-text"><h4>Solo su propia marca</h4><p>Te obligan a usar su equipo sin alternativas ni comparación.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-lock-key"></i></div>
-            <div class="comp-item-text"><h4>Permanencia de 12 a 36 meses</h4><p>Contratos largos que te atan aunque no estés satisfecho.</p></div>
-          </div>
-          <div class="comp-item">
-            <div class="comp-item-icon bad"><i class="ph-fill ph-prohibit"></i></div>
-            <div class="comp-item-text"><h4>Sin asesoría personalizada</h4><p>Te venden un paquete genérico sin evaluar lo que realmente necesitas.</p></div>
-          </div>
-        </div>
-          </div>
-        </div>
-        <div class="comp-right">
-          <div class="comp-image-wrap">
-            <div class="comp-image" id="compImage"></div>
           </div>
         </div>
       </div>
@@ -1194,7 +1141,7 @@
       <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
       <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
       <div class="banner-ctas">
-        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis</a>
         <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
       </div>
     </div>

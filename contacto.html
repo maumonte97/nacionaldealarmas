@@ -140,11 +140,11 @@
     /* ===== NAVBAR ===== */
     .navbar {
       position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
+      z-index: 1000; width: calc(100% - 60px); max-width: 1240px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 8px 32px;
+      border-radius: 99px; padding: 4px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -157,12 +157,12 @@
       display: flex; align-items: center; justify-content: space-between;
       max-width: none; padding: 0; gap: 8px;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 56px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 56px; }
-    .nav-links { display: flex; align-items: center; gap: 44px; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 64px; width: auto; max-width: none; }
+    .navbar.scrolled .nav-logo img { height: 64px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -172,7 +172,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -205,18 +205,14 @@
     .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07); color: #fff !important; }
     .nav-dropdown-menu a.active { color: #F8EB01 !important; }
     .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
-    .nav-cta {
-      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
-      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
-      color: #000 !important; background: #F8EB01 !important;
-    }
+    .nav-cta { padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; white-space: nowrap; margin-left: 16px; }
     .nav-cta:hover { color: #000 !important; }
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
     .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
@@ -568,7 +564,7 @@
         font-size: 15px !important;
       }
       .nav-dropdown-trigger {
-        font-size: 15px !important;
+        font-size: 17px !important;
         width: 100%;
         text-align: left;
       }
@@ -668,6 +664,93 @@
       .footer-grid { grid-template-columns: 1fr; }
       .form-card { padding: var(--space-4); }
     }
+
+    /* ===== CONTACTO (versión home) — estilos copiados de index.html ===== */
+    .contacto { padding: 140px 0 var(--space-24); }
+    .contacto .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; }
+    .contacto .form-group { margin-bottom: var(--space-5); }
+    .contacto .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--neutral-300); margin-bottom: var(--space-2); }
+    .contacto .form-group input, .contacto .form-group select, .contacto .form-group textarea {
+      width: 100%; padding: 14px var(--space-4); background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      color: var(--neutral-0); font-size: 15px; transition: border-color 0.3s;
+      font-family: inherit;
+    }
+    .contacto .form-group input:focus, .contacto .form-group select:focus, .contacto .form-group textarea:focus { border-color: var(--nda-blue-400); outline: none; }
+    .contacto .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
+    }
+    .contacto .form-group select option { background: var(--nda-dark-800); color: var(--neutral-0); }
+    .contacto .form-group textarea { resize: vertical; min-height: 100px; }
+    /* Form success state */
+    .contacto .form-success {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: var(--space-12) var(--space-8);
+      min-height: 400px;
+      animation: ctcFormFadeIn 0.5s ease;
+    }
+    .contacto .form-success.visible { display: flex; }
+    .form-success-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(34, 197, 94, 0.12); border: 2px solid rgba(34, 197, 94, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--space-6);
+      animation: ctcFormPulse 2s ease-in-out infinite;
+    }
+    .form-success-icon i { font-size: 36px; color: var(--success); }
+    .contacto .form-success h3 { font-size: 24px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-2); }
+    .contacto .form-success p { font-size: 15px; color: var(--neutral-400); line-height: 1.7; max-width: 380px; margin-bottom: var(--space-8); }
+    .form-success-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+    .form-success-actions .btn { font-size: 14px; padding: 12px 24px; }
+    @keyframes ctcFormFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ctcFormPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.15); } 50% { box-shadow: 0 0 0 16px rgba(34, 197, 94, 0); } }
+    .contacto-info { display: flex; flex-direction: column; gap: var(--space-8); }
+    .contacto-info > div h3 { font-size: 24px; font-weight: 700; color: var(--neutral-0); margin-bottom: var(--space-4); }
+    .contacto-info-item { display: flex; align-items: flex-start; gap: var(--space-4); }
+    .info-icon {
+      width: 44px; height: 44px; min-width: 44px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .info-icon i { font-size: 20px; color: var(--nda-blue-300); }
+    .contacto-info-item h4 { font-size: 14px; font-weight: 600; color: var(--neutral-0); margin-bottom: 2px; }
+    .contacto-info-item p { font-size: 14px; color: var(--neutral-400); }
+
+    @media (max-width: 768px) {
+      .contacto .contacto-grid { grid-template-columns: 1fr; }
+      .contacto-info { display: none !important; }
+      .contacto-flip-btn {
+        display: inline-flex !important;
+        align-items: center; justify-content: center; gap: 6px;
+        width: 100%; margin-top: 8px;
+        padding: 0;
+        background: none; border: none;
+        color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 500;
+        cursor: pointer; text-decoration: none;
+      }
+    }
+
+    /* ===== Overrides: tipografía blanca al 100% y un poco más grande ===== */
+    .contacto .section-title { color: #fff; opacity: 1; }
+    .contacto .section-desc { color: #fff !important; opacity: 1; font-size: 18px; }
+    .contacto .form-group label { color: #fff !important; opacity: 1; font-size: 16px; font-weight: 700; }
+    .contacto .form-group input,
+    .contacto .form-group select,
+    .contacto .form-group textarea {
+      color: #fff !important; opacity: 1; font-size: 18px; font-weight: 600;
+      padding: 16px var(--space-4);
+    }
+    .contacto .form-group input::placeholder,
+    .contacto .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.55); font-weight: 500;
+    }
+    .contacto-info > div > h3 { color: #fff !important; opacity: 1; font-size: 26px; }
+    .contacto-info > div > p { color: #fff !important; opacity: 1; font-size: 16px; }
+    .contacto-info-item h4 { color: #fff !important; opacity: 1; font-size: 16px; }
+    .contacto-info-item p { color: #fff !important; opacity: 1; font-size: 16px; }
+    .contacto-info-item p a { color: #fff !important; }
   </style>
 </head>
 <body>
@@ -697,7 +780,7 @@
         <a href="servicios.html">Servicios</a>
         <a href="nosotros.html">Nosotros</a>
         <a href="contacto.html" class="active">Contacto</a>
-        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -709,115 +792,60 @@
     </div>
   </nav>
 
-  <!-- ===== 01. HERO ===== -->
-  <section class="hero-contacto" id="hero">
-    <div class="hero-contacto-bg"></div>
-    <canvas class="hero-circuits" id="heroCircuitsCanvas"></canvas>
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
-    <div class="hero-glow-3"></div>
+  <!-- ===== CONTACTO (versión home) ===== -->
+  <section class="contacto reveal" id="contacto">
     <div class="container">
-      <div class="hero-contacto-content reveal">
-        <div class="hero-badge">
-          <i class="ph-fill ph-chat-circle-dots"></i>
-          Estamos para ayudarte
+      <h2 class="section-title">Solicita tu <span class="highlight">cotización</span></h2>
+      <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo <span class="highlight">en menos de 2 horas.</span></p>
+      <div class="contacto-grid">
+        <div id="contactoFormWrap">
+          <form id="contactoForm">
+            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678" required pattern="[0-9\s]{10,15}" title="Solo números (10 dígitos)" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9\s]/g, '')"></div>
+            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. nombre@gmail.com)"></div>
+            <div class="form-group"><label for="tipo">Tipo de propiedad</label><select id="tipo"><option value="" disabled selected>Selecciona una opción</option><option>Casa</option><option>Departamento</option><option>Negocio / Comercio</option><option>Nave industrial / Bodega</option><option>Otro</option></select></div>
+            <div class="form-group"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
+            <button type="button" class="contacto-flip-btn" id="contactoFlipBtn" style="display:none;">
+              <i class="ph-fill ph-info"></i> Ver información de contacto
+            </button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
+            <h3>Mensaje enviado</h3>
+            <p>Gracias por contactarnos. Un asesor se comunicará contigo en menos de 2 horas.</p>
+            <div class="form-success-actions">
+              <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
+              <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
+            </div>
+          </div>
         </div>
-        <h1>Contáctanos,<br><span class="highlight">respondemos rápido</span></h1>
-        <p>Cuéntanos qué necesitas proteger y te preparamos una propuesta a la medida. Sin compromiso.</p>
+        <div class="contacto-info">
+          <div>
+            <h3>Información de contacto</h3>
+            <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
+          </div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2040 9959</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábado: 9:00 am - 1:00 pm</p></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 02. FORMULARIO + INFO ===== -->
-  <section class="contacto-main">
-    <div class="container">
-      <div class="contacto-grid">
-
-        <!-- Columna izquierda: formulario -->
-        <div class="form-card reveal">
-          <h2>Envíanos un mensaje</h2>
-          <p class="form-desc">Responderemos en menos de 2 horas en horario hábil.</p>
-
-          <!-- Mensaje de éxito (oculto por defecto) -->
-          <div class="form-success" id="formSuccess">
-            <i class="ph-fill ph-check-circle"></i>
-            <h3>¡Mensaje enviado!</h3>
-            <p>Gracias, nos pondremos en contacto contigo muy pronto.<br>También puedes escribirnos por WhatsApp si necesitas respuesta inmediata.</p>
-          </div>
-
-          <form id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nombre">Nombre <span class="req">*</span></label>
-                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre" required>
-              </div>
-              <div class="form-group">
-                <label for="empresa">Empresa <span style="color:var(--neutral-600);font-weight:400;">(opcional)</span></label>
-                <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Nombre de empresa">
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="telefono">Teléfono <span class="req">*</span></label>
-                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="81 0000 0000" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="correo@ejemplo.com">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>¿Qué quieres proteger? <span class="req">*</span></label>
-              <div class="tipo-chips" id="tipoChips">
-                <button type="button" class="tipo-chip" data-value="residencial">
-                  <i class="ph-bold ph-house"></i> Casa / Departamento
-                </button>
-                <button type="button" class="tipo-chip" data-value="comercial">
-                  <i class="ph-bold ph-storefront"></i> Negocio / Oficina
-                </button>
-                <button type="button" class="tipo-chip" data-value="industrial">
-                  <i class="ph-bold ph-factory"></i> Bodega / Industria
-                </button>
-                <button type="button" class="tipo-chip" data-value="cctv">
-                  <i class="ph-bold ph-video-camera"></i> Cámaras / CCTV
-                </button>
-              </div>
-              <input type="hidden" name="tipo_propiedad" id="tipoInput" required>
-            </div>
-
-            <div class="form-group">
-              <label for="mensaje">Mensaje <span style="color:var(--neutral-600);font-weight:400;">(opcional)</span></label>
-              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Cuéntanos sobre tu propiedad, zonas a cubrir, si tienes sistema actual..."></textarea>
-            </div>
-
-            <div class="form-submit">
-              <button type="submit" class="btn-submit">
-                <i class="ph-bold ph-paper-plane-tilt"></i> Enviar mensaje
-              </button>
-            </div>
-            <p class="form-privacy">Al enviar aceptas nuestro <a href="privacidad.html" target="_blank">aviso de privacidad</a>. No spam.</p>
-          </form>
-        </div>
-
-        <!-- Botón ver info (solo móvil) -->
-        <button class="contacto-info-btn" id="contactoFlipBtn">
-          <i class="ph-fill ph-address-book"></i> Ver información de contacto
-        </button>
-
-  <!-- Overlay card con flip (solo móvil) -->
+  <!-- Contacto card overlay (móvil) -->
   <div class="contacto-card-overlay" id="contactoOverlay">
     <div class="contacto-card">
       <button class="contacto-card-close" id="contactoClose">&times;</button>
       <h3>Información de contacto</h3>
       <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
-        <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." target="_blank" rel="noopener">81 2040 9959</a></p></div>
-      </div>
-      <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-phone"></i></div>
         <div class="cc-text"><h4>Teléfono</h4><p><a href="tel:+528183488085">81 8348 8085</a></p></div>
+      </div>
+      <div class="cc-item">
+        <div class="cc-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
+        <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959" target="_blank" rel="noopener">81 2040 9959</a></p></div>
       </div>
       <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-map-pin"></i></div>
@@ -825,93 +853,10 @@
       </div>
       <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-clock"></i></div>
-        <div class="cc-text"><h4>Horario</h4><p>Lun-Vie: 9:00 — 18:00<br>Sáb: 9:00 — 14:00</p></div>
+        <div class="cc-text"><h4>Horario</h4><p>Lun-Vie: 9:00 am - 6:00 pm<br>Sáb: 9:00 am - 1:00 pm</p></div>
       </div>
     </div>
   </div>
-
-        <!-- Columna derecha: info + mapa -->
-        <div class="info-panel">
-
-          <!-- Card única de información -->
-          <div class="contact-info-card reveal">
-
-            <p class="info-section-title">Teléfonos y WhatsApp</p>
-
-            <div class="contact-item">
-              <div class="contact-item-icon green">
-                <i class="ph-fill ph-whatsapp-logo"></i>
-              </div>
-              <div class="contact-item-body">
-                <div class="contact-item-label">WhatsApp</div>
-                <div class="contact-item-value">
-                  <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." target="_blank" rel="noopener">81 2040 9959</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-item-icon blue">
-                <i class="ph-bold ph-phone"></i>
-              </div>
-              <div class="contact-item-body">
-                <div class="contact-item-label">Teléfono</div>
-                <div class="contact-item-value">
-                  <a href="tel:+528183488085">81 8348 8085</a>
-                </div>
-              </div>
-            </div>
-
-            <p class="info-section-title">Horario y Monitoreo</p>
-
-            <div class="contact-item">
-              <div class="contact-item-icon blue">
-                <i class="ph-fill ph-clock"></i>
-              </div>
-              <div class="contact-item-body">
-                <div class="contact-item-label">Atención comercial</div>
-                <div class="contact-item-value">Lunes a Viernes &nbsp;9:00 am – 6:00 pm</div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-item-icon green">
-                <i class="ph-fill ph-shield-check"></i>
-              </div>
-              <div class="contact-item-body">
-                <div class="contact-item-label">Central de Monitoreo</div>
-                <div class="contact-item-value">24 horas · 7 días · 365 días</div>
-                <div class="contact-item-note">Monitoreo propio, siempre activo</div>
-              </div>
-            </div>
-
-            <p class="info-section-title">Dirección</p>
-
-            <div class="contact-item">
-              <div class="contact-item-icon yellow">
-                <i class="ph-fill ph-map-pin"></i>
-              </div>
-              <div class="contact-item-body">
-                <div class="contact-item-label">Oficina</div>
-                <div class="contact-item-value">
-                  <a href="https://www.google.com/maps/search/?api=1&query=Gonzalitos+502-B+Col.+Vista+Hermosa+Monterrey+Nuevo+Leon+Mexico" target="_blank" rel="noopener">
-                    Gonzalitos 502-B, Col. Vista Hermosa<br>Monterrey, Nuevo León, México
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <iframe id="map" src="https://www.google.com/maps?q=Nacional+de+Alarmas+Gonzalitos+502-B+Vista+Hermosa+Monterrey&hl=es&output=embed" allowfullscreen="" loading="lazy" style="width:100%;"></iframe>
-
-          </div>
-
-
-        </div>
-        <!-- /info-panel -->
-
-      </div>
-    </div>
-  </section>
 
   <!-- ===== FOOTER ===== -->
   <!-- ===== FOOTER ===== -->
@@ -1020,44 +965,27 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
 
-    /* --- Tipo chips --- */
-    const chips = document.querySelectorAll('.tipo-chip');
-    const tipoInput = document.getElementById('tipoInput');
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('selected'));
-        chip.classList.add('selected');
-        tipoInput.value = chip.dataset.value;
+    /* --- Contact form success state (versión home) --- */
+    (function() {
+      const form = document.getElementById('contactoForm');
+      const success = document.getElementById('formSuccess');
+      const resetBtn = document.getElementById('formReset');
+      if (!form || !success) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        success.classList.add('visible');
       });
-    });
 
-    /* --- Formulario submit --- */
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nombre = form.nombre.value.trim();
-      const telefono = form.telefono.value.trim();
-      const tipo = tipoInput.value;
-      if (!nombre || !telefono || !tipo) {
-        // Marcar campos faltantes
-        if (!nombre) form.nombre.style.borderColor = 'var(--error)';
-        if (!telefono) form.telefono.style.borderColor = 'var(--error)';
-        if (!tipo) {
-          document.getElementById('tipoChips').style.outline = '1px solid var(--error)';
-          document.getElementById('tipoChips').style.borderRadius = '8px';
-        }
-        return;
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          success.classList.remove('visible');
+          form.style.display = '';
+          form.reset();
+        });
       }
-      // Simulación de envío exitoso (reemplazar con fetch a endpoint real)
-      form.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    });
-
-    // Limpiar estilos de error al escribir
-    ['nombre','telefono','email'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('input', () => el.style.borderColor = '');
-    });
+    })();
 
     /* --- Circuit connections background --- */
     function initCircuits(canvasId, excludeSel) {

@@ -152,11 +152,11 @@
     /* Navbar — pill glass (Design System spec) */
     .navbar {
       position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
+      z-index: 1000; width: calc(100% - 60px); max-width: 1240px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 8px 32px;
+      border-radius: 99px; padding: 4px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -169,11 +169,11 @@
       display: flex; align-items: center; justify-content: space-between;
       max-width: none; padding: 0; gap: 8px;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 56px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 44px; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 64px; width: auto; max-width: none; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -183,7 +183,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -217,9 +217,10 @@
     .nav-dropdown-menu a.active { color: #F8EB01 !important; }
     .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
     .nav-cta {
-      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
+      padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important;
       border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
       color: #000 !important; background: #F8EB01 !important;
+      white-space: nowrap; margin-left: 16px;
     }
     .nav-cta:hover { color: #000 !important; }
 
@@ -227,9 +228,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -299,9 +300,9 @@
     }
     .hero-badge i { font-size: 14px; }
     .hero h1 {
-      font-size: 42px; font-weight: 700; color: #fff;
-      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 14px;
-      max-width: 550px;
+      font-size: 44px; font-weight: 700; color: #fff;
+      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 36px;
+      max-width: 600px;
     }
     .hero-text {
       font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;
@@ -323,7 +324,18 @@
     .hero-trust i { color: var(--nda-yellow-400); font-size: 14px; }
 
     /* Hero visual — video */
-    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-visual { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; transform: translateY(-40px); }
+    .hero-trust-stat {
+      display: inline-flex; align-items: center; gap: var(--space-3);
+      background: rgba(7, 26, 46, 0.8);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      font-size: 15px; font-weight: 600; color: #fff;
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero-trust-stat strong { color: #F8EB01; font-weight: 800; font-size: 17px; letter-spacing: 0.2px; }
+    .hero-trust-stat i { font-size: 26px; color: #F8EB01; }
     .hero-comp {
       position: relative; width: 100%; max-width: 520px;
     }
@@ -356,18 +368,38 @@
       position: absolute; background: rgba(7, 26, 46, 0.8);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
-      padding: var(--space-4) var(--space-5); display: flex; align-items: center;
+      padding: var(--space-5) var(--space-6); display: flex; align-items: center;
       gap: var(--space-3); z-index: 5; animation: float 3s ease-in-out infinite;
     }
-    .hero-float i { font-size: 22px; }
-    .hero-float .hf-text { font-size: 13px; font-weight: 600; color: var(--neutral-200); }
-    .hero-float .hf-sub { font-size: 11px; color: var(--neutral-500); font-weight: 400; }
-    .hero-float-1 { top: 10%; right: -20px; }
+    .hero-float i { font-size: 26px; }
+    .hero-float .hf-text { font-size: 15px; font-weight: 600; color: #fff; }
+    .hero-float .hf-sub { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 400; }
+    /* Alarma — abajo del video */
+    .hero-float-1 { bottom: -32px; right: 14%; animation-delay: 0s; }
     .hero-float-1 i { color: #EF4444; }
     .hero-float-2 { bottom: 25%; left: -30px; animation-delay: 1s; }
     .hero-float-2 i { color: var(--nda-yellow-400); }
-    .hero-float-3 { bottom: 5%; right: 10%; animation-delay: 2s; }
+    /* App móvil — arriba del video */
+    .hero-float-3 { top: -10px; right: -20px; animation-delay: 2s; }
     .hero-float-3 i { color: var(--nda-blue-300); }
+    /* Notificación de la app cuando la alarma está activada */
+    .hero-float-3 .app-notif-dot {
+      position: absolute; top: -4px; right: -4px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #EF4444; border: 2px solid #02101F;
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+      animation: appNotifPulse 1.4s ease-out infinite;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .hero-main-card.disarmed ~ .hero-float-3 .app-notif-dot,
+    .hero-comp:has(.hero-main-card.disarmed) .hero-float-3 .app-notif-dot {
+      opacity: 0; transform: scale(0.6); animation: none;
+    }
+    @keyframes appNotifPulse {
+      0%   { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0.6); }
+      70%  { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0); }
+    }
 
     /* Hero armar/desarmar overlay */
     .hero-shield-overlay {
@@ -428,10 +460,95 @@
     }
 
     /* Botón Armar/Desarmar */
+    /* Botón de pánico — look de botón físico de alarma (lado izquierdo) */
+    .hero-arm-sound-hint {
+      position: absolute; top: 50%; left: -22px; transform: translateY(-50%);
+      width: 46px; height: 46px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 32%, #ff6b6b 0%, #ef4444 45%, #b91c1c 100%);
+      border: 2px solid #fff;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.4),
+        inset 0 -3px 6px rgba(0,0,0,0.4),
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 0 0 0 rgba(239, 68, 68, 0.6);
+      animation: armSoundPulse 1.6s ease-out infinite;
+      pointer-events: none; z-index: 6;
+    }
+    /* Callout invitando a probar el sistema */
+    .hero-arm-callout {
+      position: absolute; bottom: -34px; left: 50%; transform: translateX(-50%);
+      white-space: nowrap;
+      background: rgba(2,14,28,0.9);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 99px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4), 0 0 16px rgba(239,68,68,0.18);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      animation: armCalloutBounce 2s ease-in-out infinite;
+    }
+    .hero-arm-callout::before {
+      content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%) rotate(45deg);
+      width: 8px; height: 8px;
+      background: rgba(2,14,28,0.9);
+      border-left: 1px solid rgba(239, 68, 68, 0.4);
+      border-top: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    .hero-arm-btn.disarmed .hero-arm-callout {
+      opacity: 0.5;
+      animation: none;
+    }
+    @keyframes armCalloutBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(3px); }
+    }
+    .hero-arm-sound-hint i {
+      font-size: 22px; color: #fff !important;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5));
+      animation: armBellShake 1.6s ease-in-out infinite;
+    }
+    .hero-arm-btn.disarmed .hero-arm-sound-hint i { color: #fff !important; }
+    /* Cuando el sistema está desarmado: el botón de pánico se vuelve verde "ok" */
+    .hero-arm-btn.disarmed .hero-arm-sound-hint {
+      background: radial-gradient(circle at 35% 32%, #6ee7b7 0%, #22C55E 45%, #15803d 100%);
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.4),
+        inset 0 -3px 6px rgba(0,0,0,0.35),
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 0 0 0 rgba(34, 197, 94, 0.55);
+      animation: armSoundPulseGreen 2.4s ease-out infinite;
+    }
+    .hero-arm-btn.disarmed .hero-arm-sound-hint i { animation: none; }
+    @keyframes armSoundPulse {
+      0%   { box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 -3px 6px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 0 0   rgba(239, 68, 68, 0.6); }
+      70%  { box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 -3px 6px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 0 14px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 -3px 6px rgba(0,0,0,0.4), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 0 0   rgba(239, 68, 68, 0); }
+    }
+    @keyframes armSoundPulseGreen {
+      0%, 100% { box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 -3px 6px rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 0 0   rgba(34, 197, 94, 0.5); }
+      70%      { box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 -3px 6px rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 0 10px rgba(34, 197, 94, 0); }
+    }
+    @keyframes armBellShake {
+      0%, 50%, 100% { transform: rotate(0deg); }
+      10%, 30%      { transform: rotate(-15deg); }
+      20%, 40%      { transform: rotate(15deg); }
+    }
+    /* Hover: glow más intenso (sin mover el botón) */
+    .hero-arm-btn:hover .hero-arm-sound-hint {
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.4),
+        inset 0 -3px 6px rgba(0,0,0,0.4),
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 0 24px rgba(239, 68, 68, 0.7);
+    }
     .hero-arm-btn {
       cursor: pointer; user-select: none;
       transition: all 0.4s ease !important;
       animation: none !important;
+      padding-left: 38px !important;
     }
     .hero-arm-btn:hover { transform: scale(1.05); }
     .hero-arm-toggle {
@@ -713,14 +830,14 @@
     .pv2-item.highlighted:nth-child(3) .pv2-item-text p { color: var(--neutral-200); }
     /* Items 4-6 highlighted (extras con color neutro) */
     .pv2-item.highlighted:nth-child(4) {
+      background: rgba(192, 132, 252, 0.06);
+      border-color: rgba(192, 132, 252, 0.2);
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.08), inset 0 0 20px rgba(192, 132, 252, 0.02);
+    }
+    .pv2-item.highlighted:nth-child(5) {
       background: rgba(239, 68, 68, 0.06);
       border-color: rgba(239, 68, 68, 0.2);
       box-shadow: 0 0 20px rgba(239, 68, 68, 0.08), inset 0 0 20px rgba(239, 68, 68, 0.02);
-    }
-    .pv2-item.highlighted:nth-child(5) {
-      background: rgba(96, 165, 250, 0.06);
-      border-color: rgba(96, 165, 250, 0.2);
-      box-shadow: 0 0 20px rgba(96, 165, 250, 0.08), inset 0 0 20px rgba(96, 165, 250, 0.02);
     }
     .pv2-item.highlighted:nth-child(6) {
       background: rgba(192, 132, 252, 0.06);
@@ -728,19 +845,19 @@
       box-shadow: 0 0 20px rgba(192, 132, 252, 0.08), inset 0 0 20px rgba(192, 132, 252, 0.02);
     }
     .pv2-item.highlighted:nth-child(4) .pv2-item-icon {
-      background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4);
-      box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+      background: rgba(192, 132, 252, 0.15) !important; border-color: rgba(192, 132, 252, 0.4) !important;
+      box-shadow: 0 0 14px rgba(192, 132, 252, 0.25);
     }
     .pv2-item.highlighted:nth-child(5) .pv2-item-icon {
-      background: rgba(96, 165, 250, 0.15); border-color: rgba(96, 165, 250, 0.4);
-      box-shadow: 0 0 14px rgba(96, 165, 250, 0.25);
+      background: rgba(239, 68, 68, 0.15) !important; border-color: rgba(239, 68, 68, 0.4) !important;
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
     }
     .pv2-item.highlighted:nth-child(6) .pv2-item-icon {
       background: rgba(192, 132, 252, 0.15); border-color: rgba(192, 132, 252, 0.4);
       box-shadow: 0 0 14px rgba(192, 132, 252, 0.25);
     }
-    .pv2-item.highlighted:nth-child(4) .pv2-item-text h3 { color: #EF4444; }
-    .pv2-item.highlighted:nth-child(5) .pv2-item-text h3 { color: #60A5FA; }
+    .pv2-item.highlighted:nth-child(4) .pv2-item-text h3 { color: #C084FC; }
+    .pv2-item.highlighted:nth-child(5) .pv2-item-text h3 { color: #EF4444; }
     .pv2-item.highlighted:nth-child(6) .pv2-item-text h3 { color: #C084FC; }
     .pv2-item.highlighted:nth-child(4) .pv2-item-text p,
     .pv2-item.highlighted:nth-child(5) .pv2-item-text p,
@@ -2263,7 +2380,7 @@
         <a href="nosotros.html">Nosotros</a>
         <a href="contacto.html">Contacto</a>
         
-        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -2286,20 +2403,13 @@
     <div class="hero-glow-4"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge"><i class="ph-fill ph-seal-check"></i> 30+ años protegiendo Monterrey</div>
-        <h1>Alarmas y monitoreo 24/7<br><span class="highlight">con Central de Monitoreo propia en Monterrey</span></h1>
-        <p class="hero-text">Sistemas de seguridad electrónica para casas, negocios e industrias. +30 años protegiendo lo que más importa.</p>
+        <h1>Más de 30 años<br>protegiendo Monterrey<br><span class="highlight">con Central de Monitoreo propia 24/7</span></h1>
         <div class="hero-ctas">
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Habla con un asesor</a>
-        </div>
-        <div class="hero-trust">
-          <span><i class="ph-fill ph-star"></i> +30 años de experiencia</span>
-          <span><i class="ph-fill ph-star"></i> 5/5 estrellas en reseñas</span>
-          <span><i class="ph-fill ph-star"></i> Control desde tu celular</span>
+          <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza Hoy mismo</a>
         </div>
       </div>
       <div class="hero-visual">
+        <div class="hero-trust-stat"><i class="ph-fill ph-users-three"></i> <strong>+10,000</strong> familias y empresas confían en nosotros</div>
         <div class="hero-comp">
           <div class="hero-main-card">
             <video autoplay muted loop playsinline>
@@ -2312,7 +2422,7 @@
               <i class="ph-fill ph-lock-key hero-shield-icon" id="heroShieldIcon"></i>
             </div>
           </div>
-          <div class="hero-float hero-float-1 hero-arm-btn" id="heroArmBtn">
+          <div class="hero-float hero-float-1 hero-arm-btn" id="heroArmBtn" title="Click para desactivar la alarma">
             <i class="ph-fill ph-lock-key hero-arm-icon" id="heroArmIcon"></i>
             <div>
               <div class="hf-text" id="heroArmText">Armado</div>
@@ -2321,14 +2431,19 @@
             <div class="hero-arm-toggle">
               <div class="hero-arm-dot"></div>
             </div>
+            <div class="hero-arm-sound-hint" aria-hidden="true">
+              <i class="ph-fill ph-bell-ringing"></i>
+            </div>
+            <div class="hero-arm-callout" id="heroArmCallout">Comprueba nuestro sistema</div>
           </div>
           <div class="hero-float hero-float-2">
             <i class="ph-fill ph-lock-key"></i>
             <div><div class="hf-text">Respuesta inmediata</div><div class="hf-sub">En minutos</div></div>
           </div>
-          <div class="hero-float hero-float-3">
+          <div class="hero-float hero-float-3" id="heroAppFloat">
             <i class="ph-fill ph-device-mobile"></i>
-            <div><div class="hf-text">App móvil</div><div class="hf-sub">Control remoto</div></div>
+            <div><div class="hf-text">App móvil</div><div class="hf-sub" id="heroAppSub">Notifica al instante</div></div>
+            <div class="app-notif-dot" id="heroAppNotif" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -2340,11 +2455,9 @@
     <div class="container">
       <p>Tecnología de clase mundial</p>
       <div class="trust-logos">
-        <span class="trust-logo logo-ajax"><img src="assets/logo-ajax.png" alt="Ajax Systems"></span>
         <span class="trust-logo logo-honeywell"><img src="assets/logo-honeywell.png" alt="Honeywell"></span>
         <span class="trust-logo logo-trikdis"><img src="assets/logo-trikdis.png" alt="Trikdis"></span>
         <!-- Duplicados para loop infinito en móvil -->
-        <span class="trust-logo logo-ajax" aria-hidden="true"><img src="assets/logo-ajax.png" alt=""></span>
         <span class="trust-logo logo-honeywell" aria-hidden="true"><img src="assets/logo-honeywell.png" alt=""></span>
         <span class="trust-logo logo-trikdis" aria-hidden="true"><img src="assets/logo-trikdis.png" alt=""></span>
       </div>
@@ -2380,8 +2493,7 @@
   <!-- ===== 05. ¿POR QUÉ NDA? ===== -->
   <section class="pilares-v2 reveal" id="pilares-v2">
     <div class="container">
-      <div class="section-label">¿Por qué NDA?</div>
-      <h2 class="section-title">Tres razones para <span class="highlight">elegirnos</span></h2>
+      <h2 class="section-title">Porque somos la mejor <span class="highlight">opción</span></h2>
       <p class="section-desc">Lo que nos distingue de cualquier otra empresa de seguridad.</p>
       <div class="pilares-v2-split">
         <div class="pilares-v2-visual">
@@ -2394,11 +2506,19 @@
           </div>
           <div class="pv2-float pv2-float-2">
             <i class="ph-fill ph-lightning"></i>
-            <div><div class="pv2-float-label">Soporte hoy</div><div class="pv2-float-sub">Mismo día</div></div>
+            <div><div class="pv2-float-label">Soporte técnico</div><div class="pv2-float-sub">Mismo día</div></div>
           </div>
           <div class="pv2-float pv2-float-3">
             <i class="ph-fill ph-lock-key-open"></i>
             <div><div class="pv2-float-label">30+ años</div><div class="pv2-float-sub">Experiencia local</div></div>
+          </div>
+          <div class="pv2-float pv2-float-4">
+            <i class="ph-fill ph-gear" style="color: #C084FC;"></i>
+            <div><div class="pv2-float-label">Instalación pro</div><div class="pv2-float-sub">Equipo certificado</div></div>
+          </div>
+          <div class="pv2-float pv2-float-5">
+            <i class="ph-fill ph-device-mobile" style="color: #EF4444;"></i>
+            <div><div class="pv2-float-label">App móvil</div><div class="pv2-float-sub">Control en tu mano</div></div>
           </div>
         </div>
         <!-- SVG líneas de conexión V2 (se dibujan con JS) -->
@@ -2407,33 +2527,41 @@
             <filter id="v2GlowBlue"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             <filter id="v2GlowGreen"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             <filter id="v2GlowYellow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="v2GlowPurple"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="v2GlowRed"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
           <!-- Glows -->
           <path class="pv2-conn-glow" id="pv2Glow0" stroke="var(--nda-blue-300)" filter="url(#v2GlowBlue)"/>
           <path class="pv2-conn-glow" id="pv2Glow1" stroke="var(--success)" filter="url(#v2GlowGreen)"/>
           <path class="pv2-conn-glow" id="pv2Glow2" stroke="var(--nda-yellow-400)" filter="url(#v2GlowYellow)" opacity="0.15"/>
+          <path class="pv2-conn-glow" id="pv2Glow3" stroke="#C084FC" filter="url(#v2GlowPurple)"/>
+          <path class="pv2-conn-glow" id="pv2Glow4" stroke="#EF4444" filter="url(#v2GlowRed)"/>
           <!-- Lines -->
           <path class="pv2-conn-line" id="pv2Path0" stroke="var(--nda-blue-300)"/>
           <path class="pv2-conn-line" id="pv2Path1" stroke="var(--success)"/>
           <path class="pv2-conn-line" id="pv2Path2" stroke="var(--nda-yellow-400)" opacity="0.55"/>
+          <path class="pv2-conn-line" id="pv2Path3" stroke="#C084FC"/>
+          <path class="pv2-conn-line" id="pv2Path4" stroke="#EF4444"/>
           <!-- Dots -->
           <circle class="pv2-conn-dot" id="pv2Dot0" fill="var(--nda-blue-300)" filter="url(#v2GlowBlue)"/>
           <circle class="pv2-conn-dot" id="pv2Dot1" fill="var(--success)" filter="url(#v2GlowGreen)"/>
           <circle class="pv2-conn-dot" id="pv2Dot2" fill="var(--nda-yellow-400)" filter="url(#v2GlowYellow)" opacity="0"/>
+          <circle class="pv2-conn-dot" id="pv2Dot3" fill="#C084FC" filter="url(#v2GlowPurple)"/>
+          <circle class="pv2-conn-dot" id="pv2Dot4" fill="#EF4444" filter="url(#v2GlowRed)"/>
         </svg>
         <div class="pilares-v2-list">
           <div class="pv2-item">
             <div class="pv2-item-icon"><i class="ph-duotone ph-eye"></i></div>
             <div class="pv2-item-text">
               <h3>Ojos que nunca duermen</h3>
-              <p>Nuestra central propia en Monterrey vigila tu propiedad las 24 horas. No tercerizamos, no delegamos.</p>
+              <p>Central de monitoreo propia con operadores capacitados que vigilan tu propiedad las 24 horas, los 365 días.</p>
             </div>
           </div>
           <div class="pv2-item">
-            <div class="pv2-item-icon"><i class="ph-duotone ph-lightning"></i></div>
+            <div class="pv2-item-icon"><i class="ph-duotone ph-key"></i></div>
             <div class="pv2-item-text">
-              <h3>Acción inmediata</h3>
-              <p>Nuestros técnicos están en tu zona. Soporte el mismo día, máximo 48 horas.</p>
+              <h3>Personal certificado</h3>
+              <p>Mantenimiento preventivo y correctivo para tu sistema.</p>
             </div>
           </div>
           <div class="pv2-item">
@@ -2443,43 +2571,18 @@
               <p>Trabajamos con Ajax Systems, Honeywell y Trikdis para ofrecerte los sistemas de alarma más avanzados del mercado.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 06. SERVICIOS ===== -->
-  <section class="servicios reveal" id="servicios">
-    <canvas class="servicios-circuits" id="circuitsCanvas"></canvas>
-    <div class="servicios-glow"></div>
-    <div class="container">
-      <div class="section-label">Servicios</div>
-      <h2 class="section-title">Todo lo que necesitas para <span class="highlight">tu seguridad</span></h2>
-      <p class="section-desc">Soluciones integrales con tecnología de punta y servicio personalizado.</p>
-      <div class="services-grid stagger">
-        <div class="service-card featured">
-          <div class="service-icon"><i class="ph-duotone ph-headset"></i></div>
-          <h3>Monitoreo 24/7</h3>
-          <p>Central de monitoreo propia con operadores capacitados que vigilan tu propiedad las 24 horas, los 365 días.</p>
-
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="ph-duotone ph-wrench"></i></div>
-          <h3>Servicio Técnico</h3>
-          <p>Técnicos certificados con servicio el mismo día. Mantenimiento preventivo y correctivo para tu sistema.</p>
-
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="ph-duotone ph-device-mobile"></i></div>
-          <h3>App Móvil</h3>
-          <p>Controla tu sistema desde tu celular. Arma, desarma y recibe notificaciones en tiempo real.</p>
-
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="ph-duotone ph-gear-six"></i></div>
-          <h3>Instalación</h3>
-          <p>Instalación profesional incluida. Nuestros técnicos configuran todo para que funcione desde el día uno.</p>
-
+          <div class="pv2-item">
+            <div class="pv2-item-icon" style="background: rgba(192, 132, 252, 0.1); border-color: rgba(192, 132, 252, 0.18);"><i class="ph-duotone ph-gear" style="color: #C084FC;"></i></div>
+            <div class="pv2-item-text">
+              <h3>Instalación profesional</h3>
+            </div>
+          </div>
+          <div class="pv2-item">
+            <div class="pv2-item-icon" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.22);"><i class="ph-duotone ph-device-mobile" style="color: #EF4444;"></i></div>
+            <div class="pv2-item-text">
+              <h3>APP - Atención personalizada y orientada</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2501,8 +2604,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-house"></i> Residencial</div>
             <h3>Protege lo que más quieres</h3>
             <p>Sistemas inteligentes para casas y departamentos. Monitoreo 24/7, app móvil y control total desde tu celular.</p>
-            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-            <a href="residencial.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="residencial.html" class="sol2-link">Ver más <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
         <!-- Card: Comercial (grande) -->
@@ -2513,8 +2615,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Comercial</div>
             <h3>Tu negocio, siempre seguro</h3>
             <p>Oficinas, locales y colegios con soluciones adaptadas a tu operación.</p>
-            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-            <a href="comercial.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="comercial.html" class="sol2-link">Ver más <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
         <!-- Card: Industrial (mediano) -->
@@ -2525,8 +2626,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Industrial</div>
             <h3>Seguridad a gran escala</h3>
             <p>Bodegas, naves y almacenes con cobertura perimetral completa.</p>
-            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-            <a href="industrial.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="industrial.html" class="sol2-link">Ver más <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
         <!-- Card: CCTV (más pequeña) -->
@@ -2539,450 +2639,9 @@
             <div class="sol2-badge"><i class="ph-fill ph-security-camera"></i> CCTV / Videovigilancia</div>
             <h3>Vigila desde cualquier lugar</h3>
             <p>Cámaras WiFi e IP con grabación en la nube, visión nocturna y acceso remoto desde tu celular.</p>
-            <a href="cotiza.html" class="sol2-link sol2-link-desktop">Cotizar ahora <i class="ph-bold ph-arrow-right"></i></a>
-            <a href="camaras.html" class="sol2-link sol2-link-mobile">Ver más <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="camaras.html" class="sol2-link">Ver más <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 08. PROCESO MOBILE (pfunc) ===== -->
-  <section class="pfunc-mobile pfunc reveal" id="pfunc-mobile">
-    <div class="container">
-      <div class="section-label">Proceso</div>
-      <h2 class="section-title">Protección en <span class="highlight">4 pasos</span></h2>
-      <p class="section-desc">Desde que nos contactas hasta tener tu casa protegida.</p>
-
-      <div class="pfunc-scene">
-        <!-- Tabs horizontales -->
-        <div class="pfunc-tabs" id="pfuncTimeline">
-          <div class="pfunc-tab-track"><div class="pfunc-tab-fill" id="pfuncFill"></div></div>
-          <div class="pfunc-node pfunc-step1 active" data-step="1">
-            <div class="pfunc-node-circle"><span class="pfunc-num">01</span></div>
-            <div class="pfunc-node-badge">Cuéntanos</div>
-          </div>
-          <div class="pfunc-node pfunc-step2" data-step="2">
-            <div class="pfunc-node-circle"><span class="pfunc-num">02</span></div>
-            <div class="pfunc-node-badge">Diseñamos</div>
-          </div>
-          <div class="pfunc-node pfunc-step3" data-step="3">
-            <div class="pfunc-node-circle"><span class="pfunc-num">03</span></div>
-            <div class="pfunc-node-badge">Instalación</div>
-          </div>
-          <div class="pfunc-node pfunc-step4" data-step="4">
-            <div class="pfunc-node-circle"><span class="pfunc-num">04</span></div>
-            <div class="pfunc-node-badge">Protegido</div>
-          </div>
-        </div>
-
-        <!-- Descripción del paso activo -->
-        <div class="pfunc-step-desc" id="pfuncStepDesc">
-          <div class="pfunc-sdesc pfunc-sdesc-1 active">Llena nuestro cotizador o escríbenos por WhatsApp. Es rápido y gratuito.</div>
-          <div class="pfunc-sdesc pfunc-sdesc-2">Un asesor especializado evalúa tu propiedad y diseña el sistema ideal para ti.</div>
-          <div class="pfunc-sdesc pfunc-sdesc-3">Técnicos certificados instalan y configuran todo. Tú solo elige el día.</div>
-          <div class="pfunc-sdesc pfunc-sdesc-4">Desde el primer día, tu propiedad está monitoreada por nuestra central en Monterrey.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 08. COMO FUNCIONA ===== -->
-  <!-- ===== 08. PROCESO (desktop) ===== -->
-  <section class="proceso-v2" id="proceso-v2">
-    <div class="container">
-      <div class="section-label">Proceso</div>
-      <h2 class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Así de fácil <span class="highlight">funciona</span></h2>
-      <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">En 4 simples pasos estarás protegido con tecnología de clase mundial.</p>
-      <div class="proc-timeline" id="procTimeline">
-        <div class="proc-timeline-progress" id="procTimelineProg"></div>
-        <div class="proc-card">
-          <div class="proc-dot"></div>
-          <div class="proc-step-num">01</div>
-          <div class="proc-card-icon"><i class="ph-duotone ph-chat-dots"></i></div>
-          <div class="proc-card-body">
-            <h3>Cuéntanos qué necesitas</h3>
-            <span>Llena nuestro cotizador o escríbenos por WhatsApp. Es rápido y gratuito.</span>
-          </div>
-        </div>
-        <div class="proc-card">
-          <div class="proc-dot"></div>
-          <div class="proc-step-num">02</div>
-          <div class="proc-card-icon"><i class="ph-duotone ph-clipboard-text"></i></div>
-          <div class="proc-card-body">
-            <h3>Diseñamos tu solución</h3>
-            <span>Un asesor especializado evalúa tu propiedad y diseña el sistema ideal para ti.</span>
-          </div>
-        </div>
-        <div class="proc-card">
-          <div class="proc-dot"></div>
-          <div class="proc-step-num">03</div>
-          <div class="proc-card-icon"><i class="ph-duotone ph-wrench"></i></div>
-          <div class="proc-card-body">
-            <h3>Instalación profesional</h3>
-            <span>Técnicos certificados instalan todo. Tú solo elige el día.</span>
-          </div>
-        </div>
-        <div class="proc-card">
-          <div class="proc-dot"></div>
-          <div class="proc-step-num">04</div>
-          <div class="proc-card-icon"><i class="ph-duotone ph-shield-check"></i></div>
-          <div class="proc-card-body">
-            <h3>Protección activa 24/7</h3>
-            <span>Desde el primer día, tu propiedad está monitoreada por nuestra central en Monterrey.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 09. PRODUCTOS ===== -->
-  <section class="productos reveal" id="productos">
-    <div class="container">
-      <div class="section-label">Productos</div>
-      <h2 class="section-title">Conoce lo que te <span class="highlight">protege</span></h2>
-      <p class="section-desc">Cada dispositivo cumple una función específica. Así es como trabajan para ti.</p>
-      <div class="productos-grid stagger">
-        <div class="producto-card">
-          <div class="gif-placeholder"><img src="assets/producto-sensor-movimiento.png" alt="Sensor de movimiento en sala de estar"></div>
-          <span class="producto-tag">Sensor de movimiento</span>
-          <h3>Detecta intrusos, ignora mascotas</h3>
-          <p>Protección inteligente para cada rincón. Diferencia entre personas y animales.</p>
-        </div>
-        <div class="producto-card">
-          <div class="gif-placeholder"><img src="assets/producto-contacto-magnetico.jpg" alt="Contacto magnético en puerta"></div>
-          <span class="producto-tag">Contacto magnético</span>
-          <h3>Cada puerta y ventana vigilada</h3>
-          <p>Sabrás al instante si alguien entra. Se activa cuando se abre sin autorización.</p>
-        </div>
-        <div class="producto-card">
-          <div class="gif-placeholder"><img src="assets/producto-detector-humo.png" alt="Detector de humo inteligente"></div>
-          <span class="producto-tag">Detector de humo</span>
-          <h3>Detecta humo antes de que sea tarde</h3>
-          <p>Protección contra incendios 24h. Alerta inmediata a tu celular y a nuestra central.</p>
-        </div>
-        <div class="producto-card">
-          <div class="gif-placeholder"><img src="assets/producto-camara-seguridad.jpg" alt="Cámara de seguridad exterior en casa"></div>
-          <span class="producto-tag">Cámara de seguridad</span>
-          <h3>Ve tu propiedad en tiempo real</h3>
-          <p>Desde tu celular, estés donde estés. Grabación en la nube y visión nocturna.</p>
-        </div>
-        <div class="producto-card">
-          <div class="gif-placeholder"><img src="assets/producto-boton-panico.jpg" alt="Botón de pánico en mostrador"></div>
-          <span class="producto-tag">Botón de pánico</span>
-          <h3>Un toque y nuestra central actúa</h3>
-          <p>Para emergencias que no pueden esperar. Activa el protocolo de respuesta al instante.</p>
-        </div>
-        <div class="producto-card">
-          <div class="gif-placeholder"><img src="assets/producto-sensor-perimetral.jpg" alt="Sensor perimetral exterior residencial y comercial"></div>
-          <span class="producto-tag">Sensor perimetral</span>
-          <h3>Protección desde el perímetro</h3>
-          <p>Detecta antes de que lleguen a tu puerta. Cobertura exterior inteligente.</p>
-        </div>
-        <!-- Duplicados para loop infinito -->
-        <div class="producto-card" aria-hidden="true">
-          <div class="gif-placeholder"><img src="assets/producto-sensor-movimiento.png" alt=""></div>
-          <span class="producto-tag">Sensor de movimiento</span>
-          <h3>Detecta intrusos, ignora mascotas</h3>
-        </div>
-        <div class="producto-card" aria-hidden="true">
-          <div class="gif-placeholder"><img src="assets/producto-contacto-magnetico.jpg" alt=""></div>
-          <span class="producto-tag">Contacto magnético</span>
-          <h3>Cada puerta y ventana vigilada</h3>
-        </div>
-        <div class="producto-card" aria-hidden="true">
-          <div class="gif-placeholder"><img src="assets/producto-detector-humo.png" alt=""></div>
-          <span class="producto-tag">Detector de humo</span>
-          <h3>Detecta humo antes de que sea tarde</h3>
-        </div>
-        <div class="producto-card" aria-hidden="true">
-          <div class="gif-placeholder"><img src="assets/producto-camara-seguridad.jpg" alt=""></div>
-          <span class="producto-tag">Cámara de seguridad</span>
-          <h3>Ve tu propiedad en tiempo real</h3>
-        </div>
-        <div class="producto-card" aria-hidden="true">
-          <div class="gif-placeholder"><img src="assets/producto-boton-panico.jpg" alt=""></div>
-          <span class="producto-tag">Botón de pánico</span>
-          <h3>Un toque y nuestra central actúa</h3>
-        </div>
-        <div class="producto-card" aria-hidden="true">
-          <div class="gif-placeholder"><img src="assets/producto-sensor-perimetral.jpg" alt=""></div>
-          <span class="producto-tag">Sensor perimetral</span>
-          <h3>Protección desde el perímetro</h3>
-        </div>
-      </div>
-      <div class="prod-nav" id="prodNav">
-        <button class="prod-dot" data-idx="0"></button>
-        <button class="prod-dot" data-idx="1"></button>
-        <button class="prod-dot" data-idx="2"></button>
-        <button class="prod-dot" data-idx="3"></button>
-        <button class="prod-dot" data-idx="4"></button>
-        <button class="prod-dot" data-idx="5"></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 10. PAQUETES ===== -->
-  <section class="paquetes reveal" id="paquetes">
-    <canvas class="paquetes-circuits" id="circuitsCanvasPaq"></canvas>
-    <div class="container">
-      <div class="section-label">Paquetes</div>
-      <h2 class="section-title">Paquetes para cada <span class="highlight">necesidad</span></h2>
-      <p class="section-desc">Estos son ejemplos de configuración. Cada sistema se diseña a la medida de tu propiedad.</p>
-      <div class="paquetes-grid-wrap">
-      <div class="paquetes-grid stagger" id="paqTrack">
-        <div class="paquete-card">
-          <div class="paquete-header">
-            <h3>Esencial</h3>
-            <p>Ideal para departamentos y casas pequeñas</p>
-          </div>
-          <button class="paq-toggle"><i class="ph ph-caret-down"></i> Ver especificaciones</button>
-          <ul class="paquete-list">
-            <li><i class="ph-fill ph-check-circle"></i> Panel de alarma inteligente</li>
-            <li><i class="ph-fill ph-check-circle"></i> 2 sensores de movimiento</li>
-            <li><i class="ph-fill ph-check-circle"></i> 1 contacto magnético</li>
-            <li><i class="ph-fill ph-check-circle"></i> 1 control remoto</li>
-            <li><i class="ph-fill ph-check-circle"></i> Sirena interior</li>
-            <li><i class="ph-fill ph-check-circle"></i> Monitoreo 24/7</li>
-            <li><i class="ph-fill ph-check-circle"></i> App móvil</li>
-          </ul>
-          <div class="paq-summary">
-            <p>Panel + 2 sensores + sirena<br>Monitoreo 24/7 + App</p>
-          </div>
-          <a href="cotiza.html?paquete=Esencial" class="btn btn-outline">Cotiza ahora</a>
-        </div>
-        <div class="paquete-card featured">
-          <div class="paquete-badge">Más popular</div>
-          <div class="paquete-header">
-            <h3>Avanzado</h3>
-            <p>Para casas medianas y negocios pequeños</p>
-          </div>
-          <button class="paq-toggle"><i class="ph ph-caret-down"></i> Ver especificaciones</button>
-          <ul class="paquete-list">
-            <li><i class="ph-fill ph-check-circle"></i> Panel de alarma inteligente</li>
-            <li><i class="ph-fill ph-check-circle"></i> 4 sensores de movimiento</li>
-            <li><i class="ph-fill ph-check-circle"></i> 2 contactos magnéticos</li>
-            <li><i class="ph-fill ph-check-circle"></i> 2 controles remotos</li>
-            <li><i class="ph-fill ph-check-circle"></i> Sirena interior + exterior</li>
-            <li><i class="ph-fill ph-check-circle"></i> Detector de humo</li>
-            <li><i class="ph-fill ph-check-circle"></i> Monitoreo 24/7</li>
-            <li><i class="ph-fill ph-check-circle"></i> App móvil incluida</li>
-            <li><i class="ph-fill ph-check-circle"></i> Botón de pánico</li>
-          </ul>
-          <div class="paq-summary">
-            <p>4 sensores + sirenas + detector de humo<br>Botón de pánico + Monitoreo 24/7</p>
-          </div>
-          <a href="cotiza.html?paquete=Avanzado" class="btn btn-primary">Cotiza ahora</a>
-        </div>
-        <div class="paquete-card">
-          <div class="paquete-header">
-            <h3>Integral</h3>
-            <p>Para casas grandes y negocios con CCTV</p>
-          </div>
-          <button class="paq-toggle"><i class="ph ph-caret-down"></i> Ver especificaciones</button>
-          <ul class="paquete-list">
-            <li><i class="ph-fill ph-check-circle"></i> Todo lo del Avanzado</li>
-            <li><i class="ph-fill ph-check-circle"></i> 6 sensores de movimiento</li>
-            <li><i class="ph-fill ph-check-circle"></i> 4 contactos magnéticos</li>
-            <li><i class="ph-fill ph-check-circle"></i> 3 controles remotos</li>
-            <li><i class="ph-fill ph-check-circle"></i> Sensor perimetral exterior</li>
-            <li><i class="ph-fill ph-check-circle"></i> 2 cámaras HD</li>
-            <li><i class="ph-fill ph-check-circle"></i> DVR 4 canales</li>
-            <li><i class="ph-fill ph-check-circle"></i> Sirena exterior adicional</li>
-          </ul>
-          <div class="paq-summary">
-            <p>Todo lo del Avanzado<br>+ 2 cámaras HD + DVR + perimetral</p>
-          </div>
-          <a href="cotiza.html?paquete=Integral" class="btn btn-outline">Cotiza ahora</a>
-        </div>
-      </div>
-      </div>
-      <div class="paq-nav">
-        <button class="paq-dot active" data-idx="0"></button>
-        <button class="paq-dot" data-idx="1"></button>
-        <button class="paq-dot" data-idx="2"></button>
-      </div>
-      <p class="paquete-note">Nuestros asesores te ayudan a elegir exactamente lo que necesitas. Cada paquete se puede personalizar.</p>
-    </div>
-  </section>
-
-  <!-- ===== 11. COMPARADOR ===== -->
-  <section class="comparador reveal" id="comparador">
-    <video class="comp-bg-video" autoplay muted loop playsinline>
-      <source src="assets/comp-bg-video.mp4" type="video/mp4">
-    </video>
-    <div class="container">
-      <div class="section-label">Comparador</div>
-      <h2 class="section-title">Lo que nos hace diferentes no es lo que decimos, <span class="highlight">es lo que hacemos</span></h2>
-      <p class="section-desc">Compara y decide con información transparente.</p>
-
-      <!-- Layout 2 columnas -->
-      <div class="comp-layout">
-        <!-- Izquierda: Toggle + Listas -->
-        <div class="comp-left">
-          <!-- Toggle -->
-          <div class="comp-toggle-wrap">
-            <div class="comp-toggle" id="compToggle">
-              <div class="comp-toggle-slider nda" id="compSlider"></div>
-              <div class="comp-toggle-btn active" id="compBtnNda" data-target="nda">Nacional de Alarmas</div>
-              <div class="comp-toggle-btn" id="compBtnOtros" data-target="otros">Otras empresas</div>
-            </div>
-          </div>
-
-          <!-- Listas -->
-          <div class="comp-list-wrap">
-            <!-- NDA -->
-            <div class="comp-list nda-list visible" id="compListNda">
-              <div class="comp-item">
-                <div class="comp-item-icon good"><i class="ph-fill ph-handshake"></i></div>
-                <div class="comp-item-text"><h4>Equipo sin costo inicial</h4><p>Con nuestro Safe Pack, empiezas sin inversión en equipo. Solo pagas tu monitoreo.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon good"><i class="ph-fill ph-broadcast"></i></div>
-                <div class="comp-item-text"><h4>Central de monitoreo propia</h4><p>Operamos desde Monterrey, 24/7, sin intermediarios.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon good"><i class="ph-fill ph-wrench"></i></div>
-                <div class="comp-item-text"><h4>Técnicos locales, mismo día</h4><p>Nuestro equipo llega el mismo día que nos contactas.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon good"><i class="ph-fill ph-receipt"></i></div>
-                <div class="comp-item-text"><h4>Cero costos ocultos</h4><p>Transparencia total. Lo que cotizamos es lo que pagas.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon good"><i class="ph-fill ph-package"></i></div>
-                <div class="comp-item-text"><h4>Múltiples marcas</h4><p>Ajax, Honeywell, Trikdis — elegimos la mejor para ti.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon good"><i class="ph-fill ph-trophy"></i></div>
-                <div class="comp-item-text"><h4>+30 años en Monterrey</h4><p>Desde 1993 protegiendo hogares y negocios regios.</p></div>
-              </div>
-            </div>
-            <!-- Otros -->
-            <div class="comp-list otros-list" id="compListOtros">
-              <div class="comp-item">
-                <div class="comp-item-icon bad"><i class="ph-fill ph-lock-key"></i></div>
-                <div class="comp-item-text"><h4>Atención impersonal</h4><p>Call centers genéricos sin conocimiento de tu zona.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon bad"><i class="ph-fill ph-map-pin-line"></i></div>
-                <div class="comp-item-text"><h4>Central tercerizada</h4><p>Monitoreo desde otra ciudad, sin conocimiento local.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon bad"><i class="ph-fill ph-clock"></i></div>
-                <div class="comp-item-text"><h4>Foráneos, días o semanas</h4><p>Técnicos que viajan desde lejos con tiempos largos de espera.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon bad"><i class="ph-fill ph-warning"></i></div>
-                <div class="comp-item-text"><h4>Equipos con costo elevado</h4><p>Inversión inicial alta solo para empezar con el servicio.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon bad"><i class="ph-fill ph-lock"></i></div>
-                <div class="comp-item-text"><h4>Solo su propia marca</h4><p>Te obligan a usar su equipo, sin alternativas.</p></div>
-              </div>
-              <div class="comp-item">
-                <div class="comp-item-icon bad"><i class="ph-fill ph-globe-simple"></i></div>
-                <div class="comp-item-text"><h4>Multinacional sin raíces</h4><p>Sin presencia ni compromiso local real.</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Derecha: Imagen versus -->
-        <div class="comp-right">
-          <div class="comp-image-wrap">
-            <div class="comp-image" id="compImage"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 12. CLIENTES — Marquee infinito ===== -->
-  <section class="clientes-section" id="clientes">
-    <div class="clientes-bg-glow"></div>
-    <div class="container">
-      <div class="section-label">Clientes</div>
-      <h2 class="section-title">Empresas que ya <span class="highlight">confían</span> en Nacional de Alarmas</h2>
-      <p class="section-desc">Hogares, comercios e industrias protegidos con nuestra tecnología.</p>
-    </div>
-    <div class="clientes-viewport">
-      <div class="clientes-track">
-        <!-- Bloque original 36 celdas (34 logos + 2 relleno) -->
-        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
-        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
-        <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
-        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
-        <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
-        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
-        <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
-        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
-        <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
-        <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
-        <div class="cl-logo"><img src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
-        <div class="cl-logo"><img src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
-        <div class="cl-logo"><img src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/LG.png" alt="Los Generales"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
-        <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
-        <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
-        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
-        <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
-        <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
-        <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
-        <div class="cl-logo"><img src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
-        <div class="cl-logo"><img src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
-        <div class="cl-logo"><img src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
-        <div class="cl-logo"><img src="assets/clientes/SPK.png" alt="Spikes"></div>
-        <div class="cl-logo"><img src="assets/clientes/SW.png" alt="Subway"></div>
-        <div class="cl-logo"><img src="assets/clientes/GP.png" alt="GP"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
-        <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
-        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
-        <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
-        <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
-        <!-- Relleno fila 6 -->
-        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
-        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
-        <!-- Duplicado completo para loop infinito -->
-        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
-        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
-        <div class="cl-logo"><img src="assets/clientes/ICV.png" alt="ICV"></div>
-        <div class="cl-logo"><img src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
-        <div class="cl-logo"><img src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
-        <div class="cl-logo"><img src="assets/clientes/GOVI2.png" alt="GOVI"></div>
-        <div class="cl-logo"><img src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
-        <div class="cl-logo"><img src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/daimler.png" alt="Daimler"></div>
-        <div class="cl-logo"><img src="assets/clientes/trevino2.png" alt="Treviño"></div>
-        <div class="cl-logo"><img src="assets/clientes/BR.png" alt="Blue Room"></div>
-        <div class="cl-logo"><img src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
-        <div class="cl-logo"><img src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
-        <div class="cl-logo"><img src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/LG.png" alt="Los Generales"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/PG.png" alt="Ponte Guapa"></div>
-        <div class="cl-logo"><img src="assets/clientes/SJ.png" alt="San Juan"></div>
-        <div class="cl-logo"><img src="assets/clientes/SM.png" alt="Sierra Madre"></div>
-        <div class="cl-logo"><img src="assets/clientes/ST.png" alt="Steren"></div>
-        <div class="cl-logo"><img src="assets/clientes/CP.png" alt="CP"></div>
-        <div class="cl-logo"><img src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
-        <div class="cl-logo"><img src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
-        <div class="cl-logo"><img src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
-        <div class="cl-logo"><img src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
-        <div class="cl-logo"><img src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
-        <div class="cl-logo"><img src="assets/clientes/SPK.png" alt="Spikes"></div>
-        <div class="cl-logo"><img src="assets/clientes/SW.png" alt="Subway"></div>
-        <div class="cl-logo"><img src="assets/clientes/GP.png" alt="GP"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/castellana.png" alt="La Castellana"></div>
-        <div class="cl-logo cl-dark"><img src="assets/clientes/dkassa2.png" alt="Dkassa"></div>
-        <div class="cl-logo"><img src="assets/clientes/RT2.png" alt="Tamales Regio"></div>
-        <div class="cl-logo"><img src="assets/clientes/PDP.png" alt="Pizza Deprizza"></div>
-        <div class="cl-logo"><img src="assets/clientes/PM.png" alt="Pollo Maton"></div>
-        <div class="cl-logo"><img src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
-        <div class="cl-logo"><img src="assets/clientes/TSNL.png" alt="TSNL"></div>
-        <div class="cl-logo"><img src="assets/clientes/AYD.png" alt="AYD"></div>
       </div>
     </div>
   </section>
@@ -3031,106 +2690,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== 14. BANNER CTA ===== -->
-  <section class="banner-cta reveal">
-    <div class="banner-glow-blue"></div>
-    <div class="banner-glow-yellow"></div>
-    <div class="container">
-      <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
-      <p>En menos de 60 segundos puedes empezar. Cotización gratuita y asesoría personalizada.</p>
-      <div class="banner-ctas">
-        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
-        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
-        <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 15. FAQ ===== -->
-  <section class="faq reveal" id="faq">
-    <div class="container">
-      <div class="section-label">Preguntas frecuentes</div>
-      <h2 class="section-title">Resolvemos tus <span class="highlight">dudas</span></h2>
-      <p class="section-desc">Las preguntas más comunes sobre nuestros servicios.</p>
-      <div class="faq-list">
-        <div class="faq-item"><button class="faq-question"><h4>¿Cómo funciona la Central de Monitoreo 24/7?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Nuestra Central de Monitoreo propia en Monterrey vigila tu propiedad las 24 horas, los 365 días del año. Al recibir una señal de alarma, verificamos en segundos, te contactamos y activamos el protocolo de respuesta con las autoridades si es necesario.</p></div></div>
-        <div class="faq-item"><button class="faq-question"><h4>¿Cuánto cuesta un sistema de alarma?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Depende de tu propiedad y necesidades. Por eso ofrecemos una cotización personalizada gratuita. Contáctanos y en minutos te damos una propuesta a tu medida.</p></div></div>
-        <div class="faq-item"><button class="faq-question"><h4>¿Cuánto tiempo tarda la instalación?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>La instalación típica toma entre 2 y 4 horas. En la mayoría de los casos, instalamos el mismo día que nos contactas o al día siguiente.</p></div></div>
-        <div class="faq-item"><button class="faq-question"><h4>¿Qué pasa cuando se activa una alarma?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Nuestra central de monitoreo en Monterrey recibe la señal al instante. Verificamos la emergencia, te contactamos para confirmar y, si es necesario, activamos el protocolo de respuesta con las autoridades.</p></div></div>
-        <div class="faq-item"><button class="faq-question"><h4>¿Puedo controlar mi alarma desde el celular?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Sí. Con la app puedes armar y desarmar tu sistema, ver cámaras, recibir notificaciones en tiempo real y revisar el historial de eventos desde cualquier lugar.</p></div></div>
-        <div class="faq-item"><button class="faq-question"><h4>¿Qué marcas de equipo manejan?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Trabajamos con las mejores marcas del mundo: Ajax Systems, Honeywell, Trikdis y First Alert, entre otras. Nuestros asesores te recomiendan la mejor opción para tu caso.</p></div></div>
-        <div class="faq-item"><button class="faq-question"><h4>¿En qué zonas dan servicio?</h4><span class="faq-icon"><i class="ph-bold ph-plus"></i></span></button><div class="faq-answer"><p>Cubrimos Monterrey y toda su área metropolitana: San Pedro, San Nicolás, Guadalupe, Apodaca, Escobedo, Santa Catarina, García y más.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 16. CONTACTO ===== -->
-  <section class="contacto reveal" id="contacto">
-    <div class="container">
-      <div class="section-label">Contacto</div>
-      <h2 class="section-title">Solicita tu <span class="highlight">cotización</span></h2>
-      <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo en menos de 2 horas.</p>
-      <div class="contacto-grid">
-        <div id="contactoFormWrap">
-          <form id="contactoForm">
-            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
-            <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678" required pattern="[0-9\s]{10,15}" title="Solo números (10 dígitos)" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9\s]/g, '')"></div>
-            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. nombre@gmail.com)"></div>
-            <div class="form-group"><label for="tipo">Tipo de propiedad</label><select id="tipo"><option value="" disabled selected>Selecciona una opción</option><option>Casa</option><option>Departamento</option><option>Negocio / Comercio</option><option>Nave industrial / Bodega</option><option>Otro</option></select></div>
-            <div class="form-group"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea></div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
-            <button type="button" class="contacto-flip-btn" id="contactoFlipBtn" style="display:none;">
-              <i class="ph-fill ph-info"></i> Ver información de contacto
-            </button>
-          </form>
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
-            <h3>Mensaje enviado</h3>
-            <p>Gracias por contactarnos. Un asesor se comunicará contigo en menos de 2 horas.</p>
-            <div class="form-success-actions">
-              <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
-              <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
-            </div>
-          </div>
-        </div>
-        <div class="contacto-info">
-          <div>
-            <h3>Información de contacto</h3>
-            <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
-          </div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2040 9959</a></p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto card overlay (móvil) -->
-  <div class="contacto-card-overlay" id="contactoOverlay">
-    <div class="contacto-card">
-      <button class="contacto-card-close" id="contactoClose">&times;</button>
-      <h3>Información de contacto</h3>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-phone"></i></div>
-        <div class="cc-text"><h4>Teléfono</h4><p><a href="tel:+528183488085">81 8348 8085</a></p></div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
-        <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959" target="_blank" rel="noopener">81 2040 9959</a></p></div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-map-pin"></i></div>
-        <div class="cc-text"><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a></p></div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-clock"></i></div>
-        <div class="cc-text"><h4>Horario</h4><p>Lun-Vie: 9:00 — 18:00<br>Sáb: 9:00 — 14:00</p></div>
-      </div>
-    </div>
-  </div>
 
   <!-- ===== 17. FOOTER ===== -->
   <footer class="footer">
@@ -3325,9 +2884,9 @@
       update();
     })();
 
-    /* --- 8a. Pilares V2 (¿Por qué NDA?): líneas SVG — 3 floats → 3 items --- */
+    /* --- 8a. Pilares V2 (¿Por qué NDA?): líneas SVG — 5 floats → 5 items --- */
     (function() {
-      const N = 3;
+      const N = 5;
       const section = document.getElementById('pilares-v2');
       if (!section) return;
       const split = section.querySelector('.pilares-v2-split');
@@ -3355,7 +2914,7 @@
         };
       }
 
-      const floatToItem = [0, 1, 2];
+      const floatToItem = [0, 1, 2, 3, 4];
 
       function buildRoute(i) {
         const f = rel(floats[i]);
@@ -3377,8 +2936,19 @@
           const startY = f.cy;
           const extX = v.right + 20;
           pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
+        } else if (i === 2) {
+          /* 30+ años (derecha) → baja → derecha al item */
+          const startX = f.right;
+          const startY = f.cy;
+          pts = [[startX, startY], [toX, startY], [toX, toY]];
+        } else if (i === 3) {
+          /* Instalación pro (izquierda) → sale por abajo del float → baja → derecha → sube al item */
+          const startX = f.cx;
+          const startY = f.bottom;
+          const downY = v.bottom + 18;
+          pts = [[startX, startY], [startX, downY], [toX, downY], [toX, toY]];
         } else {
-          /* Sin contrato (derecha) → baja → derecha al item */
+          /* App móvil (derecha) → baja → derecha al item */
           const startX = f.right;
           const startY = f.cy;
           pts = [[startX, startY], [toX, startY], [toX, toY]];
@@ -3443,6 +3013,15 @@
           const startY = f.cy;
           const extX = v.right + 20;
           pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
+        } else if (i === 2) {
+          const startX = f.right;
+          const startY = f.cy;
+          pts = [[startX, startY], [toX, startY], [toX, toY]];
+        } else if (i === 3) {
+          const startX = f.cx;
+          const startY = f.bottom;
+          const downY = v.bottom + 18;
+          pts = [[startX, startY], [startX, downY], [toX, downY], [toX, toY]];
         } else {
           const startX = f.right;
           const startY = f.cy;
@@ -3564,7 +3143,7 @@
       btnOtros.addEventListener('click', () => setActive('otros'));
     })();
 
-    /* --- 10. Hero Armar / Desarmar toggle --- */
+    /* --- 10. Hero Armar / Desarmar toggle + sonidos --- */
     (function() {
       const btn = document.getElementById('heroArmBtn');
       const card = document.querySelector('.hero-main-card');
@@ -3574,39 +3153,121 @@
       const sub = document.getElementById('heroArmSub');
       if (!btn || !card) return;
 
+      /* === Web Audio: sirena de alarma + beep de desarmado === */
+      let audioCtx = null;
+      let soundEnabled = false;
+      function getCtx() {
+        if (!audioCtx) {
+          try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+          catch (e) { return null; }
+        }
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        return audioCtx;
+      }
+      /* Sirena de alarma — archivo MP3 real */
+      const alarmAudio = new Audio('assets/alarma-sirena.mp3');
+      alarmAudio.preload = 'auto';
+      alarmAudio.volume = 0.7;
+      function playAlarm() {
+        if (!soundEnabled) return;
+        try {
+          alarmAudio.currentTime = 0;
+          alarmAudio.play().catch(() => {});
+        } catch (e) {}
+      }
+      /* Sonido de desarmado — campanilla suave descendente (DING-DONG) */
+      function playBeep() {
+        if (!soundEnabled) return;
+        const ctx = getCtx(); if (!ctx) return;
+        const t = ctx.currentTime;
+
+        const masterFilter = ctx.createBiquadFilter();
+        masterFilter.type = 'lowpass';
+        masterFilter.frequency.value = 4500;
+        masterFilter.connect(ctx.destination);
+
+        const make = (freq, start, dur, vol) => {
+          const o = ctx.createOscillator();
+          const o2 = ctx.createOscillator(); // armónico para tono de campana
+          const g = ctx.createGain();
+          o.type = 'sine'; o.frequency.value = freq;
+          o2.type = 'sine'; o2.frequency.value = freq * 2; // octava arriba
+          const og = ctx.createGain(); og.gain.value = 0.2;
+          o2.connect(og).connect(g);
+          o.connect(g);
+          g.gain.setValueAtTime(0, t + start);
+          g.gain.linearRampToValueAtTime(vol, t + start + 0.015);
+          g.gain.exponentialRampToValueAtTime(0.001, t + start + dur);
+          g.connect(masterFilter);
+          o.start(t + start); o.stop(t + start + dur + 0.05);
+          o2.start(t + start); o2.stop(t + start + dur + 0.05);
+        };
+        // Dos notas descendentes en intervalo de quinta — suave y musical
+        make(1320, 0,    0.45, 0.18); // E6
+        make(880,  0.18, 0.65, 0.16); // A5
+      }
+      /* Activar sonido en la primera interacción (autoplay policy) */
+      function enableSound() {
+        soundEnabled = true;
+        const ctx = getCtx(); if (ctx && ctx.state === 'suspended') ctx.resume();
+      }
+      ['click','touchstart','keydown'].forEach(ev =>
+        document.addEventListener(ev, enableSound, { once: true, passive: true })
+      );
+
+      const callout = document.getElementById('heroArmCallout');
+      const appNotif = document.getElementById('heroAppNotif');
+      const appSub = document.getElementById('heroAppSub');
+
       let armed = true;
-      /* Iniciar en armado */
+      /* Iniciar en armado (alerta) */
       card.classList.add('armed');
 
-      function toggle() {
-        armed = !armed;
-        if (armed) {
-          card.classList.remove('disarmed');
-          card.classList.add('armed');
-          btn.classList.remove('disarmed');
-          icon.classList.remove('ph-lock-key-open');
-          icon.classList.add('ph-lock-key');
-          shieldIcon.classList.remove('ph-lock-key-open');
-          shieldIcon.classList.add('ph-lock-key');
-          text.textContent = 'Armado';
-          sub.textContent = 'Sistema protegido';
-        } else {
-          card.classList.remove('armed');
-          card.classList.add('disarmed');
-          btn.classList.add('disarmed');
-          icon.classList.remove('ph-lock-key');
-          icon.classList.add('ph-lock-key-open');
-          shieldIcon.classList.remove('ph-lock-key');
-          shieldIcon.classList.add('ph-lock-key-open');
-          text.textContent = 'Desarmado';
-          sub.textContent = 'Sistema abierto';
-        }
+      function setArmed(playSoundFlag) {
+        armed = true;
+        card.classList.remove('disarmed');
+        card.classList.add('armed');
+        btn.classList.remove('disarmed');
+        icon.classList.remove('ph-lock-key-open');
+        icon.classList.add('ph-lock-key');
+        shieldIcon.classList.remove('ph-lock-key-open');
+        shieldIcon.classList.add('ph-lock-key');
+        text.textContent = 'Alarma activada';
+        sub.textContent = 'Toca para desactivar';
+        if (callout) callout.textContent = 'Comprueba nuestro sistema';
+        if (appNotif) appNotif.style.opacity = '1';
+        if (appSub) appSub.textContent = 'Notifica al instante';
+        if (playSoundFlag) playAlarm();
       }
 
-      /* Click manual */
-      btn.addEventListener('click', toggle);
-      /* Auto toggle cada 4 segundos */
-      setInterval(toggle, 4000);
+      function setDisarmed(playSoundFlag) {
+        armed = false;
+        try { alarmAudio.pause(); alarmAudio.currentTime = 0; } catch(e) {}
+        card.classList.remove('armed');
+        card.classList.add('disarmed');
+        btn.classList.add('disarmed');
+        icon.classList.remove('ph-lock-key');
+        icon.classList.add('ph-lock-key-open');
+        shieldIcon.classList.remove('ph-lock-key');
+        shieldIcon.classList.add('ph-lock-key-open');
+        text.textContent = 'Sistema desactivado';
+        sub.textContent = '¡Lo lograste!';
+        if (callout) callout.textContent = '¡Bien hecho!';
+        if (appNotif) appNotif.style.opacity = '0';
+        if (appSub) appSub.textContent = 'Sistema OK';
+        if (playSoundFlag) playBeep();
+      }
+
+      /* Click del usuario → toggle entre armado/desarmado, ambos con sonido */
+      btn.addEventListener('click', () => {
+        /* Activar audio en cada click por si es la primera interacción */
+        enableSound();
+        if (armed) {
+          setDisarmed(true);
+        } else {
+          setArmed(true);
+        }
+      });
     })();
 
     /* --- 11. Circuit connections background (reutilizable) --- */

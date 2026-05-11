@@ -149,11 +149,11 @@
 
     .navbar {
       position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
-      z-index: 1000; width: calc(100% - 80px); max-width: 1100px;
+      z-index: 1000; width: calc(100% - 60px); max-width: 1240px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 99px; padding: 8px 32px;
+      border-radius: 99px; padding: 4px 32px;
       transition: all 0.3s ease;
     }
     .navbar.scrolled {
@@ -166,16 +166,16 @@
       display: flex; align-items: center; justify-content: space-between;
       max-width: none; padding: 0; gap: 8px;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 56px; width: auto; }
-    .navbar.scrolled .nav-logo img { height: 56px; }
-    .nav-links { display: flex; align-items: center; gap: 44px; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 64px; width: auto; max-width: none; }
+    .navbar.scrolled .nav-logo img { height: 64px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
 
     /* Dropdown Soluciones */
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -209,23 +209,19 @@
     .nav-dropdown-menu a.active { color: #F8EB01 !important; }
     .nav-dropdown-menu a i { font-size: 16px; width: 18px; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
-    .nav-links a.active { color: var(--ind-accent); }
-    .nav-cta {
-      padding: 8px 20px !important; font-size: 12px !important; font-weight: 700 !important;
-      border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2);
-      color: #000 !important; background: #F8EB01 !important;
-    }
+    .nav-links a.active { color: #F8EB01; }
+    .nav-cta { padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; white-space: nowrap; margin-left: 16px; }
     .nav-cta:hover { color: #000 !important; }
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%; overflow: hidden;
+      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 17px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
     .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
@@ -1153,7 +1149,7 @@
         font-size: 15px !important;
       }
       .nav-dropdown-trigger {
-        font-size: 15px !important;
+        font-size: 17px !important;
         width: 100%;
         text-align: left;
       }
@@ -1360,7 +1356,7 @@
         <a href="servicios.html">Servicios</a>
         <a href="nosotros.html">Nosotros</a>
         <a href="contacto.html">Contacto</a>
-        <a href="cotiza.html" class="btn btn-primary nav-cta">Cotiza gratis</a>
+        <a href="contacto.html" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -1390,7 +1386,7 @@
         <h1>Seguridad para <span class="highlight">naves industriales</span></h1>
         <p class="hero-text">Protección perimetral a gran escala para bodegas, naves y centros de distribución. Sensores especializados, monitoreo 24/7 y respuesta inmediata desde nuestra Central de Monitoreo propia.</p>
         <div class="hero-ctas">
-          <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
+          <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
           <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Hablar con asesor</a>
         </div>
         <div class="hero-trust">
@@ -1487,7 +1483,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-warehouse"></i> Bodegas y almacenes</div>
             <h3>Tu inventario, siempre protegido</h3>
             <p>Sensores perimetrales, control en portones y cortinas metálicas, y monitoreo 24/7 con respuesta inmediata.</p>
-            <a href="cotiza.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="contacto.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1499,7 +1495,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Naves industriales</div>
             <h3>Perímetros de hasta 150 m protegidos</h3>
             <p>Photobeam, fotoceldas y sensores de vibración para naves de producción y manufactura.</p>
-            <a href="cotiza.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="contacto.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1511,7 +1507,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-truck"></i> Centros de distribución</div>
             <h3>Control en andenes y zonas de carga</h3>
             <p>Registro de apertura por turno, accesos vehiculares monitoreados e integración con CCTV.</p>
-            <a href="cotiza.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="contacto.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1523,7 +1519,7 @@
             <div class="sol2-badge"><i class="ph-fill ph-buildings"></i> Parques industriales</div>
             <h3>Seguridad multi-zona, un solo panel</h3>
             <p>Sistemas independientes por nave o inquilino con monitoreo centralizado y app móvil por usuario.</p>
-            <a href="cotiza.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="contacto.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1821,7 +1817,7 @@
       <h2>¿Listo para proteger <span class="highlight">tu nave industrial</span>?</h2>
       <p>Solicita tu visita técnica gratuita. En menos de 24 horas un asesor va a tu instalación.</p>
       <div class="banner-ctas">
-        <a href="cotiza.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
+        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
         <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
         <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
       </div>
