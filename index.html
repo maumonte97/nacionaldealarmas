@@ -326,16 +326,16 @@
     /* Hero visual — video */
     .hero-visual { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; transform: translateY(-40px); }
     .hero-trust-stat {
-      display: inline-flex; align-items: center; gap: var(--space-3);
+      display: inline-flex; align-items: center; gap: var(--space-4);
       background: rgba(7, 26, 46, 0.8);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
-      padding: var(--space-5) var(--space-6);
-      font-size: 15px; font-weight: 600; color: #fff;
+      border: 1px solid var(--glass-border); border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-8);
+      font-size: 18px; font-weight: 600; color: #fff;
       animation: float 3s ease-in-out infinite;
     }
-    .hero-trust-stat strong { color: #F8EB01; font-weight: 800; font-size: 17px; letter-spacing: 0.2px; }
-    .hero-trust-stat i { font-size: 26px; color: #F8EB01; }
+    .hero-trust-stat strong { color: #F8EB01; font-weight: 800; font-size: 24px; letter-spacing: 0.2px; }
+    .hero-trust-stat i { font-size: 32px; color: #F8EB01; }
     .hero-comp {
       position: relative; width: 100%; max-width: 520px;
     }
@@ -478,17 +478,51 @@
     }
     /* Callout invitando a probar el sistema */
     .hero-arm-callout {
-      position: absolute; bottom: -34px; left: 50%; transform: translateX(-50%);
+      position: absolute; bottom: -48px; left: 50%; transform: translateX(-50%);
       white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 10px;
       background: rgba(2,14,28,0.9);
       border: 1px solid rgba(239, 68, 68, 0.4);
       color: #fff;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-      padding: 6px 12px; border-radius: 99px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4), 0 0 16px rgba(239,68,68,0.18);
+      font-size: 15px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 99px;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.45), 0 0 22px rgba(239,68,68,0.22);
       pointer-events: none;
       transition: opacity 0.4s ease, transform 0.4s ease;
       animation: armCalloutBounce 2s ease-in-out infinite;
+    }
+    .hero-arm-callout i {
+      color: #F8EB01; font-size: 20px;
+      transform-origin: 50% 80%;
+    }
+    .hero-arm-callout i.ph-megaphone-simple {
+      animation: armCalloutShake 1.2s ease-in-out infinite;
+    }
+    /* Manita apuntando al toggle */
+    .hero-arm-tap-hint {
+      position: absolute; bottom: -40px; right: 14px;
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      pointer-events: none; z-index: 6;
+      animation: armTapHintBob 1.2s ease-in-out infinite;
+      transform-origin: 50% 0%;
+    }
+    .hero-arm-tap-hint i {
+      font-size: 30px; color: #F8EB01;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+    }
+    .hero-arm-btn.disarmed .hero-arm-tap-hint { opacity: 0; }
+    @keyframes armTapHintBob {
+      0%, 100% { transform: translateY(0); }
+      40%      { transform: translateY(-10px); }
+      60%      { transform: translateY(-6px); }
+    }
+    @keyframes armCalloutShake {
+      0%, 100% { transform: rotate(0deg); }
+      15%      { transform: rotate(-18deg); }
+      30%      { transform: rotate(14deg); }
+      45%      { transform: rotate(-10deg); }
+      60%      { transform: rotate(6deg); }
+      75%      { transform: rotate(-3deg); }
     }
     .hero-arm-callout::before {
       content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%) rotate(45deg);
@@ -2409,7 +2443,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-trust-stat"><i class="ph-fill ph-users-three"></i> <strong>+10,000</strong> familias y empresas confían en nosotros</div>
+        <div class="hero-trust-stat"><i class="ph-fill ph-users-three"></i> <strong data-target="10000" data-prefix="+">+0</strong> familias y empresas confían en nosotros</div>
         <div class="hero-comp">
           <div class="hero-main-card">
             <video autoplay muted loop playsinline>
@@ -2434,7 +2468,8 @@
             <div class="hero-arm-sound-hint" aria-hidden="true">
               <i class="ph-fill ph-bell-ringing"></i>
             </div>
-            <div class="hero-arm-callout" id="heroArmCallout">Comprueba nuestro sistema</div>
+            <div class="hero-arm-tap-hint" aria-hidden="true"><i class="ph-fill ph-hand-tap"></i></div>
+            <div class="hero-arm-callout" id="heroArmCallout"><span>Comprueba nuestro sistema</span></div>
           </div>
           <div class="hero-float hero-float-2">
             <i class="ph-fill ph-lock-key"></i>
@@ -2464,31 +2499,6 @@
     </div>
   </section>
 
-  <!-- ===== 04. STATS ===== -->
-  <section class="stats reveal" id="stats">
-    <div class="stats-glow"></div>
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number" data-target="10000" data-prefix="+">+10,000</div>
-          <div class="stat-label">Familias y empresas confían en nosotros</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">30+</div>
-          <div class="stat-label">Años protegiendo Monterrey</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5.0</div>
-          <div class="stat-label">Estrellas en reseñas de clientes</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">24h</div>
-          <div class="stat-label">Máximo para soporte técnico</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== 05. PILARES (Original) ===== -->
   <!-- ===== 05. ¿POR QUÉ NDA? ===== -->
   <section class="pilares-v2 reveal" id="pilares-v2">
@@ -2502,23 +2512,15 @@
           </video>
           <div class="pv2-float pv2-float-1">
             <i class="ph-fill ph-eye"></i>
-            <div><div class="pv2-float-label">Monitoreo 24/7</div><div class="pv2-float-sub">Central propia</div></div>
+            <div><div class="pv2-float-label">Monitoreo 24/7</div></div>
           </div>
           <div class="pv2-float pv2-float-2">
-            <i class="ph-fill ph-lightning"></i>
-            <div><div class="pv2-float-label">Soporte técnico</div><div class="pv2-float-sub">Mismo día</div></div>
+            <i class="ph-fill ph-certificate"></i>
+            <div><div class="pv2-float-label">Personal Certificado</div></div>
           </div>
           <div class="pv2-float pv2-float-3">
             <i class="ph-fill ph-lock-key-open"></i>
-            <div><div class="pv2-float-label">30+ años</div><div class="pv2-float-sub">Experiencia local</div></div>
-          </div>
-          <div class="pv2-float pv2-float-4">
-            <i class="ph-fill ph-gear" style="color: #C084FC;"></i>
-            <div><div class="pv2-float-label">Instalación pro</div><div class="pv2-float-sub">Equipo certificado</div></div>
-          </div>
-          <div class="pv2-float pv2-float-5">
-            <i class="ph-fill ph-device-mobile" style="color: #EF4444;"></i>
-            <div><div class="pv2-float-label">App móvil</div><div class="pv2-float-sub">Control en tu mano</div></div>
+            <div><div class="pv2-float-label">30+ años</div></div>
           </div>
         </div>
         <!-- SVG líneas de conexión V2 (se dibujan con JS) -->
@@ -2534,20 +2536,14 @@
           <path class="pv2-conn-glow" id="pv2Glow0" stroke="var(--nda-blue-300)" filter="url(#v2GlowBlue)"/>
           <path class="pv2-conn-glow" id="pv2Glow1" stroke="var(--success)" filter="url(#v2GlowGreen)"/>
           <path class="pv2-conn-glow" id="pv2Glow2" stroke="var(--nda-yellow-400)" filter="url(#v2GlowYellow)" opacity="0.15"/>
-          <path class="pv2-conn-glow" id="pv2Glow3" stroke="#C084FC" filter="url(#v2GlowPurple)"/>
-          <path class="pv2-conn-glow" id="pv2Glow4" stroke="#EF4444" filter="url(#v2GlowRed)"/>
           <!-- Lines -->
           <path class="pv2-conn-line" id="pv2Path0" stroke="var(--nda-blue-300)"/>
           <path class="pv2-conn-line" id="pv2Path1" stroke="var(--success)"/>
           <path class="pv2-conn-line" id="pv2Path2" stroke="var(--nda-yellow-400)" opacity="0.55"/>
-          <path class="pv2-conn-line" id="pv2Path3" stroke="#C084FC"/>
-          <path class="pv2-conn-line" id="pv2Path4" stroke="#EF4444"/>
           <!-- Dots -->
           <circle class="pv2-conn-dot" id="pv2Dot0" fill="var(--nda-blue-300)" filter="url(#v2GlowBlue)"/>
           <circle class="pv2-conn-dot" id="pv2Dot1" fill="var(--success)" filter="url(#v2GlowGreen)"/>
           <circle class="pv2-conn-dot" id="pv2Dot2" fill="var(--nda-yellow-400)" filter="url(#v2GlowYellow)" opacity="0"/>
-          <circle class="pv2-conn-dot" id="pv2Dot3" fill="#C084FC" filter="url(#v2GlowPurple)"/>
-          <circle class="pv2-conn-dot" id="pv2Dot4" fill="#EF4444" filter="url(#v2GlowRed)"/>
         </svg>
         <div class="pilares-v2-list">
           <div class="pv2-item">
@@ -2558,29 +2554,17 @@
             </div>
           </div>
           <div class="pv2-item">
-            <div class="pv2-item-icon"><i class="ph-duotone ph-key"></i></div>
+            <div class="pv2-item-icon"><i class="ph-duotone ph-wrench"></i></div>
             <div class="pv2-item-text">
-              <h3>Personal certificado</h3>
-              <p>Mantenimiento preventivo y correctivo para tu sistema.</p>
+              <h3>Instalación profesional y soporte técnico</h3>
+              <p>Instaladores y técnicos certificados que ponen en marcha tu sistema con estándares de calidad y brindan mantenimiento preventivo y correctivo el mismo día.</p>
             </div>
           </div>
           <div class="pv2-item">
             <div class="pv2-item-icon"><i class="ph-duotone ph-cpu"></i></div>
             <div class="pv2-item-text">
               <h3>Tecnología de clase mundial</h3>
-              <p>Trabajamos con Ajax Systems, Honeywell y Trikdis para ofrecerte los sistemas de alarma más avanzados del mercado.</p>
-            </div>
-          </div>
-          <div class="pv2-item">
-            <div class="pv2-item-icon" style="background: rgba(192, 132, 252, 0.1); border-color: rgba(192, 132, 252, 0.18);"><i class="ph-duotone ph-gear" style="color: #C084FC;"></i></div>
-            <div class="pv2-item-text">
-              <h3>Instalación profesional</h3>
-            </div>
-          </div>
-          <div class="pv2-item">
-            <div class="pv2-item-icon" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.22);"><i class="ph-duotone ph-device-mobile" style="color: #EF4444;"></i></div>
-            <div class="pv2-item-text">
-              <h3>APP - Atención personalizada y orientada</h3>
+              <p>Trabajamos con Ajax Systems, Honeywell, Trikdis, Optex y System Sensor para ofrecerte los sistemas de alarma más avanzados del mercado, además de una <strong>App Móvil</strong> con atención personalizada y orientada a tus necesidades.</p>
             </div>
           </div>
         </div>
@@ -2884,9 +2868,9 @@
       update();
     })();
 
-    /* --- 8a. Pilares V2 (¿Por qué NDA?): líneas SVG — 5 floats → 5 items --- */
+    /* --- 8a. Pilares V2 (¿Por qué NDA?): líneas SVG — 3 floats → 3 items --- */
     (function() {
-      const N = 5;
+      const N = 3;
       const section = document.getElementById('pilares-v2');
       if (!section) return;
       const split = section.querySelector('.pilares-v2-split');
@@ -2914,7 +2898,7 @@
         };
       }
 
-      const floatToItem = [0, 1, 2, 3, 4];
+      const floatToItem = [0, 1, 2];
 
       function buildRoute(i) {
         const f = rel(floats[i]);
@@ -2931,24 +2915,13 @@
           const extX = startX + 35;
           pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
         } else if (i === 1) {
-          /* Soporte (izquierda) → derecha → horizontal → baja */
+          /* Personal Certificado (izquierda) → derecha → horizontal → baja */
           const startX = f.right;
           const startY = f.cy;
           const extX = v.right + 20;
           pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
-        } else if (i === 2) {
-          /* 30+ años (derecha) → baja → derecha al item */
-          const startX = f.right;
-          const startY = f.cy;
-          pts = [[startX, startY], [toX, startY], [toX, toY]];
-        } else if (i === 3) {
-          /* Instalación pro (izquierda) → sale por abajo del float → baja → derecha → sube al item */
-          const startX = f.cx;
-          const startY = f.bottom;
-          const downY = v.bottom + 18;
-          pts = [[startX, startY], [startX, downY], [toX, downY], [toX, toY]];
         } else {
-          /* App móvil (derecha) → baja → derecha al item */
+          /* 30+ años (derecha) → baja → derecha al item */
           const startX = f.right;
           const startY = f.cy;
           pts = [[startX, startY], [toX, startY], [toX, toY]];
@@ -3013,15 +2986,6 @@
           const startY = f.cy;
           const extX = v.right + 20;
           pts = [[startX, startY], [extX, startY], [extX, toY], [toX, toY]];
-        } else if (i === 2) {
-          const startX = f.right;
-          const startY = f.cy;
-          pts = [[startX, startY], [toX, startY], [toX, toY]];
-        } else if (i === 3) {
-          const startX = f.cx;
-          const startY = f.bottom;
-          const downY = v.bottom + 18;
-          pts = [[startX, startY], [startX, downY], [toX, downY], [toX, toY]];
         } else {
           const startX = f.right;
           const startY = f.cy;
@@ -3234,7 +3198,7 @@
         shieldIcon.classList.add('ph-lock-key');
         text.textContent = 'Alarma activada';
         sub.textContent = 'Toca para desactivar';
-        if (callout) callout.textContent = 'Comprueba nuestro sistema';
+        if (callout) callout.innerHTML = '<span>Comprueba nuestro sistema</span>';
         if (appNotif) appNotif.style.opacity = '1';
         if (appSub) appSub.textContent = 'Notifica al instante';
         if (playSoundFlag) playAlarm();
@@ -3252,7 +3216,7 @@
         shieldIcon.classList.add('ph-lock-key-open');
         text.textContent = 'Sistema desactivado';
         sub.textContent = '¡Lo lograste!';
-        if (callout) callout.textContent = '¡Bien hecho!';
+        if (callout) callout.innerHTML = '<i class="ph-fill ph-check-circle"></i><span>¡Bien hecho!</span>';
         if (appNotif) appNotif.style.opacity = '0';
         if (appSub) appSub.textContent = 'Sistema OK';
         if (playSoundFlag) playBeep();
