@@ -166,7 +166,7 @@
     .nav-logo img { height: 64px; width: auto; max-width: none; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -176,7 +176,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -307,6 +307,16 @@
       100% { transform: rotate(360deg); }
     }
     .hero-servicios h1 {
+      display: inline-block;
+      background: rgba(248,235,1,0.08);
+      border: 1px solid rgba(248,235,1,0.15);
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 12px; font-weight: 600; color: var(--nda-yellow-400);
+      line-height: 1.4; letter-spacing: 0.3px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-servicios h2.hero-headline {
       font-size: 42px; font-weight: 700; color: #fff;
       line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 14px;
       max-width: 550px;
@@ -619,7 +629,9 @@
     /* ===== BANNER CTA ===== */
     .banner-cta {
       padding: var(--space-20) 0; position: relative; overflow: hidden;
-      background: linear-gradient(135deg, var(--nda-dark-700), var(--nda-dark-600));
+      background:
+        url('assets/cta-bg.png') left center / auto 100% no-repeat,
+        linear-gradient(to right, #000 0%, #000 45%, #0c2a52 75%, #0569B3 100%);
     }
     .banner-glow-blue {
       position: absolute; left: -10%; top: -50%; width: 500px; height: 500px;
@@ -631,13 +643,13 @@
       background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%);
       pointer-events: none;
     }
-    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta .container { text-align: left; position: relative; z-index: 1; padding-left: 42%; }
     .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
     .banner-cta > .container > p {
       font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10);
-      max-width: 500px; margin-left: auto; margin-right: auto;
+      max-width: 500px; margin-left: 0; margin-right: auto;
     }
-    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: flex-start; flex-wrap: wrap; }
 
     /* ===== FOOTER ===== */
     .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
@@ -826,7 +838,7 @@
 
       /* --- Hero --- */
       .hero-servicios .container { grid-template-columns: 1fr; text-align: center; }
-      .hero-servicios h1 { font-size: 32px; }
+      .hero-servicios h2.hero-headline { font-size: 32px; }
       .hero-servicios-text { max-width: 100%; }
       .hero-servicios-ctas { justify-content: center; }
       .hero-servicios-visual { display: none; }
@@ -841,9 +853,10 @@
       /* --- Secciones --- */
       .section-title { font-size: 28px; }
       .banner-cta { padding: var(--space-12) 0 !important; }
+      .banner-cta .container { text-align: center !important; padding-left: 0 !important; }
       .banner-cta h2 { font-size: 28px; margin-bottom: var(--space-3); }
-      .banner-cta > .container > p { margin-bottom: var(--space-6); }
-      .banner-ctas { flex-direction: column !important; align-items: center; gap: var(--space-3) !important; }
+      .banner-cta > .container > p { margin-bottom: var(--space-6); margin-right: auto !important; }
+      .banner-ctas { flex-direction: column !important; align-items: center; justify-content: center !important; gap: var(--space-3) !important; }
       .banner-ctas .btn { font-size: 14px; padding: 12px 24px; display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; max-width: 280px; }
       .comp-toggle-wrap { justify-content: center !important; margin: var(--space-4) 0 var(--space-5) !important; }
       .comparador .section-desc { margin-bottom: var(--space-2) !important; }
@@ -930,6 +943,53 @@
       .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
+  <style>
+    /* ===== FOOTER OVERRIDES (logo grande, texto blanco, social brand colors) ===== */
+    .footer-brand .nav-logo { margin-left: -90px; }
+    .footer-brand .nav-logo img { height: 96px; max-width: none; }
+    .footer-brand p,
+    .footer-col a,
+    .footer-bottom p { color: #fff; }
+    .footer-col a:hover { color: var(--nda-yellow-400, #F8EB01); }
+    .social-icon i { color: var(--neutral-400); }
+    .social-icon[title="Facebook"] i  { color: #1877F2; }
+    .social-icon[title="Instagram"] i { color: #E4405F; }
+    .social-icon:hover { background: transparent; border-color: rgba(255,255,255,0.25); transform: scale(1.1); }
+    .social-icon[title="Facebook"]:hover i  { color: #1877F2; }
+    .social-icon[title="Instagram"]:hover i { color: #E4405F; }
+  </style>
+  <style>
+    /* ===== CALL FLOAT OVERRIDE ===== */
+    .call-float {
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
+      width: 56px; height: 56px; background: #F8EB01; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; text-decoration: none;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0 rgba(248, 235, 1, 0.55);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: call-pulse 1.6s ease-out infinite;
+    }
+    .call-float i { font-size: 28px; color: #02101F; animation: call-shake 1.6s ease-in-out infinite; transform-origin: 50% 60%; }
+    .call-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 30px rgba(248, 235, 1, 0.7); }
+    .call-float:hover i { animation: none; }
+    @keyframes call-pulse {
+      0%   { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0.6); }
+      70%  { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 18px rgba(248, 235, 1, 0); }
+      100% { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0); }
+    }
+    @keyframes call-shake {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      8%            { transform: rotate(-22deg); }
+      16%           { transform: rotate(20deg); }
+      24%           { transform: rotate(-14deg); }
+      32%           { transform: rotate(10deg); }
+      40%           { transform: rotate(-5deg); }
+      48%           { transform: rotate(2deg); }
+    }
+    /* Empuja scroll-top arriba del call-float */
+    .scroll-top { bottom: calc(var(--space-6) + 136px) !important; }
+  </style>
 </head>
 <body>
 
@@ -979,7 +1039,8 @@
     <div class="container">
       <div class="hero-servicios-content">
         <div class="hero-servicios-badge"><i class="ph-fill ph-wrench"></i> Servicio integral</div>
-        <h1>Lo que necesitas para <span class="highlight">tu seguridad</span></h1>
+        <h1>Servicios de Alarmas y Seguridad en Monterrey</h1>
+        <h2 class="hero-headline">Lo que necesitas para <span class="highlight">tu seguridad</span></h2>
         <ul class="hero-servicios-list">
           <li><a class="hsv-chip" href="#monitoreo" style="--hsv-c: #2da0e8;"><span class="hsv-chip-ic"><i class="ph-fill ph-headset"></i></span> Monitoreo</a></li>
           <li><a class="hsv-chip" href="#instalacion" style="--hsv-c: #F8EB01;"><span class="hsv-chip-ic"><i class="ph-fill ph-gear-six"></i></span> Instalaciones</a></li>
@@ -989,10 +1050,8 @@
         </ul>
       </div>
       <div class="hero-servicios-visual">
-        <div class="hero-servicios-img hero-servicios-placeholder">
-          <div class="hsv-placeholder-glow"></div>
-          <i class="ph-duotone ph-shield-check hsv-placeholder-icon"></i>
-          <span class="hsv-placeholder-text">Próximamente</span>
+        <div class="hero-servicios-img">
+          <img src="assets/servicios-nuevo.jpg" alt="Servicios Nacional de Alarmas" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
       </div>
     </div>
@@ -1138,7 +1197,7 @@
     <div class="banner-glow-blue"></div>
     <div class="banner-glow-yellow"></div>
     <div class="container">
-      <h2>¿Listo para proteger lo que más <span class="highlight">importa</span>?</h2>
+      <h2>Protege lo que más <span class="highlight">te importa</span></h2>
       <p>Cotiza tu sistema de alarma gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
       <div class="banner-ctas">
         <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza hoy mismo</a>
@@ -1184,6 +1243,9 @@
 
   <!-- ===== WHATSAPP FLOAT ===== -->
   <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== CALL FLOAT ===== -->
+  <a href="tel:+528183488085" class="call-float" title="Llámanos ahora" aria-label="Llámanos ahora"><i class="ph-fill ph-phone-call"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>

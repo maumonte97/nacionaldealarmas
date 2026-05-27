@@ -96,7 +96,7 @@
     .navbar.scrolled .nav-logo img { height: 64px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -104,7 +104,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -292,6 +292,53 @@
       .privacy-card h2 { font-size: 20px; }
     }
   </style>
+  <style>
+    /* ===== FOOTER OVERRIDES (logo grande, texto blanco, social brand colors) ===== */
+    .footer-brand .nav-logo { margin-left: -90px; }
+    .footer-brand .nav-logo img { height: 96px; max-width: none; }
+    .footer-brand p,
+    .footer-col a,
+    .footer-bottom p { color: #fff; }
+    .footer-col a:hover { color: var(--nda-yellow-400, #F8EB01); }
+    .social-icon i { color: var(--neutral-400); }
+    .social-icon[title="Facebook"] i  { color: #1877F2; }
+    .social-icon[title="Instagram"] i { color: #E4405F; }
+    .social-icon:hover { background: transparent; border-color: rgba(255,255,255,0.25); transform: scale(1.1); }
+    .social-icon[title="Facebook"]:hover i  { color: #1877F2; }
+    .social-icon[title="Instagram"]:hover i { color: #E4405F; }
+  </style>
+  <style>
+    /* ===== CALL FLOAT OVERRIDE ===== */
+    .call-float {
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
+      width: 56px; height: 56px; background: #F8EB01; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; text-decoration: none;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0 rgba(248, 235, 1, 0.55);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: call-pulse 1.6s ease-out infinite;
+    }
+    .call-float i { font-size: 28px; color: #02101F; animation: call-shake 1.6s ease-in-out infinite; transform-origin: 50% 60%; }
+    .call-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 30px rgba(248, 235, 1, 0.7); }
+    .call-float:hover i { animation: none; }
+    @keyframes call-pulse {
+      0%   { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0.6); }
+      70%  { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 18px rgba(248, 235, 1, 0); }
+      100% { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0); }
+    }
+    @keyframes call-shake {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      8%            { transform: rotate(-22deg); }
+      16%           { transform: rotate(20deg); }
+      24%           { transform: rotate(-14deg); }
+      32%           { transform: rotate(10deg); }
+      40%           { transform: rotate(-5deg); }
+      48%           { transform: rotate(2deg); }
+    }
+    /* Empuja scroll-top arriba del call-float */
+    .scroll-top { bottom: calc(var(--space-6) + 136px) !important; }
+  </style>
 </head>
 <body>
 
@@ -405,6 +452,9 @@
 
   <!-- ===== WHATSAPP FLOAT ===== -->
   <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== CALL FLOAT ===== -->
+  <a href="tel:+528183488085" class="call-float" title="Llámanos ahora" aria-label="Llámanos ahora"><i class="ph-fill ph-phone-call"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>

@@ -104,7 +104,7 @@
     .nav-logo img { height: 64px; width: auto; max-width: none; }
     .navbar.scrolled .nav-logo img { height: 64px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+    .nav-links a { font-size: 17px; font-weight: 500; color: #fff; text-decoration: none; transition: color 0.3s; }
     .nav-links a:hover { color: #fff; }
     .nav-links a.active { color: #F8EB01; }
     .nav-cta { padding: 9px 22px !important; font-size: 14px !important; font-weight: 700 !important; border-radius: 99px !important; box-shadow: 0 0 20px rgba(248,235,1,0.2); color: #000 !important; background: #F8EB01 !important; white-space: nowrap; margin-left: 16px; }
@@ -120,7 +120,7 @@
 
     /* Dropdown */
     .nav-dropdown { position: relative; }
-    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.3s; padding: 0; }
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; font-size: 17px; font-weight: 500; color: #fff; background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.3s; padding: 0; }
     .nav-dropdown-trigger:hover, .nav-dropdown:hover .nav-dropdown-trigger { color: #fff; }
     .nav-dropdown-trigger.sol-active { color: #F8EB01; }
     .nav-dropdown-trigger i { font-size: 11px; transition: transform 0.25s; }
@@ -143,7 +143,7 @@
     .hero-visual { order: -1; display: flex; align-items: center; justify-content: center; }
     .hero-badge { display: inline-flex; align-items: center; gap: var(--space-2); background: var(--cam-bg); border: 1px solid var(--cam-border); border-radius: 99px; padding: 5px 14px; font-size: 12px; font-weight: 500; color: var(--cam-accent); margin-bottom: 20px; }
     .hero-badge i { font-size: 14px; }
-    .hero h1 { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px; max-width: 540px; }
+    .hero h2.hero-headline { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px; max-width: 540px; }
     .hero-text { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 28px; max-width: 440px; }
     .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: var(--space-8); }
     .hero-ctas .btn { border-radius: 99px; padding: 13px 28px; font-size: 14px; font-weight: 700; }
@@ -556,7 +556,7 @@
       .nav-mobile-toggle { display: flex; }
       .hero .container, .grabacion-grid, .app-grid, .complemento-grid { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
-      .hero h1 { font-size: 34px; text-align: center; }
+      .hero h2.hero-headline { font-size: 34px; text-align: center; }
       .hero-text-col { text-align: center; }
       .hero-ctas { justify-content: center; }
       .hero-badge { margin-left: auto; margin-right: auto; }
@@ -800,6 +800,53 @@
       .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
+  <style>
+    /* ===== FOOTER OVERRIDES (logo grande, texto blanco, social brand colors) ===== */
+    .footer-brand .nav-logo { margin-left: -90px; }
+    .footer-brand .nav-logo img { height: 96px; max-width: none; }
+    .footer-brand p,
+    .footer-col a,
+    .footer-bottom p { color: #fff; }
+    .footer-col a:hover { color: var(--nda-yellow-400, #F8EB01); }
+    .social-icon i { color: var(--neutral-400); }
+    .social-icon[title="Facebook"] i  { color: #1877F2; }
+    .social-icon[title="Instagram"] i { color: #E4405F; }
+    .social-icon:hover { background: transparent; border-color: rgba(255,255,255,0.25); transform: scale(1.1); }
+    .social-icon[title="Facebook"]:hover i  { color: #1877F2; }
+    .social-icon[title="Instagram"]:hover i { color: #E4405F; }
+  </style>
+  <style>
+    /* ===== CALL FLOAT OVERRIDE ===== */
+    .call-float {
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
+      width: 56px; height: 56px; background: #F8EB01; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; text-decoration: none;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0 rgba(248, 235, 1, 0.55);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: call-pulse 1.6s ease-out infinite;
+    }
+    .call-float i { font-size: 28px; color: #02101F; animation: call-shake 1.6s ease-in-out infinite; transform-origin: 50% 60%; }
+    .call-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 30px rgba(248, 235, 1, 0.7); }
+    .call-float:hover i { animation: none; }
+    @keyframes call-pulse {
+      0%   { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0.6); }
+      70%  { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 18px rgba(248, 235, 1, 0); }
+      100% { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0); }
+    }
+    @keyframes call-shake {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      8%            { transform: rotate(-22deg); }
+      16%           { transform: rotate(20deg); }
+      24%           { transform: rotate(-14deg); }
+      32%           { transform: rotate(10deg); }
+      40%           { transform: rotate(-5deg); }
+      48%           { transform: rotate(2deg); }
+    }
+    /* Empuja scroll-top arriba del call-float */
+    .scroll-top { bottom: calc(var(--space-6) + 136px) !important; }
+  </style>
 </head>
 <body>
 
@@ -933,8 +980,8 @@
 
       <!-- Texto hero -->
       <div class="hero-text-col">
-        <div class="hero-badge"><i class="ph-fill ph-video-camera"></i> Videovigilancia Profesional</div>
-        <h1>Vigila tu propiedad desde <span style="color:var(--cam-accent)">cualquier lugar</span></h1>
+        <h1 class="hero-badge"><i class="ph-fill ph-video-camera"></i> Cámaras de Seguridad en Monterrey</h1>
+        <h2 class="hero-headline">Vigila tu propiedad desde <span style="color:var(--cam-accent)">cualquier lugar</span></h2>
         <p class="hero-text">Cámaras IP de alta resolución, visión nocturna, detección de movimiento y acceso en tiempo real desde tu celular. Instalación profesional en Monterrey y área metropolitana.</p>
         <div class="hero-ctas">
           <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-calendar-check"></i> Solicitar cotización</a>
@@ -1515,6 +1562,9 @@
 
   <!-- ===== WHATSAPP FLOAT ===== -->
   <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20cámaras%20de%20seguridad." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== CALL FLOAT ===== -->
+  <a href="tel:+528183488085" class="call-float" title="Llámanos ahora" aria-label="Llámanos ahora"><i class="ph-fill ph-phone-call"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>

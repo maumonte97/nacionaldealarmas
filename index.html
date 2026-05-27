@@ -173,7 +173,7 @@
     .nav-logo img { height: 64px; width: auto; max-width: none; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -183,7 +183,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 17px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -300,6 +300,16 @@
     }
     .hero-badge i { font-size: 14px; }
     .hero h1 {
+      display: inline-block;
+      background: rgba(248,235,1,0.08);
+      border: 1px solid rgba(248,235,1,0.15);
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 12px; font-weight: 600; color: var(--nda-yellow-400);
+      line-height: 1.4; letter-spacing: 0.3px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h2.hero-headline {
       font-size: 44px; font-weight: 700; color: #fff;
       line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 36px;
       max-width: 600px;
@@ -500,7 +510,7 @@
     }
     /* Manita apuntando al toggle */
     .hero-arm-tap-hint {
-      position: absolute; bottom: -40px; right: 14px;
+      position: absolute; bottom: 10px; right: 14px;
       width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
       pointer-events: none; z-index: 6;
       animation: armTapHintBob 1.2s ease-in-out infinite;
@@ -791,7 +801,7 @@
       margin-bottom: var(--space-1);
     }
     .pv2-item-text p {
-      font-size: 14px; color: var(--neutral-400); line-height: 1.7;
+      font-size: 14px; color: #fff; line-height: 1.7;
     }
     /* SVG líneas de conexión float → texto */
     .pv2-lines-svg {
@@ -987,6 +997,14 @@
       object-fit: cover; z-index: 0; transition: transform 0.6s ease;
     }
     .sol2-card:hover img, .sol2-card:hover video { transform: scale(1.05); }
+    /* Carrusel de imágenes en el card de Residencial */
+    .sol-res-carousel { position: absolute; inset: 0; z-index: 0; }
+    .sol-res-slide {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0; transition: opacity 1.2s ease;
+    }
+    .sol-res-slide.active { opacity: 1; }
+    .sol2-card:hover .sol-res-slide { transform: scale(1.05); transition: transform 0.6s ease, opacity 1.2s ease; }
     .sol2-content {
       position: relative; z-index: 2;
       opacity: 0; transform: translateY(12px);
@@ -1764,9 +1782,38 @@
       50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5); }
     }
 
+    /* ===== CALL FLOAT (destacado, arriba del de WhatsApp) ===== */
+    .call-float {
+      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
+      width: 56px; height: 56px; background: #F8EB01; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; cursor: pointer; text-decoration: none;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0 rgba(248, 235, 1, 0.55);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: call-pulse 1.6s ease-out infinite;
+    }
+    .call-float i { font-size: 28px; color: #02101F; animation: call-shake 1.6s ease-in-out infinite; transform-origin: 50% 60%; }
+    .call-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 30px rgba(248, 235, 1, 0.7); }
+    .call-float:hover i { animation: none; }
+    @keyframes call-pulse {
+      0%   { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0.6); }
+      70%  { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 18px rgba(248, 235, 1, 0); }
+      100% { box-shadow: 0 4px 20px rgba(248, 235, 1, 0.55), 0 0 0 0   rgba(248, 235, 1, 0); }
+    }
+    @keyframes call-shake {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      8%            { transform: rotate(-22deg); }
+      16%           { transform: rotate(20deg); }
+      24%           { transform: rotate(-14deg); }
+      32%           { transform: rotate(10deg); }
+      40%           { transform: rotate(-5deg); }
+      48%           { transform: rotate(2deg); }
+    }
+
     /* ===== SCROLL TO TOP ===== */
     .scroll-top {
-      position: fixed; bottom: calc(var(--space-6) + 68px); right: var(--space-6);
+      position: fixed; bottom: calc(var(--space-6) + 136px); right: var(--space-6);
       width: 44px; height: 44px; background: var(--glass-bg);
       border: 1px solid var(--glass-border); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -2385,6 +2432,21 @@
       }
     }
   </style>
+  <style>
+    /* ===== FOOTER OVERRIDES (logo grande, texto blanco, social brand colors) ===== */
+    .footer-brand .nav-logo { margin-left: -90px; }
+    .footer-brand .nav-logo img { height: 96px; max-width: none; }
+    .footer-brand p,
+    .footer-col a,
+    .footer-bottom p { color: #fff; }
+    .footer-col a:hover { color: var(--nda-yellow-400, #F8EB01); }
+    .social-icon i { color: var(--neutral-400); }
+    .social-icon[title="Facebook"] i  { color: #1877F2; }
+    .social-icon[title="Instagram"] i { color: #E4405F; }
+    .social-icon:hover { background: transparent; border-color: rgba(255,255,255,0.25); transform: scale(1.1); }
+    .social-icon[title="Facebook"]:hover i  { color: #1877F2; }
+    .social-icon[title="Instagram"]:hover i { color: #E4405F; }
+  </style>
 </head>
 <body>
 
@@ -2437,7 +2499,8 @@
     <div class="hero-glow-4"></div>
     <div class="container">
       <div class="hero-content">
-        <h1>Más de 30 años<br>protegiendo Monterrey<br><span class="highlight">con Central de Monitoreo propia 24/7</span></h1>
+        <h1>Alarmas en Monterrey con Monitoreo 24/7</h1>
+        <h2 class="hero-headline">Más de 30 años<br>protegiendo Monterrey<br><span class="highlight">con Central de Monitoreo propia 24/7</span></h2>
         <div class="hero-ctas">
           <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza Hoy mismo</a>
         </div>
@@ -2490,9 +2553,11 @@
     <div class="container">
       <p>Tecnología de clase mundial</p>
       <div class="trust-logos">
+        <span class="trust-logo logo-ajax"><img src="assets/logo-ajax.png" alt="Ajax Systems"></span>
         <span class="trust-logo logo-honeywell"><img src="assets/logo-honeywell.png" alt="Honeywell"></span>
         <span class="trust-logo logo-trikdis"><img src="assets/logo-trikdis.png" alt="Trikdis"></span>
         <!-- Duplicados para loop infinito en móvil -->
+        <span class="trust-logo logo-ajax" aria-hidden="true"><img src="assets/logo-ajax.png" alt=""></span>
         <span class="trust-logo logo-honeywell" aria-hidden="true"><img src="assets/logo-honeywell.png" alt=""></span>
         <span class="trust-logo logo-trikdis" aria-hidden="true"><img src="assets/logo-trikdis.png" alt=""></span>
       </div>
@@ -2504,7 +2569,7 @@
   <section class="pilares-v2 reveal" id="pilares-v2">
     <div class="container">
       <h2 class="section-title">Porque somos la mejor <span class="highlight">opción</span></h2>
-      <p class="section-desc">Lo que nos distingue de cualquier otra empresa de seguridad.</p>
+      <p class="section-desc" style="color: #fff;">Lo que nos distingue de cualquier otra empresa de seguridad.</p>
       <div class="pilares-v2-split">
         <div class="pilares-v2-visual">
           <video autoplay muted loop playsinline>
@@ -2582,18 +2647,18 @@
       <div class="sol2-grid stagger">
         <!-- Card principal: Residencial (full width arriba) -->
         <div class="sol2-card" style="grid-column: 1 / -1; min-height: 380px;">
-          <img src="assets/sol-residencial.png" alt="Sistema de seguridad residencial">
+          <img src="assets/sol-residencial-new.png" alt="Alarmas para casa en Monterrey">
+
           <span class="sol2-badge-static"><i class="ph-fill ph-house"></i> Residencial</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-house"></i> Residencial</div>
             <h3>Protege lo que más quieres</h3>
-            <p>Sistemas inteligentes para casas y departamentos. Monitoreo 24/7, app móvil y control total desde tu celular.</p>
             <a href="residencial.html" class="sol2-link">Ver más <i class="ph-bold ph-arrow-right"></i></a>
           </div>
         </div>
         <!-- Card: Comercial (grande) -->
         <div class="sol2-card">
-          <img src="assets/sol-comercial.png" alt="Seguridad para negocios">
+          <img src="assets/comercial-nuevo.jpg" alt="Seguridad para negocios">
           <span class="sol2-badge-static"><i class="ph-fill ph-storefront"></i> Comercial</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Comercial</div>
@@ -2604,7 +2669,7 @@
         </div>
         <!-- Card: Industrial (mediano) -->
         <div class="sol2-card">
-          <img src="assets/sol-industrial.png" alt="Seguridad industrial perimetral">
+          <img src="assets/industrial-nuevo.jpg" alt="Seguridad industrial perimetral">
           <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Industrial</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Industrial</div>
@@ -2711,6 +2776,9 @@
 
   <!-- ===== WHATSAPP FLOAT ===== -->
   <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20un%20sistema%20de%20alarma." class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i></a>
+
+  <!-- ===== CALL FLOAT ===== -->
+  <a href="tel:+528183488085" class="call-float" title="Llámanos ahora" aria-label="Llámanos ahora"><i class="ph-fill ph-phone-call"></i></a>
 
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" title="Ir arriba"><i class="ph-bold ph-caret-up"></i></button>
@@ -3805,6 +3873,20 @@
         form.style.display = '';
         form.reset();
       });
+    })();
+
+    /* --- Carrusel Residencial (Soluciones) --- */
+    (function(){
+      const carousel = document.getElementById('solResCarousel');
+      if (!carousel) return;
+      const slides = carousel.querySelectorAll('.sol-res-slide');
+      if (slides.length < 2) return;
+      let idx = 0;
+      setInterval(() => {
+        slides[idx].classList.remove('active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('active');
+      }, 4000);
     })();
 
   </script>
