@@ -1849,7 +1849,8 @@
 
       .hero { min-height: auto; padding-top: 120px; padding-bottom: var(--space-10); }
       .hero .container { grid-template-columns: 1fr; text-align: center; }
-      .hero h1 { font-size: 38px; }
+      .hero h1 { font-size: 11px; padding: 4px 12px; }
+      .hero h2.hero-headline { font-size: 30px; }
       .hero-text { max-width: 100%; }
       .hero-ctas { justify-content: center; }
       .hero-trust {
@@ -2432,6 +2433,65 @@
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
       }
+    }
+
+    /* ===== Pop-up "Porque somos la mejor opción" (pilares) ===== */
+    .pv2-modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      background: rgba(2, 12, 23, 0.7);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .pv2-modal-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
+    .pv2-modal {
+      position: relative; width: 100%; max-width: 460px;
+      background: linear-gradient(160deg, #0b2238, #071a2e);
+      border: 1px solid rgba(248,235,1,0.18);
+      border-radius: 20px; padding: 32px 28px 30px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+      transform: translateY(16px) scale(0.97);
+      transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.3, 1);
+      text-align: left;
+    }
+    .pv2-modal-overlay.open .pv2-modal { transform: translateY(0) scale(1); }
+    .pv2-modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.08); border: none; cursor: pointer;
+      color: #fff; font-size: 20px; line-height: 1;
+      transition: background 0.2s ease;
+    }
+    .pv2-modal-close:hover { background: rgba(255,255,255,0.18); }
+    .pv2-modal-icon {
+      width: 58px; height: 58px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(248,235,1,0.12); color: #F8EB01;
+      font-size: 30px; margin-bottom: 18px;
+    }
+    .pv2-modal-title {
+      font-size: 22px; font-weight: 800; color: #fff;
+      line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.3px;
+    }
+    .pv2-modal-body {
+      font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.72);
+    }
+    .pv2-modal-body strong { color: #F8EB01; font-weight: 700; }
+    .pv2-modal-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;
+    }
+    .pv2-modal-tags span {
+      font-size: 12px; font-weight: 600; color: #cfe6ff;
+      background: rgba(45,160,232,0.14); border: 1px solid rgba(45,160,232,0.25);
+      border-radius: 99px; padding: 5px 12px;
+    }
+    @media (max-width: 768px) {
+      .pv2-modal { padding: 28px 22px 26px; border-radius: 18px; }
+      .pv2-modal-title { font-size: 20px; }
+      .pv2-modal-body { font-size: 14px; }
     }
   </style>
   <style>
@@ -3127,7 +3187,7 @@
         if (floatIdx !== undefined && floatIdx < N) {
           item.addEventListener('mouseenter', () => showLineReverse(floatIdx));
           item.addEventListener('mouseleave', () => hideLineReverse(floatIdx));
-          item.addEventListener('touchstart', (e) => { e.preventDefault(); showLineReverse(floatIdx); }, { passive: false });
+          item.addEventListener('touchstart', () => showLineReverse(floatIdx), { passive: true });
           item.addEventListener('touchend', () => hideLineReverse(floatIdx));
           item.style.cursor = 'pointer';
         }
@@ -3892,6 +3952,85 @@
       }, 4000);
     })();
 
+  </script>
+
+  <!-- Pop-up de pilares (¿Por qué NDA?) -->
+  <div class="pv2-modal-overlay" id="pv2Modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="pv2-modal">
+      <button class="pv2-modal-close" id="pv2ModalClose" aria-label="Cerrar">&times;</button>
+      <div class="pv2-modal-icon"><i id="pv2ModalIcon" class="ph-duotone ph-eye"></i></div>
+      <h3 class="pv2-modal-title" id="pv2ModalTitle"></h3>
+      <div class="pv2-modal-body" id="pv2ModalBody"></div>
+      <div class="pv2-modal-tags" id="pv2ModalTags"></div>
+    </div>
+  </div>
+
+  <script>
+    /* --- Pop-up de pilares: badges flotantes (desktop) y tarjetas (móvil) abren modal --- */
+    (function() {
+      const section = document.getElementById('pilares-v2');
+      const overlay = document.getElementById('pv2Modal');
+      if (!section || !overlay) return;
+
+      const PILARES = [
+        {
+          icon: 'ph-duotone ph-eye',
+          title: 'Monitoreo 24/7 desde central propia',
+          body: 'Contamos con <strong>central de monitoreo propia en Monterrey</strong>, con operadores capacitados que vigilan tu propiedad las 24 horas, los 365 días del año. Ante cualquier alerta, nuestra central recibe la señal de inmediato y actúa en segundos.',
+          tags: ['Central propia', '24/7 · 365 días', 'Respuesta inmediata']
+        },
+        {
+          icon: 'ph-duotone ph-wrench',
+          title: 'Instalación profesional y personal certificado',
+          body: 'Instaladores y <strong>técnicos certificados</strong> instalan y configuran tu sistema completo: queda funcionando desde el día uno. Soporte técnico con atención el mismo día (máximo 48 h) y mantenimiento preventivo y correctivo para que tu sistema siempre funcione al 100%.',
+          tags: ['Técnicos certificados', 'Atención el mismo día', 'Mantenimiento incluido']
+        },
+        {
+          icon: 'ph-duotone ph-cpu',
+          title: '+30 años y tecnología de clase mundial',
+          body: 'Seguridad electrónica profesional <strong>desde 1993</strong>: más de 30 años protegiendo hogares y negocios en Monterrey. Trabajamos con las mejores marcas del mundo —<strong>Ajax, Honeywell, Trikdis, Optex y System Sensor</strong>— además de una App Móvil para controlar tu alarma desde tu celular.',
+          tags: ['Desde 1993', 'Marcas líderes', 'App Móvil']
+        }
+      ];
+
+      const elIcon = document.getElementById('pv2ModalIcon');
+      const elTitle = document.getElementById('pv2ModalTitle');
+      const elBody = document.getElementById('pv2ModalBody');
+      const elTags = document.getElementById('pv2ModalTags');
+      const elClose = document.getElementById('pv2ModalClose');
+
+      function openModal(i) {
+        const d = PILARES[i];
+        if (!d) return;
+        elIcon.className = d.icon;
+        elTitle.textContent = d.title;
+        elBody.innerHTML = d.body;
+        elTags.innerHTML = d.tags.map(t => '<span>' + t + '</span>').join('');
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      elClose.addEventListener('click', closeModal);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+      /* Badges flotantes (escritorio) */
+      section.querySelectorAll('.pv2-float').forEach((fl, i) => {
+        fl.style.cursor = 'pointer';
+        fl.addEventListener('click', () => openModal(i));
+      });
+      /* Tarjetas / items (móvil y escritorio) */
+      section.querySelectorAll('.pv2-item').forEach((item, i) => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', () => openModal(i));
+      });
+    })();
   </script>
 </body>
 </html>
