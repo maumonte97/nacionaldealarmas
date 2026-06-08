@@ -265,10 +265,10 @@
       pointer-events: none;
     }
     .hero .container {
-      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
-      align-items: center; position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr; gap: var(--space-10);
+      justify-items: center; text-align: center; position: relative; z-index: 2;
     }
-    .hero-visual { order: -1; }
+    .hero-visual { order: 0; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: var(--space-2);
       background: var(--ind-bg); border: 1px solid var(--ind-border);
@@ -295,7 +295,7 @@
 
     /* Hero visual — Esquema de nave */
     /* ===== HERO VISUAL — Panel de Monitoreo ===== */
-    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-visual { display: flex; align-items: center; justify-content: center; width: 100%; }
     .warehouse-vis { position: relative; width: 100%; max-width: 480px; }
     .wh-card {
       background: rgba(5,20,40,0.7);
@@ -548,7 +548,7 @@
       pointer-events: none;
     }
     .sol2-grid {
-      display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: auto auto;
+      display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: auto auto;
       gap: var(--space-5); position: relative; z-index: 1;
     }
     .sol2-card {
@@ -614,6 +614,7 @@
       gap: var(--space-3);
       margin-top: var(--space-12);
       flex-wrap: wrap;
+      justify-content: center;
     }
     .cv-tab {
       display: flex; align-items: center; gap: 8px;
@@ -638,14 +639,29 @@
     .cv-panel {
       display: none;
       margin-top: var(--space-8);
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr;
       gap: var(--space-6);
       align-items: start;
+      justify-items: center;
     }
     .cv-panel.active { display: grid; }
+    /* Carrusel con flechas (sin barra de miniaturas) — estilo residencial/comercial */
+    .cv-thumbs { display: none !important; }
+    .cv-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; font-size: 26px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 6; transition: background 0.2s ease, transform 0.2s ease;
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    }
+    .cv-arrow:hover { background: rgba(0,0,0,0.82); transform: translateY(-50%) scale(1.08); }
+    .cv-arrow-prev { left: 16px; }
+    .cv-arrow-next { right: 16px; }
 
     /* Hero - imagen grande */
     .cv-hero {
+      width: 100%; max-width: 860px; margin: 0 auto;
       border-radius: 16px;
       background: var(--nda-dark-800);
       border: 1px solid rgba(255,255,255,0.07);
@@ -895,8 +911,9 @@
     /* ===== BANNER CTA ===== */
     .banner-cta {
       padding: var(--space-20) 0; position: relative; overflow: hidden;
+      min-height: 340px;
       background:
-        url('assets/cta-bg.png') left center / auto 100% no-repeat,
+        url('assets/cta-bg.png') left center / auto 132% no-repeat,
         linear-gradient(to right, #000 0%, #000 45%, #0c2a52 75%, #0569B3 100%);
     }
     .banner-glow-blue {
@@ -1436,82 +1453,11 @@
       <div class="hero-content">
         <h1 class="hero-badge"><i class="ph-fill ph-factory"></i> Alarmas Industriales en Monterrey</h1>
         <h2 class="hero-headline">Seguridad para <span class="highlight">naves industriales</span></h2>
-        <p class="hero-text">Protección perimetral a gran escala para bodegas, naves y centros de distribución. Sensores especializados, monitoreo 24/7 y respuesta inmediata desde nuestra Central de Monitoreo propia.</p>
-        <div class="hero-ctas">
-          <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza en 60 segundos</a>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Hablar con asesor</a>
-        </div>
-        <div class="hero-trust">
-          <span><i class="ph-fill ph-shield-check"></i> +30 años de experiencia</span>
-          <span><i class="ph-fill ph-shield-check"></i> Monitoreo 24/7 propio</span>
-          <span><i class="ph-fill ph-shield-check"></i> Visita técnica gratuita</span>
-        </div>
       </div>
       <div class="hero-visual">
-        <div class="warehouse-vis">
-          <div class="wh-card">
-
-            <!-- Topbar -->
-            <div class="wh-topbar">
-              <div class="wh-topbar-left">
-                <div class="wh-dot"></div>
-                <span class="wh-topbar-title">Panel de Monitoreo · NDA Industrial</span>
-              </div>
-              <div class="wh-topbar-right">
-                <div class="wh-signal"><span></span><span></span><span></span><span></span></div>
-                <span class="wh-status">Activo</span>
-              </div>
-            </div>
-
-            <!-- Plano de nave -->
-            <div class="wh-plan">
-              <div class="wh-radar"></div>
-              <div class="wh-scanline"></div>
-              <div class="wh-alert-toast" id="whToast">
-                <i class="ph-fill ph-warning" id="whToastIcon"></i>
-                <span id="whToastMsg">Intrusión detectada</span>
-              </div>
-              <div class="wh-building">
-                <div class="wh-nave">
-                  <div class="wh-zone almacen"><span class="wh-zone-label">Almacén</span></div>
-                  <div class="wh-zone oficinas"><span class="wh-zone-label">Oficinas</span></div>
-                  <div class="wh-zone carga" id="zoneCarga"><span class="wh-zone-label">Zona carga</span></div>
-                </div>
-                <div class="wh-beam"></div>
-                <div class="wh-sensor ws-s1"><i class="ph-fill ph-radar"></i></div>
-                <div class="wh-sensor blue ws-s3"><i class="ph-fill ph-video-camera"></i></div>
-                <div class="wh-sensor orange ws-s4" id="sensorS4"><i class="ph-fill ph-door-open"></i></div>
-                <div class="wh-sensor ws-s5"><i class="ph-fill ph-cell-signal-full"></i></div>
-              </div>
-            </div>
-
-            <!-- Event log -->
-            <div class="wh-log" id="whLog">
-              <div class="wh-log-item ok"><i class="ph-fill ph-check-circle"></i><span class="wh-log-time">06:42</span><span>Zona almacén: sin actividad</span></div>
-              <div class="wh-log-item ok"><i class="ph-fill ph-check-circle"></i><span class="wh-log-time">06:55</span><span>Acceso principal: cerrado</span></div>
-              <div class="wh-log-item warn"><i class="ph-fill ph-warning"></i><span class="wh-log-time">07:02</span><span>Sensor perimetral N2: activado</span></div>
-              <div class="wh-log-item ok"><i class="ph-fill ph-shield-check"></i><span class="wh-log-time">07:02</span><span>Central notificada · Zona asegurada</span></div>
-            </div>
-
-            <!-- Stats -->
-            <div class="wh-stats">
-              <div class="wh-stat">
-                <div class="wh-stat-val yellow" id="statZonas">0</div>
-                <div class="wh-stat-label">Zonas</div>
-              </div>
-              <div class="wh-stat" id="statEstadoBox">
-                <div class="wh-stat-val green" id="statEstado">
-                  <span class="stat-ok-wrap"><span class="stat-ok-dot" id="statOkDot"></span>OK</span>
-                </div>
-                <div class="wh-stat-label">Estado</div>
-              </div>
-              <div class="wh-stat">
-                <div class="wh-stat-val blue stat-clock" id="statClock">24/7</div>
-                <div class="wh-stat-label">Monitoreo</div>
-              </div>
-            </div>
-
-          </div>
+        <div class="hero-img-placeholder" style="width:100%;max-width:640px;aspect-ratio:16/9;border:2px dashed rgba(255,255,255,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.03);">
+          <i class="ph-bold ph-image" style="font-size:52px;"></i>
+          <span style="font-size:15px;font-weight:600;letter-spacing:0.3px;">Imagen aquí</span>
         </div>
       </div>
     </div>
@@ -1522,9 +1468,7 @@
   <section class="soluciones-tipo reveal" id="soluciones">
     <div class="sol-bento-glow"></div>
     <div class="container">
-      <div class="section-label">Soluciones industriales</div>
-      <h2 class="section-title">Protección para <span class="highlight">cada operación</span></h2>
-      <p class="section-desc">Diseñamos sistemas de seguridad adaptados a las necesidades específicas de cada instalación industrial.</p>
+      <h2 class="section-title" style="text-align:center;max-width:900px;margin-left:auto;margin-right:auto;">Diseñamos sistemas de seguridad adaptados a las necesidades específicas de <span class="highlight">cada instalación industrial</span></h2>
       <div class="sol2-grid stagger">
 
         <!-- Card principal: Bodegas (ocupa 2 rows) -->
@@ -1563,18 +1507,6 @@
           </div>
         </div>
 
-        <!-- Card: Parques industriales (span 2 cols) -->
-        <div class="sol2-card" style="grid-column: 2 / 4;">
-          <img src="assets/parques.jpg" alt="Parques industriales">
-          <span class="sol2-badge-static"><i class="ph-fill ph-buildings"></i> Parques industriales</span>
-          <div class="sol2-content">
-            <div class="sol2-badge"><i class="ph-fill ph-buildings"></i> Parques industriales</div>
-            <h3>Seguridad multi-zona, un solo panel</h3>
-            <p>Sistemas independientes por nave o inquilino con monitoreo centralizado y app móvil por usuario.</p>
-            <a href="contacto.html" class="sol2-link">Solicitar visita técnica <i class="ph-bold ph-arrow-right"></i></a>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -1583,9 +1515,7 @@
   <!-- ===== CATÁLOGO VISUAL ===== -->
   <section class="catalogo-visual reveal" id="productos">
     <div class="container">
-      <div class="section-label">Tecnología especializada</div>
-      <h2 class="section-title">Protección perimetral<br><span class="highlight">a gran escala</span></h2>
-      <p class="section-desc">Equipos de alto desempeño diseñados para las exigencias del entorno industrial: condiciones extremas, grandes distancias y accesos de uso rudo.</p>
+      <h2 class="section-title" style="text-align:center;max-width:900px;margin-left:auto;margin-right:auto;">Tecnología robusta y confiable con dispositivos de seguridad de <span class="highlight">máxima eficiencia</span>, preparados para los retos del sector industrial</h2>
 
       <!-- Tabs horizontales -->
       <div class="cv-tabs">
@@ -1604,26 +1534,7 @@
             </div>
           </div>
           <div class="cv-hero-info">
-            <div class="cv-hero-cat">Perimetral</div>
-            <div class="cv-hero-name">Photobeam (barrera infrarroja)</div>
-          </div>
-        </div>
-        <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="Photobeam (barrera infrarroja)" data-img="assets/photobeam-industrial.png" data-position="center top">
-            <div class="cv-thumb-img"><img src="assets/photobeam-industrial.png" alt="Photobeam" style="object-position: center top;"></div>
-            <span class="cv-thumb-name">Photobeam (barrera infrarroja)</span>
-          </div>
-          <div class="cv-thumb" data-name="Fotoceldas de barrera" data-img="assets/fotocelda-industrial.png">
-            <div class="cv-thumb-img"><img src="assets/fotocelda-industrial.png" alt="Fotoceldas de barrera"></div>
-            <span class="cv-thumb-name">Fotoceldas de barrera</span>
-          </div>
-          <div class="cv-thumb" data-name="Sensor de vibración" data-img="assets/sensor-vibracion-industrial.png">
-            <div class="cv-thumb-img"><img src="assets/sensor-vibracion-industrial.png" alt="Sensor de vibración"></div>
-            <span class="cv-thumb-name">Sensor de vibración</span>
-          </div>
-          <div class="cv-thumb" data-name="Sensor de movimiento exterior" data-img="assets/sensor-exterior-industrial.png">
-            <div class="cv-thumb-img"><img src="assets/sensor-exterior-industrial.png" alt="Sensor de movimiento exterior"></div>
-            <span class="cv-thumb-name">Sensor de movimiento exterior</span>
+            <div class="cv-hero-name">Protección con alarma exterior como; barreras infrarrojas y sensores de movimiento</div>
           </div>
         </div>
       </div>
@@ -1637,22 +1548,13 @@
             </div>
           </div>
           <div class="cv-hero-info">
-            <div class="cv-hero-cat">Accesos</div>
-            <div class="cv-hero-name">Overhead uso rudo</div>
+            <div class="cv-hero-name">Especiales para aquellas puertas especiales en naves industriales</div>
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="Overhead uso rudo" data-img="assets/overhead-industrial.png">
-            <div class="cv-thumb-img"><img src="assets/overhead-industrial.png" alt="Overhead uso rudo"></div>
-            <span class="cv-thumb-name">Overhead uso rudo</span>
-          </div>
-          <div class="cv-thumb" data-name="Contacto uso rudo" data-img="assets/contacto-rudo-industrial.jpeg">
-            <div class="cv-thumb-img"><img src="assets/contacto-rudo-industrial.jpeg" alt="Contacto uso rudo"></div>
-            <span class="cv-thumb-name">Contacto uso rudo</span>
-          </div>
-          <div class="cv-thumb" data-name="Transmisor inalámbrico" data-img="assets/trasmisor-industrial.png">
-            <div class="cv-thumb-img"><img src="assets/trasmisor-industrial.png" alt="Transmisor inalámbrico"></div>
-            <span class="cv-thumb-name">Transmisor inalámbrico</span>
+          <div class="cv-thumb active" data-name="Especiales para aquellas puertas especiales en naves industriales" data-img="assets/overhead-industrial.png">
+            <div class="cv-thumb-img"><img src="assets/overhead-industrial.png" alt="Especiales para aquellas puertas especiales en naves industriales"></div>
+            <span class="cv-thumb-name">Especiales para aquellas puertas especiales en naves industriales</span>
           </div>
         </div>
       </div>
@@ -1662,26 +1564,18 @@
         <div class="cv-hero">
           <div class="cv-hero-img">
             <div class="cv-hero-wrap">
-              <img src="assets/sensor-pir-industrial.png" alt="PIR industrial largo alcance" style="object-position: right 10%;">
+              <img src="assets/interior-optex-industrial-2.png" alt="Sensor de movimiento PIR" style="object-position: center;">
             </div>
           </div>
           <div class="cv-hero-info">
             <div class="cv-hero-cat">Interior</div>
-            <div class="cv-hero-name">PIR industrial largo alcance</div>
+            <div class="cv-hero-name">Sensor de movimiento PIR <span class="highlight">especiales para aquellas áreas generales a proteger.</span></div>
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="PIR industrial largo alcance" data-img="assets/sensor-pir-industrial.png" data-position="right 10%">
-            <div class="cv-thumb-img"><img src="assets/sensor-pir-industrial.png" alt="PIR industrial largo alcance" style="object-position: right 10%;"></div>
-            <span class="cv-thumb-name">PIR industrial largo alcance</span>
-          </div>
-          <div class="cv-thumb" data-name="Sensor de doble tecnología" data-img="assets/sensor-doble-tec-industrial.png" data-position="right 30%">
-            <div class="cv-thumb-img"><img src="assets/sensor-doble-tec-industrial.png" alt="Sensor de doble tecnología" style="object-position: right 30%;"></div>
-            <span class="cv-thumb-name">Sensor de doble tecnología</span>
-          </div>
-          <div class="cv-thumb" data-name="Sensor inalámbrico industrial" data-img="assets/sensor-inalambrico-industrial.png" data-position="center 50%">
-            <div class="cv-thumb-img"><img src="assets/sensor-inalambrico-industrial.png" alt="Sensor inalámbrico industrial" style="object-position: center 50%;"></div>
-            <span class="cv-thumb-name">Sensor inalámbrico industrial</span>
+          <div class="cv-thumb active" data-name="Sensor de movimiento PIR especiales para aquellas áreas generales a proteger." data-img="assets/interior-optex-industrial-2.png" data-position="center">
+            <div class="cv-thumb-img"><img src="assets/interior-optex-industrial-2.png" alt="Sensor de movimiento PIR" style="object-position: center;"></div>
+            <span class="cv-thumb-name">Sensor de movimiento PIR</span>
           </div>
         </div>
       </div>
@@ -1722,308 +1616,12 @@
     </div>
   </section>
 
-  <!-- ===== 04. PROCESO + VISITA TÉCNICA ===== -->
-  <section class="proceso reveal" id="proceso">
-    <canvas class="proceso-circuits" id="procesoCircuits"></canvas>
-    <div class="container" style="position:relative;z-index:1;">
-      <div class="section-label">Cómo funciona</div>
-      <h2 class="section-title">De la visita técnica a la <span class="highlight">protección total</span></h2>
-      <p class="section-desc" style="margin-bottom: var(--space-12);">Un proceso claro y profesional, adaptado a los tiempos y operaciones de tu empresa.</p>
-
-      <div class="proceso-grid">
-
-        <svg class="proceso-svg" id="procesoSvg" aria-hidden="true">
-          <defs>
-            <filter id="procGlowF"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <path class="proc-glow" id="procGlow0" filter="url(#procGlowF)"/>
-          <path class="proc-glow" id="procGlow1" filter="url(#procGlowF)"/>
-          <path class="proc-glow" id="procGlow2" filter="url(#procGlowF)"/>
-          <path class="proc-glow" id="procGlow3" filter="url(#procGlowF)"/>
-          <path class="proc-line" id="procPath0"/>
-          <path class="proc-line" id="procPath1"/>
-          <path class="proc-line" id="procPath2"/>
-          <path class="proc-line" id="procPath3"/>
-          <circle class="proc-dot" id="procDot0"/>
-          <circle class="proc-dot" id="procDot1"/>
-          <circle class="proc-dot" id="procDot2"/>
-          <circle class="proc-dot" id="procDot3"/>
-        </svg>
-
-        <div class="proceso-steps">
-          <div class="paso">
-            <div class="paso-num">1</div>
-            <div class="paso-body">
-              <h4>Visita técnica gratuita</h4>
-              <p>Nuestro equipo visita tu instalación para evaluar el perímetro, accesos, zonas de riesgo y requerimientos específicos.</p>
-            </div>
-          </div>
-          <div class="paso">
-            <div class="paso-num">2</div>
-            <div class="paso-body">
-              <h4>Diseño del sistema</h4>
-              <p>Elaboramos un plano de seguridad con la ubicación de cada dispositivo, zonas cubiertas y propuesta técnica a la medida.</p>
-            </div>
-          </div>
-          <div class="paso">
-            <div class="paso-num">3</div>
-            <div class="paso-body">
-              <h4>Instalación profesional</h4>
-              <p>Instalamos sin interrumpir tu operación. Coordinamos horarios según tus turnos y tiempos de producción.</p>
-            </div>
-          </div>
-          <div class="paso">
-            <div class="paso-num">4</div>
-            <div class="paso-body">
-              <h4>Monitoreo 24/7</h4>
-              <p>Tu nave queda conectada a nuestra Central de Monitoreo propia en Monterrey. Respuesta inmediata ante cualquier señal de alarma.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card visita -->
-        <div class="visita-card" id="visita">
-          <div class="visita-icon"><i class="ph-fill ph-clipboard-text"></i></div>
-          <h3>Solicita tu visita técnica</h3>
-          <p>Sin costo, sin compromiso. Un asesor especializado en seguridad industrial va a tu instalación.</p>
-          <div class="visita-benefits">
-            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Evaluación completa del perímetro</div>
-            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Propuesta técnica personalizada</div>
-            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Sin costo y sin compromiso</div>
-            <div class="visita-benefit"><i class="ph-fill ph-check-circle"></i> Respuesta en menos de 24 horas</div>
-          </div>
-          <div class="visita-ctas">
-            <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20agendar%20una%20visita%20técnica%20para%20mi%20nave%20industrial." class="btn btn-primary" target="_blank" rel="noopener">
-              <i class="ph-fill ph-whatsapp-logo"></i> Agendar por WhatsApp
-            </a>
-            <a href="tel:+528183488085" class="btn btn-outline">
-              <i class="ph-bold ph-phone"></i> Llamar: 81 8348 8085
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TESTIMONIOS ===== -->
-  <section class="testimonios reveal" id="testimonios">
-    <div class="container">
-      <div class="section-label">Testimonios industriales</div>
-      <h2 class="section-title">Empresas que ya <span class="highlight">confían</span> en nosotros</h2>
-      <p class="section-desc">Calificación perfecta 5/5 basada en reseñas verificadas de Google.</p>
-      <div class="testimonial-carousel" id="carousel">
-        <div class="testimonial-track" id="carouselTrack">
-
-          <div class="testimonial-card">
-            <div class="testimonial-inner">
-              <div class="testimonial-quote">&ldquo;</div>
-              <div class="testimonial-stars">
-                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-              </div>
-              <p class="testimonial-text">Tenemos dos naves de más de 2,000 m² cada una. Nacional de Alarmas instaló el sistema en un fin de semana sin parar nuestra producción. La cobertura es total y el monitoreo responde muy rápido.</p>
-              <p class="testimonial-name">Ing. Roberto Sánchez</p>
-              <p class="testimonial-role">Director de operaciones &middot; Parque Industrial Apodaca</p>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-inner">
-              <div class="testimonial-quote">&ldquo;</div>
-              <div class="testimonial-stars">
-                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-              </div>
-              <p class="testimonial-text">Antes teníamos problemas de robos en el turno nocturno. Desde que instalaron el sistema de Photobeam en el perímetro y sensores en las cortinas, no ha vuelto a pasar nada. La inversión se pagó sola en dos meses.</p>
-              <p class="testimonial-name">Carlos Villanueva</p>
-              <p class="testimonial-role">Gerente general &middot; Centro de distribución, Escobedo N.L.</p>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-inner">
-              <div class="testimonial-quote">&ldquo;</div>
-              <div class="testimonial-stars">
-                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-              </div>
-              <p class="testimonial-text">La visita técnica fue muy profesional. Me entregaron un plano completo con cada sensor y su función. Todo quedó instalado limpiamente y la app funciona de maravilla para armar y ver el historial.</p>
-              <p class="testimonial-name">Patricia Garza</p>
-              <p class="testimonial-role">Administradora &middot; Bodega logística, Monterrey</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="carousel-dots" id="carouselDots">
-          <button class="carousel-dot active" data-index="0"></button>
-          <button class="carousel-dot" data-index="1"></button>
-          <button class="carousel-dot" data-index="2"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== BANNER CTA ===== -->
   <section class="banner-cta reveal">
     <div class="banner-glow-blue"></div>
     <div class="banner-glow-yellow"></div>
-    <div class="container">
-      <h2>Protege lo que más <span class="highlight">te importa</span></h2>
-      <p>Solicita tu visita técnica gratuita. En menos de 24 horas un asesor va a tu instalación.</p>
-      <div class="banner-ctas">
-        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza gratis ahora</a>
-        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20una%20alarma%20para%20mi%20nave%20industrial." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
-        <a href="tel:+528183488085" class="btn btn-outline"><i class="ph-fill ph-phone"></i> Llamar ahora</a>
-      </div>
-    </div>
+    <div class="container"></div>
   </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="faq reveal" id="faq">
-    <div class="container">
-      <div class="section-label">Preguntas frecuentes</div>
-      <h2 class="section-title">Dudas sobre <span class="highlight">alarmas industriales</span></h2>
-      <p class="section-desc">Las preguntas más comunes de nuestros clientes industriales.</p>
-      <div class="faq-list">
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <h4>¿Qué tan grande puede ser el perímetro que cubren?</h4>
-            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
-          </button>
-          <div class="faq-answer"><p>Con tecnología Photobeam podemos proteger perímetros de hasta 150 metros lineales por dispositivo, y se pueden encadenar para cubrir instalaciones más extensas. No existe un límite fijo; diseñamos el sistema según las dimensiones reales de tu nave o parque industrial.</p></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <h4>¿Los sensores funcionan con polvo, calor o vibraciones de maquinaria?</h4>
-            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
-          </button>
-          <div class="faq-answer"><p>Sí. Seleccionamos equipos diseñados específicamente para entornos industriales: sensores de movimiento resistentes al calor, detectores de impacto con umbral de vibración ajustable y fotoceldas con filtros anti-interferencia. La calibración se hace en sitio para evitar falsas alarmas.</p></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <h4>¿Pueden proteger cortinas metálicas y portones de gran tamaño?</h4>
-            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
-          </button>
-          <div class="faq-answer"><p>Sí. Usamos contactos magnéticos de uso rudo y sensores overhead especiales para cortinas metálicas industriales, portones de doble hoja y accesos vehiculares de gran tamaño. Soportan miles de ciclos de apertura sin degradar la señal.</p></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <h4>¿La instalación afecta mis turnos de producción?</h4>
-            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
-          </button>
-          <div class="faq-answer"><p>No. Coordinamos la instalación en horarios que no interfieran con tu operación: fines de semana, turnos nocturnos o periodos de paro programado. El tiempo de instalación depende del tamaño de la instalación, pero normalmente completamos en 1 a 2 jornadas.</p></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <h4>¿Qué pasa si se va la luz en la nave?</h4>
-            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
-          </button>
-          <div class="faq-answer"><p>El panel de alarma tiene batería de respaldo que mantiene el sistema activo durante varios horas sin energía eléctrica. Además, los sistemas GSM siguen comunicándose con la Central de Monitoreo vía red celular aunque falle la conexión a internet o la luz.</p></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <h4>¿En qué zonas industriales de Monterrey dan servicio?</h4>
-            <span class="faq-icon"><i class="ph-bold ph-plus"></i></span>
-          </button>
-          <div class="faq-answer"><p>Cubrimos todos los parques y zonas industriales del área metropolitana de Monterrey: Apodaca, Escobedo, García, San Nicolás, Guadalupe, Santa Catarina, Pesquería y más. Contáctanos para confirmar cobertura en tu ubicación específica.</p></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACTO ===== -->
-  <section class="contacto reveal" id="contacto">
-    <div class="container">
-      <div class="section-label">Cotización</div>
-      <h2 class="section-title">Solicita tu <span class="highlight">cotización gratuita</span></h2>
-      <p class="section-desc">Déjanos tus datos y un asesor especializado en seguridad industrial se comunicará contigo en menos de 2 horas.</p>
-      <div class="contacto-grid">
-        <div id="contactoFormWrap">
-          <form id="contactoForm">
-            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
-            <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="81 1234 5678" required inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9\s]/g, '')"></div>
-            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@empresa.com" required></div>
-            <div class="form-group">
-              <label for="tipo">Tipo de instalación</label>
-              <select id="tipo">
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option>Bodega / Almacén</option>
-                <option>Nave industrial</option>
-                <option>Centro de distribución</option>
-                <option>Parque industrial</option>
-                <option>Otro</option>
-              </select>
-            </div>
-            <div class="form-group"><label for="mensaje">Detalles (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu instalación: superficie aproximada, número de accesos, zonas de riesgo..."></textarea></div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
-            <button type="button" class="contacto-flip-btn" id="contactoFlipBtn" style="display:none;">
-              <i class="ph-fill ph-info"></i> Ver información de contacto
-            </button>
-          </form>
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
-            <h3>Mensaje enviado</h3>
-            <p>Gracias por contactarnos. Un asesor industrial se comunicará contigo en menos de 2 horas.</p>
-            <div class="form-success-actions">
-              <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20industrial%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
-              <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
-            </div>
-          </div>
-        </div>
-        <div class="contacto-info">
-          <div>
-            <h3>Información de contacto</h3>
-            <p style="color:var(--neutral-400);font-size:15px;margin-bottom:var(--space-8);">Estamos disponibles para atenderte por cualquiera de estos medios.</p>
-          </div>
-          <div class="contacto-info-item">
-            <div class="info-icon"><i class="ph-fill ph-phone"></i></div>
-            <div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div>
-          </div>
-          <div class="contacto-info-item">
-            <div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
-            <div><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización%20industrial." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2040 9959</a></p></div>
-          </div>
-          <div class="contacto-info-item">
-            <div class="info-icon"><i class="ph-fill ph-map-pin"></i></div>
-            <div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a></p></div>
-          </div>
-          <div class="contacto-info-item">
-            <div class="info-icon"><i class="ph-fill ph-clock"></i></div>
-            <div><h4>Horario de atención</h4><p>Lunes a Viernes: 9:00 — 18:00<br>Sábado: 9:00 — 14:00</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto card overlay (móvil) -->
-  <div class="contacto-card-overlay" id="contactoOverlay">
-    <div class="contacto-card">
-      <button class="contacto-card-close" id="contactoClose">&times;</button>
-      <h3>Información de contacto</h3>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-phone"></i></div>
-        <div class="cc-text"><h4>Teléfono</h4><p><a href="tel:+528183488085">81 8348 8085</a></p></div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
-        <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959" target="_blank" rel="noopener">81 2040 9959</a></p></div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-map-pin"></i></div>
-        <div class="cc-text"><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a></p></div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-icon"><i class="ph-fill ph-clock"></i></div>
-        <div class="cc-text"><h4>Horario</h4><p>Lun-Vie: 9:00 — 18:00<br>Sáb: 9:00 — 14:00</p></div>
-      </div>
-    </div>
-  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
@@ -2123,44 +1721,6 @@
         });
       });
     }
-
-    /* --- FAQ accordion --- */
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-
-    /* --- Testimonial carousel --- */
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let currentSlide = 0;
-    function goToSlide(index) {
-      currentSlide = index;
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      dots.forEach((d, i) => d.classList.toggle('active', i === index));
-    }
-    dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index))));
-    setInterval(() => goToSlide((currentSlide + 1) % dots.length), 5500);
-
-    /* --- Formulario submit --- */
-    const form = document.getElementById('contactoForm');
-    const formSuccess = document.getElementById('formSuccess');
-    const formReset = document.getElementById('formReset');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.nombre.value.trim() || !form.telefono.value.trim() || !form.email.value.trim()) return;
-      form.style.display = 'none';
-      formSuccess.classList.add('visible');
-    });
-    formReset.addEventListener('click', () => {
-      form.reset();
-      form.style.display = 'block';
-      formSuccess.classList.remove('visible');
-    });
 
     // Canvas circuits background
     function initCircuits(canvasId, excludeSel) {
@@ -2262,186 +1822,6 @@
       window.addEventListener('resize', resize);
       resize(); spawnConnection(); loop();
     }
-    initCircuits('procesoCircuits', '.proceso-grid');
-
-    // Proceso: líneas SVG pasos → visita-card
-    (function() {
-      const grid       = document.querySelector('.proceso-grid');
-      const pasos      = document.querySelectorAll('.proceso-steps .paso');
-      const visitaCard = document.getElementById('visita');
-      if (!grid || !pasos.length || !visitaCard) return;
-
-      const colors = ['#ef4444', '#2da0e8', '#22c55e', '#F8EB01'];
-      const paths = [], glows = [], dots = [];
-      for (let i = 0; i < 4; i++) {
-        paths.push(document.getElementById('procPath' + i));
-        glows.push(document.getElementById('procGlow' + i));
-        dots.push(document.getElementById('procDot' + i));
-      }
-
-      function rel(el) {
-        const r  = el.getBoundingClientRect();
-        const gr = grid.getBoundingClientRect();
-        return {
-          x:     r.left   - gr.left,
-          y:     r.top    - gr.top,
-          right: r.right  - gr.left,
-          cy:    r.top    - gr.top + r.height / 2,
-        };
-      }
-
-      function buildPath(i) {
-        const p    = rel(pasos[i]);
-        const v    = rel(visitaCard);
-        const x1   = p.right,   y1 = p.cy;
-        const x2   = v.x,       y2 = v.cy;
-        const midX = x1 + (x2 - x1) * 0.5;
-        const d    = `M${x1},${y1} L${midX},${y1} L${midX},${y2} L${x2},${y2}`;
-        return { d, endX: x2, endY: y2 };
-      }
-
-      function setup(i) {
-        const { d, endX, endY } = buildPath(i);
-        [paths[i], glows[i]].forEach(el => {
-          el.setAttribute('d', d);
-          const len = el.getTotalLength ? el.getTotalLength() : paths[i].getTotalLength();
-          el.style.strokeDasharray  = len;
-          el.style.strokeDashoffset = len;
-        });
-        dots[i].setAttribute('cx', endX);
-        dots[i].setAttribute('cy', endY);
-      }
-
-      function show(i) {
-        setup(i);
-        requestAnimationFrame(() => {
-          paths[i].style.strokeDashoffset = '0';
-          glows[i].style.strokeDashoffset = '0';
-          dots[i].classList.add('visible');
-        });
-        pasos[i].style.setProperty('--proc-color', colors[i]);
-        visitaCard.style.setProperty('--proc-color', colors[i]);
-        pasos[i].classList.add('paso-hovered');
-        visitaCard.classList.add('proc-highlighted');
-      }
-
-      function hide(i) {
-        const len = paths[i].getTotalLength();
-        paths[i].style.strokeDashoffset = len;
-        glows[i].style.strokeDashoffset = len;
-        dots[i].classList.remove('visible');
-        pasos[i].classList.remove('paso-hovered');
-        visitaCard.classList.remove('proc-highlighted');
-      }
-
-      pasos.forEach((paso, i) => {
-        paso.addEventListener('mouseenter', () => show(i));
-        paso.addEventListener('mouseleave', () => hide(i));
-        paso.addEventListener('touchstart', (e) => { e.preventDefault(); show(i); }, { passive: false });
-        paso.addEventListener('touchend', () => hide(i));
-      });
-
-      window.addEventListener('resize', () => pasos.forEach((_, i) => setup(i)));
-    })();
-
-    // Stats animations
-    (function() {
-      // 1. Counter: Zonas 0 → 5
-      const statZonas = document.getElementById('statZonas');
-      if (statZonas) {
-        let count = 0;
-        const target = 5;
-        function rollTo(n) {
-          statZonas.textContent = n;
-          statZonas.classList.remove('rolling');
-          void statZonas.offsetWidth;
-          statZonas.classList.add('rolling');
-        }
-        setTimeout(function tick() {
-          count++;
-          rollTo(count);
-          if (count < target) setTimeout(tick, 160);
-        }, 800);
-      }
-
-      // 2. Reloj en vivo
-      const statClock = document.getElementById('statClock');
-      if (statClock) {
-        function updateClock() {
-          const now = new Date();
-          const h = String(now.getHours()).padStart(2,'0');
-          const m = String(now.getMinutes()).padStart(2,'0');
-          statClock.innerHTML = `${h}<span class="stat-clock-sep">:</span>${m}`;
-        }
-        setTimeout(() => {
-          updateClock();
-          setInterval(updateClock, 1000);
-        }, 1400);
-      }
-
-      // 3. Estado: sincroniza con el ciclo de alerta
-      const statEstadoBox = document.getElementById('statEstadoBox');
-      const statEstado    = document.getElementById('statEstado');
-      const statOkDot     = document.getElementById('statOkDot');
-      window._setStatAlert = function(on) {
-        if (!statEstadoBox) return;
-        if (on) {
-          statEstadoBox.classList.add('stat-alert');
-          statEstado.innerHTML = '<span class="stat-ok-wrap"><span class="stat-ok-dot" id="statOkDot" style="background:#ef4444;box-shadow:0 0 6px #ef4444;animation:none"></span>⚠</span>';
-        } else {
-          statEstadoBox.classList.remove('stat-alert');
-          statEstado.innerHTML = '<span class="stat-ok-wrap"><span class="stat-ok-dot" id="statOkDot"></span>OK</span>';
-        }
-      };
-    })();
-
-    // Hero panel: event log + alert cycle
-    (function() {
-      // Animate log items in sequentially
-      document.querySelectorAll('.wh-log-item').forEach((item, i) => {
-        setTimeout(() => item.classList.add('in'), 700 + i * 380);
-      });
-
-      const toast     = document.getElementById('whToast');
-      const toastIcon = document.getElementById('whToastIcon');
-      const toastMsg  = document.getElementById('whToastMsg');
-      const sensorS4  = document.getElementById('sensorS4');
-      const zoneCarga = document.getElementById('zoneCarga');
-
-      function triggerAlert() {
-        // Phase 1: alert
-        window._setStatAlert && window._setStatAlert(true);
-        sensorS4  && sensorS4.classList.add('sensor-alert');
-        zoneCarga && zoneCarga.classList.add('zone-alert');
-        toastIcon.className  = 'ph-fill ph-warning';
-        toastMsg.textContent = 'Intrusión detectada';
-        toast.classList.remove('clear');
-        toast.classList.add('visible');
-
-        // Phase 2: clear
-        setTimeout(() => {
-          window._setStatAlert && window._setStatAlert(false);
-          sensorS4  && sensorS4.classList.remove('sensor-alert');
-          zoneCarga && zoneCarga.classList.remove('zone-alert');
-          zoneCarga && zoneCarga.classList.add('zone-clear');
-          toastIcon.className  = 'ph-fill ph-shield-check';
-          toastMsg.textContent = 'Zona asegurada';
-          toast.classList.add('clear');
-        }, 2400);
-
-        // Phase 3: hide
-        setTimeout(() => {
-          toast.classList.remove('visible');
-          setTimeout(() => {
-            zoneCarga && zoneCarga.classList.remove('zone-clear');
-            toast.classList.remove('clear');
-          }, 400);
-        }, 4600);
-      }
-
-      setTimeout(triggerAlert, 2800);
-      setInterval(triggerAlert, 9000);
-    })();
 
     // Catálogo visual: tabs + thumbnails
     (function() {
@@ -2502,6 +1882,32 @@
           });
         });
       });
+
+      // Flechas del carrusel: pasan entre los productos de la categoría activa
+      panels.forEach(function(panel) {
+        const thumbs = Array.from(panel.querySelectorAll('.cv-thumb'));
+        if (thumbs.length < 2) return;   // sin flechas si hay un solo producto
+        const heroImg = panel.querySelector('.cv-hero-img');
+        if (!heroImg) return;
+        function go(dir) {
+          let idx = thumbs.findIndex(function(t){ return t.classList.contains('active'); });
+          if (idx < 0) idx = 0;
+          idx = (idx + dir + thumbs.length) % thumbs.length;
+          thumbs[idx].click();
+        }
+        const prev = document.createElement('button');
+        prev.type = 'button'; prev.className = 'cv-arrow cv-arrow-prev';
+        prev.setAttribute('aria-label', 'Anterior');
+        prev.innerHTML = '<i class="ph-bold ph-caret-left"></i>';
+        prev.addEventListener('click', function(){ go(-1); });
+        const next = document.createElement('button');
+        next.type = 'button'; next.className = 'cv-arrow cv-arrow-next';
+        next.setAttribute('aria-label', 'Siguiente');
+        next.innerHTML = '<i class="ph-bold ph-caret-right"></i>';
+        next.addEventListener('click', function(){ go(1); });
+        heroImg.appendChild(prev);
+        heroImg.appendChild(next);
+      });
     })();
 
     /* --- Scroll reveal + stagger --- */
@@ -2547,16 +1953,6 @@
       });
     })();
 
-    /* --- Contacto flip card (móvil) --- */
-    (function() {
-      const flipBtn = document.getElementById('contactoFlipBtn');
-      const overlay = document.getElementById('contactoOverlay');
-      const closeBtn = document.getElementById('contactoClose');
-      if (!flipBtn || !overlay) return;
-      flipBtn.addEventListener('click', function() { overlay.classList.add('visible'); });
-      closeBtn.addEventListener('click', function() { overlay.classList.remove('visible'); });
-      overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('visible'); });
-    })();
   </script>
 
 </body>
