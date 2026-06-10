@@ -1846,6 +1846,8 @@
       .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
       .stagger.visible > *:nth-child(6) { transition-delay: 0.25s; }
       * { -webkit-transform: translateZ(0); }
+      /* html/body sin transform para que position:fixed (modal) se ancle al viewport */
+      html, body { -webkit-transform: none !important; transform: none !important; }
 
       .hero { min-height: auto; padding-top: 120px; padding-bottom: var(--space-10); }
       .hero .container { grid-template-columns: 1fr; text-align: center; }
@@ -2885,16 +2887,18 @@
       }
     });
 
-    /* Dropdown toggle on mobile */
-    var ddTrigger = document.querySelector('.nav-dropdown-trigger');
-    if (ddTrigger && window.innerWidth <= 768) {
-      ddTrigger.addEventListener('click', function(e) {
+    /* Dropdown toggle (móvil) — robusto: siempre se engancha, todos los triggers */
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
         e.preventDefault();
-        var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
+        e.stopPropagation();
+        var menu = trigger.parentElement.querySelector('.nav-dropdown-menu');
+        if (!menu) return;
         menu.classList.toggle('open');
-        ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+        var icon = trigger.querySelector('i');
+        if (icon) icon.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
       });
-    }
+    });
 
     /* Close mobile menu when any nav link is clicked */
     if (window.innerWidth <= 768) {
@@ -3741,9 +3745,10 @@
     (function() {
       if (window.innerWidth > 768) return;
       const track = document.getElementById('paqTrack');
+      if (!track) return;
       const origCards = Array.from(track.querySelectorAll('.paquete-card'));
       const dots = document.querySelectorAll('.paq-dot');
-      if (origCards.length < 3 || !track) return;
+      if (origCards.length < 3) return;
       const total = origCards.length; // 3
 
       // Clonar todas las cards al final para loop
@@ -4020,16 +4025,25 @@
       overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-      /* Badges flotantes (escritorio) */
-      section.querySelectorAll('.pv2-float').forEach((fl, i) => {
-        fl.style.cursor = 'pointer';
-        fl.addEventListener('click', () => openModal(i));
-      });
-      /* Tarjetas / items (móvil y escritorio) */
-      section.querySelectorAll('.pv2-item').forEach((item, i) => {
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', () => openModal(i));
-      });
+      /* Tap robusto: funciona en escritorio (click) y en móvil/iOS (touch),
+         con detección de scroll y sin doble disparo. */
+      function bindOpen(el, i) {
+        el.style.cursor = 'pointer';
+        let sx = 0, sy = 0, moved = false;
+        el.addEventListener('touchstart', (e) => {
+          const t = e.changedTouches[0]; sx = t.clientX; sy = t.clientY; moved = false;
+        }, { passive: true });
+        el.addEventListener('touchmove', (e) => {
+          const t = e.changedTouches[0];
+          if (Math.abs(t.clientX - sx) > 10 || Math.abs(t.clientY - sy) > 10) moved = true;
+        }, { passive: true });
+        el.addEventListener('touchend', (e) => {
+          if (!moved) { e.preventDefault(); openModal(i); }
+        }, { passive: false });
+        el.addEventListener('click', () => openModal(i));
+      }
+      section.querySelectorAll('.pv2-float').forEach((fl, i) => bindOpen(fl, i));
+      section.querySelectorAll('.pv2-item').forEach((item, i) => bindOpen(item, i));
     })();
   </script>
 </body>
