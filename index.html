@@ -2900,18 +2900,20 @@
       });
     });
 
-    /* Close mobile menu when any nav link is clicked */
-    if (window.innerWidth <= 768) {
-      navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
+    /* Cerrar el menú móvil al tocar un link — DIFERIDO para no cancelar la
+       navegación en iOS Safari (ocultar el contenedor en el mismo click
+       cancela el href en iOS). */
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        setTimeout(function() {
           navLinks.removeAttribute('style');
           var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
           if (ddMenu) ddMenu.classList.remove('open');
           var ddIcon = navLinks.querySelector('.nav-dropdown-trigger i');
           if (ddIcon) ddIcon.style.transform = '';
-        });
+        }, 250);
       });
-    }
+    });
 
     /* --- 4. FAQ accordion --- */
     document.querySelectorAll('.faq-question').forEach(btn => {
