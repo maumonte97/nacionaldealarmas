@@ -465,13 +465,18 @@
     .faq-item.open .faq-answer { max-height: 300px; }
 
     /* ===== BANNER CTA ===== */
-    .banner-cta { padding: var(--space-20) 0; position: relative; overflow: hidden; min-height: 480px; background: url('assets/cta-bg.png') left center / auto 90% no-repeat, linear-gradient(to right, #000 0%, #000 70%, #061a30 90%, #0c2a52 100%); }
-    .banner-glow-green { position: absolute; left: -5%; top: -50%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(248,235,1,0.15) 0%, transparent 70%); pointer-events: none; }
-    .banner-glow-blue { position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(5,105,179,0.12) 0%, transparent 70%); pointer-events: none; }
-    .banner-cta .container { text-align: center; position: relative; z-index: 1; }
+    .banner-cta {
+      padding: var(--space-20) 0; position: relative; overflow: hidden;
+      background:
+        url('assets/cta-bg.png') left center / auto 100% no-repeat,
+        linear-gradient(to right, #000 0%, #000 45%, #0c2a52 75%, #0569B3 100%);
+    }
+    .banner-glow-blue { position: absolute; left: -10%; top: -50%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(5, 105, 179, 0.25) 0%, transparent 70%); pointer-events: none; }
+    .banner-glow-yellow { position: absolute; right: -5%; bottom: -30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(248, 235, 1, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .banner-cta .container { text-align: left; position: relative; z-index: 1; padding-left: 42%; }
     .banner-cta h2 { font-size: 40px; font-weight: 800; color: var(--neutral-0); margin-bottom: var(--space-4); letter-spacing: -0.5px; }
-    .banner-cta > .container > p { font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10); max-width: 500px; margin-left: auto; margin-right: auto; }
-    .banner-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+    .banner-cta > .container > p { font-size: 18px; color: var(--neutral-400); margin-bottom: var(--space-10); max-width: 500px; margin-left: 0; margin-right: auto; }
+    .banner-ctas { display: flex; gap: var(--space-4); justify-content: flex-start; flex-wrap: wrap; }
 
     /* ===== FOOTER ===== */
     .footer { background: var(--nda-dark-800); border-top: 1px solid var(--glass-border); padding: var(--space-16) 0 var(--space-8); }
@@ -793,8 +798,11 @@
 
       /* Banner CTA compacto */
       .banner-cta { padding: var(--space-12) 0 !important; }
+      .banner-cta .container { text-align: center !important; padding-left: 0 !important; }
       .banner-cta h2 { font-size: 28px; margin-bottom: var(--space-3); }
-      .banner-cta > .container > p { margin-bottom: var(--space-6); font-size: 15px; }
+      .banner-cta > .container > p { margin-bottom: var(--space-6); font-size: 15px; margin-right: auto !important; }
+      .banner-ctas { flex-direction: column !important; align-items: center; justify-content: center !important; gap: var(--space-3) !important; }
+      .banner-ctas .btn { width: 100%; max-width: 280px; justify-content: center; }
       .banner-ctas { flex-direction: column !important; align-items: center; gap: var(--space-3) !important; }
       .banner-ctas .btn { font-size: 14px; padding: 12px 24px; display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; max-width: 280px; }
 
@@ -1014,10 +1022,17 @@
   </section>
 
   <!-- ===== BANNER PANTERA ===== -->
-  <section class="banner-cta">
-    <div class="banner-glow-green"></div>
+  <section class="banner-cta reveal" id="cta">
     <div class="banner-glow-blue"></div>
-    <div class="container"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container">
+      <h2>Protege lo que más <span class="highlight">te importa</span></h2>
+      <p>Cotiza tus cámaras de seguridad gratis. Nuestros asesores te ayudan a elegir la mejor solución.</p>
+      <div class="banner-ctas">
+        <a href="contacto.html" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza hoy mismo</a>
+        <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20cotizar%20cámaras%20de%20seguridad." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</a>
+      </div>
+    </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
