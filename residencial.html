@@ -1446,11 +1446,11 @@
       }
       .hero-collage .polaroid {
         position: static !important; left: auto !important; top: auto !important;
-        width: 96px; padding: 6px 6px 20px; margin: -4px;
+        width: 110px; padding: 7px 7px 22px; margin: -5px;
         transition: none !important; touch-action: auto !important; cursor: default;
       }
-      .hero-collage .polaroid img { width: 100%; height: 74px; }
-      .hero-collage .polaroid figcaption { font-size: 9px; }
+      .hero-collage .polaroid img { width: 100%; height: 86px; transition: opacity 0.4s ease; }
+      .hero-collage .polaroid figcaption { font-size: 10px; }
       .hero-collage .polaroid.p1 { transform: rotate(-6deg) !important; z-index: 2; }
       .hero-collage .polaroid.p2 { transform: rotate(5deg)  !important; z-index: 1; }
       .hero-collage .polaroid.p3 { transform: rotate(-3deg) !important; z-index: 3; }
@@ -3356,6 +3356,24 @@
           card.addEventListener('pointercancel', up);
         });
       });
+    })();
+
+    /* --- Collage móvil: rota la imagen de cada polaroid cada 10s (sin mover posición) --- */
+    (function() {
+      const stage = document.querySelector('.hero-collage');
+      if (!stage || window.innerWidth > 768) return;
+      const imgs = Array.from(stage.querySelectorAll('.polaroid img'));
+      if (imgs.length < 2) return;
+      const srcs = imgs.map(function(im) { return im.getAttribute('src'); });
+      let offset = 0;
+      setInterval(function() {
+        offset = (offset + 1) % srcs.length;
+        imgs.forEach(function(im, i) {
+          const nuevo = srcs[(i + offset) % srcs.length];
+          im.style.opacity = '0';
+          setTimeout(function() { im.src = nuevo; im.style.opacity = '1'; }, 400);
+        });
+      }, 10000);
     })();
 
     /* --- 8. Contact form --- */
