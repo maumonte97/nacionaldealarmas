@@ -1438,9 +1438,24 @@
       .familias { padding: var(--space-16) 0; }
       .polaroid img { width: 150px; height: 130px; }
       .polaroid-collage { gap: var(--space-6) var(--space-3); }
-      .hero-collage { position: static; height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-5); max-width: 380px; }
-      .hero-collage .polaroid { position: static !important; left: auto !important; top: auto !important; transform: none !important; width: 150px; padding: 10px 10px 32px; }
-      .hero-collage .polaroid img { width: 100%; height: 120px; }
+      /* Collage en móvil: 2 columnas, fotos rotadas y traslapadas */
+      .hero-collage {
+        position: static !important; height: auto; display: flex; flex-wrap: wrap;
+        justify-content: center; align-items: center;
+        row-gap: 4px; column-gap: 0; max-width: 330px; margin: 0 auto;
+      }
+      .hero-collage .polaroid {
+        position: static !important; left: auto !important; top: auto !important;
+        width: 148px; padding: 9px 9px 28px; margin: -8px;
+        transition: none !important; touch-action: auto !important; cursor: default;
+      }
+      .hero-collage .polaroid img { width: 100%; height: 116px; }
+      .hero-collage .polaroid.p1 { transform: rotate(-6deg) !important; z-index: 2; }
+      .hero-collage .polaroid.p2 { transform: rotate(5deg)  !important; z-index: 1; }
+      .hero-collage .polaroid.p3 { transform: rotate(-3deg) !important; z-index: 3; }
+      .hero-collage .polaroid.p4 { transform: rotate(4deg)  !important; z-index: 1; }
+      .hero-collage .polaroid.p5 { transform: rotate(-5deg) !important; z-index: 2; }
+      .hero-collage .polaroid.p6 { transform: rotate(3deg)  !important; z-index: 1; }
     }
 
     /* ===== BANNER CTA ===== */
