@@ -1845,9 +1845,8 @@
       .stagger.visible > *:nth-child(4) { transition-delay: 0.15s; }
       .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
       .stagger.visible > *:nth-child(6) { transition-delay: 0.25s; }
-      * { -webkit-transform: translateZ(0); }
-      /* html/body sin transform para que position:fixed (modal) se ancle al viewport */
-      html, body { -webkit-transform: none !important; transform: none !important; }
+      /* (Se eliminó "* { transform: translateZ(0) }": forzaba una capa GPU en
+         cada elemento, causaba lentitud en móvil y rompía position:fixed.) */
 
       .hero { min-height: auto; padding-top: 120px; padding-bottom: var(--space-10); }
       .hero .container { grid-template-columns: 1fr; text-align: center; }
@@ -2516,14 +2515,14 @@
 
   <!-- ===== LOGO ===== -->
   <a href="index.html" class="hero-logo">
-    <img src="recursos/logo.png" alt="Nacional de Alarmas">
+    <img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas">
   </a>
 
   <!-- ===== 01. NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+        <img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas">
       </a>
       <div class="nav-links" id="navLinks">
         <a href="index.html" class="active">Inicio</a>
@@ -2617,13 +2616,13 @@
     <div class="container">
       <p>Tecnología de clase mundial</p>
       <div class="trust-logos">
-        <span class="trust-logo logo-ajax"><img src="assets/logo-ajax.png" alt="Ajax Systems"></span>
-        <span class="trust-logo logo-honeywell"><img src="assets/logo-honeywell.png" alt="Honeywell"></span>
-        <span class="trust-logo logo-trikdis"><img src="assets/logo-trikdis.png" alt="Trikdis"></span>
+        <span class="trust-logo logo-ajax"><img loading="lazy" decoding="async" src="assets/logo-ajax.png" alt="Ajax Systems"></span>
+        <span class="trust-logo logo-honeywell"><img loading="lazy" decoding="async" src="assets/logo-honeywell.png" alt="Honeywell"></span>
+        <span class="trust-logo logo-trikdis"><img loading="lazy" decoding="async" src="assets/logo-trikdis.png" alt="Trikdis"></span>
         <!-- Duplicados para loop infinito en móvil -->
-        <span class="trust-logo logo-ajax" aria-hidden="true"><img src="assets/logo-ajax.png" alt=""></span>
-        <span class="trust-logo logo-honeywell" aria-hidden="true"><img src="assets/logo-honeywell.png" alt=""></span>
-        <span class="trust-logo logo-trikdis" aria-hidden="true"><img src="assets/logo-trikdis.png" alt=""></span>
+        <span class="trust-logo logo-ajax" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-ajax.png" alt=""></span>
+        <span class="trust-logo logo-honeywell" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-honeywell.png" alt=""></span>
+        <span class="trust-logo logo-trikdis" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-trikdis.png" alt=""></span>
       </div>
     </div>
   </section>
@@ -2711,7 +2710,7 @@
       <div class="sol2-grid stagger">
         <!-- Card principal: Residencial (full width arriba) -->
         <div class="sol2-card" style="grid-column: 1 / -1; min-height: 380px;">
-          <img src="assets/sol-residencial-new.png" alt="Alarmas para casa en Monterrey">
+          <img loading="lazy" decoding="async" src="assets/sol-residencial-new.png" alt="Alarmas para casa en Monterrey">
 
           <span class="sol2-badge-static"><i class="ph-fill ph-house"></i> Residencial</span>
           <div class="sol2-content">
@@ -2722,7 +2721,7 @@
         </div>
         <!-- Card: Comercial (grande) -->
         <div class="sol2-card">
-          <img src="assets/comercial-nuevo.jpg" alt="Seguridad para negocios">
+          <img loading="lazy" decoding="async" src="assets/comercial-nuevo.jpg" alt="Seguridad para negocios">
           <span class="sol2-badge-static"><i class="ph-fill ph-storefront"></i> Comercial</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-storefront"></i> Comercial</div>
@@ -2733,7 +2732,7 @@
         </div>
         <!-- Card: Industrial (mediano) -->
         <div class="sol2-card">
-          <img src="assets/industrial-nuevo.jpg" alt="Seguridad industrial perimetral">
+          <img loading="lazy" decoding="async" src="assets/industrial-nuevo.jpg" alt="Seguridad industrial perimetral">
           <span class="sol2-badge-static"><i class="ph-fill ph-factory"></i> Industrial</span>
           <div class="sol2-content">
             <div class="sol2-badge"><i class="ph-fill ph-factory"></i> Industrial</div>
@@ -2809,7 +2808,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <a href="index.html" class="nav-logo"><img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas"></a>
           <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/ndealarmas" target="_blank" rel="noopener" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>

@@ -537,7 +537,6 @@
       .stagger.visible > *:nth-child(4) { transition-delay: 0.15s; }
       .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
       .stagger.visible > *:nth-child(6) { transition-delay: 0.25s; }
-      * { -webkit-transform: translateZ(0); }
       .navbar { width: calc(100% - 32px); padding: 10px 16px; top: 10px; }
       .nav-links { display: none; }
       .nav-dropdown-menu {
@@ -806,14 +805,14 @@
 
   <!-- ===== LOGO ===== -->
   <a href="index.html" class="hero-logo">
-    <img src="recursos/logo.png" alt="Nacional de Alarmas">
+    <img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas">
   </a>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="recursos/logo.png" alt="Nacional de Alarmas">
+        <img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas">
       </a>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Inicio</a>
@@ -913,7 +912,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo"><img src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <a href="index.html" class="nav-logo"><img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas"></a>
           <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/ndealarmas" target="_blank" rel="noopener" class="social-icon" title="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
