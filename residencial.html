@@ -1985,6 +1985,16 @@
     .cv-tab.active[data-cat="area"]     { background: rgba(248,235,1,0.12);   border-color: #F8EB01; color: #F8EB01; }
     .cv-tab.active[data-cat="exterior"] { background: rgba(34,197,94,0.13);   border-color: #22c55e; color: #22c55e; }
     .cv-tab.active[data-cat="incendio"] { background: rgba(239,68,68,0.14);   border-color: #ef4444; color: #ef4444; }
+    /* Móvil: 4 tabs chicos en una sola línea */
+    @media (max-width: 768px) {
+      .cv-tabs { flex-wrap: nowrap !important; gap: 6px; justify-content: center; }
+      .cv-tab {
+        flex: 1 1 0; min-width: 0; justify-content: center; text-align: center;
+        padding: 8px 4px; font-size: 10.5px; gap: 4px; line-height: 1.15;
+        border-radius: 14px;
+      }
+      .cv-tab i { font-size: 15px; }
+    }
 
     /* Centrado de la sección */
     .catalogo-visual .section-label,
