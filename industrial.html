@@ -712,6 +712,10 @@
       object-fit: cover;
       transition: transform 0.4s ease;
     }
+    /* En escritorio el catálogo conserva su encuadre original; reencuadres solo móvil */
+    @media (min-width: 769px) {
+      .cv-hero-img img[src*="photobeam-industrial"] { object-position: center top !important; }
+    }
     .cv-thumb-img img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -1527,7 +1531,7 @@
         <div class="cv-hero">
           <div class="cv-hero-img">
             <div class="cv-hero-wrap">
-              <img loading="lazy" decoding="async" src="assets/photobeam-industrial.png" alt="Photobeam (barrera infrarroja)" style="object-position: center top;">
+              <img loading="lazy" decoding="async" src="assets/photobeam-industrial.png" alt="Photobeam (barrera infrarroja)" style="object-position: center 25%;">
             </div>
           </div>
           <div class="cv-hero-info">
