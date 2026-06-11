@@ -1174,6 +1174,11 @@
         display: grid !important;
         grid-template-columns: 1fr 1fr;
       }
+      /* El contador del hero es único: 1 columna y centrado */
+      .stats-grid.hero-stat-box {
+        grid-template-columns: 1fr !important;
+        max-width: 340px; margin-left: auto !important; margin-right: auto !important;
+      }
       .stat-item {
         border: none !important;
         padding: var(--space-5) var(--space-3);
