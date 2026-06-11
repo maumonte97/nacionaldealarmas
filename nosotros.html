@@ -1190,18 +1190,15 @@
       }
       .stat-number { font-size: 28px; }
       .stat-label { font-size: 12px; }
-      .mision-split { height: auto !important; }
-      .mision-img-col { display: none; }
-      .mision-section {
-        background-image: url('assets/central-seg.jpg');
-        background-size: cover;
-        background-position: center;
+      .mision-split { height: auto !important; flex-direction: column; }
+      /* Mostrar la imagen (foto de la central) debajo del texto en móvil */
+      .mision-img-col {
+        display: flex !important; flex: none; width: 100%;
+        padding: 0 var(--space-5) var(--space-4) !important;
       }
-      .mision-section::after {
-        content: ''; position: absolute; inset: 0;
-        background: rgba(2, 14, 28, 0.88);
-        z-index: 0; pointer-events: none;
-      }
+      .mision-img-wrap { max-width: 460px; margin: 0 auto; }
+      .central-float { display: none !important; }
+      .mision-section::after { display: none; }
       .mision-split { position: relative; z-index: 1; }
       .mision-carousel-col { padding: var(--space-8) var(--space-6) var(--space-4); text-align: center; }
       .mision-section .section-label { text-align: center; }
@@ -1464,7 +1461,10 @@
       <!-- Image flotante redondeada + floats -->
       <div class="mision-img-col">
         <div class="mision-img-wrap">
-          <img loading="lazy" decoding="async" id="misionImg" src="assets/logotipo-ojo.png" alt="Nacional de Alarmas">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/central-seg.jpg">
+            <img loading="lazy" decoding="async" id="misionImg" src="assets/logotipo-ojo.png" alt="Nacional de Alarmas">
+          </picture>
           <div class="central-float central-float-1">
             <i class="ph-fill ph-eye"></i>
             <div><div class="central-float-label">Monitoreo 24/7</div><div class="central-float-sub">Central propia</div></div>
