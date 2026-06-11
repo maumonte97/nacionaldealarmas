@@ -2814,7 +2814,7 @@
         <div class="cv-hero">
           <div class="cv-hero-img">
             <div class="cv-hero-wrap">
-              <img loading="lazy" decoding="async" src="assets/sensor-pir-01.png" alt="Sensor de movimiento (PIR) protege espacios abiertos e intersección de tipo cableado e inalámbrico" style="object-fit:cover; object-position:center 70%;">
+              <img loading="lazy" decoding="async" src="assets/sensor-pir-01.png" alt="Sensor de movimiento (PIR) protege espacios abiertos e intersección de tipo cableado e inalámbrico" style="object-fit:cover; object-position:right 65%;">
             </div>
           </div>
           <div class="cv-hero-info">
@@ -2823,7 +2823,7 @@
           </div>
         </div>
         <div class="cv-thumbs">
-          <div class="cv-thumb active" data-name="Sensor de movimiento (PIR) protege espacios abiertos e intersección de tipo cableado e inalámbrico" data-fit="cover" data-position="center center">
+          <div class="cv-thumb active" data-name="Sensor de movimiento (PIR) protege espacios abiertos e intersección de tipo cableado e inalámbrico" data-fit="cover" data-position="right 65%">
             <div class="cv-thumb-img">
               <img loading="lazy" decoding="async" src="assets/sensor-pir-01.png" alt="Sensor de movimiento (PIR) protege espacios abiertos e intersección de tipo cableado e inalámbrico" style="object-fit:cover">
             </div>
@@ -3553,7 +3553,7 @@
         }
       }
 
-      autoTimer = setInterval(advance, 3000);
+      autoTimer = setInterval(advance, 6000);
 
       /* Pausar al tocar, reanudar 5s después */
       var section = document.getElementById('catalogo');
@@ -3563,7 +3563,7 @@
         });
         section.addEventListener('touchend', function() {
           clearInterval(autoTimer);
-          autoTimer = setInterval(advance, 3000);
+          autoTimer = setInterval(advance, 6000);
         });
       }
     })();
