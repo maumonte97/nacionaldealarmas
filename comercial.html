@@ -1544,7 +1544,13 @@
       .testimonial-card { padding: 0 var(--space-2); }
 
       /* Banner CTA compacto */
-      .banner-cta { padding: var(--space-12) 0 !important; min-height: 220px !important; background-size: contain, cover !important; background-position: left center, center !important; }
+      .banner-cta {
+        padding: var(--space-12) 0 !important; min-height: 220px !important;
+        background:
+          linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, #0c2a52 74%, #0569B3 100%),
+          url('assets/cta-bg.png') no-repeat left center / contain,
+          #000 !important;
+      }
       .banner-cta .container { text-align: center !important; padding-left: 0 !important; }
       .banner-cta h2 { font-size: 28px; margin-bottom: var(--space-3); }
       .banner-cta > .container > p { margin-bottom: var(--space-6); margin-right: auto !important; }
