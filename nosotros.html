@@ -1199,6 +1199,11 @@
       .mision-img-wrap { max-width: 460px; margin: 0 auto; }
       .central-float { display: none !important; }
       .mision-section::after { display: none; }
+      /* En móvil el contenedor de slides ajusta su altura al slide activo
+         (en vez de reservar la del más largo), para que la imagen suba */
+      .mision-slides { display: block; }
+      .mision-slide { display: none; }
+      .mision-slide.active { display: block; }
       .mision-split { position: relative; z-index: 1; }
       .mision-carousel-col { padding: var(--space-8) var(--space-6) var(--space-4); text-align: center; }
       .mision-section .section-label { text-align: center; }
