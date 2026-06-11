@@ -791,6 +791,14 @@
       object-fit: cover;
       transition: transform 0.4s ease;
     }
+    /* En escritorio las imágenes del catálogo conservan su encuadre original;
+       los reencuadres son solo para móvil (<=768px). */
+    @media (min-width: 769px) {
+      .cv-hero-img img[src*="contacto-magnetico-negocio"] { object-position: center bottom !important; }
+      .cv-hero-img img[src*="overhead-negocio"]           { object-position: center center !important; }
+      .cv-hero-img img[src*="sensor-pir-negocio"]         { object-position: center center !important; }
+      .cv-hero-img img[src*="exterior-negocio"]           { object-position: center center !important; }
+    }
 
     .cv-hero-info { padding: 20px 24px; }
     .cv-hero-name {
