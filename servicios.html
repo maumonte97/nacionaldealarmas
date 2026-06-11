@@ -858,8 +858,14 @@
 
       /* --- Secciones --- */
       .section-title { font-size: 28px; }
-      .banner-cta { padding: var(--space-12) 0 !important; }
-      .banner-cta .container { text-align: center !important; padding-left: 0 !important; }
+      .banner-cta {
+        padding: var(--space-12) 0 !important; min-height: 360px !important;
+        background:
+          linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.58)),
+          url('assets/cta-bg.png') center center / cover no-repeat,
+          #000 !important;
+      }
+      .banner-cta .container { text-align: center !important; padding-left: 0 !important; position: relative; z-index: 1; }
       .banner-cta h2 { font-size: 28px; margin-bottom: var(--space-3); }
       .banner-cta > .container > p { margin-bottom: var(--space-6); margin-right: auto !important; }
       .banner-ctas { flex-direction: column !important; align-items: center; justify-content: center !important; gap: var(--space-3) !important; }
