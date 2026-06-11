@@ -3147,6 +3147,8 @@
         navLinks.style.top = '100%';
         navLinks.style.left = '0';
         navLinks.style.right = '0';
+        navLinks.style.zIndex = '2000';
+        navLinks.style.pointerEvents = 'auto';
         navLinks.style.flexDirection = 'column';
         navLinks.style.background = 'rgba(7, 26, 46, 0.95)';
         navLinks.style.backdropFilter = 'blur(12px)';
@@ -3160,29 +3162,30 @@
       }
     });
 
-    /* Dropdown toggle on mobile */
-    var ddTrigger = document.querySelector('.nav-dropdown-trigger');
-    if (ddTrigger && window.innerWidth <= 768) {
-      ddTrigger.addEventListener('click', function(e) {
+    /* Dropdown toggle (movil) - robusto: siempre se engancha, todos los triggers */
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
         e.preventDefault();
-        var menu = ddTrigger.parentElement.querySelector('.nav-dropdown-menu');
+        e.stopPropagation();
+        var menu = trigger.parentElement.querySelector('.nav-dropdown-menu');
+        if (!menu) return;
         menu.classList.toggle('open');
-        ddTrigger.querySelector('i').style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
+        var icon = trigger.querySelector('i');
+        if (icon) icon.style.transform = menu.classList.contains('open') ? 'rotate(180deg)' : '';
       });
-    }
+    });
 
-    /* Close mobile menu when any nav link is clicked */
-    if (window.innerWidth <= 768) {
-      navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navLinks.removeAttribute('style');
-          var ddMenu = navLinks.querySelector('.nav-dropdown-menu');
-          if (ddMenu) ddMenu.classList.remove('open');
-          var ddIcon = navLinks.querySelector('.nav-dropdown-trigger i');
-          if (ddIcon) ddIcon.style.transform = '';
-        });
-      });
-    }
+    /* Navegacion forzada de los links del navbar (a prueba de iOS/overlays) */
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      var href = link.getAttribute('href');
+      function navega() {
+        if (href && href.charAt(0) !== '#') {
+          window.location.href = href;
+        }
+      }
+      link.addEventListener('click', navega);
+      link.addEventListener('touchend', function(e) { e.preventDefault(); navega(); }, { passive: false });
+    });
 
     /* --- 4. FAQ accordion --- */
     document.querySelectorAll('.faq-question').forEach(btn => {
