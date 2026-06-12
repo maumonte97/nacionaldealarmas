@@ -1685,14 +1685,14 @@
     .sol-carousel .sol-content-show p,
     .sol-carousel .sol-content-show .sol2-link { display: none; }
     .sol-carousel .sol-content-show .sol2-badge {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 38px; font-weight: 800; color: #fff; letter-spacing: -0.5px;
+      display: inline-flex; align-items: flex-start; gap: 12px;
+      font-size: 38px; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1.15;
       background: none; border: none; padding: 0; margin: 0; text-transform: none;
     }
-    .sol-carousel .sol-content-show .sol2-badge i { font-size: 42px; color: var(--comercial-accent, #F8EB01); }
+    .sol-carousel .sol-content-show .sol2-badge i { font-size: 38px; line-height: 1.15; color: var(--comercial-accent, #F8EB01); flex-shrink: 0; }
     @media (max-width: 768px) {
       .sol-carousel .sol-content-show .sol2-badge { font-size: 26px; }
-      .sol-carousel .sol-content-show .sol2-badge i { font-size: 30px; }
+      .sol-carousel .sol-content-show .sol2-badge i { font-size: 26px; }
     }
     .sol-carousel .sol-content-show h3 { font-size: 30px; color: #fff; margin: var(--space-2) 0; }
     .sol-carousel .sol-content-show p { color: rgba(255,255,255,0.85); max-width: 560px; margin-bottom: var(--space-4); }
