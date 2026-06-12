@@ -3010,11 +3010,12 @@
   </script>
   <style>
   /* === Banner pantera unificado (slogan, sin botones) — igual en todas === */
+  .banner-cta .banner-glow-yellow{ display:none!important; }
   .banner-cta{
     position:relative!important; overflow:hidden!important;
     min-height:360px!important; padding:48px 40px!important;
     display:flex!important; align-items:center!important;
-    filter:none!important;
+    filter:saturate(0.35)!important;
     background:
       url('assets/cta-bg.png') left center / auto 100% no-repeat,
       linear-gradient(to right,#000 0%,#000 45%,#0c2a52 75%,#0569B3 100%)!important;
