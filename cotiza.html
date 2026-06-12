@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <title>Cotiza tu Alarma Gratis — Nacional de Alarmas | Monterrey</title>
-  <meta name="description" content="Solicita tu cotización gratuita de alarma en Monterrey. Formulario rápido paso a paso: elige tu tipo de propiedad, detalles y recibe tu propuesta personalizada. Nacional de Alarmas.">
+  <title>Cotiza tu Alarma Gratis en Monterrey | Nacional de Alarmas</title>
+  <meta name="description" content="Solicita tu cotización gratuita de alarma en Monterrey. Elige tu tipo de propiedad, detalles y recibe tu propuesta personalizada. Sin compromiso.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -757,36 +757,63 @@
     /* Empuja scroll-top arriba del call-float */
     .scroll-top { bottom: calc(var(--space-6) + 136px) !important; }
   </style>
+  <!-- nda-seo -->
+  <link rel="canonical" href="https://nacionaldealarmas.com/cotiza">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nacionaldealarmas.com/#organization",
+      "name": "Nacional de Alarmas",
+      "url": "https://nacionaldealarmas.com/",
+      "logo": "https://nacionaldealarmas.com/recursos/logo.png",
+      "image": "https://nacionaldealarmas.com/recursos/logo.png",
+      "telephone": "+52-81-8348-8085",
+      "areaServed": {
+        "@type": "City",
+        "name": "Monterrey"
+      },
+      "sameAs": [
+        "https://www.facebook.com/ndealarmas",
+        "https://www.instagram.com/nacionaldealarmas/",
+        "https://www.tiktok.com/@nacional.de.alarm"
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
   <!-- ===== LOGO ===== -->
-  <a href="index.html" class="hero-logo">
+  <a href="/" class="hero-logo">
     <img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas">
   </a>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas">
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Inicio</a>
+        <a href="/">Inicio</a>
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger">Soluciones <i class="ph-bold ph-caret-down"></i></button>
           <div class="nav-dropdown-menu">
-            <a href="residencial.html"><i class="ph-fill ph-house-simple"></i> Residencial</a>
-            <a href="comercial.html"><i class="ph-fill ph-storefront"></i> Comercial</a>
-            <a href="industrial.html"><i class="ph-fill ph-factory"></i> Industrial</a>
-            <a href="camaras.html"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
+            <a href="/residencial"><i class="ph-fill ph-house-simple"></i> Residencial</a>
+            <a href="/comercial"><i class="ph-fill ph-storefront"></i> Comercial</a>
+            <a href="/industrial"><i class="ph-fill ph-factory"></i> Industrial</a>
+            <a href="/camaras"><i class="ph-fill ph-video-camera"></i> Cámaras</a>
           </div>
         </div>
-        <a href="servicios.html">Servicios</a>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="/servicios">Servicios</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/contacto">Contacto</a>
         
-        <a href="contacto.html" class="btn btn-primary nav-cta active">Cotiza Hoy mismo</a>
+        <a href="/contacto" class="btn btn-primary nav-cta active">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
         <a href="tel:+528183488085" class="nav-contact-btn phone" title="Llamar ahora"><i class="ph-bold ph-phone"></i></a>
@@ -1073,7 +1100,7 @@
             <div class="form-group" style="margin-bottom:0;">
               <label style="display:flex;align-items:flex-start;gap:var(--space-3);cursor:pointer;font-weight:400;color:var(--neutral-400);font-size:12px;line-height:1.5;">
                 <input type="checkbox" id="privacidad" required style="width:18px;height:18px;min-width:18px;margin-top:1px;accent-color:var(--nda-yellow-400);flex-shrink:0;">
-                <span>Acepto el <a href="privacidad.html" target="_blank" style="color:var(--nda-yellow-400);text-decoration:underline;">aviso de privacidad</a> y autorizo el uso de mis datos para recibir mi cotización.</span>
+                <span>Acepto el <a href="/privacidad" target="_blank" style="color:var(--nda-yellow-400);text-decoration:underline;">aviso de privacidad</a> y autorizo el uso de mis datos para recibir mi cotización.</span>
               </label>
             </div>
           </form>
@@ -1091,7 +1118,7 @@
           <p>Recibimos tu solicitud. Un asesor de Nacional de Alarmas te contactará en menos de 2 horas con tu propuesta personalizada.</p>
           <div class="success-actions">
             <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20una%20cotizaci%C3%B3n%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." id="waLink" class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
-            <a href="index.html" class="btn btn-outline"><i class="ph-bold ph-house"></i> Ir al inicio</a>
+            <a href="/" class="btn btn-outline"><i class="ph-bold ph-house"></i> Ir al inicio</a>
           </div>
         </div>
 
@@ -1113,7 +1140,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo"><img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas"></a>
+          <a href="/" class="nav-logo"><img loading="lazy" decoding="async" src="recursos/logo.png" alt="Nacional de Alarmas"></a>
           <p>Seguridad electrónica profesional desde 1993. Más de 30 años protegiendo hogares y negocios en Monterrey.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/ndealarmas" class="social-icon" title="Facebook" target="_blank" rel="noopener"><i class="ph-fill ph-facebook-logo"></i></a>
@@ -1123,11 +1150,11 @@
         </div>
         <div class="footer-col">
           <h4>Soluciones</h4>
-          <a href="residencial.html">Residencial</a><a href="comercial.html">Comercial</a><a href="industrial.html">Industrial / Bodegas</a><a href="camaras.html">CCTV / Cámaras</a>
+          <a href="/residencial">Residencial</a><a href="/comercial">Comercial</a><a href="/industrial">Industrial / Bodegas</a><a href="/camaras">CCTV / Cámaras</a>
         </div>
         <div class="footer-col">
           <h4>Empresa</h4>
-          <a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="index.html#faq">FAQ</a>
+          <a href="/nosotros">Nosotros</a><a href="/servicios">Servicios</a><a href="/#faq">FAQ</a>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
@@ -1138,7 +1165,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="privacidad.html">Aviso de privacidad</a> &middot; <a href="privacidad.html">Términos y Condiciones</a></p>
+        <p>&copy; 2026 Nacional de Alarmas S.A. de C.V. &middot; <a href="/privacidad">Aviso de privacidad</a> &middot; <a href="/privacidad">Términos y Condiciones</a></p>
       </div>
     </div>
   </footer>

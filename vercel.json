@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/alarmas-casa.html", "destination": "/residencial", "permanent": true },
+    { "source": "/alarma-casa.html", "destination": "/residencial", "permanent": true },
+    { "source": "/alarmas-negocio.html", "destination": "/comercial", "permanent": true },
+    { "source": "/alarma-negocio.html", "destination": "/comercial", "permanent": true },
+    { "source": "/alarmas-industrial.html", "destination": "/industrial", "permanent": true },
+    { "source": "/alarma-industrial.html", "destination": "/industrial", "permanent": true },
+    { "source": "/clientes.html", "destination": "/nosotros", "permanent": true }
+  ]
+}
