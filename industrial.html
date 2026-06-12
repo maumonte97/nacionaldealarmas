@@ -1618,7 +1618,7 @@
   <section class="banner-cta reveal">
     <div class="banner-glow-blue"></div>
     <div class="banner-glow-yellow"></div>
-    <div class="container"><h2 class="banner-slogan">Resuelve tu seguridad en nuestras manos</h2></div>
+    <div class="container"><h2 class="banner-slogan">Resuelve tu<br class="bs-br"> <span class="bs-y">seguridad</span> en nuestras<br class="bs-br"> <span class="bs-y">manos</span></h2></div>
   </section>
 
   <!-- ===== FOOTER ===== -->
@@ -1961,32 +1961,43 @@
     position:relative!important; overflow:hidden!important;
     min-height:360px!important; padding:48px 40px!important;
     display:flex!important; align-items:center!important;
-    filter:saturate(0.35)!important;
+    filter:none!important; background:#000!important;
+  }
+  .banner-cta::before{
+    content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+    filter:saturate(0.3);
     background:
       url('assets/cta-bg.png') left center / auto 100% no-repeat,
-      linear-gradient(to right,#000 0%,#000 45%,#0c2a52 75%,#0569B3 100%)!important;
+      linear-gradient(to right,#000 0%,#000 45%,#0c2a52 75%,#0569B3 100%);
   }
   .banner-cta .container{
     position:relative; z-index:2; width:100%; max-width:1200px;
     margin:0 auto; padding:0!important; text-align:right!important;
   }
-  .banner-slogan{
-    display:inline-block; margin:0 0 0 auto; max-width:470px;
-    color:#fff; font-weight:800; text-transform:none;
-    font-size:34px; line-height:1.15; letter-spacing:0.5px; text-align:right;
+  .banner-cta .banner-slogan{
+    display:inline-block; margin:0 0 0 auto; max-width:480px;
+    color:#fff!important; font-weight:800; text-transform:none;
+    font-size:34px!important; line-height:1.18; letter-spacing:0.5px; text-align:right;
   }
+  .banner-cta .banner-slogan .bs-y{ color:#F8EB01!important; }
+  .banner-cta .banner-slogan .bs-br{ display:none; }
   @media (max-width:768px){
     .banner-cta{
       min-height:240px!important; padding:28px 20px!important;
       align-items:center!important; justify-content:flex-end!important;
+    }
+    .banner-cta::before{
       background:
-        linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 28%,#000 58%,#061a30 100%),
+        linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 24%,#000 56%,#061a30 100%),
         url('assets/cta-bg.png') left center / contain no-repeat,
-        #000!important;
+        #000;
     }
     .banner-cta .container{ text-align:right!important; }
-    .banner-slogan{ margin:0 0 0 auto; max-width:56%; font-size:18px; text-align:right; }
+    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; }
+    .banner-cta .banner-slogan .bs-br{ display:inline; }
   }
   </style>
+
+
 </body>
 </html>
