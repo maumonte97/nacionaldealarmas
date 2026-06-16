@@ -173,7 +173,7 @@
     .navbar.scrolled .nav-logo img { height: 64px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -183,7 +183,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -226,9 +226,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
+      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -563,49 +563,55 @@
     }
     .mision-img-wrap {
       position: relative; width: 100%; max-width: 520px;
+      aspect-ratio: 4 / 3;            /* tamaño FIJO: evita el salto al cambiar de imagen */
     }
-    .mision-img-wrap img {
-      width: 100%; height: auto; display: block;
-      border-radius: var(--radius-xl);
+    /* Dos capas superpuestas (logo + foto), siempre cargadas → crossfade sin parpadeo */
+    .mision-img-wrap .mision-layer {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      display: block; transition: opacity 0.35s ease;
+    }
+    .mision-img-wrap .mision-photo {
+      object-fit: cover; border-radius: var(--radius-xl);
       box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-      transition: opacity 0.4s ease;
+      opacity: 0;                     /* oculta al inicio (Misión) */
     }
-    /* Valores / Certificaciones: imagen más cuadrada (4:3 → recortada con cover) */
-    .mision-img-wrap img:not(.is-logo) {
-      aspect-ratio: 4 / 3; height: auto; object-fit: cover;
+    .mision-img-wrap .mision-logo {
+      object-fit: contain; padding: 3% 11%;   /* logo centrado (más grande) */
+      opacity: 1;                     /* visible al inicio (Misión) */
     }
-    /* Cuando la imagen es el logo del ojo (slide Misión), va más chica y centrada, sin sombra/box */
-    .mision-img-wrap img.is-logo {
-      max-width: 260px; margin: 0 auto;
-      box-shadow: none; border-radius: 0;
-      background: transparent; aspect-ratio: auto;
-    }
-    .mision-img-wrap.no-frame::before,
-    .mision-img-wrap.no-frame::after { display: none; }
-    /* Floats: ocultos cuando es Misión, fade in escalonado al volver */
+    /* Estado "mostrando foto" (Valores / Certificaciones) */
+    .mision-img-wrap.show-photo .mision-photo { opacity: 1; }
+    .mision-img-wrap.show-photo .mision-logo  { opacity: 0; }
+    /* Floats: ocultos en Misión, aparecen con la foto */
     .mision-img-wrap .central-float-1,
     .mision-img-wrap .central-float-2 {
-      opacity: 1; visibility: visible;
-    }
-    .mision-img-wrap .central-float-1 { transition: opacity 0.55s ease 0.2s, visibility 0s linear 0.2s; }
-    .mision-img-wrap .central-float-2 { transition: opacity 0.55s ease 0.4s, visibility 0s linear 0.4s; }
-    .mision-img-wrap.no-frame .central-float-1,
-    .mision-img-wrap.no-frame .central-float-2 {
       opacity: 0; visibility: hidden;
       transition: opacity 0.3s ease, visibility 0s linear 0.3s;
     }
+    .mision-img-wrap.show-photo .central-float-1 {
+      opacity: 1; visibility: visible;
+      transition: opacity 0.55s ease 0.2s, visibility 0s linear 0.2s;
+    }
+    .mision-img-wrap.show-photo .central-float-2 {
+      opacity: 1; visibility: visible;
+      transition: opacity 0.55s ease 0.4s, visibility 0s linear 0.4s;
+    }
+    /* Marco (glow + borde): solo con la foto */
     .mision-img-wrap::before {
       content: ''; position: absolute; inset: -8px -8px 30% -8px; z-index: -1;
       border-radius: calc(var(--radius-xl) + 8px);
       background: linear-gradient(135deg, rgba(5,105,179,0.3), rgba(248,235,1,0.15), rgba(5,105,179,0.25));
-      filter: blur(14px); opacity: 0.7;
+      filter: blur(14px); opacity: 0; transition: opacity 0.35s ease;
     }
     .mision-img-wrap::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       border-radius: var(--radius-xl);
       border: 1px solid rgba(255,255,255,0.12);
       box-shadow: 0 0 40px rgba(5,105,179,0.18);
+      opacity: 0; transition: opacity 0.35s ease;
     }
+    .mision-img-wrap.show-photo::before { opacity: 0.7; }
+    .mision-img-wrap.show-photo::after  { opacity: 1; }
     /* Floats internos a la imagen — sin sobresalir, anclados a la derecha */
     .mision-img-wrap .central-float-1 {
       top: -28px; left: auto; right: -20px; transform: none;
@@ -1205,7 +1211,11 @@
         display: flex !important; flex: none; width: 100%;
         padding: 0 var(--space-5) var(--space-4) !important;
       }
-      .mision-img-wrap { max-width: 460px; margin: 0 auto; }
+      /* En móvil el recuadro es más alto para que el logo (vertical) entre más grande */
+      .mision-img-wrap { max-width: 460px; margin: 0 auto; aspect-ratio: 1 / 1; }
+      .mision-img-wrap .mision-logo { padding: 2% 5%; }
+      /* Encuadre de la foto en móvil: que se vea el letrero (lado izquierdo) */
+      .mision-img-wrap .mision-photo { object-position: 30% center; }
       .central-float { display: none !important; }
       .mision-section::after { display: none; }
       /* En móvil el contenedor de slides ajusta su altura al slide activo
@@ -1253,7 +1263,7 @@
     .trust-logo.logo-honeywell img { height: 32px; }
     .trust-logo[aria-hidden="true"] { display: none; }
     @media (max-width: 768px) {
-      .trust-bar { overflow: hidden; }
+      .trust-bar { display: none !important; }
       .trust-logos { gap: var(--space-10); flex-wrap: nowrap; animation: trustScroll 18s linear infinite; }
       .trust-logo { flex-shrink: 0; }
       .trust-logo[aria-hidden="true"] { display: flex; }
@@ -1398,7 +1408,6 @@
         </div>
         <a href="/servicios">Servicios</a>
         <a href="/nosotros" class="active">Nosotros</a>
-        <a href="/contacto">Contacto</a>
         
         <a href="/contacto" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
@@ -1418,7 +1427,7 @@
     <div class="container">
       <div class="hero-nosotros-content">
         <h1 class="hero-nosotros-badge"><i class="ph-fill ph-buildings"></i> Empresa de Alarmas en Monterrey</h1>
-        <h2 class="hero-headline">Más de 30 años <span class="highlight">protegiendo Monterrey</span></h2>
+        <h2 class="hero-headline">Más de 31 años <span class="highlight">protegiendo Monterrey</span></h2>
         <p class="hero-nosotros-text">Somos una empresa regiomontana con central de monitoreo propia, técnicos certificados y el respaldo de las mejores marcas del mundo en seguridad electrónica.</p>
         <div class="stats-grid hero-stat-box">
           <div class="stat-item">
@@ -1502,7 +1511,8 @@
       <!-- Image flotante redondeada + floats -->
       <div class="mision-img-col">
         <div class="mision-img-wrap">
-          <img loading="lazy" decoding="async" id="misionImg" src="assets/logotipo-ojo.png" alt="Nacional de Alarmas">
+          <img class="mision-layer mision-logo" id="misionLogo" decoding="async" src="assets/logo-nda-mision.png" alt="Nacional de Alarmas">
+          <img class="mision-layer mision-photo" id="misionPhoto" decoding="async" src="assets/fachada-nda.jpg" alt="Instalaciones de Nacional de Alarmas">
           <div class="central-float central-float-1">
             <i class="ph-fill ph-eye"></i>
             <div><div class="central-float-label">Monitoreo 24/7</div><div class="central-float-sub">Central propia</div></div>
@@ -1609,7 +1619,7 @@
     <div class="container">
       <div class="section-label">Encuéntranos</div>
       <h2 class="section-title">Nuestra <span class="highlight-blue">ubicación</span></h2>
-      <p class="section-desc">Estamos en el corazón de Monterrey, listos para atenderte.</p>
+      <p class="section-desc">Estamos ubicados en Monterrey, listos para atenderte.</p>
       <div class="ubicacion-grid">
         <div class="ubicacion-map">
           <iframe id="ndaMap" src="https://www.google.com/maps?q=Nacional+de+Alarmas+Gonzalitos+502-B+Vista+Hermosa+Monterrey&hl=es&output=embed" allowfullscreen="" loading="lazy"></iframe>
@@ -1659,7 +1669,7 @@
   <section class="banner-cta reveal">
     <div class="banner-glow-blue"></div>
     <div class="banner-glow-yellow"></div>
-    <div class="container"><h2 class="banner-slogan">Resuelve tu<br class="bs-br"> <span class="bs-y">seguridad</span> en<br class="bs-br"> nuestras <span class="bs-y">manos</span></h2></div>
+    <div class="container"><h2 class="banner-slogan">Tu <span class="bs-y">seguridad</span><br class="bs-br"> en nuestras<br class="bs-br"> <span class="bs-y">manos</span></h2></div>
   </section>
 
   <!-- ===== FOOTER ===== -->
@@ -2088,23 +2098,14 @@
       let current = 0;
       let timer = null;
 
-      const img = document.getElementById('misionImg');
-      const wrap = img ? img.closest('.mision-img-wrap') : null;
-      const imgByIndex = ['assets/logotipo-ojo.png', 'assets/fachada-nda.png', 'assets/fachada-nda.png'];
-      // estado inicial (slide 0 = Misión = logo, sin floats)
-      if (img && current === 0) { img.classList.add('is-logo'); if (wrap) wrap.classList.add('no-frame'); }
-
-      function swapImage(newSrc, isLogo) {
-        if (!img) return;
-        if (img.src.endsWith(newSrc.split('/').pop()) && img.classList.contains('is-logo') === isLogo) return;
-        img.style.opacity = '0';
-        setTimeout(() => {
-          img.src = newSrc;
-          img.classList.toggle('is-logo', isLogo);
-          if (wrap) wrap.classList.toggle('no-frame', isLogo);
-          img.style.opacity = '1';
-        }, 220);
+      const wrap = document.querySelector('.mision-img-wrap');
+      // Dos capas (logo + foto) SIEMPRE cargadas → crossfade puro por opacidad.
+      // No se cambia ningún src, así que no hay parpadeo de imagen sin cargar; y el
+      // contenedor es de tamaño fijo, así que tampoco hay salto. Slide 0 = logo; 1-2 = foto.
+      function setImage(idx) {
+        if (wrap) wrap.classList.toggle('show-photo', idx !== 0);
       }
+      setImage(current); // estado inicial (Misión = logo)
 
       function goTo(idx) {
         slides[current].classList.remove('active');
@@ -2112,7 +2113,7 @@
         current = (idx + slides.length) % slides.length;
         slides[current].classList.add('active');
         dots[current].classList.add('active');
-        if (imgByIndex[current]) swapImage(imgByIndex[current], current === 0);
+        setImage(current);
         startProgress();
       }
 
@@ -2183,7 +2184,7 @@
         #000;
     }
     .banner-cta .container{ text-align:right!important; }
-    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; }
+    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
     .banner-cta .banner-slogan .bs-br{ display:inline; }
   }
   </style>

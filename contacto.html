@@ -167,7 +167,7 @@
     .navbar.scrolled .nav-logo img { height: 64px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -177,7 +177,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -215,9 +215,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
+      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
     .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
@@ -901,7 +901,6 @@
         </div>
         <a href="/servicios">Servicios</a>
         <a href="/nosotros">Nosotros</a>
-        <a href="/contacto" class="active">Contacto</a>
         <a href="/contacto" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
       <div class="nav-contact-btns">
@@ -919,7 +918,7 @@
     <div class="container">
       <h1 class="hero-badge"><i class="ph-fill ph-phone"></i> Contacto · Nacional de Alarmas Monterrey</h1>
       <h2 class="section-title">Solicita tu <span class="highlight">cotización</span></h2>
-      <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo <span class="highlight">en menos de 2 horas.</span></p>
+      <p class="section-desc">Déjanos tus datos y un asesor se comunicará contigo.</p>
       <div class="contacto-grid">
         <div id="contactoFormWrap">
           <form id="contactoForm">
@@ -928,7 +927,7 @@
             <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. nombre@gmail.com)"></div>
             <div class="form-group"><label for="tipo">Tipo de propiedad</label><select id="tipo"><option value="" disabled selected>Selecciona una opción</option><option>Casa</option><option>Departamento</option><option>Negocio / Comercio</option><option>Nave industrial / Bodega</option><option>Otro</option></select></div>
             <div class="form-group"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos sobre tu propiedad o lo que necesitas..."></textarea></div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar y recibir cotización</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="ph-bold ph-paper-plane-tilt"></i> Enviar</button>
             <button type="button" class="contacto-flip-btn" id="contactoFlipBtn" style="display:none;">
               <i class="ph-fill ph-info"></i> Ver información de contacto
             </button>
@@ -936,7 +935,7 @@
           <div class="form-success" id="formSuccess">
             <div class="form-success-icon"><i class="ph-fill ph-check-circle"></i></div>
             <h3>Mensaje enviado</h3>
-            <p>Gracias por contactarnos. Un asesor se comunicará contigo en menos de 2 horas.</p>
+            <p>Gracias por contactarnos. Un asesor se comunicará contigo.</p>
             <div class="form-success-actions">
               <a href="https://wa.me/5218120409959?text=Hola%2C%20acabo%20de%20enviar%20mi%20cotización%20por%20la%20página." class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> Escribir por WhatsApp</a>
               <button class="btn btn-outline" id="formReset"><i class="ph-bold ph-arrow-counter-clockwise"></i> Enviar otro mensaje</button>
@@ -951,7 +950,7 @@
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2040 9959</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
-          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención administrativa</h4><p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábado: 9:00 am - 1:00 pm</p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención de oficina</h4><p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábado: 9:00 am - 1:00 pm</p></div></div>
         </div>
       </div>
     </div>
@@ -980,6 +979,57 @@
       </div>
     </div>
   </div>
+
+  <!-- ===== BANNER CTA (pantera) ===== -->
+  <section class="banner-cta reveal">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container"><h2 class="banner-slogan">Tu <span class="bs-y">seguridad</span><br class="bs-br"> en nuestras<br class="bs-br"> <span class="bs-y">manos</span></h2></div>
+  </section>
+
+  <style>
+  /* === Banner pantera unificado (slogan, sin botones) — igual en todas === */
+  .banner-cta .banner-glow-yellow{ display:none!important; }
+  .banner-cta{
+    position:relative!important; overflow:hidden!important;
+    min-height:360px!important; padding:48px 40px!important;
+    display:flex!important; align-items:center!important;
+    filter:none!important; background:#000!important;
+  }
+  .banner-cta::before{
+    content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      url('assets/cta-bg.png') left center / auto 100% no-repeat,
+      linear-gradient(to right,#000 0%,#000 45%,#0c2a52 75%,#0569B3 100%);
+  }
+  .banner-cta .container{
+    position:relative; z-index:2; width:100%; max-width:1200px;
+    margin:0 auto; padding:0 6% 0 0!important;
+    display:flex!important; justify-content:flex-end!important; align-items:center!important;
+  }
+  .banner-cta .banner-slogan{
+    display:inline-block; margin:0; max-width:640px;
+    color:#fff!important; font-weight:800; text-transform:none;
+    font-size:54px!important; line-height:1.15; letter-spacing:0.5px; text-align:center;
+  }
+  .banner-cta .banner-slogan .bs-y{ color:#F8EB01!important; }
+  .banner-cta .banner-slogan .bs-br{ display:none; }
+  @media (max-width:768px){
+    .banner-cta{
+      min-height:240px!important; padding:28px 20px!important;
+      align-items:center!important; justify-content:flex-end!important;
+    }
+    .banner-cta::before{
+      background:
+        linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 24%,#000 56%,#061a30 100%),
+        url('assets/cta-bg.png') left center / contain no-repeat,
+        #000;
+    }
+    .banner-cta .container{ text-align:right!important; }
+    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
+    .banner-cta .banner-slogan .bs-br{ display:inline; }
+  }
+  </style>
 
   <!-- ===== FOOTER ===== -->
   <!-- ===== FOOTER ===== -->

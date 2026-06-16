@@ -178,7 +178,7 @@
     .nav-logo img { height: 64px; width: auto; max-width: none; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -188,7 +188,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -233,9 +233,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
+      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -2610,7 +2610,6 @@
         </div>
         <a href="/servicios">Servicios</a>
         <a href="/nosotros">Nosotros</a>
-        <a href="/contacto">Contacto</a>
         
         <a href="/contacto" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
@@ -2875,6 +2874,57 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== BANNER CTA (pantera) ===== -->
+  <section class="banner-cta reveal">
+    <div class="banner-glow-blue"></div>
+    <div class="banner-glow-yellow"></div>
+    <div class="container"><h2 class="banner-slogan">Tu <span class="bs-y">seguridad</span><br class="bs-br"> en nuestras<br class="bs-br"> <span class="bs-y">manos</span></h2></div>
+  </section>
+
+  <style>
+  /* === Banner pantera unificado (slogan, sin botones) — igual en todas === */
+  .banner-cta .banner-glow-yellow{ display:none!important; }
+  .banner-cta{
+    position:relative!important; overflow:hidden!important;
+    min-height:360px!important; padding:48px 40px!important;
+    display:flex!important; align-items:center!important;
+    filter:none!important; background:#000!important;
+  }
+  .banner-cta::before{
+    content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      url('assets/cta-bg.png') left center / auto 100% no-repeat,
+      linear-gradient(to right,#000 0%,#000 45%,#0c2a52 75%,#0569B3 100%);
+  }
+  .banner-cta .container{
+    position:relative; z-index:2; width:100%; max-width:1200px;
+    margin:0 auto; padding:0 6% 0 0!important;
+    display:flex!important; justify-content:flex-end!important; align-items:center!important;
+  }
+  .banner-cta .banner-slogan{
+    display:inline-block; margin:0; max-width:640px;
+    color:#fff!important; font-weight:800; text-transform:none;
+    font-size:54px!important; line-height:1.15; letter-spacing:0.5px; text-align:center;
+  }
+  .banner-cta .banner-slogan .bs-y{ color:#F8EB01!important; }
+  .banner-cta .banner-slogan .bs-br{ display:none; }
+  @media (max-width:768px){
+    .banner-cta{
+      min-height:240px!important; padding:28px 20px!important;
+      align-items:center!important; justify-content:flex-end!important;
+    }
+    .banner-cta::before{
+      background:
+        linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 24%,#000 56%,#061a30 100%),
+        url('assets/cta-bg.png') left center / contain no-repeat,
+        #000;
+    }
+    .banner-cta .container{ text-align:right!important; }
+    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
+    .banner-cta .banner-slogan .bs-br{ display:inline; }
+  }
+  </style>
 
   <!-- ===== 17. FOOTER ===== -->
   <footer class="footer">

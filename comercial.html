@@ -172,7 +172,7 @@
     .navbar.scrolled .nav-logo img { height: 64px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       text-decoration: none; transition: color 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -180,7 +180,7 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 5px;
-      font-size: 17px; font-weight: 500; color: #fff;
+      font-size: 19px; font-weight: 500; color: #fff;
       background: none; border: none; cursor: pointer; font-family: inherit;
       transition: color 0.3s; padding: 0;
     }
@@ -218,9 +218,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
+      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 20px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
     .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
@@ -761,7 +761,6 @@
       width: 100%; height: calc(100% + 40px);
       margin-top: -10px;
       display: flex; align-items: center; justify-content: center;
-      animation: cv-float 3.5s ease-in-out infinite;
       position: relative; z-index: 1;
     }
     .cv-hero-img {
@@ -1748,12 +1747,13 @@
     .paquetes-grid-wrap { overflow: visible; margin-top: var(--space-12); }
     .paquetes-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6); align-items: start;
+      gap: var(--space-6); align-items: stretch;
     }
     .paquete-card {
       background: var(--glass-bg); border: 1px solid var(--glass-border);
       border-radius: var(--radius-xl); padding: var(--space-8);
       transition: all 0.3s ease; position: relative;
+      display: flex; flex-direction: column;
     }
     .paquete-img {
       width: 100%; height: 200px;
@@ -1789,7 +1789,12 @@
     }
     .paquete-list li:last-child { border-bottom: none; }
     .paquete-list i { color: var(--nda-yellow-400); font-size: 16px; min-width: 16px; }
-    .paquete-card .btn { width: 100%; justify-content: center; }
+    .paquete-card .btn { width: 100%; justify-content: center; margin-top: auto; }
+    /* Básico (1ª) y Premium (3ª) tienen menos items: que no se estiren, quedan compactos (solo escritorio) */
+    @media (min-width: 769px) {
+      .paquetes-grid .paquete-card:first-child,
+      .paquetes-grid .paquete-card:last-child { align-self: start; }
+    }
     .paquete-note { text-align: center; margin-top: var(--space-8); font-size: 14px; color: var(--neutral-500); }
     @media (max-width: 768px) {
       /* Paquetes carousel mobile */
@@ -1957,7 +1962,6 @@
         </div>
         <a href="/servicios">Servicios</a>
         <a href="/nosotros">Nosotros</a>
-        <a href="/contacto">Contacto</a>
         
         <a href="/contacto" class="btn btn-primary nav-cta">Cotiza Hoy mismo</a>
       </div>
@@ -2477,8 +2481,7 @@
           <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20el%20Paquete%20B%C3%A1sico%20Safe%20Pack.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="btn btn-outline" target="_blank" rel="noopener">Más información a tu medida</a>
         </div>
 
-        <div class="paquete-card featured">
-          <div class="paquete-badge">Más popular</div>
+        <div class="paquete-card">
           <div class="paquete-header">
             <h3>Paquete Trikdis Smart Protect</h3>
             <p>Enlace por medio de internet con respaldo cableado / inalámbrico</p>
@@ -2494,7 +2497,7 @@
             <li><i class="ph-fill ph-check-circle"></i> 1 Sirena para exterior con gabinete</li>
           </ul>
           <div class="paquete-img"><img loading="lazy" decoding="async" src="assets/paquete-02-img.png" alt="Paquete Trikdis Smart Protect"></div>
-          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20el%20Paquete%20Trikdis%20Smart%20Protect.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="btn btn-primary" target="_blank" rel="noopener">Más información a tu medida</a>
+          <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20el%20Paquete%20Trikdis%20Smart%20Protect.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="btn btn-outline" target="_blank" rel="noopener">Más información a tu medida</a>
         </div>
 
         <div class="paquete-card">
@@ -2528,7 +2531,7 @@
   <section class="banner-cta reveal">
     <div class="banner-glow-blue"></div>
     <div class="banner-glow-yellow"></div>
-    <div class="container"><h2 class="banner-slogan">Resuelve tu<br class="bs-br"> <span class="bs-y">seguridad</span> en<br class="bs-br"> nuestras <span class="bs-y">manos</span></h2></div>
+    <div class="container"><h2 class="banner-slogan">Tu <span class="bs-y">seguridad</span><br class="bs-br"> en nuestras<br class="bs-br"> <span class="bs-y">manos</span></h2></div>
   </section>
 
   <!-- ===== FOOTER ===== -->
@@ -3090,7 +3093,7 @@
         #000;
     }
     .banner-cta .container{ text-align:right!important; }
-    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; }
+    .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
     .banner-cta .banner-slogan .bs-br{ display:inline; }
   }
   </style>

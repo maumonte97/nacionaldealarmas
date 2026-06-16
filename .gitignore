@@ -2,3 +2,6 @@
 *.DS_Store
 .env
 node_modules/
+
+# Servidor local temporal (no publicar)
+.preview-server.py
