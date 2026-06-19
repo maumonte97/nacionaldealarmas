@@ -3386,7 +3386,8 @@
         // dispersión: reparte las 6 a lo ancho y en alto, encimándose (pila desordenada)
         const spanX = Math.max(0, usable - pw);
         const cardH = imgH + padS + padB + 34;          // alto aprox. de la polaroid (con frase)
-        const topRoom = 190;                            // sube el lienzo para que p1/p6 lleguen a las esquinas, junto al título
+        // En tablet (769-1024) el título ocupa más ancho: bajamos el lienzo para que el collage caiga DEBAJO del título y no lo encime. Escritorio (>1024) y móvil sin cambios.
+        const topRoom = (window.innerWidth <= 1024) ? 24 : 190; // sube el lienzo para que p1/p6 lleguen a las esquinas, junto al título
         const spanY = topRoom + Math.round(cardH * 0.18); // rango vertical total (esquinas arriba, pila abajo)
         const startX = inset;
         stage.style.marginTop = (-topRoom) + 'px';      // jala el collage hacia arriba (flanqueando el título)
