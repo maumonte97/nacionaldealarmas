@@ -660,12 +660,15 @@
     }
     .trust-logo:hover { opacity: 0.9; }
     .trust-logo img {
-      height: 28px; width: auto; filter: brightness(0) invert(1);
+      height: 38px; width: auto; filter: brightness(0) invert(1);
     }
-    .trust-logo.logo-ajax img { height: 30px; }
-    .trust-logo.logo-trikdis img { height: 24px; filter: none; }
-    .trust-logo.logo-honeywell img { height: 32px; }
-    .trust-logo.logo-secolarm img { height: 22px; filter: none; }
+    .trust-logo.logo-ajax img { height: 40px; }
+    .trust-logo.logo-trikdis img { height: 34px; filter: none; }
+    .trust-logo.logo-honeywell img { height: 44px; }
+    .trust-logo.logo-secolarm img { height: 30px; filter: none; }
+    .trust-logo.logo-system-sensor img { height: 46px; }
+    .trust-logo.logo-optex img { height: 66px; }
+    .trust-logo.logo-dsc img { height: 56px; }
     .trust-logo[aria-hidden="true"] { display: none; }
 
     /* ===== 04. STATS ===== */
@@ -2717,10 +2720,16 @@
         <span class="trust-logo logo-ajax"><img loading="lazy" decoding="async" src="assets/logo-ajax.png" alt="Ajax Systems"></span>
         <span class="trust-logo logo-honeywell"><img loading="lazy" decoding="async" src="assets/logo-honeywell.png" alt="Honeywell"></span>
         <span class="trust-logo logo-trikdis"><img loading="lazy" decoding="async" src="assets/logo-trikdis.png" alt="Trikdis"></span>
+        <span class="trust-logo logo-system-sensor"><img loading="lazy" decoding="async" src="assets/logo-system-sensor.png" alt="System Sensor"></span>
+        <span class="trust-logo logo-optex"><img loading="lazy" decoding="async" src="assets/logo-optex.png" alt="Optex"></span>
+        <span class="trust-logo logo-dsc"><img loading="lazy" decoding="async" src="assets/logo-dsc.svg" alt="DSC"></span>
         <!-- Duplicados para loop infinito en móvil -->
         <span class="trust-logo logo-ajax" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-ajax.png" alt=""></span>
         <span class="trust-logo logo-honeywell" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-honeywell.png" alt=""></span>
         <span class="trust-logo logo-trikdis" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-trikdis.png" alt=""></span>
+        <span class="trust-logo logo-system-sensor" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-system-sensor.png" alt=""></span>
+        <span class="trust-logo logo-optex" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-optex.png" alt=""></span>
+        <span class="trust-logo logo-dsc" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/logo-dsc.svg" alt=""></span>
       </div>
     </div>
   </section>
@@ -4199,8 +4208,8 @@
         }, { passive: false });
         el.addEventListener('click', () => openModal(i));
       }
-      section.querySelectorAll('.pv2-float').forEach((fl, i) => bindOpen(fl, i));
-      section.querySelectorAll('.pv2-item').forEach((item, i) => bindOpen(item, i));
+      /* Pop-up desactivado: la sección no abre modal al hacer clic */
+      void bindOpen; void openModal;
     })();
   </script>
   <style>
