@@ -233,9 +233,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
+      width: 68px; height: 68px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 32px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -256,6 +256,24 @@
     .nav-mobile-toggle span {
       width: 24px; height: 2px; background: var(--neutral-0);
       border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== Navbar responsivo: hamburguesa hasta 1200 (tablet/laptop chico) para que no se amontone ===== */
+    @media (max-width: 1200px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .nav-contact-btns { margin-left: auto; margin-right: 10px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
+      .nav-dropdown-menu {
+        position: static !important; transform: none !important;
+        opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+        background: transparent !important; border: none !important; box-shadow: none !important;
+        backdrop-filter: none !important; padding: 0 0 0 16px !important; min-width: auto !important;
+        display: none; flex-direction: column; gap: 8px;
+      }
+      .nav-dropdown-menu.open { display: flex !important; }
+      .nav-dropdown-menu a { padding: 6px 0 !important; font-size: 15px !important; }
+      .nav-dropdown-trigger { font-size: 16px !important; width: 100%; text-align: left; }
     }
 
     /* ===== 02. HERO (Design System: "Hero con glows ambientales") ===== */
@@ -315,9 +333,9 @@
       margin-bottom: 20px;
     }
     .hero h2.hero-headline {
-      font-size: 44px; font-weight: 700; color: #fff;
-      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 36px;
-      max-width: 600px;
+      font-size: 38px; font-weight: 700; color: #fff;
+      line-height: 1.12; letter-spacing: -1px; margin-bottom: 36px;
+      max-width: 640px;
     }
     .hero-text {
       font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;
@@ -1601,7 +1619,7 @@
     }
 
     /* ===== 13. TESTIMONIOS ===== */
-    .testimonios { padding: var(--space-24) 0; background: var(--nda-dark-800); }
+    .testimonios { padding: var(--space-24) 0 var(--space-12); background: var(--nda-dark-800); }
     .testimonios .section-title, .testimonios .section-desc { text-align: center; margin-left: auto; margin-right: auto; }
     .testimonial-carousel { position: relative; overflow: hidden; }
     .testimonial-track { display: flex; transition: transform 0.5s ease; }
@@ -1838,6 +1856,14 @@
       .pilares-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .comp-layout { grid-template-columns: 1fr; }
+      /* Hero en tablet: 1 columna centrada, sin tarjetas, título más chico (que no se amontone) */
+      .hero .container { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { max-width: 720px; margin-left: auto; margin-right: auto; }
+      .hero h1, .hero-badge { margin-left: auto; margin-right: auto; }
+      .hero h2.hero-headline { font-size: 38px; max-width: 640px; margin-left: auto; margin-right: auto; }
+      .hero-text { margin-left: auto; margin-right: auto; }
+      .hero-ctas, .hero-trust { justify-content: center; }
+      .hero-visual { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -2635,7 +2661,7 @@
     <div class="container">
       <div class="hero-content">
         <h1>Alarmas en Monterrey con Monitoreo 24/7</h1>
-        <h2 class="hero-headline">Más de 30 años<br>protegiendo Monterrey<br><span class="highlight">con Central de Monitoreo propia 24/7</span></h2>
+        <h2 class="hero-headline">Contamos con <span class="highlight">más de 30 años</span><br>en el mercado de seguridad<br>dentro del área metropolitana</h2>
         <div class="hero-ctas">
           <a href="/contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza Hoy mismo</a>
         </div>
@@ -2671,7 +2697,7 @@
           </div>
           <div class="hero-float hero-float-2">
             <i class="ph-fill ph-lock-key"></i>
-            <div><div class="hf-text">Respuesta inmediata</div><div class="hf-sub">En minutos</div></div>
+            <div><div class="hf-text">Respuesta</div><div class="hf-sub">En cuestión de minutos</div></div>
           </div>
           <div class="hero-float hero-float-3" id="heroAppFloat">
             <i class="ph-fill ph-device-mobile"></i>
@@ -2777,7 +2803,7 @@
     <div class="soluciones-v2-glow"></div>
     <div class="container">
       <div class="section-label">Soluciones</div>
-      <h2 class="section-title">Seguridad para cada <span class="highlight-blue">necesidad</span></h2>
+      <h2 class="section-title">Soluciones para cada <span class="highlight-blue">necesidad</span></h2>
       <p class="section-desc">Diseñamos soluciones a la medida para cada tipo de propiedad.</p>
       <div class="sol2-grid stagger">
         <!-- Card principal: Residencial (full width arriba) -->
@@ -2909,7 +2935,7 @@
   }
   .banner-cta .banner-slogan .bs-y{ color:#F8EB01!important; }
   .banner-cta .banner-slogan .bs-br{ display:none; }
-  @media (max-width:768px){
+  @media (max-width:1024px){
     .banner-cta{
       min-height:240px!important; padding:28px 20px!important;
       align-items:center!important; justify-content:flex-end!important;
@@ -2923,6 +2949,11 @@
     .banner-cta .container{ text-align:right!important; }
     .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
     .banner-cta .banner-slogan .bs-br{ display:inline; }
+  }
+  /* Banner pantera en tablet (769-1024): slogan más chico, no tan enorme */
+  @media (min-width:769px) and (max-width:1024px){
+    .banner-cta{ min-height:300px!important; }
+    .banner-cta .banner-slogan{ font-size:30px!important; max-width:70%; }
   }
   </style>
 
@@ -2950,9 +2981,10 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="mailto:ventasinternet@nacionaldealarmas.com">ventasinternet@nacionaldealarmas.com</a>
           <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
-          <span style="color:#fff;">L-V 9am - 6pm</span>
+          <span style="color:#fff;">Lunes a Viernes 9:00 am - 6:00 pm</span>
         </div>
       </div>
       <div class="footer-bottom">

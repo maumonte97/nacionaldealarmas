@@ -226,9 +226,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
+      width: 68px; height: 68px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 32px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone {
       background: rgba(5, 105, 179, 0.15); color: #0569B3;
@@ -248,6 +248,24 @@
     .nav-mobile-toggle span {
       width: 24px; height: 2px; background: var(--neutral-0);
       border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== Navbar responsivo: hamburguesa hasta 1200 (tablet/laptop chico) para que no se amontone ===== */
+    @media (max-width: 1200px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .nav-contact-btns { margin-left: auto; margin-right: 10px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
+      .nav-dropdown-menu {
+        position: static !important; transform: none !important;
+        opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+        background: transparent !important; border: none !important; box-shadow: none !important;
+        backdrop-filter: none !important; padding: 0 0 0 16px !important; min-width: auto !important;
+        display: none; flex-direction: column; gap: 8px;
+      }
+      .nav-dropdown-menu.open { display: flex !important; }
+      .nav-dropdown-menu a { padding: 6px 0 !important; font-size: 15px !important; }
+      .nav-dropdown-trigger { font-size: 16px !important; width: 100%; text-align: left; }
     }
 
     /* ===== HERO NOSOTROS ===== */
@@ -918,48 +936,49 @@
     }
     .clientes-viewport {
       position: relative;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: var(--space-12) auto 0;
-      height: 378px;
       overflow: hidden;
       z-index: 1;
+      padding: 6px 0;
     }
     .clientes-viewport::before,
     .clientes-viewport::after {
-      content: ''; position: absolute; left: 0; right: 0; height: 100px;
+      content: ''; position: absolute; top: 0; bottom: 0; width: 90px;
       z-index: 3; pointer-events: none;
     }
     .clientes-viewport::before {
-      top: 0; background: linear-gradient(180deg, var(--nda-dark-900) 0%, transparent 100%);
+      left: 0; background: linear-gradient(90deg, var(--nda-dark-900) 0%, transparent 100%);
     }
     .clientes-viewport::after {
-      bottom: 0; background: linear-gradient(0deg, var(--nda-dark-900) 0%, transparent 100%);
+      right: 0; background: linear-gradient(270deg, var(--nda-dark-900) 0%, transparent 100%);
     }
     .clientes-track {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      display: flex;
+      width: max-content;
       gap: 16px;
-      animation: clScrollUp 25s linear infinite;
+      animation: clScroll 50s linear infinite;
     }
     .clientes-track:hover {
       animation-play-state: paused;
     }
-    @keyframes clScrollUp {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
+    @keyframes clScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .cl-logo {
       display: flex; align-items: center; justify-content: center;
+      flex: 0 0 auto; width: 180px;
       height: 110px; border-radius: 12px;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.22);
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
       padding: 14px 18px;
       transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
     }
     .cl-logo:hover {
       transform: scale(1.06);
-      background: rgba(255,255,255,0.28);
-      border-color: rgba(248, 235, 1, 0.45);
+      background: #fff;
+      border-color: rgba(248, 235, 1, 0.6);
     }
     .cl-logo i {
       font-size: 32px; color: var(--neutral-400); opacity: 0.5;
@@ -970,9 +989,14 @@
       transition: opacity 0.3s, filter 0.3s;
     }
     .cl-logo:hover img { opacity: 1; }
-    .cl-logo.cl-dark img { filter: brightness(0) invert(1); }
+    .cl-logo.cl-dark img { filter: none; }
+    /* Logo 100% blanco (sin versión a color): mostrarlo en negro sobre la tarjeta blanca */
+    .cl-logo.cl-blk img { filter: brightness(0); }
     /* Logos con fondo blanco sólido — invertir colores y usar screen para "transparentar" el blanco */
     .cl-logo.cl-whitebg img { filter: invert(1); mix-blend-mode: screen; }
+    /* Logos a color sobre tarjeta blanca */
+    .cl-logo.cl-white { background: #fff; border-color: rgba(0,0,0,0.08); }
+    .cl-logo.cl-white img { opacity: 1; filter: none; }
 
     /* ===== UBICACIÓN ===== */
     .ubicacion-section {
@@ -1107,8 +1131,8 @@
         background: linear-gradient(180deg, var(--nda-dark-900) 0%, rgba(2,14,28,0.3) 50%, transparent 100%);
       }
       .central-split { grid-template-columns: 1fr; }
-      .clientes-viewport { height: 300px; }
-      .clientes-track { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .clientes-track { gap: 12px; }
+      .cl-logo { width: 140px; height: 92px; }
       .ubicacion-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -1229,8 +1253,8 @@
       .mision-section .section-title { text-align: center; }
       .mision-nav { justify-content: center; flex-wrap: nowrap; gap: var(--space-2); }
       .mision-dot { padding: 8px 14px; font-size: 12px; white-space: nowrap; }
-      .clientes-viewport { height: 260px; }
-      .clientes-track { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .clientes-track { gap: 10px; }
+      .cl-logo { width: 120px; height: 84px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       /* Timeline: todo a la izquierda en mobile */
@@ -1427,7 +1451,7 @@
     <div class="container">
       <div class="hero-nosotros-content">
         <h1 class="hero-nosotros-badge"><i class="ph-fill ph-buildings"></i> Empresa de Alarmas en Monterrey</h1>
-        <h2 class="hero-headline">Más de 31 años <span class="highlight">protegiendo Monterrey</span></h2>
+        <h2 class="hero-headline">Más de 30 años <span class="highlight">protegiendo Monterrey</span></h2>
         <p class="hero-nosotros-text">Somos una empresa regiomontana con central de monitoreo propia, técnicos certificados y el respaldo de las mejores marcas del mundo en seguridad electrónica.</p>
         <div class="stats-grid hero-stat-box">
           <div class="stat-item">
@@ -1542,13 +1566,13 @@
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/ICV.png" alt="ICV"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/GOVI2.png?v=2" alt="GOVI"></div>
+        <div class="cl-logo cl-blk"><img loading="lazy" decoding="async" src="assets/clientes/GOVI2.png?v=2" alt="GOVI"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/daimler.png" alt="Daimler"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/trevino2.png" alt="Treviño"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/BR.png" alt="Blue Room"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
+        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/CE.png" alt="Casa Enrique"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/LG.png" alt="Los Generales"></div>
@@ -1559,8 +1583,8 @@
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/CP.png" alt="CP"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
+        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/LC.png" alt="Little Caesars"></div>
+        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/OW.png" alt="Oriental Wok"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/SPK.png" alt="Spikes"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/SW.png" alt="Subway"></div>
@@ -1571,21 +1595,24 @@
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/PDP.png?v=5" alt="Pizza Deprizza"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/PM.png" alt="Pollo Maton"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/TSNL.png" alt="TSNL"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/AYD.png" alt="AYD"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/prestamos-relampago.png" alt="Préstamos Relámpago"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/aceromex.png" alt="Aceromex"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/mrpay.png" alt="Mr. Pay"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/berel.png" alt="Berel"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/refaccionaria-moderna.png" alt="Refaccionaria Moderna"></div>
         <!-- Duplicado para loop infinito -->
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/TSNL.png" alt="TSNL"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/AYD.png" alt="AYD"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/ICV.png" alt="ICV"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/DIMESA.png" alt="DIMESA"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/qualitas3.png" alt="Qualitas"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/GOVI2.png?v=2" alt="GOVI"></div>
+        <div class="cl-logo cl-blk"><img loading="lazy" decoding="async" src="assets/clientes/GOVI2.png?v=2" alt="GOVI"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/Frame-18.png" alt="Gas Express"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/ITALIKA2.png" alt="Italika"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/daimler.png" alt="Daimler"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/trevino2.png" alt="Treviño"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/BR.png" alt="Blue Room"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/CE_white.png" alt="Casa Enrique"></div>
+        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/CE.png" alt="Casa Enrique"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/FS.png" alt="Farmacias Similares"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/JC.png" alt="Julio Cepeda"></div>
         <div class="cl-logo cl-dark"><img loading="lazy" decoding="async" src="assets/clientes/LG.png" alt="Los Generales"></div>
@@ -1596,8 +1623,8 @@
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/CP.png" alt="CP"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/DQ.png" alt="Dairy Queen"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/KYK.png" alt="Kesos y Kosas"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/LC_white.png" alt="Little Caesars"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/OW_white.png" alt="Oriental Wok"></div>
+        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/LC.png" alt="Little Caesars"></div>
+        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/OW.png" alt="Oriental Wok"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/PL.png" alt="El Pollo Loco"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/SPK.png" alt="Spikes"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/SW.png" alt="Subway"></div>
@@ -1608,8 +1635,11 @@
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/PDP.png?v=5" alt="Pizza Deprizza"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/PM.png" alt="Pollo Maton"></div>
         <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/AZ.png" alt="Aguila Azteca"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/TSNL.png" alt="TSNL"></div>
-        <div class="cl-logo"><img loading="lazy" decoding="async" src="assets/clientes/AYD.png" alt="AYD"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/prestamos-relampago.png" alt="Préstamos Relámpago"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/aceromex.png" alt="Aceromex"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/mrpay.png" alt="Mr. Pay"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/berel.png" alt="Berel"></div>
+        <div class="cl-logo cl-white"><img loading="lazy" decoding="async" src="assets/clientes/refaccionaria-moderna.png" alt="Refaccionaria Moderna"></div>
       </div>
     </div>
   </section>
@@ -1697,9 +1727,10 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="mailto:ventasinternet@nacionaldealarmas.com">ventasinternet@nacionaldealarmas.com</a>
           <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
-          <span style="color:#fff;">L-V 9am - 6pm</span>
+          <span style="color:#fff;">Lunes a Viernes 9:00 am - 6:00 pm</span>
         </div>
       </div>
       <div class="footer-bottom">
@@ -2172,7 +2203,7 @@
   }
   .banner-cta .banner-slogan .bs-y{ color:#F8EB01!important; }
   .banner-cta .banner-slogan .bs-br{ display:none; }
-  @media (max-width:768px){
+  @media (max-width:1024px){
     .banner-cta{
       min-height:240px!important; padding:28px 20px!important;
       align-items:center!important; justify-content:flex-end!important;
@@ -2186,6 +2217,11 @@
     .banner-cta .container{ text-align:right!important; }
     .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
     .banner-cta .banner-slogan .bs-br{ display:inline; }
+  }
+  /* Banner pantera en tablet (769-1024): slogan mas chico */
+  @media (min-width:769px) and (max-width:1024px){
+    .banner-cta{ min-height:300px!important; }
+    .banner-cta .banner-slogan{ font-size:30px!important; max-width:70%; }
   }
   </style>
 

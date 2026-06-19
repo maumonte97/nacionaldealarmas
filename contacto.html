@@ -215,9 +215,9 @@
     .nav-contact-btns { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
     .nav-contact-btn {
       display: flex; align-items: center; justify-content: center;
-      width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
+      width: 68px; height: 68px; border-radius: 50%; overflow: hidden;
       text-decoration: none; transition: all 0.25s ease;
-      font-size: 28px; border: 1px solid rgba(255,255,255,0.12);
+      font-size: 32px; border: 1px solid rgba(255,255,255,0.12);
     }
     .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
     .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); box-shadow: 0 0 14px rgba(5,105,179,0.25); }
@@ -229,6 +229,24 @@
     .nav-mobile-toggle span {
       width: 24px; height: 2px; background: var(--neutral-0);
       border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* ===== Navbar responsivo: hamburguesa hasta 1200 (tablet/laptop chico) para que no se amontone ===== */
+    @media (max-width: 1200px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .nav-contact-btns { margin-left: auto; margin-right: 10px; }
+      .nav-contact-btn { width: 44px; height: 44px; font-size: 18px; }
+      .nav-dropdown-menu {
+        position: static !important; transform: none !important;
+        opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+        background: transparent !important; border: none !important; box-shadow: none !important;
+        backdrop-filter: none !important; padding: 0 0 0 16px !important; min-width: auto !important;
+        display: none; flex-direction: column; gap: 8px;
+      }
+      .nav-dropdown-menu.open { display: flex !important; }
+      .nav-dropdown-menu a { padding: 6px 0 !important; font-size: 15px !important; }
+      .nav-dropdown-trigger { font-size: 16px !important; width: 100%; text-align: left; }
     }
 
     .hero-circuits {
@@ -949,6 +967,7 @@
           </div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-phone"></i></div><div><h4>Teléfono</h4><p><a href="tel:+528183488085" style="color:inherit;text-decoration:none;">81 8348 8085</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-whatsapp-logo"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">81 2040 9959</a></p></div></div>
+          <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-envelope-simple"></i></div><div><h4>Correo</h4><p><a href="mailto:ventasinternet@nacionaldealarmas.com" style="color:inherit;text-decoration:none;">ventasinternet@nacionaldealarmas.com</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-map-pin"></i></div><div><h4>Dirección</h4><p><a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Gonzalitos 502-B, Vista Hermosa, Monterrey, Nuevo León</a></p></div></div>
           <div class="contacto-info-item"><div class="info-icon"><i class="ph-fill ph-clock"></i></div><div><h4>Horario de atención de oficina</h4><p>Lunes a Viernes: 9:00 am - 6:00 pm<br>Sábado: 9:00 am - 1:00 pm</p></div></div>
         </div>
@@ -968,6 +987,10 @@
       <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
         <div class="cc-text"><h4>WhatsApp</h4><p><a href="https://wa.me/5218120409959" target="_blank" rel="noopener">81 2040 9959</a></p></div>
+      </div>
+      <div class="cc-item">
+        <div class="cc-icon"><i class="ph-fill ph-envelope-simple"></i></div>
+        <div class="cc-text"><h4>Correo</h4><p><a href="mailto:ventasinternet@nacionaldealarmas.com">ventasinternet@nacionaldealarmas.com</a></p></div>
       </div>
       <div class="cc-item">
         <div class="cc-icon"><i class="ph-fill ph-map-pin"></i></div>
@@ -1014,7 +1037,7 @@
   }
   .banner-cta .banner-slogan .bs-y{ color:#F8EB01!important; }
   .banner-cta .banner-slogan .bs-br{ display:none; }
-  @media (max-width:768px){
+  @media (max-width:1024px){
     .banner-cta{
       min-height:240px!important; padding:28px 20px!important;
       align-items:center!important; justify-content:flex-end!important;
@@ -1028,6 +1051,11 @@
     .banner-cta .container{ text-align:right!important; }
     .banner-cta .banner-slogan{ max-width:76%; font-size:20px!important; text-align:right!important; }
     .banner-cta .banner-slogan .bs-br{ display:inline; }
+  }
+  /* Banner pantera en tablet (769-1024): slogan mas chico */
+  @media (min-width:769px) and (max-width:1024px){
+    .banner-cta{ min-height:300px!important; }
+    .banner-cta .banner-slogan{ font-size:30px!important; max-width:70%; }
   }
   </style>
 
@@ -1056,9 +1084,10 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <a href="tel:+528183488085">Tel: 81 8348 8085</a>
+          <a href="mailto:ventasinternet@nacionaldealarmas.com">ventasinternet@nacionaldealarmas.com</a>
           <a href="https://wa.me/5218120409959?text=Hola%2C%20me%20interesa%20una%20cotización." target="_blank" rel="noopener">WhatsApp: 81 2040 9959</a>
           <a href="https://maps.google.com/?q=Gonzalitos+502-B,+Vista+Hermosa,+Monterrey,+Nuevo+León" target="_blank" rel="noopener">Gonzalitos 502-B, Vista Hermosa, Monterrey, N.L.</a>
-          <span style="color:#fff;">L-V 9am - 6pm</span>
+          <span style="color:#fff;">Lunes a Viernes 9:00 am - 6:00 pm</span>
         </div>
       </div>
       <div class="footer-bottom">
