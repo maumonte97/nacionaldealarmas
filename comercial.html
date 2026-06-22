@@ -1809,10 +1809,13 @@
     .paquete-list li:last-child { border-bottom: none; }
     .paquete-list i { color: var(--nda-yellow-400); font-size: 16px; min-width: 16px; }
     .paquete-card .btn { width: 100%; justify-content: center; margin-top: auto; }
-    /* Básico (1ª) y Premium (3ª) tienen menos items: que no se estiren, quedan compactos (solo escritorio) */
+    /* Tarjetas simétricas en escritorio: misma altura, viñetas alineadas e imagen+botón anclados abajo */
     @media (min-width: 769px) {
-      .paquetes-grid .paquete-card:first-child,
-      .paquetes-grid .paquete-card:last-child { align-self: start; }
+      .paquetes-grid .paquete-card { align-self: stretch; }
+      .paquete-header h3 { min-height: 56px; line-height: 1.25; }
+      .paquete-header p  { min-height: 40px; line-height: 1.4; }
+      .paquete-img { margin-top: auto; }
+      .paquete-card .btn { margin-top: 0; }
     }
     .paquete-note { text-align: center; margin-top: var(--space-8); font-size: 14px; color: var(--neutral-500); }
     @media (max-width: 768px) {
