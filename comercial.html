@@ -1816,8 +1816,11 @@
       .paquete-header p  { min-height: 40px; line-height: 1.4; }
       .paquete-img { margin-top: auto; }
       .paquete-card .btn { margin-top: 0; }
-      /* 3er paquete (menos bullets): imagen pegada debajo de las viñetas, botón anclado abajo */
-      .paquetes-grid .paquete-card:last-child .paquete-img { margin-top: 0; }
+      /* 1er paquete: imagen debajo de las viñetas (un poco más arriba), botón anclado abajo */
+      .paquetes-grid .paquete-card:first-child .paquete-img { margin-top: 0; }
+      .paquetes-grid .paquete-card:first-child .btn { margin-top: auto; }
+      /* 3er paquete (menos bullets): imagen pegada a las viñetas (más arriba), botón anclado abajo */
+      .paquetes-grid .paquete-card:last-child .paquete-img { margin-top: -22px; }
       .paquetes-grid .paquete-card:last-child .btn { margin-top: auto; }
     }
     .paquete-note { text-align: center; margin-top: var(--space-8); font-size: 14px; color: var(--neutral-500); }
