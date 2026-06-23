@@ -4213,8 +4213,13 @@
         }, { passive: false });
         el.addEventListener('click', () => openModal(i));
       }
-      /* Pop-up desactivado: la sección no abre modal al hacer clic */
-      void bindOpen; void openModal;
+      /* Pop-up SOLO en móvil: las tarjetas abren el modal. En escritorio queda desactivado. */
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        section.querySelectorAll('.pv2-item').forEach((el, i) => bindOpen(el, i));
+        section.querySelectorAll('.pv2-float').forEach((el, i) => bindOpen(el, i));
+      } else {
+        void bindOpen; void openModal;
+      }
     })();
   </script>
   <style>
