@@ -1217,6 +1217,7 @@
       .stats-grid.hero-stat-box {
         grid-template-columns: 1fr !important;
         max-width: 340px; margin-left: auto !important; margin-right: auto !important;
+        margin-top: var(--space-4) !important; /* sube un poco el contador solo en móvil */
       }
       .stat-item {
         border: none !important;
@@ -1299,7 +1300,7 @@
     /* ===== Stat counter como caja debajo del hero ===== */
     .stats { padding: var(--space-8) 0 var(--space-16); margin-top: 0; }
     .stats-grid { max-width: 540px; margin: 0 auto; padding: 0 var(--space-4); }
-    .hero-stat-box { margin-top: var(--space-4) !important; padding: 0 !important; }
+    .hero-stat-box { margin-top: var(--space-8) !important; padding: 0 !important; }
     .stat-item {
       flex: none; width: 100%;
       background: rgba(255,255,255,0.04);
