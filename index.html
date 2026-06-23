@@ -2461,12 +2461,13 @@
       .trust-bar { overflow: hidden; }
       .trust-logos {
         flex-wrap: nowrap !important;
-        gap: var(--space-12) !important;
+        gap: 0 !important;
         justify-content: flex-start !important;
-        animation: trustScroll 12s linear infinite;
+        animation: trustScroll 14s linear infinite;
         width: max-content;
       }
-      .trust-logo { flex-shrink: 0; }
+      /* El espacio va como margen por logo (no gap), para que el loop -50% caiga exacto y no se brinquen ajax/resideo */
+      .trust-logo { flex-shrink: 0; margin: 0 calc(var(--space-12) / 2); }
       .trust-logo[aria-hidden="true"] { display: flex; }
       @keyframes trustScroll {
         0% { transform: translateX(0); }
