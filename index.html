@@ -338,6 +338,8 @@
       line-height: 1.12; letter-spacing: -1px; margin-bottom: 14px;
       max-width: 640px;
     }
+    /* Salto "Contamos con más" / "de 30 años" solo en móvil */
+    .hl-mb-br { display: none; }
     .hero-text {
       font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7;
       margin-bottom: 28px; max-width: 420px;
@@ -1887,6 +1889,7 @@
       .hero .container { grid-template-columns: 1fr; text-align: center; }
       .hero h1 { font-size: 11px; padding: 4px 12px; }
       .hero h2.hero-headline { font-size: 30px; }
+      .hl-mb-br { display: inline; }
       .hero-text { max-width: 100%; }
       .hero-ctas { justify-content: center; }
       .hero-trust {
@@ -2664,7 +2667,7 @@
     <div class="hero-glow-4"></div>
     <div class="container">
       <div class="hero-content">
-        <h2 class="hero-headline">Contamos con <span class="highlight">más de 30 años</span><br>en el mercado de seguridad<br>dentro del área metropolitana</h2>
+        <h2 class="hero-headline">Contamos con <span class="highlight">más<br class="hl-mb-br"> de 30 años</span><br>en el mercado de seguridad<br>dentro del área metropolitana</h2>
         <h1>Alarmas en Monterrey con Monitoreo 24/7</h1>
         <div class="hero-ctas">
           <a href="/contacto" class="btn btn-primary"><i class="ph-bold ph-arrow-right"></i> Cotiza Hoy mismo</a>
