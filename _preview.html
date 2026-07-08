@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview · Nacional de Alarmas</title>
+<style>
+  :root { --bg:#0b1a2e; --card:#132a45; --border:#24425f; --text:#eaf2fb; --muted:#9fb3c8; --yellow:#F8EB01; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); }
+  header { position:sticky; top:0; z-index:10; background:rgba(11,26,46,.95); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:14px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0; }
+  header .hint { color:var(--muted); font-size:13px; }
+  .controls { margin-left:auto; display:flex; gap:8px; align-items:center; font-size:13px; color:var(--muted); }
+  .controls input { width:120px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:20px; padding:20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+  .card .bar { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid var(--border); }
+  .card .bar b { font-size:14px; }
+  .card .bar a { color:var(--yellow); font-size:13px; text-decoration:none; font-weight:600; }
+  .card .bar a:hover { text-decoration:underline; }
+  .frame-wrap { position:relative; width:100%; height:420px; overflow:hidden; background:#fff; }
+  .frame-wrap iframe { position:absolute; top:0; left:0; border:0; transform-origin:0 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔒 Nacional de Alarmas — Preview</h1>
+  <span class="hint">Todas las páginas en miniatura. Clic en “Abrir ↗” para verla completa. Recarga (Cmd+R) para ver cambios.</span>
+  <div class="controls">
+    <label>Zoom miniatura: <input id="zoom" type="range" min="0.3" max="1" step="0.05" value="0.55"></label>
+  </div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+  var pages = [
+    ["Inicio", "index.html"],
+    ["Residencial", "residencial.html"],
+    ["Comercial", "comercial.html"],
+    ["Industrial", "industrial.html"],
+    ["Servicios", "servicios.html"],
+    ["Cámaras / CCTV", "camaras.html"],
+    ["Cotiza", "cotiza.html"],
+    ["Contacto", "contacto.html"],
+    ["Nosotros", "nosotros.html"],
+    ["Aviso de privacidad", "privacidad.html"]
+  ];
+
+  var BASE_WIDTH = 1280; // ancho "de escritorio" que renderiza cada iframe
+  var grid = document.getElementById('grid');
+
+  pages.forEach(function(p) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML =
+      '<div class="bar"><b>' + p[0] + '</b><a href="' + p[1] + '" target="_blank" rel="noopener">Abrir ↗</a></div>' +
+      '<div class="frame-wrap"><iframe src="' + p[1] + '" scrolling="no" loading="lazy"></iframe></div>';
+    grid.appendChild(card);
+  });
+
+  function applyZoom(scale) {
+    document.querySelectorAll('.frame-wrap').forEach(function(w) {
+      var iframe = w.querySelector('iframe');
+      iframe.style.width = BASE_WIDTH + 'px';
+      iframe.style.height = (w.clientHeight / scale) + 'px';
+      iframe.style.transform = 'scale(' + (w.clientWidth / BASE_WIDTH) + ')';
+      // ajusta alto real para que el scale muestre bien
+      var s = w.clientWidth / BASE_WIDTH;
+      iframe.style.transform = 'scale(' + s + ')';
+      iframe.style.width = BASE_WIDTH + 'px';
+      iframe.style.height = (w.clientHeight / s) + 'px';
+    });
+  }
+
+  var zoom = document.getElementById('zoom');
+  function refresh() { applyZoom(parseFloat(zoom.value)); }
+  zoom.addEventListener('input', refresh);
+  window.addEventListener('resize', refresh);
+  window.addEventListener('load', refresh);
+  setTimeout(refresh, 400);
+</script>
+</body>
+</html>
