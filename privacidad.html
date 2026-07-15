@@ -154,8 +154,8 @@
       text-decoration: none; transition: all 0.25s ease;
       font-size: 32px; border: 1px solid rgba(255,255,255,0.12);
     }
-    .nav-contact-btn.phone { background: rgba(5, 105, 179, 0.15); color: #0569B3; }
-    .nav-contact-btn.phone:hover { background: rgba(5, 105, 179, 0.35); }
+    .nav-contact-btn.phone { background: rgba(248,235,1, 0.15); color: #F8EB01; }
+    .nav-contact-btn.phone:hover { background: rgba(248,235,1, 0.35); }
     .nav-contact-btn.whatsapp { background: rgba(37,211,102,0.15); color: #25D366; }
     .nav-contact-btn.whatsapp:hover { background: rgba(37,211,102,0.35); }
     .nav-mobile-toggle {
@@ -267,8 +267,8 @@
 
     /* WhatsApp float */
     .whatsapp-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 999;
-      width: 60px; height: 60px; border-radius: 50%;
+      position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
       background: #25D366; color: #fff;
       display: flex; align-items: center; justify-content: center;
       font-size: 30px;
@@ -282,7 +282,7 @@
 
     /* Scroll to top */
     .scroll-top {
-      position: fixed; bottom: 100px; right: 28px; z-index: 999;
+      position: fixed; bottom: 100px; right: calc(var(--space-6) + 6px); z-index: 999;
       width: 44px; height: 44px; border-radius: 50%;
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
       color: #fff; display: flex; align-items: center; justify-content: center;
@@ -475,7 +475,7 @@
   <section class="banner-cta">
     <div class="banner-glow-blue"></div>
     <div class="banner-glow-yellow"></div>
-    <div class="container"><h2 class="banner-slogan">Tu <span class="bs-y">seguridad</span><br class="bs-br"> en nuestras<br class="bs-br"> <span class="bs-y">manos</span></h2></div>
+    <div class="container"><h2 class="banner-slogan">Tu <span class="bs-y">seguridad</span><br class="bs-br"> es nuestro<br class="bs-br"> <span class="bs-y">orgullo nacional</span></h2></div>
   </section>
 
   <style>
@@ -547,7 +547,7 @@
         </div>
         <div class="footer-col">
           <h4>Empresa</h4>
-          <a href="/nosotros">Nosotros</a><a href="/servicios">Servicios</a><a href="/#faq">Preguntas frecuentes</a>
+          <a href="/nosotros">Nosotros</a><a href="/servicios">Servicios</a>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
